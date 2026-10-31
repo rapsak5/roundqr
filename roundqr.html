@@ -172,6 +172,7 @@ input[type="color"] { width: 100%; height: 36px; border: 1px solid var(--line); 
 .logo-thumb { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--line); object-fit: contain; background: #fff; }
 input[type="range"] { width: 100%; accent-color: var(--accent); }
 .export select { width: auto; }
+.export .seg span { padding: 7px 11px; }
 .lbl { display: inline-flex; align-items: center; gap: 7px; }
 .info { position: relative; flex: none; width: 18px; height: 18px; padding: 0; border-radius: 50%;
   border: 1px solid var(--line); background: var(--bg); color: var(--muted);
@@ -220,14 +221,15 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
           <option value="jpg">JPG</option>
           <option value="svg">SVG</option>
         </select>
-        <select id="size" data-t-aria="aSize" aria-label="Billedbredde">
-          <option value="1024">1024 px</option>
-          <option value="2048" selected>2048 px</option>
-          <option value="4096">4096 px</option>
-        </select>
+        <div class="seg unit" role="radiogroup" data-t-aria="aUnit" aria-label="Enhed">
+          <label><input type="radio" name="unit" id="unit-px" value="px" checked><span data-t="uPx">Pixels</span></label>
+          <label><input type="radio" name="unit" id="unit-cm" value="cm"><span data-t="uCm">Centimeter</span></label>
+        </div>
+        <select id="size" data-t-aria="aSize" aria-label="Billedbredde"></select>
         <button class="btn primary" id="saveBtn" type="button"></button>
       </div>
       <p class="hint" id="formatHint"></p>
+      <p class="hint spec" id="sizeHint"></p>
       <p class="hint" id="saveMsg" hidden></p>
     </section>
 
@@ -12898,9 +12900,11 @@ var RQ = (function () {
     return { x1: 0, y1: 0, x2: W, y2: W };
   }
 
-  function toSVG(g, o, logo) {
+  // cm (optional): physical width of the whole image, written as width/height in cm.
+  function toSVG(g, o, logo, cm) {
     var W = f(g.W), H = f(g.H);
-    var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" width="' + Math.round(g.W * 20) + '" height="' + Math.round(g.H * 20) + '">';
+    var dims = cm ? 'width="' + f(cm) + 'cm" height="' + f(cm * g.H / g.W) + 'cm"' : 'width="' + Math.round(g.W * 20) + '" height="' + Math.round(g.H * 20) + '"';
+    var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" ' + dims + '>';
     s += fullBg(g, o) ? '<rect width="' + W + '" height="' + H + '" fill="' + o.bg + '"/>' : '<circle cx="' + f(g.c) + '" cy="' + f(g.c) + '" r="' + f(g.discR) + '" fill="' + o.bg + '"/>';
     var gs = gradSpec(g, o), paint = o.fg;
     if (gs) {
@@ -13007,6 +13011,10 @@ var RQ = (function () {
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
       spec: function (g) { return (g.square ? "Firkant" : "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
+      aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG i " + fmtCm(cm, ",") + " × " + fmtCm(hcm, ",") + " cm. Skarp i alle størrelser."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; },
       fmtPng: "PNG beholder gennemsigtige hjørner omkring en rund kode.",
       fmtPngSq: "PNG er skarp og virker overalt, både på skærm og i dokumenter.",
       fmtJpg: "JPG kan ikke være gennemsigtig, så hjørnerne får baggrundsfarven.",
@@ -13054,6 +13062,10 @@ var RQ = (function () {
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
       spec: function (g) { return (g.square ? "Square" : "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
+      aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG at " + fmtCm(cm, ".") + " × " + fmtCm(hcm, ".") + " cm. Sharp at any size."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; },
       fmtPng: "PNG keeps transparent corners around a round code.",
       fmtPngSq: "PNG is sharp and works everywhere, on screen and in documents.",
       fmtJpg: "JPG has no transparency, so the corners get the background colour.",
@@ -13157,7 +13169,7 @@ var RQ = (function () {
   function save() {
     try {
       var o = opts(); delete o.logo; delete o.labelW100;
-      localStorage.setItem("round-qr", JSON.stringify({ link: $("link").value, o: o, format: $("format").value }));
+      localStorage.setItem("round-qr", JSON.stringify({ link: $("link").value, o: o, format: $("format").value, unit: unit(), sizes: chosen }));
     } catch (e) {}
   }
   function restore() {
@@ -13169,6 +13181,8 @@ var RQ = (function () {
       if (typeof o.label === "boolean") $("label").checked = o.label;
       if (typeof o.labelText === "string") $("labelText").value = o.labelText;
       if (s.format) $("format").value = s.format;
+      if (s.unit === "px" || s.unit === "cm") setRadio("unit", s.unit);
+      if (s.sizes) { if (SIZES.px.indexOf(s.sizes.px) >= 0) chosen.px = s.sizes.px; if (SIZES.cm.indexOf(s.sizes.cm) >= 0) chosen.cm = s.sizes.cm; }
       if (o.bgShape) setRadio("bgshape", o.bgShape);
       if (typeof o.fill === "boolean") $("fill").checked = o.fill;
       if (typeof o.ring === "boolean") $("ring").checked = o.ring;
@@ -13253,12 +13267,53 @@ var RQ = (function () {
     return downloads;
   }
 
+  var SIZES = { px: [1024, 2048, 4096], cm: [2, 2.5, 3, 4, 5, 6, 8, 10, 15, 20, 30] };
+  var DEF = { px: 2048, cm: 5 }, chosen = { px: DEF.px, cm: DEF.cm }, DPI = 300;
+  function fmtCm(v, sep) { return String(v).replace(".", sep); }
+  function unit() { return radio("unit") || "px"; }
+  function fillSizes() {
+    var u = unit(), sel = $("size"), list = SIZES[u], dec = lang === "da" ? "," : ".";
+    if (list.indexOf(chosen[u]) < 0) chosen[u] = DEF[u];
+    sel.innerHTML = "";
+    list.forEach(function (v) {
+      var op = document.createElement("option"); op.value = v;
+      op.textContent = u === "px" ? v + " px" : fmtCm(v, dec) + " cm";
+      if (v === chosen[u]) op.selected = true; sel.appendChild(op);
+    });
+  }
+  function exportPx() { return unit() === "cm" ? Math.round(chosen.cm / 2.54 * DPI) : chosen.px; }
+  function updateSizeHint() {
+    var g = lastGeom, fmt = $("format").value, u = unit();
+    if (!g) { $("sizeHint").textContent = ""; return; }
+    var ratio = g.H / g.W, px = exportPx(), hpx = Math.round(px * ratio);
+    if (u === "cm") $("sizeHint").textContent = fmt === "svg" ? t("sizeCmSvg")(chosen.cm, Math.round(chosen.cm * ratio * 10) / 10) : t("sizeCm")(chosen.cm, px, hpx);
+    else $("sizeHint").textContent = fmt === "svg" ? "" : t("sizePx")(px, hpx);
+  }
+  // Physical size: PNG gets a pHYs chunk, JPG a JFIF density, both 300 DPI.
+  var CRC = (function () { var c, tb = []; for (var n = 0; n < 256; n++) { c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; tb[n] = c >>> 0; } return tb; })();
+  function crc32(bytes) { var c = 0xffffffff; for (var i = 0; i < bytes.length; i++) c = CRC[(c ^ bytes[i]) & 255] ^ (c >>> 8); return (c ^ 0xffffffff) >>> 0; }
+  async function withDpi(blob, jpg) {
+    var b = new Uint8Array(await blob.arrayBuffer());
+    if (jpg) {
+      if (b[2] === 0xff && b[3] === 0xe0 && String.fromCharCode(b[6], b[7], b[8], b[9]) === "JFIF") {
+        b[13] = 1; b[14] = DPI >> 8; b[15] = DPI & 255; b[16] = DPI >> 8; b[17] = DPI & 255;
+      }
+      return new Blob([b], { type: "image/jpeg" });
+    }
+    var ppm = Math.round(DPI / 0.0254), chunk = new Uint8Array(21), dv = new DataView(chunk.buffer);
+    dv.setUint32(0, 9); chunk.set([112, 72, 89, 115], 4); dv.setUint32(8, ppm); dv.setUint32(12, ppm); chunk[16] = 1;
+    dv.setUint32(17, crc32(chunk.subarray(4, 17)));
+    var out = new Uint8Array(b.length + 21); out.set(b.subarray(0, 33)); out.set(chunk, 33); out.set(b.subarray(33), 54);
+    return new Blob([out], { type: "image/png" });
+  }
+
   function updateFormat() {
     var fmt = $("format").value;
-    $("size").disabled = fmt === "svg";
+    $("size").disabled = fmt === "svg" && unit() === "px";
     $("saveBtn").textContent = t("save") + fmt.toUpperCase();
     var sq = radio("shape") === "square";
     $("formatHint").textContent = fmt === "png" ? t(sq ? "fmtPngSq" : "fmtPng") : fmt === "jpg" ? t("fmtJpg") : t("fmtSvg");
+    updateSizeHint();
   }
 
   async function doSave(kind) {
@@ -13267,12 +13322,14 @@ var RQ = (function () {
     var dl = await getDownloads();
     var o = opts(), name = slug(lastText);
     var data, filename;
-    if (kind === "svg") { data = RQ.toSVG(lastGeom, o, logo); filename = name + ".svg"; }
+    var cmMode = unit() === "cm", suffix = cmMode ? "-" + String(chosen.cm).replace(".", "-") + "cm" : "";
+    if (kind === "svg") { data = RQ.toSVG(lastGeom, o, logo, cmMode ? chosen.cm : 0); filename = name + suffix + ".svg"; }
     else {
-      var px = +$("size").value, cv = document.createElement("canvas"), jpg = kind === "jpg";
+      var px = exportPx(), cv = document.createElement("canvas"), jpg = kind === "jpg";
       RQ.toCanvas(cv, lastGeom, o, logo, px, jpg);
       data = await new Promise(function (r) { cv.toBlob(r, jpg ? "image/jpeg" : "image/png", 0.95); });
-      filename = name + (jpg ? ".jpg" : ".png");
+      if (cmMode) { try { data = await withDpi(data, jpg); } catch (e) {} }
+      filename = name + (suffix || "-" + px + "px") + (jpg ? ".jpg" : ".png");
     }
     if (!dl) {
       // Ordinary web page: hand the file to the browser as a normal download.
@@ -13365,15 +13422,20 @@ var RQ = (function () {
     el.addEventListener("input", schedule); el.addEventListener("change", schedule);
   });
   document.querySelectorAll('input[name="lang"]').forEach(function (el) {
-    el.addEventListener("change", function () { applyLang(el.value); if (typeof qrcode !== "undefined") render(); });
+    el.addEventListener("change", function () { applyLang(el.value); fillSizes(); msg(""); if (typeof qrcode !== "undefined") render(); });
   });
   $("saveBtn").addEventListener("click", function () { doSave($("format").value); });
   $("format").addEventListener("change", function () { updateFormat(); save(); });
+  $("size").addEventListener("change", function () { chosen[unit()] = +$("size").value; updateSizeHint(); save(); });
+  document.querySelectorAll('input[name="unit"]').forEach(function (el) {
+    el.addEventListener("change", function () { fillSizes(); updateFormat(); save(); });
+  });
 
   restore();
   var startLang = "da";
   try { startLang = localStorage.getItem("round-qr-lang") || "da"; } catch (e) {}
   applyLang(startLang);
+  fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
     setScan(null, "notReady");
