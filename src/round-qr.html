@@ -1,0 +1,1024 @@
+<title>Round QR</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: tool page. Large preview stage left, compact control column right; stacks on phones with the preview first. */
+:root {
+  --bg: #f5f3ee;
+  --surface: #ffffff;
+  --stage: #ece8de;
+  --ink: #1f1d18;
+  --muted: #6b665a;
+  --line: #e0dbcf;
+  --accent: #fdce3b;
+  --accent-strong: #1f1d18;
+  --accent-ink: #1f1d18;
+  --ok: #2b7a4b;
+  --ok-bg: #e2f1e7;
+  --warn: #9c5118;
+  --warn-bg: #f8eadc;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141310; --surface: #1c1b17; --stage: #24221c; --ink: #ece8de; --muted: #a39d8e;
+    --line: #34312a; --accent: #fdce3b; --accent-strong: #fdce3b; --accent-ink: #17150f;
+    --ok: #7fd3a0; --ok-bg: #173226; --warn: #f2ab6b; --warn-bg: #36261a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141310; --surface: #1c1b17; --stage: #24221c; --ink: #ece8de; --muted: #a39d8e;
+  --line: #34312a; --accent: #fdce3b; --accent-strong: #fdce3b; --accent-ink: #17150f;
+  --ok: #7fd3a0; --ok-bg: #173226; --warn: #f2ab6b; --warn-bg: #36261a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 40px;
+}
+.wrap { max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+h1 {
+  font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1;
+  letter-spacing: -0.02em; margin: 0; text-wrap: balance;
+}
+h1 .o { display: inline-block; width: 0.62em; height: 0.62em; border-radius: 50%;
+  border: 0.14em solid var(--accent); vertical-align: 0.02em; margin: 0 0.02em; }
+header p { margin: 0; color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
+@media (min-width: 680px) {
+  .preview { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  .stage { width: min(100%, max(320px, calc(100vh - 230px))); margin-inline: auto; }
+}
+@media (max-width: 960px) { .grid { grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; } }
+@media (max-width: 679px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Preview */
+.preview { background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 18px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.stage {
+  background-color: var(--stage);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 10%, transparent) 1px, transparent 1.2px);
+  background-size: 14px 14px;
+  border-radius: 10px; aspect-ratio: 1 / 1; max-width: 100%;
+  display: grid; place-items: center; padding: 7%;
+}
+.stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.stage .empty { color: var(--muted); text-align: center; max-width: 26ch; }
+.status-row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500;
+  padding: 4px 11px 4px 9px; border-radius: 999px; background: var(--stage); color: var(--muted); }
+.pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.pill.ok { background: var(--ok-bg); color: var(--ok); }
+.pill.warn { background: var(--warn-bg); color: var(--warn); }
+.spec { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted);
+  font-variant-numeric: tabular-nums; }
+.hint { font-size: 13px; color: var(--muted); margin: 0; }
+.hint.warn { color: var(--warn); }
+.export { display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  border-top: 1px solid var(--line); padding-top: 14px; }
+.export .spacer { flex: 1 1 auto; }
+
+/* Controls */
+.controls { background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 18px; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.group { display: flex; flex-direction: column; gap: 10px; }
+.group + .group { border-top: 1px solid var(--line); padding-top: 18px; }
+.label { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; }
+.row > span:not(.label) { font-size: 14px; }
+.group > .seg { align-self: flex-start; }
+
+input[type="text"], select {
+  font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 8px; padding: 9px 11px; width: 100%; min-width: 0;
+}
+#link { font-family: var(--font-mono); font-size: 14px; }
+input:focus-visible, select:focus-visible, button:focus-visible, .seg input:focus-visible + span,
+.switch input:focus-visible + span, .file input:focus-visible + span {
+  outline: 2px solid var(--accent-strong); outline-offset: 2px;
+}
+
+.seg { display: inline-flex; background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: 3px; gap: 2px; }
+.seg label { position: relative; }
+.seg input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.seg span { display: block; padding: 5px 11px; border-radius: 6px; font-size: 13.5px; cursor: pointer; color: var(--muted); }
+.seg input:checked + span { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / 0.12); font-weight: 500; }
+.seg input:disabled + span { opacity: 0.45; cursor: not-allowed; }
+
+.switch { position: relative; display: inline-block; width: 38px; height: 22px; flex: none; }
+.switch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.switch span { position: absolute; inset: 0; border-radius: 999px; background: var(--line); transition: background .15s; pointer-events: none; }
+.switch span::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); transition: transform .15s; box-shadow: 0 1px 2px rgb(0 0 0 / 0.2); }
+.switch input:checked + span { background: var(--accent); }
+.switch input:checked + span::after { transform: translateX(16px); }
+
+.colors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.colors label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: var(--muted); }
+input[type="color"] { width: 100%; height: 36px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); padding: 3px; cursor: pointer; }
+.strip { display: flex; align-items: center; gap: 4px; }
+.nav { flex: none; width: 28px; height: 44px; border: 0; border-radius: 8px; background: transparent; color: var(--muted);
+  font: 500 22px/1 var(--font-body); cursor: pointer; padding: 0 0 3px; }
+.nav:hover { background: var(--bg); color: var(--ink); }
+.nav:disabled { opacity: 0.3; cursor: default; background: transparent; }
+.presets { flex: 1 1 auto; min-width: 0; display: flex; gap: 4px; overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; scrollbar-width: none; padding: 3px 2px; }
+.presets::-webkit-scrollbar { display: none; }
+.preset { flex: none; scroll-snap-align: start; width: 44px; height: 44px; display: grid; place-items: center; padding: 0;
+  background: transparent; border: 2px solid transparent; border-radius: 50%; cursor: pointer; }
+.preset:hover { background: var(--bg); }
+.preset[aria-pressed="true"] { border-color: var(--accent-strong); }
+.preset .sw { position: relative; width: 32px; height: 32px; border-radius: 50%; display: block;
+  border: 3px solid var(--sw-bg, #fff); box-shadow: 0 0 0 1px var(--line); }
+.preset .sw::after { content: ""; position: absolute; right: -4px; bottom: -4px; width: 12px; height: 12px; border-radius: 4px;
+  background: var(--sw-eye); border: 2px solid var(--surface); }
+@media (prefers-reduced-motion: reduce) { .presets { scroll-behavior: auto; } }
+.grad-opts { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 12px; }
+.grad-opts .c2 { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: var(--muted); width: 96px; }
+
+.file { position: relative; display: inline-block; }
+.file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
+.file span, .btn {
+  display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 14px; font-weight: 500;
+  border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:hover, .file:hover span { filter: brightness(0.97); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.logo-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.logo-thumb { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--line); object-fit: contain; background: #fff; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+.export select { width: auto; }
+.export .seg span { padding: 7px 11px; }
+.lbl { display: inline-flex; align-items: center; gap: 7px; }
+.info { position: relative; flex: none; width: 18px; height: 18px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--bg); color: var(--muted);
+  font: 600 11px/1 var(--font-display); display: inline-grid; place-items: center; cursor: pointer; }
+.info::after { content: ""; position: absolute; inset: -9px; }
+.info:hover { color: var(--ink); border-color: var(--muted); }
+.info[aria-expanded="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.explain { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; }
+header .lang { margin-left: auto; align-self: center; }
+header .lang { padding: 4px; border-radius: 11px; }
+header .about { flex: 1 1 100%; margin: -4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); max-width: 78ch; }
+header .about .sig { display: inline-block; margin-top: 5px; color: var(--ink); font-weight: 500; }
+header .lang span { display: inline-flex; align-items: center; gap: 9px; padding: 8px 14px 8px 10px; border-radius: 8px; font-size: 14.5px; }
+.flag { width: 26px; height: 19px; flex: none; border-radius: 3px; box-shadow: 0 0 0 1px rgb(0 0 0 / 0.12); }
+header .lang input:not(:checked) + span .flag { opacity: 0.7; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>R<span class="o"></span>und QR</h1>
+    <p data-t="subtitle">Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.</p>
+    <div class="seg lang" role="radiogroup" aria-label="Sprog / Language">
+      <label><input type="radio" name="lang" id="lang-da" value="da" checked><span><svg class="flag" viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg>Dansk</span></label>
+      <label><input type="radio" name="lang" id="lang-en" value="en"><span><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="uk-t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>English</span></label>
+    </div>
+    <p class="about"><span data-t="about">Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder, og nu deler jeg det med alle. Der kommer aldrig abonnement, login eller reklamer. Det eneste er et par glade sponsorer nederst på siden.</span><br><span class="sig" data-t="aboutSig">Med venlig hilsen Kasper Bergstrøm</span></p>
+  </header>
+
+  <div class="grid">
+    <section class="preview" data-t-aria="aPreview" aria-label="Forhåndsvisning">
+      <div class="stage" id="stage">
+        <img id="out" data-t-alt="aOut" alt="QR-kode">
+        <p class="empty" id="empty" hidden></p>
+      </div>
+      <div class="status-row">
+        <span class="pill" id="scan"></span>
+        <span class="spec" id="spec"></span>
+      </div>
+      <p class="hint" id="note" hidden></p>
+      <div class="export">
+        <select id="format" data-t-aria="aFormat" aria-label="Filformat">
+          <option value="png" selected>PNG</option>
+          <option value="jpg">JPG</option>
+          <option value="svg">SVG</option>
+        </select>
+        <div class="seg unit" role="radiogroup" data-t-aria="aUnit" aria-label="Enhed">
+          <label><input type="radio" name="unit" id="unit-px" value="px" checked><span data-t="uPx">Pixels</span></label>
+          <label><input type="radio" name="unit" id="unit-cm" value="cm"><span data-t="uCm">Centimeter</span></label>
+        </div>
+        <select id="size" data-t-aria="aSize" aria-label="Billedbredde"></select>
+        <button class="btn primary" id="saveBtn" type="button"></button>
+      </div>
+      <p class="hint" id="formatHint"></p>
+      <p class="hint spec" id="sizeHint"></p>
+      <p class="hint" id="saveMsg" hidden></p>
+    </section>
+
+    <section class="controls" data-t-aria="aSettings" aria-label="Indstillinger">
+      <div class="group">
+        <label class="label" for="link" data-t="link">Link</label>
+        <input type="text" id="link" value="https://ai-workshop.dk" spellcheck="false" autocomplete="off" inputmode="url">
+        <p class="hint" id="linkHint" hidden></p>
+      </div>
+
+      <div class="group">
+        <span class="label" data-t="shape">Udseende</span>
+
+        <div class="field">
+          <div class="row">
+            <span class="lbl"><span data-t="form">Form</span><button type="button" class="info" aria-controls="ex-form" aria-expanded="false">i</button></span>
+            <div class="seg" role="radiogroup" data-t-aria="form" aria-label="Form">
+              <label><input type="radio" name="shape" id="shape-circle" value="circle" checked><span data-t="circle">Cirkel</span></label>
+              <label><input type="radio" name="shape" id="shape-square" value="square"><span data-t="square">Firkant</span></label>
+            </div>
+          </div>
+          <p class="explain" id="ex-form" data-t="exForm" hidden></p>
+        </div>
+
+        <div class="field">
+          <div class="row">
+            <span class="lbl"><span data-t="modules">Moduler</span><button type="button" class="info" aria-controls="ex-modules" aria-expanded="false">i</button></span>
+            <div class="seg" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+              <label><input type="radio" name="dot" id="dot-dots" value="dots" checked><span data-t="dots">Prikker</span></label>
+              <label><input type="radio" name="dot" id="dot-rounded" value="rounded"><span data-t="roundedPl">Afrundede</span></label>
+              <label><input type="radio" name="dot" id="dot-squares" value="squares"><span data-t="squaresPl">Firkanter</span></label>
+            </div>
+          </div>
+          <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
+        </div>
+
+        <div class="field">
+          <div class="row">
+            <span class="lbl"><span data-t="eyes">Hjørneøjne</span><button type="button" class="info" aria-controls="ex-eyes" aria-expanded="false">i</button></span>
+            <div class="seg" role="radiogroup" data-t-aria="eyes" aria-label="Hjørneøjne">
+              <label><input type="radio" name="eye" id="eye-rounded" value="rounded" checked><span data-t="rounded">Afrundet</span></label>
+              <label><input type="radio" name="eye" id="eye-circle" value="circle"><span data-t="circle">Cirkel</span></label>
+              <label><input type="radio" name="eye" id="eye-square" value="square"><span data-t="square">Firkant</span></label>
+            </div>
+          </div>
+          <p class="explain" id="ex-eyes" data-t="exEyes" hidden></p>
+        </div>
+
+        <div class="field circle-only">
+          <div class="row">
+            <span class="lbl"><span data-t="fill">Fyld cirklen med mønster</span><button type="button" class="info" aria-controls="ex-fill" aria-expanded="false">i</button></span>
+            <label class="switch"><input type="checkbox" id="fill" checked data-t-aria="fill" aria-label="Fyld cirklen med mønster"><span></span></label>
+          </div>
+          <p class="explain" id="ex-fill" data-t="exFill" hidden></p>
+        </div>
+
+        <div class="field circle-only">
+          <div class="row">
+            <span class="lbl"><span data-t="ring">Ydre ring</span><button type="button" class="info" aria-controls="ex-ring" aria-expanded="false">i</button></span>
+            <label class="switch"><input type="checkbox" id="ring" checked data-t-aria="ring" aria-label="Ydre ring"><span></span></label>
+          </div>
+          <p class="explain" id="ex-ring" data-t="exRing" hidden></p>
+        </div>
+
+        <div class="field circle-only">
+          <div class="row">
+            <span class="lbl"><span data-t="background">Baggrund</span><button type="button" class="info" aria-controls="ex-bg" aria-expanded="false">i</button></span>
+            <div class="seg" role="radiogroup" data-t-aria="background" aria-label="Baggrund">
+              <label><input type="radio" name="bgshape" id="bg-circle" value="circle" checked><span data-t="circle">Cirkel</span></label>
+              <label><input type="radio" name="bgshape" id="bg-square" value="square"><span data-t="square">Firkant</span></label>
+            </div>
+          </div>
+          <p class="explain" id="ex-bg" data-t="exBg" hidden></p>
+        </div>
+      </div>
+
+      <div class="group">
+        <span class="label" data-t="textBelow">Tekst under koden</span>
+        <div class="row"><span data-t="showText">Vis tekst under koden</span>
+          <label class="switch"><input type="checkbox" id="label" data-t-aria="showText" aria-label="Vis tekst under koden"><span></span></label></div>
+        <input type="text" id="labelText" value="Scan mig" maxlength="40" data-t-aria="textBelow" aria-label="Tekst under koden" hidden>
+      </div>
+
+      <div class="group">
+        <span class="label" data-t="colours">Farver</span>
+        <div class="colors">
+          <label><span data-t="cCode">Kode</span><input type="color" id="fg" value="#1f1d18"></label>
+          <label><span data-t="cEyes">Øjne</span><input type="color" id="eyec" value="#1f1d18"></label>
+          <label><span data-t="background">Baggrund</span><input type="color" id="bg" value="#ffffff"></label>
+        </div>
+        <div class="field">
+          <div class="row"><span data-t="presetsLbl">Farvesæt</span><span class="spec" id="presetName"></span></div>
+          <div class="strip">
+            <button type="button" class="nav" id="prevSet" data-t-aria="prev" aria-label="Forrige">&#8249;</button>
+            <div class="presets" id="presets" role="group" data-t-aria="presetsLbl" aria-label="Farvesæt"></div>
+            <button type="button" class="nav" id="nextSet" data-t-aria="next" aria-label="Næste">&#8250;</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="row">
+            <span class="lbl"><span data-t="gradient">Farveforløb</span><button type="button" class="info" aria-controls="ex-grad" aria-expanded="false">i</button></span>
+            <label class="switch"><input type="checkbox" id="grad" data-t-aria="gradient" aria-label="Farveforløb"><span></span></label>
+          </div>
+          <p class="explain" id="ex-grad" data-t="exGrad" hidden></p>
+        </div>
+        <div class="grad-opts" id="gradOpts" hidden>
+          <label class="c2"><span data-t="cCode2">Slutfarve</span><input type="color" id="fg2" value="#2a6f8f"></label>
+          <div class="seg" role="radiogroup" data-t-aria="direction" aria-label="Retning">
+            <label><input type="radio" name="gdir" id="gdir-diagonal" value="diagonal" checked><span data-t="dDiagonal">Diagonal</span></label>
+            <label><input type="radio" name="gdir" id="gdir-vertical" value="vertical"><span data-t="dVertical">Lodret</span></label>
+            <label><input type="radio" name="gdir" id="gdir-radial" value="radial"><span data-t="dRadial">Radial</span></label>
+          </div>
+        </div>
+
+        <p class="hint warn" id="contrastHint" hidden></p>
+      </div>
+
+      <div class="group">
+        <div class="field">
+          <span class="lbl"><span class="label" data-t="logo">Logo i midten</span><button type="button" class="info" aria-controls="ex-logo" aria-expanded="false">i</button></span>
+          <p class="explain" id="ex-logo" data-t="exLogo" hidden></p>
+        </div>
+        <div class="logo-row">
+          <img class="logo-thumb" id="logoThumb" alt="" hidden>
+          <label class="file"><input type="file" id="logoFile" accept="image/*"><span id="logoBtn"></span></label>
+          <button class="btn" type="button" id="logoRemove" data-t="remove" hidden>Fjern</button>
+        </div>
+        <div id="logoSizeRow" hidden>
+          <div class="row"><label for="logoSize" data-t="size">Størrelse</label><span class="spec" id="logoSizeVal"></span></div>
+          <input type="range" id="logoSize" min="14" max="30" value="22">
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="field">
+          <div class="row">
+            <span class="lbl"><span class="label" data-t="ec">Fejlkorrektion</span><button type="button" class="info" aria-controls="ex-ec" aria-expanded="false">i</button></span>
+            <span class="spec" id="ecVal"></span>
+          </div>
+          <p class="explain" id="ex-ec" data-t="exEc" hidden></p>
+        </div>
+        <div class="seg" role="radiogroup" data-t-aria="ec" aria-label="Fejlkorrektion">
+          <label><input type="radio" name="ec" id="ec-L" value="L"><span>L</span></label>
+          <label><input type="radio" name="ec" id="ec-M" value="M"><span>M</span></label>
+          <label><input type="radio" name="ec" id="ec-Q" value="Q" checked><span>Q</span></label>
+          <label><input type="radio" name="ec" id="ec-H" value="H"><span>H</span></label>
+        </div>
+        <p class="hint" data-t="ecHint">Højere niveau tåler snavs, slid og logoer, men giver en tættere kode. Med logo låses den til H.</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+
+<script id="qr-core">
+/* Geometry: everything is built in module units as SVG path strings, so the same paths draw to SVG and to canvas (Path2D). */
+var RQ = (function () {
+  function f(n) { return +n.toFixed(3); }
+  function circ(cx, cy, r) {
+    return "M" + f(cx - r) + " " + f(cy) + "a" + f(r) + " " + f(r) + " 0 1 0 " + f(2 * r) + " 0a" + f(r) + " " + f(r) + " 0 1 0 " + f(-2 * r) + " 0Z";
+  }
+  function rect(x, y, w, h) { return "M" + f(x) + " " + f(y) + "h" + f(w) + "v" + f(h) + "h" + f(-w) + "Z"; }
+  function rrect(x, y, w, h, r) {
+    r = Math.min(r, w / 2, h / 2);
+    var a = "a" + f(r) + " " + f(r) + " 0 0 1 ";
+    return "M" + f(x + r) + " " + f(y) + "h" + f(w - 2 * r) + a + f(r) + " " + f(r) + "v" + f(h - 2 * r) + a + f(-r) + " " + f(r) +
+      "h" + f(-(w - 2 * r)) + a + f(-r) + " " + f(-r) + "v" + f(-(h - 2 * r)) + a + f(r) + " " + f(-r) + "Z";
+  }
+  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+  function mod(x, y, style) {
+    if (style === "dots") return circ(x + 0.5, y + 0.5, 0.43);
+    if (style === "rounded") return rrect(x + 0.06, y + 0.06, 0.88, 0.88, 0.3);
+    return rect(x - 0.01, y - 0.01, 1.02, 1.02);
+  }
+  function eye(x, y, style) {
+    if (style === "circle") return circ(x + 3.5, y + 3.5, 3.5) + circ(x + 3.5, y + 3.5, 2.5) + circ(x + 3.5, y + 3.5, 1.5);
+    if (style === "rounded") return rrect(x, y, 7, 7, 2.2) + rrect(x + 1, y + 1, 5, 5, 1.4) + rrect(x + 2, y + 2, 3, 3, 0.9);
+    return rect(x, y, 7, 7) + rect(x + 1, y + 1, 5, 5) + rect(x + 2, y + 2, 3, 3);
+  }
+
+  function align(x, y, style) {
+    if (style === "circle") return circ(x + 2.5, y + 2.5, 2.5) + circ(x + 2.5, y + 2.5, 1.5) + circ(x + 2.5, y + 2.5, 0.55);
+    if (style === "rounded") return rrect(x, y, 5, 5, 1.5) + rrect(x + 1, y + 1, 3, 3, 0.8) + rrect(x + 2, y + 2, 1, 1, 0.35);
+    return rect(x, y, 5, 5) + rect(x + 1, y + 1, 3, 3) + rect(x + 2, y + 2, 1, 1);
+  }
+  var ALIGN = [null, [], [6,18], [6,22], [6,26], [6,30], [6,34], [6,22,38], [6,24,42], [6,26,46], [6,28,50], [6,30,54], [6,32,58], [6,34,62],
+    [6,26,46,66], [6,26,48,70], [6,26,50,74], [6,30,54,78], [6,30,56,82], [6,30,58,86], [6,34,62,90], [6,28,50,72,94], [6,26,50,74,98],
+    [6,30,54,78,102], [6,28,54,80,106], [6,32,58,84,110], [6,30,58,86,114], [6,34,62,90,118], [6,26,50,74,98,122], [6,30,54,78,102,126],
+    [6,26,52,78,104,130], [6,30,56,82,108,134], [6,34,60,86,112,138], [6,30,58,86,114,142], [6,34,62,90,118,146], [6,30,54,78,102,126,150],
+    [6,24,50,76,102,128,154], [6,28,54,80,106,132,158], [6,32,58,84,110,136,162], [6,26,54,82,110,138,166], [6,30,58,86,114,142,170]];
+
+  if (typeof qrcode !== "undefined" && qrcode.stringToBytesFuncs) qrcode.stringToBytes = qrcode.stringToBytesFuncs["UTF-8"];
+
+  var LABEL_FONT = "'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', Arial, sans-serif";
+
+  function geometry(text, o) {
+    var ec = o.logo ? "H" : o.ec;
+    var qr = qrcode(0, ec); qr.addData(text); qr.make();
+    var N = qr.getModuleCount();
+    var square = o.shape === "square", Q = 3;    // quiet zone for the square code, in modules
+    var fill = !square && o.fill, ringOn = !square && o.ring;
+    var R = N / 2 * Math.SQRT2 + 0.5;            // filler reaches this radius
+    var discR = ringOn ? R + 1.7 : R + 0.9;
+    var W = square ? N + 2 * Q : 2 * discR, c = W / 2, off = c - N / 2;
+    var mods = [], x, y;
+    var logoR = o.logo ? o.logoSize * N / 2 : 0;
+    var clear = logoR ? logoR + 0.3 : 0;
+
+    function inFinder(r, cc) { return (r < 7 && cc < 7) || (r < 7 && cc >= N - 7) || (r >= N - 7 && cc < 7); }
+    // Alignment patterns are drawn solid (like the eyes) so dot styles stay scannable.
+    var pos = ALIGN[(N - 17) / 4] || [], aligns = [], inAlign = {};
+    pos.forEach(function (ay) { pos.forEach(function (ax) {
+      if ((ax === 6 && ay === 6) || (ax === 6 && ay === N - 7) || (ax === N - 7 && ay === 6)) return;
+      if (!(clear && Math.hypot(ax + 0.5 - N / 2, ay + 0.5 - N / 2) < clear + 2.5)) aligns.push(align(ax - 2 + off, ay - 2 + off, o.eye));
+      for (var dy = -2; dy <= 2; dy++) for (var dx = -2; dx <= 2; dx++) inAlign[(ay + dy) * N + ax + dx] = 1;
+    }); });
+    for (y = 0; y < N; y++) for (x = 0; x < N; x++) {
+      if (inFinder(y, x) || inAlign[y * N + x] || !qr.isDark(y, x)) continue;
+      if (clear && Math.hypot(x + 0.5 - N / 2, y + 0.5 - N / 2) < clear) continue;
+      mods.push(mod(x + off, y + off, o.dot));
+    }
+    if (fill) {
+      var rand = rng(hash(text)), gap = 1;
+      var lo = Math.floor(N / 2 - R) - 1, hi = Math.ceil(N / 2 + R) + 1;
+      for (y = lo; y <= hi; y++) for (x = lo; x <= hi; x++) {
+        var dark = rand() < 0.5;
+        if (x >= -gap && x < N + gap && y >= -gap && y < N + gap) continue;
+        if (Math.hypot(x + 0.5 - N / 2, y + 0.5 - N / 2) > R - 0.5) continue;
+        if (dark) mods.push(mod(x + off, y + off, o.dot));
+      }
+    }
+    var eyes = eye(off, off, o.eye) + eye(off + N - 7, off, o.eye) + eye(off, off + N - 7, o.eye);
+    var ring = ringOn ? circ(c, c, R + 1.7) + circ(c, c, R + 0.7) : "";
+
+    // Optional text under the code. o.labelW100 = measured text width at font size 100 (in the same units), used to shrink long text.
+    var H = W, label = null, txt = (o.labelText || "").trim();
+    if (o.label && txt) {
+      var fs = Math.max(N * (square ? 0.14 : 0.17), 3.5), maxW = W * 0.86;
+      if (o.labelW100) fs = Math.min(fs, maxW * 100 / o.labelW100);
+      var top = square ? W - Q + 1.4 : W + 0.9;
+      label = { text: txt, fs: fs, y: top + fs * 0.62 };
+      H = top + fs * 1.45;
+    }
+    return { W: W, H: H, c: c, N: N, version: (N - 17) / 4, ec: ec, square: square, mods: mods.join(""), eyes: eyes,
+      aligns: aligns.join(""), ring: ring, discR: discR, logoR: logoR, logoBox: logoR * Math.SQRT2 * 0.9, label: label };
+  }
+
+  function fitBox(box, aspect) { var w = box, h = box; if (aspect > 1) h = box / aspect; else w = box * aspect; return { w: w, h: h }; }
+  function esc(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function fullBg(g, o) { return g.square || o.bgShape === "square"; }
+  // Gradient endpoints in module units, over the code area (not the text below).
+  function gradSpec(g, o) {
+    if (!o.grad) return null;
+    var W = g.W;
+    if (o.gradDir === "radial") return { radial: true, cx: g.c, cy: g.c, r: W / 2 };
+    if (o.gradDir === "vertical") return { x1: 0, y1: 0, x2: 0, y2: W };
+    return { x1: 0, y1: 0, x2: W, y2: W };
+  }
+
+  // cm (optional): physical width of the whole image, written as width/height in cm.
+  function toSVG(g, o, logo, cm) {
+    var W = f(g.W), H = f(g.H);
+    var dims = cm ? 'width="' + f(cm) + 'cm" height="' + f(cm * g.H / g.W) + 'cm"' : 'width="' + Math.round(g.W * 20) + '" height="' + Math.round(g.H * 20) + '"';
+    var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" ' + dims + '>';
+    s += fullBg(g, o) ? '<rect width="' + W + '" height="' + H + '" fill="' + o.bg + '"/>' : '<circle cx="' + f(g.c) + '" cy="' + f(g.c) + '" r="' + f(g.discR) + '" fill="' + o.bg + '"/>';
+    var gs = gradSpec(g, o), paint = o.fg;
+    if (gs) {
+      var stops = '<stop offset="0" stop-color="' + o.fg + '"/><stop offset="1" stop-color="' + o.fg2 + '"/>';
+      s += "<defs>" + (gs.radial
+        ? '<radialGradient id="qrg" gradientUnits="userSpaceOnUse" cx="' + f(gs.cx) + '" cy="' + f(gs.cy) + '" r="' + f(gs.r) + '">' + stops + "</radialGradient>"
+        : '<linearGradient id="qrg" gradientUnits="userSpaceOnUse" x1="' + f(gs.x1) + '" y1="' + f(gs.y1) + '" x2="' + f(gs.x2) + '" y2="' + f(gs.y2) + '">' + stops + "</linearGradient>") + "</defs>";
+      paint = "url(#qrg)";
+    }
+    if (g.mods) s += '<path d="' + g.mods + '" fill="' + paint + '"/>';
+    if (g.aligns) s += '<path d="' + g.aligns + '" fill="' + paint + '" fill-rule="evenodd"/>';
+    s += '<path d="' + g.eyes + '" fill="' + o.eyec + '" fill-rule="evenodd"/>';
+    if (g.ring) s += '<path d="' + g.ring + '" fill="' + paint + '" fill-rule="evenodd"/>';
+    if (logo && g.logoR) {
+      var b = fitBox(g.logoBox, logo.aspect);
+      s += '<circle cx="' + f(g.c) + '" cy="' + f(g.c) + '" r="' + f(g.logoR) + '" fill="' + o.bg + '"/>';
+      s += '<image href="' + logo.src + '" x="' + f(g.c - b.w / 2) + '" y="' + f(g.c - b.h / 2) + '" width="' + f(b.w) + '" height="' + f(b.h) + '"/>';
+    }
+    if (g.label) s += '<text x="' + f(g.c) + '" y="' + f(g.label.y) + '" font-family="' + LABEL_FONT.replace(/"/g, "") + '" font-weight="600" font-size="' + f(g.label.fs) +
+      '" text-anchor="middle" dominant-baseline="central" fill="' + o.fg + '">' + esc(g.label.text) + "</text>";
+    return s + "</svg>";
+  }
+
+  // opaque: paint the whole canvas in the background colour (JPG has no transparency).
+  function toCanvas(canvas, g, o, logo, px, opaque) {
+    canvas.width = px; canvas.height = Math.round(px * g.H / g.W);
+    var ctx = canvas.getContext("2d"), k = px / g.W;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save(); ctx.scale(k, k);
+    ctx.fillStyle = o.bg;
+    if (opaque || fullBg(g, o)) ctx.fillRect(0, 0, g.W, g.H);
+    else { ctx.beginPath(); ctx.arc(g.c, g.c, g.discR, 0, Math.PI * 2); ctx.fill(); }
+    var gs = gradSpec(g, o), paint = o.fg;
+    if (gs) {
+      paint = gs.radial ? ctx.createRadialGradient(gs.cx, gs.cy, 0, gs.cx, gs.cy, gs.r) : ctx.createLinearGradient(gs.x1, gs.y1, gs.x2, gs.y2);
+      paint.addColorStop(0, o.fg); paint.addColorStop(1, o.fg2);
+    }
+    ctx.fillStyle = paint; if (g.mods) ctx.fill(new Path2D(g.mods));
+    if (g.aligns) ctx.fill(new Path2D(g.aligns), "evenodd");
+    ctx.fillStyle = o.eyec; ctx.fill(new Path2D(g.eyes), "evenodd");
+    if (g.ring) { ctx.fillStyle = paint; ctx.fill(new Path2D(g.ring), "evenodd"); }
+    if (logo && g.logoR) {
+      ctx.fillStyle = o.bg; ctx.beginPath(); ctx.arc(g.c, g.c, g.logoR, 0, Math.PI * 2); ctx.fill();
+      var b = fitBox(g.logoBox, logo.aspect);
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(logo.img, g.c - b.w / 2, g.c - b.h / 2, b.w, b.h);
+    }
+    if (g.label) {
+      ctx.fillStyle = o.fg; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.font = "600 " + g.label.fs + "px " + LABEL_FONT;
+      ctx.fillText(g.label.text, g.c, g.label.y);
+    }
+    ctx.restore();
+  }
+
+  // Width of the label at font size 100, for shrinking long text to fit.
+  function measureLabel(text) {
+    if (typeof document === "undefined") return 0;
+    measureLabel.ctx = measureLabel.ctx || document.createElement("canvas").getContext("2d");
+    measureLabel.ctx.font = "600 100px " + LABEL_FONT;
+    return measureLabel.ctx.measureText(text).width;
+  }
+
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel };
+})();
+</script>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+
+  var T = {
+    da: {
+      subtitle: "Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.",
+      about: "Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder, og nu deler jeg det med alle. Der kommer aldrig abonnement, login eller reklamer. Det eneste er et par glade sponsorer nederst på siden.",
+      aboutSig: "Med venlig hilsen Kasper Bergstrøm",
+      aPreview: "Forhåndsvisning", aSettings: "Indstillinger", aOut: "QR-kode", aFormat: "Filformat", aSize: "Billedbredde",
+      link: "Link", shape: "Udseende", form: "Form", modules: "Moduler", eyes: "Hjørneøjne",
+      fill: "Fyld cirklen med mønster", ring: "Ydre ring", background: "Baggrund",
+      circle: "Cirkel", square: "Firkant", dots: "Prikker", roundedPl: "Afrundede", squaresPl: "Firkanter", rounded: "Afrundet",
+      textBelow: "Tekst under koden", showText: "Vis tekst under koden", defaultLabel: "Scan mig",
+      colours: "Farver", cCode: "Kode", cEyes: "Øjne",
+      logo: "Logo i midten", addLogo: "Tilføj logo", replace: "Udskift", remove: "Fjern", size: "Størrelse",
+      logoSize: function (n) { return n + " % af kodens bredde"; },
+      ec: "Fejlkorrektion", ecHint: "Højere niveau tåler snavs, slid og logoer, men giver en tættere kode. Med logo låses den til H.",
+      ecVal: { L: "ca. 7 % kan gendannes", M: "ca. 15 % kan gendannes", Q: "ca. 25 % kan gendannes", H: "ca. 30 % kan gendannes" },
+      explain: "Forklaring",
+      exForm: "Cirkel giver en rund kode med pynt, Firkant er den klassiske QR-kode.",
+      exModules: "De små felter, som selve koden er bygget af.",
+      exEyes: "De tre store firkanter, telefonen bruger til at finde koden.",
+      exFill: "Pyntprikker uden data, der får koden til at se rund ud.",
+      exRing: "En tynd pyntering rundt om cirklen.",
+      exBg: "Cirkel giver gennemsigtige hjørner, Firkant giver en fyldt baggrund.",
+      exLogo: "Logoet dækker midten, så fejlkorrektion skifter automatisk til H.",
+      exEc: "Hvor stor en del af koden der må være beskadiget, før den ikke kan læses.",
+      checking: "Tjekker…", scanOk: "Kan scannes", scanOther: "Læses som noget andet", scanFail: "Kunne ikke scannes",
+      noLink: "Intet link endnu", tooLong: "For lang", scanNA: "Scannertjek ikke tilgængeligt", notReady: "Ikke klar",
+      scanNote: "Den indbyggede scanner kunne ikke læse koden. Prøv mere kontrast, et mindre logo, firkantede øjne eller slå mønsterfyld fra. Test altid med din telefon før tryk.",
+      encodedAs: "Kodes som ", empty: "Skriv et link i feltet Link for at lave en kode.",
+      tooLongMsg: "Teksten er for lang til en QR-kode. Prøv et kortere link.",
+      libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
+      inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
+      lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
+      spec: function (g) { return (g.square ? "Firkant" : "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      save: "Gem ",
+      aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG i " + fmtCm(cm, ",") + " × " + fmtCm(hcm, ",") + " cm. Skarp i alle størrelser."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; },
+      fmtPng: "PNG beholder gennemsigtige hjørner omkring en rund kode.",
+      fmtPngSq: "PNG er skarp og virker overalt, både på skærm og i dokumenter.",
+      fmtJpg: "JPG kan ikke være gennemsigtig, så hjørnerne får baggrundsfarven.",
+      fmtSvg: "SVG kan skaleres til enhver størrelse og er god til tryk. Teksten bruger en reserveskrift, hvis skrifttypen ikke er installeret.",
+      noSave: "Gemning er ikke mulig i denne visning. Højreklik eller hold fingeren på billedet for at gemme det.",
+      saved: function (f) { return "Gemt: " + f; }, sent: "Sendt.",
+      busy: "Der er allerede et gem-vindue åbent. Afslut det først.",
+      saveFail: "Filen kunne ikke gemmes her. Højreklik eller hold fingeren på billedet for at gemme det i stedet.",
+      gradient: "Farveforløb", cCode2: "Slutfarve", direction: "Retning", dDiagonal: "Diagonal", dVertical: "Lodret", dRadial: "Radial",
+      exGrad: "Koden glider fra Kode til Slutfarve, så hold begge farver mørke.",
+      presetsLbl: "Farvesæt", custom: "Egne farver", prev: "Forrige", next: "Næste",
+      presets: ["Blæk", "Sort", "Guld", "Navy og guld", "Skov", "Hav", "Bordeaux", "Aubergine", "Grafit", "Terrakotta", "Kaffe", "Solnedgang", "Nordlys", "Dybhav", "Blomme", "Mos", "Nat"]
+    },
+    en: {
+      subtitle: "Paste a link, shape the code, save it as PNG, JPG or SVG.",
+      about: "I built Round QR together with AI because I needed a good QR code tool myself, and now I'm sharing it with everyone. There will never be subscriptions, logins or ads. The only thing is a few happy sponsors at the bottom of the page.",
+      aboutSig: "Kind regards, Kasper Bergstrøm",
+      aPreview: "Preview", aSettings: "Settings", aOut: "QR code", aFormat: "File format", aSize: "Image width",
+      link: "Link", shape: "Shape", form: "Form", modules: "Modules", eyes: "Corner eyes",
+      fill: "Fill circle with pattern", ring: "Outer ring", background: "Background",
+      circle: "Circle", square: "Square", dots: "Dots", roundedPl: "Rounded", squaresPl: "Squares", rounded: "Rounded",
+      textBelow: "Text below", showText: "Show text under the code", defaultLabel: "Scan me",
+      colours: "Colours", cCode: "Code", cEyes: "Eyes",
+      logo: "Logo in the middle", addLogo: "Add logo", replace: "Replace", remove: "Remove", size: "Size",
+      logoSize: function (n) { return n + "% of code width"; },
+      ec: "Error correction", ecHint: "Higher survives dirt, damage and logos but makes a denser code. A logo locks it to H.",
+      ecVal: { L: "~7% recovery", M: "~15% recovery", Q: "~25% recovery", H: "~30% recovery" },
+      explain: "Explain",
+      exForm: "Circle gives a decorated round code, Square is the classic QR code.",
+      exModules: "The small cells the code itself is built from.",
+      exEyes: "The three big squares the phone uses to find the code.",
+      exFill: "Decorative dots with no data that make the code look round.",
+      exRing: "A thin decorative ring around the circle.",
+      exBg: "Circle gives transparent corners, Square gives a filled background.",
+      exLogo: "The logo covers the middle, so error correction switches to H.",
+      exEc: "How much of the code can be damaged before it stops scanning.",
+      checking: "Checking…", scanOk: "Scans correctly", scanOther: "Reads as something else", scanFail: "Didn't scan",
+      noLink: "No link yet", tooLong: "Too long", scanNA: "Scan check unavailable", notReady: "Not ready",
+      scanNote: "The built-in scanner couldn't read it back. Try more contrast, a smaller logo, square eyes, or turn off the pattern fill. Always test with your phone before printing.",
+      encodedAs: "Encoded as ", empty: "Type a link in the Link field to make a code.",
+      tooLongMsg: "That text is too long to fit in a QR code. Try a shorter link.",
+      libFail: "The QR library didn't load. Check your connection and reload.",
+      inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
+      lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
+      spec: function (g) { return (g.square ? "Square" : "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      save: "Save ",
+      aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG at " + fmtCm(cm, ".") + " × " + fmtCm(hcm, ".") + " cm. Sharp at any size."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; },
+      fmtPng: "PNG keeps transparent corners around a round code.",
+      fmtPngSq: "PNG is sharp and works everywhere, on screen and in documents.",
+      fmtJpg: "JPG has no transparency, so the corners get the background colour.",
+      fmtSvg: "SVG scales to any size for print. The text uses a fallback font if the font isn't installed.",
+      noSave: "Saving isn't available in this view. Right-click or long-press the preview to save the image.",
+      saved: function (f) { return "Saved " + f + "."; }, sent: "Sent.",
+      busy: "A save prompt is already open. Finish that one first.",
+      saveFail: "Couldn't save the file here. Right-click or long-press the preview to save it instead.",
+      gradient: "Gradient", cCode2: "End colour", direction: "Direction", dDiagonal: "Diagonal", dVertical: "Vertical", dRadial: "Radial",
+      exGrad: "The code blends from Code to End colour, so keep both colours dark.",
+      presetsLbl: "Colour sets", custom: "Custom", prev: "Previous", next: "Next",
+      presets: ["Ink", "Black", "Gold", "Navy & gold", "Forest", "Ocean", "Burgundy", "Aubergine", "Graphite", "Terracotta", "Coffee", "Sunset", "Aurora", "Deep sea", "Plum", "Moss", "Night"]
+    }
+  };
+  var lang = "da";
+  function t(k) { return T[lang][k]; }
+
+  var PRESETS = [
+    { fg: "#1f1d18", eyec: "#1f1d18", bg: "#ffffff" },
+    { fg: "#000000", eyec: "#000000", bg: "#ffffff" },
+    { fg: "#1f1d18", eyec: "#9a7400", bg: "#ffffff" },
+    { fg: "#13294b", eyec: "#a8812a", bg: "#ffffff" },
+    { fg: "#1d4b3b", eyec: "#1d4b3b", bg: "#ffffff" },
+    { fg: "#0b4f6c", eyec: "#01295f", bg: "#ffffff" },
+    { fg: "#6b1d2a", eyec: "#3a0f17", bg: "#ffffff" },
+    { fg: "#3d1f4f", eyec: "#8a3c6e", bg: "#ffffff" },
+    { fg: "#2f3640", eyec: "#d6402b", bg: "#ffffff" },
+    { fg: "#8a3b1e", eyec: "#5a2410", bg: "#fff6ee" },
+    { fg: "#4a2c1a", eyec: "#2b190e", bg: "#f5ece0" },
+    { fg: "#a01a3c", fg2: "#c4501a", grad: "diagonal", eyec: "#7a1230", bg: "#ffffff" },
+    { fg: "#0f5c4d", fg2: "#3b2a7a", grad: "diagonal", eyec: "#0f3d38", bg: "#ffffff" },
+    { fg: "#1b6ca8", fg2: "#0a1f44", grad: "radial", eyec: "#0a1f44", bg: "#ffffff" },
+    { fg: "#5b1f6e", fg2: "#b3245b", grad: "vertical", eyec: "#3d1450", bg: "#ffffff" },
+    { fg: "#1d4b3b", fg2: "#6b8e23", grad: "vertical", eyec: "#163a2e", bg: "#fbfaf3" },
+    { fg: "#13294b", fg2: "#4b2a7a", grad: "radial", eyec: "#a8812a", bg: "#ffffff" }
+  ];
+  var presetBtns = [];
+  function markPreset(o) {
+    var hit = -1;
+    presetBtns.forEach(function (b, i) {
+      var p = PRESETS[i], same = p.fg === o.fg && p.eyec === o.eyec && p.bg === o.bg && !!p.grad === o.grad &&
+        (!p.grad || (p.fg2 === o.fg2 && p.grad === o.gradDir));
+      b.setAttribute("aria-pressed", same ? "true" : "false");
+      if (same) hit = i;
+    });
+    $("presetName").textContent = hit < 0 ? t("custom") : t("presets")[hit];
+  }
+  var logo = null, timer = null, lastText = "", lastGeom = null, downloads, presetLabels = [];
+  var preview = document.createElement("canvas"), scanCv = document.createElement("canvas");
+
+  function radio(name) { var el = document.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : null; }
+  function setRadio(name, v) { var el = document.querySelector('input[name="' + name + '"][value="' + v + '"]'); if (el) el.checked = true; }
+
+  function applyLang(next) {
+    var prevDefault = t("defaultLabel");
+    lang = T[next] ? next : "da";
+    setRadio("lang", lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-t]").forEach(function (el) { var v = t(el.getAttribute("data-t")); if (typeof v === "string") el.textContent = v; });
+    document.querySelectorAll("[data-t-aria]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("data-t-aria"))); });
+    document.querySelectorAll("[data-t-alt]").forEach(function (el) { el.alt = t(el.getAttribute("data-t-alt")); });
+    document.querySelectorAll(".info").forEach(function (b) {
+      var name = b.previousElementSibling ? b.previousElementSibling.textContent : "";
+      b.setAttribute("aria-label", t("explain") + ": " + name);
+    });
+    presetBtns.forEach(function (b, i) { b.setAttribute("aria-label", t("presets")[i]); b.title = t("presets")[i]; });
+    if ($("labelText").value === prevDefault || $("labelText").value === T.da.defaultLabel || $("labelText").value === T.en.defaultLabel) $("labelText").value = t("defaultLabel");
+    $("logoBtn").textContent = logo ? t("replace") : t("addLogo");
+    try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
+  }
+
+  function opts() {
+    return {
+      shape: radio("shape"), dot: radio("dot"), eye: radio("eye"), bgShape: radio("bgshape"), ec: radio("ec"),
+      label: $("label").checked, labelText: $("labelText").value, labelW100: RQ.measureLabel($("labelText").value.trim()),
+      fill: $("fill").checked, ring: $("ring").checked,
+      fg: $("fg").value, eyec: $("eyec").value, bg: $("bg").value,
+      grad: $("grad").checked, fg2: $("fg2").value, gradDir: radio("gdir"),
+      logo: !!logo, logoSize: +$("logoSize").value / 100
+    };
+  }
+
+  function normalize(raw) {
+    var s = raw.trim();
+    if (s && !/\s/.test(s) && !/^[a-z][a-z0-9+.-]*:/i.test(s) && /^[\w-]+(\.[\w-]+)+(:\d+)?([/?#].*)?$/.test(s)) return { text: "https://" + s, added: true };
+    return { text: s, added: false };
+  }
+
+  function lum(hex) {
+    var n = parseInt(hex.slice(1), 16), c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+
+  function slug(text) {
+    var s = text;
+    try { var u = new URL(text); s = u.hostname + (u.pathname.length > 1 ? u.pathname : ""); } catch (e) {}
+    s = s.replace(/^www\./, "").replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "").toLowerCase().slice(0, 50);
+    return "qr-" + (s || "code");
+  }
+
+  function save() {
+    try {
+      var o = opts(); delete o.logo; delete o.labelW100;
+      localStorage.setItem("round-qr", JSON.stringify({ link: $("link").value, o: o, format: $("format").value, unit: unit(), sizes: chosen }));
+    } catch (e) {}
+  }
+  function restore() {
+    try {
+      var s = JSON.parse(localStorage.getItem("round-qr") || "null"); if (!s) return;
+      if (typeof s.link === "string") $("link").value = s.link;
+      var o = s.o || {};
+      ["shape", "dot", "eye", "ec"].forEach(function (k) { if (o[k]) setRadio(k, o[k]); });
+      if (typeof o.label === "boolean") $("label").checked = o.label;
+      if (typeof o.labelText === "string") $("labelText").value = o.labelText;
+      if (s.format) $("format").value = s.format;
+      if (s.unit === "px" || s.unit === "cm") setRadio("unit", s.unit);
+      if (s.sizes) { if (SIZES.px.indexOf(s.sizes.px) >= 0) chosen.px = s.sizes.px; if (SIZES.cm.indexOf(s.sizes.cm) >= 0) chosen.cm = s.sizes.cm; }
+      if (o.bgShape) setRadio("bgshape", o.bgShape);
+      if (typeof o.fill === "boolean") $("fill").checked = o.fill;
+      if (typeof o.ring === "boolean") $("ring").checked = o.ring;
+      ["fg", "eyec", "bg", "fg2"].forEach(function (k) { if (/^#[0-9a-f]{6}$/i.test(o[k] || "")) $(k).value = o[k]; });
+      if (typeof o.grad === "boolean") $("grad").checked = o.grad;
+      if (o.gradDir) setRadio("gdir", o.gradDir);
+      if (o.logoSize) $("logoSize").value = Math.round(o.logoSize * 100);
+    } catch (e) {}
+  }
+
+  var scanState = null;
+  function render() {
+    var n = normalize($("link").value), o = opts();
+    var hint = $("linkHint");
+    hint.hidden = !n.added; if (n.added) hint.textContent = t("encodedAs") + n.text;
+    lastText = n.text;
+
+    document.querySelectorAll(".circle-only").forEach(function (el) { el.hidden = o.shape === "square"; });
+    $("labelText").hidden = !o.label;
+    updateFormat();
+    document.querySelectorAll('input[name="ec"]').forEach(function (el) { el.disabled = !!logo; });
+    if (logo) setRadio("ec", "H");
+    $("ecVal").textContent = t("ecVal")[logo ? "H" : o.ec];
+    $("logoSizeVal").textContent = t("logoSize")($("logoSize").value);
+
+    $("gradOpts").hidden = !o.grad;
+    markPreset(o);
+    var lf = o.grad ? Math.max(lum(o.fg), lum(o.fg2)) : lum(o.fg), lb = lum(o.bg);
+    var cr = (Math.max(lf, lb) + 0.05) / (Math.min(lf, lb) + 0.05);
+    var ch = $("contrastHint");
+    if (lf > lb) { ch.hidden = false; ch.textContent = t("inverted"); }
+    else if (cr < 4) { ch.hidden = false; ch.textContent = t("lowContrast"); }
+    else ch.hidden = true;
+
+    $("empty").textContent = t("empty");
+    if (!n.text) {
+      $("out").hidden = true; $("empty").hidden = false; $("spec").textContent = "";
+      setScan(null, "noLink"); lastGeom = null; setButtons(); save(); return;
+    }
+    var g;
+    try { g = RQ.geometry(n.text, o); }
+    catch (e) {
+      $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("tooLongMsg");
+      setScan(null, "tooLong"); lastGeom = null; setButtons(); return;
+    }
+    lastGeom = g;
+    RQ.toCanvas(preview, g, o, logo, 1200);
+    $("out").src = preview.toDataURL("image/png");
+    $("out").hidden = false; $("empty").hidden = true;
+    $("spec").textContent = t("spec")(g);
+    runScan(n.text);
+    setButtons(); save();
+  }
+
+  function setScan(state, key) {
+    var p = $("scan"); p.className = "pill" + (state === true ? " ok" : state === false ? " warn" : ""); p.textContent = t(key);
+    $("note").hidden = state !== false;
+    if (state === false) $("note").textContent = t("scanNote");
+  }
+
+  function runScan(text) {
+    if (typeof jsQR === "undefined") { setScan(null, "scanNA"); return; }
+    var s = 720, pad = 50, ctx = scanCv.getContext("2d", { willReadFrequently: true });
+    scanCv.width = scanCv.height = s;
+    ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, s, s);
+    var h = Math.min(s - 2 * pad, (s - 2 * pad) * preview.height / preview.width);
+    ctx.drawImage(preview, pad, pad, s - 2 * pad, h);
+    var res = null;
+    try { res = jsQR(ctx.getImageData(0, 0, s, s).data, s, s, { inversionAttempts: "dontInvert" }); } catch (e) {}
+    if (res && res.data === text) setScan(true, "scanOk");
+    else if (res) setScan(false, "scanOther");
+    else setScan(false, "scanFail");
+  }
+
+  function schedule() { clearTimeout(timer); timer = setTimeout(render, 90); }
+  function setButtons() { $("saveBtn").disabled = !lastGeom; }
+  function msg(text, warn) { var m = $("saveMsg"); m.hidden = !text; m.textContent = text || ""; m.className = "hint" + (warn ? " warn" : ""); }
+
+  async function getDownloads() {
+    if (downloads !== undefined) return downloads;
+    try { downloads = window.claude && window.claude.use ? await window.claude.use("downloads") : null; } catch (e) { downloads = null; }
+    return downloads;
+  }
+
+  var SIZES = { px: [1024, 2048, 4096], cm: [2, 2.5, 3, 4, 5, 6, 8, 10, 15, 20, 30] };
+  var DEF = { px: 2048, cm: 5 }, chosen = { px: DEF.px, cm: DEF.cm }, DPI = 300;
+  function fmtCm(v, sep) { return String(v).replace(".", sep); }
+  function unit() { return radio("unit") || "px"; }
+  function fillSizes() {
+    var u = unit(), sel = $("size"), list = SIZES[u], dec = lang === "da" ? "," : ".";
+    if (list.indexOf(chosen[u]) < 0) chosen[u] = DEF[u];
+    sel.innerHTML = "";
+    list.forEach(function (v) {
+      var op = document.createElement("option"); op.value = v;
+      op.textContent = u === "px" ? v + " px" : fmtCm(v, dec) + " cm";
+      if (v === chosen[u]) op.selected = true; sel.appendChild(op);
+    });
+  }
+  function exportPx() { return unit() === "cm" ? Math.round(chosen.cm / 2.54 * DPI) : chosen.px; }
+  function updateSizeHint() {
+    var g = lastGeom, fmt = $("format").value, u = unit();
+    if (!g) { $("sizeHint").textContent = ""; return; }
+    var ratio = g.H / g.W, px = exportPx(), hpx = Math.round(px * ratio);
+    if (u === "cm") $("sizeHint").textContent = fmt === "svg" ? t("sizeCmSvg")(chosen.cm, Math.round(chosen.cm * ratio * 10) / 10) : t("sizeCm")(chosen.cm, px, hpx);
+    else $("sizeHint").textContent = fmt === "svg" ? "" : t("sizePx")(px, hpx);
+  }
+  // Physical size: PNG gets a pHYs chunk, JPG a JFIF density, both 300 DPI.
+  var CRC = (function () { var c, tb = []; for (var n = 0; n < 256; n++) { c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; tb[n] = c >>> 0; } return tb; })();
+  function crc32(bytes) { var c = 0xffffffff; for (var i = 0; i < bytes.length; i++) c = CRC[(c ^ bytes[i]) & 255] ^ (c >>> 8); return (c ^ 0xffffffff) >>> 0; }
+  async function withDpi(blob, jpg) {
+    var b = new Uint8Array(await blob.arrayBuffer());
+    if (jpg) {
+      if (b[2] === 0xff && b[3] === 0xe0 && String.fromCharCode(b[6], b[7], b[8], b[9]) === "JFIF") {
+        b[13] = 1; b[14] = DPI >> 8; b[15] = DPI & 255; b[16] = DPI >> 8; b[17] = DPI & 255;
+      }
+      return new Blob([b], { type: "image/jpeg" });
+    }
+    var ppm = Math.round(DPI / 0.0254), chunk = new Uint8Array(21), dv = new DataView(chunk.buffer);
+    dv.setUint32(0, 9); chunk.set([112, 72, 89, 115], 4); dv.setUint32(8, ppm); dv.setUint32(12, ppm); chunk[16] = 1;
+    dv.setUint32(17, crc32(chunk.subarray(4, 17)));
+    var out = new Uint8Array(b.length + 21); out.set(b.subarray(0, 33)); out.set(chunk, 33); out.set(b.subarray(33), 54);
+    return new Blob([out], { type: "image/png" });
+  }
+
+  function updateFormat() {
+    var fmt = $("format").value;
+    $("size").disabled = fmt === "svg" && unit() === "px";
+    $("saveBtn").textContent = t("save") + fmt.toUpperCase();
+    var sq = radio("shape") === "square";
+    $("formatHint").textContent = fmt === "png" ? t(sq ? "fmtPngSq" : "fmtPng") : fmt === "jpg" ? t("fmtJpg") : t("fmtSvg");
+    updateSizeHint();
+  }
+
+  async function doSave(kind) {
+    if (!lastGeom) return;
+    msg("");
+    var dl = await getDownloads();
+    var o = opts(), name = slug(lastText);
+    var data, filename;
+    var cmMode = unit() === "cm", suffix = cmMode ? "-" + String(chosen.cm).replace(".", "-") + "cm" : "";
+    if (kind === "svg") { data = RQ.toSVG(lastGeom, o, logo, cmMode ? chosen.cm : 0); filename = name + suffix + ".svg"; }
+    else {
+      var px = exportPx(), cv = document.createElement("canvas"), jpg = kind === "jpg";
+      RQ.toCanvas(cv, lastGeom, o, logo, px, jpg);
+      data = await new Promise(function (r) { cv.toBlob(r, jpg ? "image/jpeg" : "image/png", 0.95); });
+      if (cmMode) { try { data = await withDpi(data, jpg); } catch (e) {} }
+      filename = name + (suffix || "-" + px + "px") + (jpg ? ".jpg" : ".png");
+    }
+    if (!dl) {
+      // Ordinary web page: hand the file to the browser as a normal download.
+      try {
+        var blob = data instanceof Blob ? data : new Blob([data], { type: kind === "svg" ? "image/svg+xml" : "application/octet-stream" });
+        var href = URL.createObjectURL(blob), a = document.createElement("a");
+        a.href = href; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(href); }, 5000);
+        msg(t("saved")(filename));
+      } catch (err) { msg(t("noSave"), true); }
+      return;
+    }
+    try {
+      var r = await dl.save({ filename: filename, data: data });
+      msg(r && r.status === "delivered" ? t("sent") : t("saved")(filename));
+    } catch (e) {
+      var code = e && e.code;
+      if (code === "declined") msg("");
+      else if (code === "rate_limited") msg(t("busy"), true);
+      else msg(t("saveFail"), true);
+    }
+  }
+
+  // Presets
+  PRESETS.forEach(function (p) {
+    var b = document.createElement("button"), sw = document.createElement("span");
+    b.type = "button"; b.className = "preset"; b.setAttribute("aria-pressed", "false");
+    sw.className = "sw";
+    sw.style.background = !p.grad ? p.fg
+      : p.grad === "radial" ? "radial-gradient(circle, " + p.fg + ", " + p.fg2 + ")"
+      : "linear-gradient(" + (p.grad === "vertical" ? "180deg" : "135deg") + ", " + p.fg + ", " + p.fg2 + ")";
+    sw.style.setProperty("--sw-bg", p.bg); sw.style.setProperty("--sw-eye", p.eyec);
+    b.appendChild(sw); presetBtns.push(b);
+    b.addEventListener("click", function () {
+      $("fg").value = p.fg; $("eyec").value = p.eyec; $("bg").value = p.bg;
+      $("grad").checked = !!p.grad;
+      if (p.grad) { $("fg2").value = p.fg2; setRadio("gdir", p.grad); }
+      render();
+      b.scrollIntoView({ inline: "nearest", block: "nearest" });
+    });
+    $("presets").appendChild(b);
+  });
+
+  // Colour set strip arrows
+  function stripNav() {
+    var el = $("presets");
+    $("prevSet").disabled = el.scrollLeft <= 2;
+    $("nextSet").disabled = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+  }
+  $("prevSet").addEventListener("click", function () { $("presets").scrollBy({ left: -$("presets").clientWidth * 0.8 }); });
+  $("nextSet").addEventListener("click", function () { $("presets").scrollBy({ left: $("presets").clientWidth * 0.8 }); });
+  $("presets").addEventListener("scroll", stripNav, { passive: true });
+  window.addEventListener("resize", stripNav);
+  setTimeout(stripNav, 0);
+
+  // Info buttons
+  document.querySelectorAll(".info").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var ex = $(b.getAttribute("aria-controls")), open = b.getAttribute("aria-expanded") !== "true";
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+      if (ex) ex.hidden = !open;
+    });
+  });
+
+  // Logo
+  $("logoFile").addEventListener("change", function () {
+    var file = this.files && this.files[0]; if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      var img = new Image();
+      img.onload = function () {
+        logo = { img: img, src: reader.result, aspect: (img.naturalWidth || 1) / (img.naturalHeight || 1) };
+        $("logoThumb").src = reader.result; $("logoThumb").hidden = false;
+        $("logoRemove").hidden = false; $("logoSizeRow").hidden = false; $("logoBtn").textContent = t("replace");
+        render();
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+    this.value = "";
+  });
+  $("logoRemove").addEventListener("click", function () {
+    logo = null; $("logoThumb").hidden = true; this.hidden = true; $("logoSizeRow").hidden = true; $("logoBtn").textContent = t("addLogo");
+    render();
+  });
+
+  $("link").addEventListener("input", schedule);
+  document.querySelectorAll(".controls input").forEach(function (el) {
+    if (el.id === "link" || el.id === "logoFile") return;
+    el.addEventListener("input", schedule); el.addEventListener("change", schedule);
+  });
+  document.querySelectorAll('input[name="lang"]').forEach(function (el) {
+    el.addEventListener("change", function () { applyLang(el.value); fillSizes(); msg(""); if (typeof qrcode !== "undefined") render(); });
+  });
+  $("saveBtn").addEventListener("click", function () { doSave($("format").value); });
+  $("format").addEventListener("change", function () { updateFormat(); save(); });
+  $("size").addEventListener("change", function () { chosen[unit()] = +$("size").value; updateSizeHint(); save(); });
+  document.querySelectorAll('input[name="unit"]').forEach(function (el) {
+    el.addEventListener("change", function () { fillSizes(); updateFormat(); save(); });
+  });
+
+  restore();
+  var startLang = "da";
+  try { startLang = localStorage.getItem("round-qr-lang") || "da"; } catch (e) {}
+  applyLang(startLang);
+  fillSizes();
+  if (typeof qrcode === "undefined") {
+    $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
+    setScan(null, "notReady");
+  } else render();
+  if (document.fonts && document.fonts.load) document.fonts.load('600 40px "Bricolage Grotesque"').then(function () { if (typeof qrcode !== "undefined") render(); }, function () {});
+  getDownloads();
+})();
+</script>
