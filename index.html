@@ -199,6 +199,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 header .lang { margin-left: auto; align-self: center; }
 header .lang { padding: 4px; border-radius: 11px; }
 header .about { flex: 1 1 100%; margin: -4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); max-width: 78ch; }
+header .about .sig { display: inline-block; margin-top: 5px; color: var(--ink); font-weight: 500; }
 header .lang span { display: inline-flex; align-items: center; gap: 9px; padding: 8px 14px 8px 10px; border-radius: 8px; font-size: 14.5px; }
 .flag { width: 26px; height: 19px; flex: none; border-radius: 3px; box-shadow: 0 0 0 1px rgb(0 0 0 / 0.12); }
 header .lang input:not(:checked) + span .flag { opacity: 0.7; }
@@ -251,7 +252,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
       <label><input type="radio" name="lang" id="lang-da" value="da" checked><span><svg class="flag" viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg>Dansk</span></label>
       <label><input type="radio" name="lang" id="lang-en" value="en"><span><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="uk-t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>English</span></label>
     </div>
-    <p class="about" data-t="about">Jeg byggede Round QR sammen med AI til mine egne QR-koder og deler den nu med alle. Ingen abonnement, intet login og ingen reklamer. Bare et par glade sponsorer nederst på siden.</p>
+    <p class="about"><span data-t="about">Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder, og nu deler jeg det med alle. Der kommer aldrig abonnement, login eller reklamer. Det eneste er et par glade sponsorer nederst på siden.</span><br><span class="sig" data-t="aboutSig">Med venlig hilsen Kasper Bergstrøm</span></p>
   </header>
 
   <div class="grid">
@@ -692,7 +693,8 @@ var RQ = (function () {
       dlBtn: "Hent roundqr.html",
       footNote: "Ingen cookies og ingen sporing. Dine indstillinger gemmes kun i din egen browser.",
       subtitle: "Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.",
-      about: "Jeg byggede Round QR sammen med AI til mine egne QR-koder og deler den nu med alle. Ingen abonnement, intet login og ingen reklamer. Bare et par glade sponsorer nederst på siden.",
+      about: "Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder, og nu deler jeg det med alle. Der kommer aldrig abonnement, login eller reklamer. Det eneste er et par glade sponsorer nederst på siden.",
+      aboutSig: "Med venlig hilsen Kasper Bergstrøm",
       aPreview: "Forhåndsvisning", aSettings: "Indstillinger", aOut: "QR-kode", aFormat: "Filformat", aSize: "Billedbredde",
       link: "Link", shape: "Udseende", form: "Form", modules: "Moduler", eyes: "Hjørneøjne",
       fill: "Fyld cirklen med mønster", ring: "Ydre ring", background: "Baggrund",
@@ -750,7 +752,8 @@ var RQ = (function () {
       dlBtn: "Download roundqr.html",
       footNote: "No cookies and no tracking. Your settings are only stored in your own browser.",
       subtitle: "Paste a link, shape the code, save it as PNG, JPG or SVG.",
-      about: "I built Round QR with AI to make my own QR codes, and now I'm sharing it with everyone. No subscriptions, no logins and no ads. Just a few happy sponsors at the bottom of the page.",
+      about: "I built Round QR together with AI because I needed a good QR code tool myself, and now I'm sharing it with everyone. There will never be subscriptions, logins or ads. The only thing is a few happy sponsors at the bottom of the page.",
+      aboutSig: "Kind regards, Kasper Bergstrøm",
       aPreview: "Preview", aSettings: "Settings", aOut: "QR code", aFormat: "File format", aSize: "Image width",
       link: "Link", shape: "Shape", form: "Form", modules: "Modules", eyes: "Corner eyes",
       fill: "Fill circle with pattern", ring: "Outer ring", background: "Background",
