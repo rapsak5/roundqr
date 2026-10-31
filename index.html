@@ -9,8 +9,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#eef0ee" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0f1514" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141310" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://roundqr.dk/">
 <meta property="og:site_name" content="Round QR">
@@ -34,14 +34,15 @@
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/plex-mono-500.woff2) format("woff2")}
 /* Layout: tool page. Large preview stage left, compact control column right; stacks on phones with the preview first. */
 :root {
-  --bg: #eef0ee;
+  --bg: #f5f3ee;
   --surface: #ffffff;
-  --stage: #e3e7e5;
-  --ink: #15201d;
-  --muted: #5b6863;
-  --line: #d4dbd8;
-  --accent: #1e5b4f;
-  --accent-ink: #ffffff;
+  --stage: #ece8de;
+  --ink: #1f1d18;
+  --muted: #6b665a;
+  --line: #e0dbcf;
+  --accent: #c9a227;
+  --accent-strong: #8a6a00;
+  --accent-ink: #1f1d18;
   --ok: #2b7a4b;
   --ok-bg: #e2f1e7;
   --warn: #9c5118;
@@ -52,15 +53,15 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1514; --surface: #172020; --stage: #1d2726; --ink: #e5ebe8; --muted: #93a19c;
-    --line: #2a3533; --accent: #72c2ab; --accent-ink: #0b1311;
+    --bg: #141310; --surface: #1c1b17; --stage: #24221c; --ink: #ece8de; --muted: #a39d8e;
+    --line: #34312a; --accent: #f2c230; --accent-strong: #f7cb40; --accent-ink: #17150f;
     --ok: #7fd3a0; --ok-bg: #173226; --warn: #f2ab6b; --warn-bg: #36261a;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f1514; --surface: #172020; --stage: #1d2726; --ink: #e5ebe8; --muted: #93a19c;
-  --line: #2a3533; --accent: #72c2ab; --accent-ink: #0b1311;
+  --bg: #141310; --surface: #1c1b17; --stage: #24221c; --ink: #ece8de; --muted: #a39d8e;
+  --line: #34312a; --accent: #f2c230; --accent-strong: #f7cb40; --accent-ink: #17150f;
   --ok: #7fd3a0; --ok-bg: #173226; --warn: #f2ab6b; --warn-bg: #36261a;
   color-scheme: dark;
 }
@@ -133,7 +134,7 @@ input[type="text"], select {
 #link { font-family: var(--font-mono); font-size: 14px; }
 input:focus-visible, select:focus-visible, button:focus-visible, .seg input:focus-visible + span,
 .switch input:focus-visible + span, .file input:focus-visible + span {
-  outline: 2px solid var(--accent); outline-offset: 2px;
+  outline: 2px solid var(--accent-strong); outline-offset: 2px;
 }
 
 .seg { display: inline-flex; background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: 3px; gap: 2px; }
@@ -164,7 +165,7 @@ input[type="color"] { width: 100%; height: 36px; border: 1px solid var(--line); 
 .preset { flex: none; scroll-snap-align: start; width: 44px; height: 44px; display: grid; place-items: center; padding: 0;
   background: transparent; border: 2px solid transparent; border-radius: 50%; cursor: pointer; }
 .preset:hover { background: var(--bg); }
-.preset[aria-pressed="true"] { border-color: var(--accent); }
+.preset[aria-pressed="true"] { border-color: var(--accent-strong); }
 .preset .sw { position: relative; width: 32px; height: 32px; border-radius: 50%; display: block;
   border: 3px solid var(--sw-bg, #fff); box-shadow: 0 0 0 1px var(--line); }
 .preset .sw::after { content: ""; position: absolute; right: -4px; bottom: -4px; width: 12px; height: 12px; border-radius: 4px;
@@ -216,16 +217,16 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
 .sp-list li + li { border-top: 1px solid var(--line); }
 .sp { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; gap: 16px; align-items: start; padding: 16px 18px; color: inherit; text-decoration: none; }
 .sp:hover { background: var(--bg); }
-.sp:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 12px; }
+.sp:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: -3px; border-radius: 12px; }
 .sp-logo { width: 58px; height: 58px; border-radius: 13px; background: var(--plate); display: grid; place-items: center; padding: 6px; box-shadow: 0 0 0 1px var(--line); }
 .sp-logo img { width: 46px; height: 46px; object-fit: contain; display: block; }
 .sp-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .sp-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
 .sp-name { font-weight: 600; font-size: 15.5px; }
-.sp-url { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); }
+.sp-url { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent-strong); }
 .sp-text { font-size: 14px; line-height: 1.5; color: var(--muted); max-width: 64ch; }
 .sp-arrow { color: var(--muted); font-size: 18px; line-height: 1; align-self: center; }
-.sp:hover .sp-arrow { color: var(--accent); }
+.sp:hover .sp-arrow { color: var(--accent-strong); }
 @media (max-width: 480px) {
   .sp { grid-template-columns: 48px minmax(0, 1fr); gap: 14px; padding: 14px; }
   .sp-logo { width: 48px; height: 48px; border-radius: 11px; padding: 5px; }
@@ -366,8 +367,8 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
       <div class="group">
         <span class="label" data-t="colours">Farver</span>
         <div class="colors">
-          <label><span data-t="cCode">Kode</span><input type="color" id="fg" value="#15201d"></label>
-          <label><span data-t="cEyes">Øjne</span><input type="color" id="eyec" value="#15201d"></label>
+          <label><span data-t="cCode">Kode</span><input type="color" id="fg" value="#1f1d18"></label>
+          <label><span data-t="cEyes">Øjne</span><input type="color" id="eyec" value="#1f1d18"></label>
           <label><span data-t="background">Baggrund</span><input type="color" id="bg" value="#ffffff"></label>
         </div>
         <div class="field">
@@ -735,7 +736,7 @@ var RQ = (function () {
       gradient: "Farveforløb", cCode2: "Slutfarve", direction: "Retning", dDiagonal: "Diagonal", dVertical: "Lodret", dRadial: "Radial",
       exGrad: "Koden glider fra Kode til Slutfarve, så hold begge farver mørke.",
       presetsLbl: "Farvesæt", custom: "Egne farver", prev: "Forrige", next: "Næste",
-      presets: ["Blæk", "Sort", "Navy og guld", "Skov", "Hav", "Bordeaux", "Aubergine", "Grafit", "Terrakotta", "Kaffe", "Solnedgang", "Nordlys", "Dybhav", "Blomme", "Mos", "Nat"]
+      presets: ["Blæk", "Sort", "Guld", "Navy og guld", "Skov", "Hav", "Bordeaux", "Aubergine", "Grafit", "Terrakotta", "Kaffe", "Solnedgang", "Nordlys", "Dybhav", "Blomme", "Mos", "Nat"]
     },
     en: {
       spTitle: "Sponsors",
@@ -794,15 +795,16 @@ var RQ = (function () {
       gradient: "Gradient", cCode2: "End colour", direction: "Direction", dDiagonal: "Diagonal", dVertical: "Vertical", dRadial: "Radial",
       exGrad: "The code blends from Code to End colour, so keep both colours dark.",
       presetsLbl: "Colour sets", custom: "Custom", prev: "Previous", next: "Next",
-      presets: ["Ink", "Black", "Navy & gold", "Forest", "Ocean", "Burgundy", "Aubergine", "Graphite", "Terracotta", "Coffee", "Sunset", "Aurora", "Deep sea", "Plum", "Moss", "Night"]
+      presets: ["Ink", "Black", "Gold", "Navy & gold", "Forest", "Ocean", "Burgundy", "Aubergine", "Graphite", "Terracotta", "Coffee", "Sunset", "Aurora", "Deep sea", "Plum", "Moss", "Night"]
     }
   };
   var lang = "da";
   function t(k) { return T[lang][k]; }
 
   var PRESETS = [
-    { fg: "#15201d", eyec: "#15201d", bg: "#ffffff" },
+    { fg: "#1f1d18", eyec: "#1f1d18", bg: "#ffffff" },
     { fg: "#000000", eyec: "#000000", bg: "#ffffff" },
+    { fg: "#1f1d18", eyec: "#9a7400", bg: "#ffffff" },
     { fg: "#13294b", eyec: "#a8812a", bg: "#ffffff" },
     { fg: "#1d4b3b", eyec: "#1d4b3b", bg: "#ffffff" },
     { fg: "#0b4f6c", eyec: "#01295f", bg: "#ffffff" },
