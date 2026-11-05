@@ -1,4 +1,4 @@
-import base64, os, re
+import base64, json, os, re
 # Bygger index.html (hjemmesiden) og roundqr.html (offline-filen) ud fra src/round-qr.html.
 # Kør fra repo-roden: python3 tools/build.py
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -67,6 +67,55 @@ EN = {
  'dlBtn': 'Download roundqr.html',
  'footNote': 'No cookies and no tracking. Your settings are only stored in your own browser.',
 }
+# Tysk, norsk og svensk til sponsorer, download-boksen og bunden.
+SITE_LANGS = {
+ "de": {
+  "spTitle": "Sponsoren",
+  "spIntro": "Round QR ist kostenlos und werbefrei. Danke an alle, die die Seite unterstützen.",
+  "sp1": "Praxisnahe Workshops und Kurse zu KI für Mitarbeitende, Führungskräfte und Lehrende. Vom ersten Prompt bis zu festen Abläufen im Alltag.",
+  "sp2": "Video, Podcast und Livestreaming von Events. Zehnerkarten, feste Pakete oder ein Workshop, in dem ihr lernt, selbst zu produzieren.",
+  "sp3": "Zeiterfassung mit NFC. Ein Aufkleber an der Tür stempelt dich ein und aus, und die kostenlose App behält Stunden und Gleitzeit im Blick.",
+  "sp4": "Ein neuer dänischer Verlag mit Büchern über die Natur und die schönen Erlebnisse darin, für Kinder und Erwachsene.",
+  "sp5": "Cider aus England, Irland, Frankreich, Dänemark und den USA. Mit und ohne Alkohol, und mehrere davon sind Bio.",
+  "sp6": "Eine Konferenz über KI im Arbeitsleben für den Einzelnen, das Team und die Organisation. 11. Februar 2027 im Dansk Arkitektur Center.",
+  "sp7": "Hilft Pharmaunternehmen, KI verantwortungsvoll und mit dem Menschen im Mittelpunkt einzuführen. Beratung, Coaching und Workshops.",
+  "dlTitle": "Round QR herunterladen",
+  "dlText": "Das ganze Programm in einer HTML-Datei. Öffne sie im Browser und erstelle QR-Codes, auch ohne Internet. Es muss nichts installiert werden.",
+  "dlBtn": "roundqr.html herunterladen",
+  "footNote": "Keine Cookies und kein Tracking. Deine Einstellungen werden nur in deinem eigenen Browser gespeichert."
+ },
+ "no": {
+  "spTitle": "Sponsorer",
+  "spIntro": "Round QR er gratis og uten reklame. Takk til dem som støtter siden.",
+  "sp1": "Praktiske workshops og kurs i KI for ansatte, ledere og undervisere. Fra første prompt til faste arbeidsrutiner i hverdagen.",
+  "sp2": "Video, podkast og livestreaming av arrangementer. Klippekort, faste pakker eller en workshop der dere lærer å produsere selv.",
+  "sp3": "Timeregistrering med NFC. Et klistremerke ved døra stempler deg inn og ut, og den gratis appen holder styr på timer og fleks.",
+  "sp4": "Et nytt dansk forlag med bøker om naturen og de gode opplevelsene i den, for både barn og voksne.",
+  "sp5": "Cider fra England, Irland, Frankrike, Danmark og USA. Med og uten alkohol, og flere av dem er økologiske.",
+  "sp6": "En konferanse om KI i arbeidslivet for den enkelte, teamet og organisasjonen. 11. februar 2027 i Dansk Arkitektur Center.",
+  "sp7": "Hjelper legemiddelselskaper med å ta i bruk KI på en ansvarlig måte med mennesket i sentrum. Rådgivning, coaching og workshops.",
+  "dlTitle": "Last ned Round QR",
+  "dlText": "Hele programmet i én HTML-fil. Åpne den i nettleseren og lag QR-koder, også uten internett. Det er ingenting å installere.",
+  "dlBtn": "Last ned roundqr.html",
+  "footNote": "Ingen informasjonskapsler og ingen sporing. Innstillingene dine lagres bare i din egen nettleser."
+ },
+ "sv": {
+  "spTitle": "Sponsorer",
+  "spIntro": "Round QR är gratis och utan reklam. Tack till dem som stöttar sidan.",
+  "sp1": "Praktiska workshoppar och kurser i AI för medarbetare, chefer och lärare. Från första prompten till fasta arbetssätt i vardagen.",
+  "sp2": "Video, podd och livestreaming av evenemang. Klippkort, fasta paket eller en workshop där ni lär er att producera själva.",
+  "sp3": "Tidrapportering med NFC. Ett klistermärke vid dörren stämplar in och ut dig, och den kostnadsfria appen håller koll på timmar och flex.",
+  "sp4": "Ett nytt danskt förlag med böcker om naturen och de fina upplevelserna i den, för både barn och vuxna.",
+  "sp5": "Cider från England, Irland, Frankrike, Danmark och USA. Med och utan alkohol, och flera av dem är ekologiska.",
+  "sp6": "En konferens om AI i arbetslivet för individen, teamet och organisationen. 11 februari 2027 på Dansk Arkitektur Center.",
+  "sp7": "Hjälper läkemedelsföretag att börja använda AI på ett ansvarsfullt sätt med människan i centrum. Rådgivning, coachning och workshoppar.",
+  "dlTitle": "Ladda ner Round QR",
+  "dlText": "Hela programmet i en HTML-fil. Öppna den i webbläsaren och skapa QR-koder, även utan internet. Inget att installera.",
+  "dlBtn": "Ladda ner roundqr.html",
+  "footNote": "Inga kakor och ingen spårning. Dina inställningar sparas bara i din egen webbläsare."
+ }
+}
+
 def js_obj(d):
     import json
     return ''.join('      %s: %s,\n' % (k, json.dumps(v, ensure_ascii=False)) for k, v in d.items())
@@ -169,9 +218,12 @@ OFFLINE_FOOT = '''
   </footer>
 '''
 
-def add_strings(html, da, en):
-    html = html.replace('      subtitle: "Indsæt et link', js_obj(da) + '      subtitle: "Indsæt et link', 1)
-    html = html.replace('      subtitle: "Paste a link', js_obj(en) + '      subtitle: "Paste a link', 1)
+ANCHORS = {'da': '      subtitle: "Indsæt et link', 'en': '      subtitle: "Paste a link', 'de': '      subtitle: "Link einfügen',
+           'no': '      subtitle: "Lim inn en lenke', 'sv': '      subtitle: "Klistra in en länk'}
+def add_strings(html, per_lang):
+    for lg, d in per_lang.items():
+        assert html.count(ANCHORS[lg]) == 1, lg
+        html = html.replace(ANCHORS[lg], js_obj(d) + ANCHORS[lg], 1)
     return html
 
 def head(title, desc, extra=''):
@@ -209,11 +261,21 @@ off = JUL.sub('', body)
 assert 'julelys:' not in off and 'id="xbar"' not in off and 'setXmas' not in off
 off = off.replace('<style>\n', '<style>\n' + fontface(True) + '\n', 1)
 off = off.replace(END_WRAP, OFFLINE_FOOT + END_WRAP, 1).replace(CDN, libs(True), 1)
-off = add_strings(off, {'footNote': 'Virker uden internet. Ingen cookies og ingen sporing.'}, {'footNote': 'Works offline. No cookies and no tracking.'})
+off = add_strings(off, {'da': {'footNote': 'Virker uden internet. Ingen cookies og ingen sporing.'}, 'en': {'footNote': 'Works offline. No cookies and no tracking.'},
+  'de': {'footNote': 'Funktioniert ohne Internet. Keine Cookies und kein Tracking.'}, 'no': {'footNote': 'Virker uten internett. Ingen informasjonskapsler og ingen sporing.'},
+  'sv': {'footNote': 'Fungerar utan internet. Inga kakor och ingen spårning.'}})
 OFF_DA = 'Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder. Den er gratis, uden abonnement, login og reklamer, og virker også uden internet.'
 OFF_EN = "I built Round QR together with AI because I needed a good QR code tool myself. It's free, with no subscriptions, logins or ads, and it works offline too."
 off = re.sub(r'(      about: )"Jeg har udviklet[^"]*"', lambda m: m.group(1) + '"' + OFF_DA + '"', off)
 off = re.sub(r'(      about: )"I built Round QR[^"]*"', lambda m: m.group(1) + '"' + OFF_EN.replace('"', '\\"') + '"', off)
+OFF_ABOUT = {
+  'Ich habe Round QR': 'Ich habe Round QR zusammen mit KI entwickelt, weil mir selbst ein gutes Werkzeug für QR-Codes fehlte. Es ist kostenlos, ohne Abo, Login und Werbung, und funktioniert auch ohne Internet.',
+  'Jeg har utviklet': 'Jeg har utviklet Round QR sammen med KI fordi jeg selv manglet et godt verktøy for QR-koder. Det er gratis, uten abonnement, innlogging og reklame, og virker også uten internett.',
+  'Jag har utvecklat': 'Jag har utvecklat Round QR tillsammans med AI eftersom jag själv saknade ett bra verktyg för QR-koder. Det är gratis, utan prenumeration, inloggning och reklam, och fungerar även utan internet.',
+}
+for start, text in OFF_ABOUT.items():
+    off, n = re.subn(r'(      about: )"' + start + r'[^"]*"', lambda m, text=text: m.group(1) + json.dumps(text, ensure_ascii=False), off)
+    assert n == 1, start
 off = re.sub(r'<span data-t="about">[^<]*</span>', '<span data-t="about">' + OFF_DA + '</span>', off)
 off = head('Round QR', DESC, '<link rel="icon" href="data:image/svg+xml;base64,' + base64.b64encode(open(OUT + '/favicon.svg','rb').read()).decode() + '">\n') + off + '\n</body>\n</html>\n'
 assert 'cdn.jsdelivr' not in off and 'googleapis' not in off
@@ -225,7 +287,7 @@ dl_size = f'{round(size/1024)} KB'
 site = body.replace('<style>\n', '<style>\n' + fontface(False) + '\n', 1)
 site = site.replace('</style>', SECTION_CSS + '</style>', 1)
 site = site.replace(END_WRAP, site_sections(dl_size) + END_WRAP, 1).replace(CDN, libs(False), 1)
-site = add_strings(site, DA, EN)
+site = add_strings(site, dict({'da': DA, 'en': EN}, **SITE_LANGS))
 SITE_META = '''<link rel="canonical" href="https://roundqr.dk/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">

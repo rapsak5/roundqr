@@ -174,9 +174,15 @@ header .lang { margin-left: auto; align-self: center; }
 header .lang { padding: 4px; border-radius: 11px; }
 header .about { flex: 1 1 100%; margin: -4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); max-width: 78ch; }
 header .about .sig { display: inline-block; margin-top: 5px; color: var(--ink); font-weight: 500; }
-header .lang span { display: inline-flex; align-items: center; gap: 9px; padding: 8px 14px 8px 10px; border-radius: 8px; font-size: 14.5px; }
+header .lang label > span { display: inline-flex; align-items: center; gap: 9px; padding: 8px 14px 8px 10px; border-radius: 8px; font-size: 14.5px; }
 .flag { width: 26px; height: 19px; flex: none; border-radius: 3px; box-shadow: 0 0 0 1px rgb(0 0 0 / 0.12); }
 header .lang input:not(:checked) + span .flag { opacity: 0.7; }
+header .lang { flex-wrap: wrap; }
+header .lang .ln { display: inline; padding: 0; border-radius: 0; }
+@media (max-width: 760px) {
+  header .lang label > span { padding: 8px 10px; }
+  header .lang .ln { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 /* julelys:start */
@@ -301,9 +307,12 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
   <header>
     <h1>R<span class="o"></span>und QR</h1>
     <p data-t="subtitle">Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.</p>
-    <div class="seg lang" role="radiogroup" aria-label="Sprog / Language">
-      <label><input type="radio" name="lang" id="lang-da" value="da" checked><span><svg class="flag" viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg>Dansk</span></label>
-      <label><input type="radio" name="lang" id="lang-en" value="en"><span><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="uk-t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>English</span></label>
+    <div class="seg lang" role="radiogroup" aria-label="Sprog / Language / Sprache / Språk">
+      <label><input type="radio" name="lang" id="lang-da" value="da" checked><span><svg class="flag" viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg><span class="ln">Dansk</span></span></label>
+      <label><input type="radio" name="lang" id="lang-en" value="en"><span><svg class="flag" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="uk-t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg><span class="ln">English</span></span></label>
+      <label><input type="radio" name="lang" id="lang-de" value="de"><span><svg class="flag" viewBox="0 0 5 3" preserveAspectRatio="none" aria-hidden="true"><rect width="5" height="3" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg><span class="ln">Deutsch</span></span></label>
+      <label><input type="radio" name="lang" id="lang-no" value="no"><span><svg class="flag" viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg><span class="ln">Norsk</span></span></label>
+      <label><input type="radio" name="lang" id="lang-sv" value="sv"><span><svg class="flag" viewBox="0 0 16 10" aria-hidden="true"><rect width="16" height="10" fill="#006AA7"/><rect x="5" width="2" height="10" fill="#FECC00"/><rect y="4" width="16" height="2" fill="#FECC00"/></svg><span class="ln">Svenska</span></span></label>
     </div>
     <p class="about"><span data-t="about">Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder, og nu deler jeg det med alle. Der kommer aldrig abonnement, login eller reklamer. Det eneste er et par glade sponsorer nederst på siden.</span><br><span class="sig" data-t="aboutSig">Med venlig hilsen Kasper Bergstrøm</span></p>
   </header>
@@ -976,6 +985,360 @@ var RQ = (function () {
       exFormXmas: "Circle and Square are the classics. The Christmas shapes put the code in the middle and fill the rest of the shape with pattern.",
       exModulesXmas: "The Christmas shapes cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
       exEyesXmas: "The three big squares the phone uses to find the code. Circle looks like baubles."
+    },
+    de: {
+      subtitle: "Link einfügen, Code gestalten und als PNG, JPG oder SVG speichern.",
+      about: "Ich habe Round QR zusammen mit KI entwickelt, weil mir selbst ein gutes Werkzeug für QR-Codes fehlte, und jetzt teile ich es mit allen. Es wird nie Abos, Logins oder Werbung geben. Das Einzige sind ein paar fröhliche Sponsoren unten auf der Seite.",
+      aboutSig: "Viele Grüße, Kasper Bergstrøm",
+      aPreview: "Vorschau",
+      aSettings: "Einstellungen",
+      aOut: "QR-Code",
+      aFormat: "Dateiformat",
+      aSize: "Bildbreite",
+      link: "Link",
+      shape: "Aussehen",
+      form: "Form",
+      modules: "Module",
+      eyes: "Eckaugen",
+      fill: "Kreis mit Muster füllen",
+      ring: "Äußerer Ring",
+      background: "Hintergrund",
+      circle: "Kreis",
+      square: "Quadrat",
+      dots: "Punkte",
+      roundedPl: "Abgerundet",
+      squaresPl: "Quadrate",
+      rounded: "Abgerundet",
+      textBelow: "Text unter dem Code",
+      showText: "Text unter dem Code anzeigen",
+      defaultLabel: "Scan mich",
+      colours: "Farben",
+      cCode: "Code",
+      cEyes: "Augen",
+      logo: "Logo in der Mitte",
+      addLogo: "Logo hinzufügen",
+      replace: "Ersetzen",
+      remove: "Entfernen",
+      size: "Größe",
+      ec: "Fehlerkorrektur",
+      ecHint: "Eine höhere Stufe verträgt Schmutz, Abnutzung und Logos, macht den Code aber dichter. Mit Logo wird sie auf H festgelegt.",
+      ecVal: {"L": "ca. 7 % wiederherstellbar", "M": "ca. 15 % wiederherstellbar", "Q": "ca. 25 % wiederherstellbar", "H": "ca. 30 % wiederherstellbar"},
+      explain: "Erklärung",
+      exForm: "Kreis ergibt einen runden, verzierten Code, Quadrat ist der klassische QR-Code.",
+      exModules: "Die kleinen Felder, aus denen der Code selbst besteht.",
+      exEyes: "Die drei großen Quadrate, mit denen das Handy den Code findet.",
+      exFill: "Zierpunkte ohne Daten, die den Code rund aussehen lassen.",
+      exRing: "Ein dünner Zierring um den Kreis.",
+      exBg: "Kreis ergibt transparente Ecken, Quadrat einen gefüllten Hintergrund.",
+      exLogo: "Das Logo verdeckt die Mitte, deshalb wechselt die Fehlerkorrektur automatisch auf H.",
+      exEc: "Wie viel vom Code beschädigt sein darf, bevor er nicht mehr lesbar ist.",
+      checking: "Wird geprüft…",
+      scanOk: "Lässt sich scannen",
+      scanOther: "Wird als etwas anderes gelesen",
+      scanFail: "Konnte nicht gescannt werden",
+      noLink: "Noch kein Link",
+      tooLong: "Zu lang",
+      scanNA: "Scanprüfung nicht verfügbar",
+      notReady: "Nicht bereit",
+      scanNote: "Der eingebaute Scanner konnte den Code nicht lesen. Versuche mehr Kontrast, ein kleineres Logo, eckige Augen oder schalte die Musterfüllung aus. Teste immer mit deinem Handy, bevor du druckst.",
+      encodedAs: "Wird codiert als ",
+      empty: "Gib im Feld Link einen Link ein, um einen Code zu erstellen.",
+      tooLongMsg: "Der Text ist zu lang für einen QR-Code. Versuche einen kürzeren Link.",
+      libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
+      inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
+      lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      save: function (f) { return f + " speichern"; },
+      aUnit: "Einheit",
+      uPx: "Pixel",
+      uCm: "Zentimeter",
+      fmtPng: "PNG behält transparente Ecken um einen runden Code.",
+      fmtPngSq: "PNG ist scharf und funktioniert überall, am Bildschirm und in Dokumenten.",
+      fmtJpg: "JPG kann nicht transparent sein, daher bekommen die Ecken die Hintergrundfarbe.",
+      fmtSvg: "SVG lässt sich beliebig skalieren und eignet sich für den Druck. Der Text nutzt eine Ersatzschrift, wenn die Schriftart nicht installiert ist.",
+      noSave: "Speichern ist in dieser Ansicht nicht möglich. Klicke mit rechts auf das Bild oder halte den Finger darauf, um es zu speichern.",
+      saved: function (f) { return "Gespeichert: " + f; },
+      sent: "Gesendet.",
+      busy: "Es ist bereits ein Speicherfenster offen. Schließe es zuerst.",
+      saveFail: "Die Datei konnte hier nicht gespeichert werden. Klicke mit rechts auf das Bild oder halte den Finger darauf, um es stattdessen zu speichern.",
+      gradient: "Farbverlauf",
+      cCode2: "Endfarbe",
+      direction: "Richtung",
+      dDiagonal: "Diagonal",
+      dVertical: "Senkrecht",
+      dRadial: "Radial",
+      exGrad: "Der Code geht von Code zu Endfarbe über, halte also beide Farben dunkel.",
+      presetsLbl: "Farbsets",
+      custom: "Eigene Farben",
+      prev: "Zurück",
+      next: "Weiter",
+      presets: ["Tinte", "Schwarz", "Gold", "Marine und Gold", "Wald", "Meer", "Bordeaux", "Aubergine", "Graphit", "Terrakotta", "Kaffee", "Sonnenuntergang", "Nordlicht", "Tiefsee", "Pflaume", "Moos", "Nacht"],
+      presetsXmas: ["Weihnachtsrot", "Fichte", "Wichtelmütze", "Tannenbaum", "Glühwein", "Rot und Grün", "Lebkuchen", "Heiligabend"],
+      xmasAria: "Weihnachtslichter",
+      xmasLabel: "Weihnachtslichter einschalten",
+      xmasLabelXmas: "Die Weihnachtslichter sind an",
+      xmasHint: "Herzen, Tannenbäume, Geschenke und Wichtel statt Punkten. Und ziemlich viel Schnee.",
+      xmasHintXmas: "Schalte sie wieder aus, dann bekommst du das normale Round QR und deine eigenen Farben zurück.",
+      subtitleXmas: "Die Weihnachtsausgabe. Link einfügen, Code schmücken und als PNG, JPG oder SVG speichern.",
+      hearts: "Herzen",
+      trees: "Bäume",
+      gifts: "Geschenke",
+      stars: "Sterne",
+      santas: "Wichtel",
+      mix: "Gemischt",
+      defaultLabelXmas: "Frohe Weihnachten",
+      sHeart: "Herz",
+      sTree: "Tannenbaum",
+      sGift: "Geschenk",
+      sStar: "Stern",
+      sSanta: "Wichtel",
+      sBauble: "Kugel",
+      fillXmas: "Form mit Muster füllen",
+      exFillXmas: "Zierpunkte ohne Daten, die die Form um den Code herum ausfüllen.",
+      exRingXmas: "Ein dünner Zierring entlang des Formrands.",
+      exFormXmas: "Kreis und Quadrat sind die Klassiker. Die Weihnachtsformen setzen den Code in die Mitte und füllen den Rest der Form mit Muster.",
+      exModulesXmas: "Die Weihnachtsformen decken die Mitte jedes Feldes ab, wo das Handy hinschaut. Behalte die Anzeige unter dem Code im Blick.",
+      exEyesXmas: "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie Christbaumkugeln.",
+      logoSize: function (n) { return n + " % der Codebreite"; },
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm breit im Druck · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG in " + fmtCm(cm, ",") + " × " + fmtCm(hcm, ",") + " cm. Scharf in jeder Größe."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; }
+    },
+    no: {
+      subtitle: "Lim inn en lenke, gi koden form, og lagre den som PNG, JPG eller SVG.",
+      about: "Jeg har utviklet Round QR sammen med KI fordi jeg selv manglet et godt verktøy for QR-koder, og nå deler jeg det med alle. Det kommer aldri abonnement, innlogging eller reklame. Det eneste er noen glade sponsorer nederst på siden.",
+      aboutSig: "Med vennlig hilsen Kasper Bergstrøm",
+      aPreview: "Forhåndsvisning",
+      aSettings: "Innstillinger",
+      aOut: "QR-kode",
+      aFormat: "Filformat",
+      aSize: "Bildebredde",
+      link: "Lenke",
+      shape: "Utseende",
+      form: "Form",
+      modules: "Moduler",
+      eyes: "Hjørneøyne",
+      fill: "Fyll sirkelen med mønster",
+      ring: "Ytre ring",
+      background: "Bakgrunn",
+      circle: "Sirkel",
+      square: "Firkant",
+      dots: "Prikker",
+      roundedPl: "Avrundede",
+      squaresPl: "Firkanter",
+      rounded: "Avrundet",
+      textBelow: "Tekst under koden",
+      showText: "Vis tekst under koden",
+      defaultLabel: "Skann meg",
+      colours: "Farger",
+      cCode: "Kode",
+      cEyes: "Øyne",
+      logo: "Logo i midten",
+      addLogo: "Legg til logo",
+      replace: "Bytt",
+      remove: "Fjern",
+      size: "Størrelse",
+      ec: "Feilretting",
+      ecHint: "Høyere nivå tåler skitt, slitasje og logoer, men gir en tettere kode. Med logo låses den til H.",
+      ecVal: {"L": "ca. 7 % kan gjenopprettes", "M": "ca. 15 % kan gjenopprettes", "Q": "ca. 25 % kan gjenopprettes", "H": "ca. 30 % kan gjenopprettes"},
+      explain: "Forklaring",
+      exForm: "Sirkel gir en rund kode med pynt, Firkant er den klassiske QR-koden.",
+      exModules: "De små feltene som selve koden er bygget av.",
+      exEyes: "De tre store firkantene telefonen bruker for å finne koden.",
+      exFill: "Pynteprikker uten data som får koden til å se rund ut.",
+      exRing: "En tynn pyntering rundt sirkelen.",
+      exBg: "Sirkel gir gjennomsiktige hjørner, Firkant gir en fylt bakgrunn.",
+      exLogo: "Logoen dekker midten, så feilrettingen bytter automatisk til H.",
+      exEc: "Hvor stor del av koden som kan være skadet før den ikke kan leses.",
+      checking: "Sjekker…",
+      scanOk: "Kan skannes",
+      scanOther: "Leses som noe annet",
+      scanFail: "Kunne ikke skannes",
+      noLink: "Ingen lenke ennå",
+      tooLong: "For lang",
+      scanNA: "Skannersjekk ikke tilgjengelig",
+      notReady: "Ikke klar",
+      scanNote: "Den innebygde skanneren kunne ikke lese koden. Prøv mer kontrast, en mindre logo, firkantede øyne eller slå av mønsterfyll. Test alltid med telefonen før du trykker.",
+      encodedAs: "Kodes som ",
+      empty: "Skriv en lenke i feltet Lenke for å lage en kode.",
+      tooLongMsg: "Teksten er for lang for en QR-kode. Prøv en kortere lenke.",
+      libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
+      inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
+      lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      save: "Lagre ",
+      aUnit: "Enhet",
+      uPx: "Piksler",
+      uCm: "Centimeter",
+      fmtPng: "PNG beholder gjennomsiktige hjørner rundt en rund kode.",
+      fmtPngSq: "PNG er skarp og fungerer overalt, både på skjerm og i dokumenter.",
+      fmtJpg: "JPG kan ikke være gjennomsiktig, så hjørnene får bakgrunnsfargen.",
+      fmtSvg: "SVG kan skaleres til alle størrelser og passer til trykk. Teksten bruker en reserveskrift hvis skrifttypen ikke er installert.",
+      noSave: "Lagring er ikke mulig i denne visningen. Høyreklikk eller hold fingeren på bildet for å lagre det.",
+      saved: function (f) { return "Lagret: " + f; },
+      sent: "Sendt.",
+      busy: "Et lagringsvindu er allerede åpent. Fullfør det først.",
+      saveFail: "Filen kunne ikke lagres her. Høyreklikk eller hold fingeren på bildet for å lagre det i stedet.",
+      gradient: "Fargeovergang",
+      cCode2: "Sluttfarge",
+      direction: "Retning",
+      dDiagonal: "Diagonal",
+      dVertical: "Loddrett",
+      dRadial: "Radial",
+      exGrad: "Koden glir fra Kode til Sluttfarge, så hold begge fargene mørke.",
+      presetsLbl: "Fargesett",
+      custom: "Egne farger",
+      prev: "Forrige",
+      next: "Neste",
+      presets: ["Blekk", "Svart", "Gull", "Marine og gull", "Skog", "Hav", "Bordeaux", "Aubergine", "Grafitt", "Terrakotta", "Kaffe", "Solnedgang", "Nordlys", "Dyphav", "Plomme", "Mose", "Natt"],
+      presetsXmas: ["Julerød", "Gran", "Nisselue", "Juletre", "Gløgg", "Rødt og grønt", "Pepperkake", "Julaften"],
+      xmasAria: "Julelys",
+      xmasLabel: "Tenn julelysene",
+      xmasLabelXmas: "Julelysene er tent",
+      xmasHint: "Hjerter, juletrær, gaver og nisser i stedet for prikker. Og en god del snø.",
+      xmasHintXmas: "Slå det av igjen, så får du den vanlige Round QR og dine egne farger tilbake.",
+      subtitleXmas: "Juleutgaven. Lim inn en lenke, pynt koden, og lagre den som PNG, JPG eller SVG.",
+      hearts: "Hjerter",
+      trees: "Trær",
+      gifts: "Gaver",
+      stars: "Stjerner",
+      santas: "Nisser",
+      mix: "Blandet",
+      defaultLabelXmas: "God jul",
+      sHeart: "Hjerte",
+      sTree: "Juletre",
+      sGift: "Gave",
+      sStar: "Stjerne",
+      sSanta: "Nisse",
+      sBauble: "Julekule",
+      fillXmas: "Fyll formen med mønster",
+      exFillXmas: "Pynteprikker uten data som fyller ut formen rundt koden.",
+      exRingXmas: "En tynn pyntering langs kanten av formen.",
+      exFormXmas: "Sirkel og Firkant er de klassiske. Juleformene legger koden i midten og fyller resten av formen med mønster.",
+      exModulesXmas: "Juleformene dekker midten av hvert felt, der telefonen ser. Følg med på merket under koden.",
+      exEyesXmas: "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner julekuler.",
+      logoSize: function (n) { return n + " % av kodens bredde"; },
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred på trykk · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG i " + fmtCm(cm, ",") + " × " + fmtCm(hcm, ",") + " cm. Skarp i alle størrelser."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; }
+    },
+    sv: {
+      subtitle: "Klistra in en länk, ge koden form och spara den som PNG, JPG eller SVG.",
+      about: "Jag har utvecklat Round QR tillsammans med AI eftersom jag själv saknade ett bra verktyg för QR-koder, och nu delar jag det med alla. Det kommer aldrig att bli prenumerationer, inloggning eller reklam. Det enda är några glada sponsorer längst ner på sidan.",
+      aboutSig: "Med vänliga hälsningar Kasper Bergstrøm",
+      aPreview: "Förhandsvisning",
+      aSettings: "Inställningar",
+      aOut: "QR-kod",
+      aFormat: "Filformat",
+      aSize: "Bildbredd",
+      link: "Länk",
+      shape: "Utseende",
+      form: "Form",
+      modules: "Moduler",
+      eyes: "Hörnögon",
+      fill: "Fyll cirkeln med mönster",
+      ring: "Yttre ring",
+      background: "Bakgrund",
+      circle: "Cirkel",
+      square: "Fyrkant",
+      dots: "Prickar",
+      roundedPl: "Rundade",
+      squaresPl: "Fyrkanter",
+      rounded: "Rundad",
+      textBelow: "Text under koden",
+      showText: "Visa text under koden",
+      defaultLabel: "Skanna mig",
+      colours: "Färger",
+      cCode: "Kod",
+      cEyes: "Ögon",
+      logo: "Logga i mitten",
+      addLogo: "Lägg till logga",
+      replace: "Byt",
+      remove: "Ta bort",
+      size: "Storlek",
+      ec: "Felkorrigering",
+      ecHint: "Högre nivå tål smuts, slitage och loggor men ger en tätare kod. Med logga låses den till H.",
+      ecVal: {"L": "ca. 7 % kan återställas", "M": "ca. 15 % kan återställas", "Q": "ca. 25 % kan återställas", "H": "ca. 30 % kan återställas"},
+      explain: "Förklaring",
+      exForm: "Cirkel ger en rund kod med dekor, Fyrkant är den klassiska QR-koden.",
+      exModules: "De små rutorna som själva koden är uppbyggd av.",
+      exEyes: "De tre stora fyrkanterna som telefonen använder för att hitta koden.",
+      exFill: "Dekorprickar utan data som får koden att se rund ut.",
+      exRing: "En tunn dekorring runt cirkeln.",
+      exBg: "Cirkel ger genomskinliga hörn, Fyrkant ger en fylld bakgrund.",
+      exLogo: "Loggan täcker mitten, så felkorrigeringen byter automatiskt till H.",
+      exEc: "Hur stor del av koden som får vara skadad innan den inte kan läsas.",
+      checking: "Kontrollerar…",
+      scanOk: "Kan skannas",
+      scanOther: "Läses som något annat",
+      scanFail: "Kunde inte skannas",
+      noLink: "Ingen länk än",
+      tooLong: "För lång",
+      scanNA: "Skannerkontroll inte tillgänglig",
+      notReady: "Inte klar",
+      scanNote: "Den inbyggda skannern kunde inte läsa koden. Prova mer kontrast, en mindre logga, fyrkantiga ögon eller stäng av mönsterfyllningen. Testa alltid med telefonen innan du trycker.",
+      encodedAs: "Kodas som ",
+      empty: "Skriv en länk i fältet Länk för att skapa en kod.",
+      tooLongMsg: "Texten är för lång för en QR-kod. Prova en kortare länk.",
+      libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
+      inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
+      lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      save: "Spara ",
+      aUnit: "Enhet",
+      uPx: "Pixlar",
+      uCm: "Centimeter",
+      fmtPng: "PNG behåller genomskinliga hörn runt en rund kod.",
+      fmtPngSq: "PNG är skarp och fungerar överallt, både på skärm och i dokument.",
+      fmtJpg: "JPG kan inte vara genomskinlig, så hörnen får bakgrundsfärgen.",
+      fmtSvg: "SVG kan skalas till alla storlekar och passar för tryck. Texten använder ett reservtypsnitt om typsnittet inte är installerat.",
+      noSave: "Det går inte att spara i den här vyn. Högerklicka eller håll fingret på bilden för att spara den.",
+      saved: function (f) { return "Sparad: " + f; },
+      sent: "Skickad.",
+      busy: "Ett sparfönster är redan öppet. Avsluta det först.",
+      saveFail: "Filen kunde inte sparas här. Högerklicka eller håll fingret på bilden för att spara den i stället.",
+      gradient: "Färgövergång",
+      cCode2: "Slutfärg",
+      direction: "Riktning",
+      dDiagonal: "Diagonal",
+      dVertical: "Lodrät",
+      dRadial: "Radiell",
+      exGrad: "Koden övergår från Kod till Slutfärg, så håll båda färgerna mörka.",
+      presetsLbl: "Färgset",
+      custom: "Egna färger",
+      prev: "Föregående",
+      next: "Nästa",
+      presets: ["Bläck", "Svart", "Guld", "Marin och guld", "Skog", "Hav", "Bordeaux", "Aubergine", "Grafit", "Terrakotta", "Kaffe", "Solnedgång", "Norrsken", "Djuphav", "Plommon", "Mossa", "Natt"],
+      presetsXmas: ["Julröd", "Gran", "Tomteluva", "Julgran", "Glögg", "Rött och grönt", "Pepparkaka", "Julafton"],
+      xmasAria: "Julbelysning",
+      xmasLabel: "Tänd julbelysningen",
+      xmasLabelXmas: "Julbelysningen är tänd",
+      xmasHint: "Hjärtan, julgranar, paket och tomtar i stället för prickar. Och en hel del snö.",
+      xmasHintXmas: "Stäng av den igen så får du tillbaka vanliga Round QR och dina egna färger.",
+      subtitleXmas: "Julutgåvan. Klistra in en länk, pynta koden och spara den som PNG, JPG eller SVG.",
+      hearts: "Hjärtan",
+      trees: "Granar",
+      gifts: "Paket",
+      stars: "Stjärnor",
+      santas: "Tomtar",
+      mix: "Blandat",
+      defaultLabelXmas: "God jul",
+      sHeart: "Hjärta",
+      sTree: "Julgran",
+      sGift: "Paket",
+      sStar: "Stjärna",
+      sSanta: "Tomte",
+      sBauble: "Julkula",
+      fillXmas: "Fyll formen med mönster",
+      exFillXmas: "Dekorprickar utan data som fyller ut formen runt koden.",
+      exRingXmas: "En tunn dekorring längs formens kant.",
+      exFormXmas: "Cirkel och Fyrkant är de klassiska. Julformerna lägger koden i mitten och fyller resten av formen med mönster.",
+      exModulesXmas: "Julformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
+      exEyesXmas: "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som julgranskulor.",
+      logoSize: function (n) { return n + " % av kodens bredd"; },
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred i tryck · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG i " + fmtCm(cm, ",") + " × " + fmtCm(hcm, ",") + " cm. Skarp i alla storlekar."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; }
     }
   };
   var lang = "da", xmas = false;
@@ -1032,7 +1395,7 @@ var RQ = (function () {
     var prevDefault = t("defaultLabel");
     lang = T[next] ? next : "da";
     setRadio("lang", lang);
-    document.documentElement.lang = lang;
+    document.documentElement.lang = lang === "no" ? "nb" : lang;
     document.querySelectorAll("[data-t]").forEach(function (el) { var v = t(el.getAttribute("data-t")); if (typeof v === "string") el.textContent = v; });
     document.querySelectorAll("[data-t-aria]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("data-t-aria"))); });
     document.querySelectorAll("[data-t-alt]").forEach(function (el) { el.alt = t(el.getAttribute("data-t-alt")); });
@@ -1046,7 +1409,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return [T.da.defaultLabel, T.en.defaultLabel, T.da.defaultLabelXmas, T.en.defaultLabelXmas].indexOf(v) >= 0; }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v; }); }
 
   function opts() {
     return {
@@ -1183,7 +1546,7 @@ var RQ = (function () {
   function fmtCm(v, sep) { return String(v).replace(".", sep); }
   function unit() { return radio("unit") || "px"; }
   function fillSizes() {
-    var u = unit(), sel = $("size"), list = SIZES[u], dec = lang === "da" ? "," : ".";
+    var u = unit(), sel = $("size"), list = SIZES[u], dec = lang === "en" ? "." : ",";
     if (list.indexOf(chosen[u]) < 0) chosen[u] = DEF[u];
     sel.innerHTML = "";
     list.forEach(function (v) {
@@ -1221,7 +1584,8 @@ var RQ = (function () {
   function updateFormat() {
     var fmt = $("format").value;
     $("size").disabled = fmt === "svg" && unit() === "px";
-    $("saveBtn").textContent = t("save") + fmt.toUpperCase();
+    var sv = t("save");
+    $("saveBtn").textContent = typeof sv === "function" ? sv(fmt.toUpperCase()) : sv + fmt.toUpperCase();
     var sq = radio("shape") === "square";
     $("formatHint").textContent = fmt === "png" ? t(sq ? "fmtPngSq" : "fmtPng") : fmt === "jpg" ? t("fmtJpg") : t("fmtSvg");
     updateSizeHint();
@@ -1523,8 +1887,14 @@ var RQ = (function () {
     if (xs && xs.on) { xmasPrev = xs.prev || null; xmas = true; document.documentElement.classList.add("xmas"); PRESETS = XMAS_SETS; buildPresets(); }
   } catch (e) {}
   /* julelys:end */
-  var startLang = "da";
-  try { startLang = localStorage.getItem("round-qr-lang") || "da"; } catch (e) {}
+  var startLang = null;
+  try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
+  if (!startLang) {
+    // First visit: follow the browser's language when we have it, otherwise Danish.
+    var BROWSER = { da: "da", en: "en", de: "de", nb: "no", nn: "no", no: "no", sv: "sv" };
+    (navigator.languages || [navigator.language || ""]).some(function (l) { var k = BROWSER[String(l).slice(0, 2).toLowerCase()]; if (k) startLang = k; return !!k; });
+    startLang = startLang || "da";
+  }
   applyLang(startLang);
   /* julelys:start */ if (xmas) { $("xmas").checked = true; buildLights(); FX.toggle(true, false); } /* julelys:end */
   fillSizes();
