@@ -355,6 +355,16 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
               <label><input type="radio" name="shape" id="shape-square" value="square"><span data-t="square">Firkant</span></label>
             </div>
           </div>
+          <!-- julelys:start -->
+          <div class="xgrid xmas-only" id="xshapes" role="radiogroup" data-t-aria="form" aria-label="Form">
+            <label><input type="radio" name="shape" id="shape-heart" value="heart"><span><svg data-oshape="heart"></svg><b data-t="sHeart">Hjerte</b></span></label>
+            <label><input type="radio" name="shape" id="shape-tree" value="tree"><span><svg data-oshape="tree"></svg><b data-t="sTree">Juletræ</b></span></label>
+            <label><input type="radio" name="shape" id="shape-gift" value="gift"><span><svg data-oshape="gift"></svg><b data-t="sGift">Gave</b></span></label>
+            <label><input type="radio" name="shape" id="shape-star" value="star"><span><svg data-oshape="star"></svg><b data-t="sStar">Stjerne</b></span></label>
+            <label><input type="radio" name="shape" id="shape-santa" value="santa"><span><svg data-oshape="santa"></svg><b data-t="sSanta">Nisse</b></span></label>
+            <label><input type="radio" name="shape" id="shape-bauble" value="bauble"><span><svg data-oshape="bauble"></svg><b data-t="sBauble">Julekugle</b></span></label>
+          </div>
+          <!-- julelys:end -->
           <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
@@ -408,7 +418,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
           <p class="explain" id="ex-ring" data-t="exRing" hidden></p>
         </div>
 
-        <div class="field circle-only">
+        <div class="field circle-only bg-field">
           <div class="row">
             <span class="lbl"><span data-t="background">Baggrund</span><button type="button" class="info" aria-controls="ex-bg" aria-expanded="false">i</button></span>
             <div class="seg" role="radiogroup" data-t-aria="background" aria-label="Baggrund">
@@ -544,7 +554,7 @@ var RQ = (function () {
     "C", .52, .13, .58, .07, .66, .06, "C", .78, .05, .95, .13, .97, .33, "C", .99, .53, .84, .72, .5, .95, "Z"];
   var TREE = ["M", .5, .02, "L", .8, .37, "L", .69, .37, "L", .95, .73, "L", .59, .73, "L", .59, .98, "L", .41, .98, "L", .41, .73,
     "L", .05, .73, "L", .31, .37, "L", .2, .37, "Z"];
-  var GIFT = ["M", .05, .25, "L", .95, .25, "L", .95, .39, "L", .05, .39, "Z", "M", .11, .43, "L", .89, .43, "L", .89, .97, "L", .11, .97, "Z",
+  var GIFT = ["M", .04, .24, "L", .96, .24, "L", .96, .38, "L", .04, .38, "Z", "M", .08, .41, "L", .92, .41, "L", .92, .97, "L", .08, .97, "Z",
     "M", .5, .25, "C", .4, .0, .14, .03, .25, .25, "Z", "M", .5, .25, "C", .6, .0, .86, .03, .75, .25, "Z"];
   var STAR = (function () { var a = ["M"]; for (var i = 0; i < 10; i++) { var r = i % 2 ? .24 : .54, t = -Math.PI / 2 + i * Math.PI / 5;
     if (i) a.push("L"); a.push(.5 + r * Math.cos(t), .55 + r * Math.sin(t)); } a.push("Z"); return a; })();
@@ -588,6 +598,92 @@ var RQ = (function () {
 
   var LABEL_FONT = "'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', Arial, sans-serif";
 
+  // Julelys: outline shapes for the whole code. Each shape is a union of circles and polygons in a unit box.
+  // The data square sits at the anchor, the shape is scaled until the square fits inside, and the rest is filled with pattern.
+  function starPts(cx, cy, ro, ri, n) { var a = []; for (var i = 0; i < 2 * n; i++) { var r = i % 2 ? ri : ro, t = -Math.PI / 2 + i * Math.PI / n; a.push([cx + r * Math.cos(t), cy + r * Math.sin(t)]); } return a; }
+  var HEART_PTS = (function () {
+    var a = [], i, t, x, y, mx = 1e9, Mx = -1e9, my = 1e9;
+    for (i = 0; i < 64; i++) { t = i / 64 * 2 * Math.PI; x = 16 * Math.pow(Math.sin(t), 3); y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+      a.push([x, y]); mx = Math.min(mx, x); Mx = Math.max(Mx, x); my = Math.min(my, y); }
+    return a.map(function (p) { return [(p[0] - mx) / (Mx - mx), (p[1] - my) / (Mx - mx)]; });
+  })();
+  var SHAPES = {
+    heart: { anchor: [0.5, 0.42], prims: [{ poly: HEART_PTS }] },
+    tree: { anchor: [0.5, 0.66], prims: [
+      { poly: [[0.5, 0.1], [0.7, 0.32], [0.62, 0.32], [0.84, 0.58], [0.74, 0.58], [1, 0.88], [0.6, 0.88], [0.6, 1.04], [0.4, 1.04], [0.4, 0.88],
+        [0, 0.88], [0.26, 0.58], [0.16, 0.58], [0.38, 0.32], [0.3, 0.32]] },
+      { poly: starPts(0.5, 0.08, 0.08, 0.035, 5) }] },
+    gift: { anchor: [0.5, 0.66], prims: [
+      { poly: [[0.04, 0.3], [0.96, 0.3], [0.96, 1.02], [0.04, 1.02]] },
+      { circle: [0.37, 0.2, 0.12] }, { circle: [0.63, 0.2, 0.12] }],
+      skip: function (X, Y, qx, qy) { return Math.abs(X - qx) < 1.1 || Math.abs(Y - qy) < 1.1; } },
+    star: { anchor: [0.5, 0.53], prims: [{ poly: starPts(0.5, 0.53, 0.5, 0.31, 5) }] },
+    santa: { anchor: [0.5, 0.7], prims: [
+      { circle: [0.5, 0.7, 0.34] },
+      { poly: [[0.12, 0.5], [0.3, 0.2], [0.52, 0.08], [0.76, 0.08], [0.88, 0.5]] },
+      { circle: [0.8, 0.1, 0.075] },
+      { poly: [[0.08, 0.42], [0.92, 0.42], [0.92, 0.55], [0.08, 0.55]] }],
+      skip: function (X, Y, qx, qy, U, V) { return V > 0.435 && V < 0.535; } },
+    bauble: { anchor: [0.5, 0.6], prims: [
+      { circle: [0.5, 0.6, 0.42] }, { poly: [[0.42, 0.1], [0.58, 0.1], [0.58, 0.22], [0.42, 0.22]] }, { circle: [0.5, 0.075, 0.045] }] }
+  };
+  var XSHAPES = ["heart", "tree", "gift", "star", "santa", "bauble"];
+  function sdPoly(p, u, v) {
+    var d = 1e18, inside = false;
+    for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
+      var ax = p[j][0], ay = p[j][1], bx = p[i][0], by = p[i][1], ex = bx - ax, ey = by - ay;
+      var k = Math.max(0, Math.min(1, ((u - ax) * ex + (v - ay) * ey) / (ex * ex + ey * ey))), dx = u - ax - ex * k, dy = v - ay - ey * k;
+      d = Math.min(d, dx * dx + dy * dy);
+      if ((ay > v) !== (by > v) && u < ax + (v - ay) * ex / ey) inside = !inside;
+    }
+    return inside ? -Math.sqrt(d) : Math.sqrt(d);
+  }
+  function sdShape(def, u, v) {
+    var d = 1e9;
+    def.prims.forEach(function (q) { d = Math.min(d, q.circle ? Math.hypot(u - q.circle[0], v - q.circle[1]) - q.circle[2] : sdPoly(q.poly, u, v)); });
+    return d;
+  }
+  function shapeBox(def) {
+    var b = [1e9, 1e9, -1e9, -1e9];
+    def.prims.forEach(function (q) {
+      if (q.circle) { b[0] = Math.min(b[0], q.circle[0] - q.circle[2]); b[1] = Math.min(b[1], q.circle[1] - q.circle[2]); b[2] = Math.max(b[2], q.circle[0] + q.circle[2]); b[3] = Math.max(b[3], q.circle[1] + q.circle[2]); }
+      else q.poly.forEach(function (p) { b[0] = Math.min(b[0], p[0]); b[1] = Math.min(b[1], p[1]); b[2] = Math.max(b[2], p[0]); b[3] = Math.max(b[3], p[1]); });
+    });
+    return b;
+  }
+  function primPaths(def, S, tx, ty) {
+    return def.prims.map(function (q) {
+      if (q.circle) return circ(q.circle[0] * S + tx, q.circle[1] * S + ty, q.circle[2] * S);
+      return "M" + q.poly.map(function (p) { return f(p[0] * S + tx) + " " + f(p[1] * S + ty); }).join("L") + "Z";
+    });
+  }
+  var layoutCache = {};
+  function layout(name, N, ringOn) {
+    var key = name + N + ringOn;
+    return layoutCache[key] || (layoutCache[key] = makeLayout(name, N, ringOn));
+  }
+  function makeLayout(name, N, ringOn) {
+    var def = SHAPES[name], ax = def.anchor[0], ay = def.anchor[1], h = N / 2 + 1;
+    var inset = ringOn ? 1.1 : 0.55, bgPad = ringOn ? 1.6 : 0.8, e = bgPad + 0.2;
+    function fits(S) {
+      for (var yy = -h; yy <= h + 1e-9; yy += 1) for (var xx = -h; xx <= h + 1e-9; xx += 1)
+        if (sdShape(def, ax + xx / S, ay + yy / S) * S > -0.4) return false;
+      return true;
+    }
+    var lo = h, hi = h * 6;
+    while (!fits(hi) && hi < h * 60) { lo = hi; hi *= 2; }
+    for (var it = 0; it < 16; it++) { var mid = (lo + hi) / 2; if (fits(mid)) hi = mid; else lo = mid; }
+    var S = hi, b = shapeBox(def), tx = e - b[0] * S, ty = e - b[1] * S;
+    return { W: (b[2] - b[0]) * S + 2 * e, H: (b[3] - b[1]) * S + 2 * e, offX: ax * S + tx - N / 2, offY: ay * S + ty - N / 2,
+      inset: inset, bgPad: bgPad, ringW: 0.9, paths: primPaths(def, S, tx, ty),
+      sdf: function (X, Y) { return sdShape(def, (X - tx) / S, (Y - ty) / S) * S; },
+      skip: def.skip ? function (X, Y, qx, qy) { return def.skip(X, Y, qx, qy, (X - tx) / S, (Y - ty) / S); } : null };
+  }
+  function shapeIcon(name) {
+    var def = SHAPES[name], b = shapeBox(def), pad = 0.04;
+    return { vb: [b[0] - pad, b[1] - pad, b[2] - b[0] + 2 * pad, b[3] - b[1] + 2 * pad].map(f).join(" "), paths: primPaths(def, 1, 0, 0) };
+  }
+
   function geometry(text, o) {
     var ec = o.logo ? "H" : o.ec;
     var qr = qrcode(0, ec); qr.addData(text); qr.make();
@@ -596,7 +692,9 @@ var RQ = (function () {
     var fill = !square && o.fill, ringOn = !square && o.ring;
     var R = N / 2 * Math.SQRT2 + 0.5;            // filler reaches this radius
     var discR = ringOn ? R + 1.7 : R + 0.9;
-    var W = square ? N + 2 * Q : 2 * discR, c = W / 2, off = c - N / 2;
+    var lay = SHAPES[o.shape] ? layout(o.shape, N, ringOn) : null;
+    var W = lay ? lay.W : square ? N + 2 * Q : 2 * discR, Hc = lay ? lay.H : W, c = W / 2;
+    var offX = lay ? lay.offX : c - N / 2, offY = lay ? lay.offY : c - N / 2, off = offX;
     var mods = [], x, y;
     var logoR = o.logo ? o.logoSize * N / 2 : 0;
     var clear = logoR ? logoR + 0.3 : 0;
@@ -606,15 +704,27 @@ var RQ = (function () {
     var pos = ALIGN[(N - 17) / 4] || [], aligns = [], inAlign = {};
     pos.forEach(function (ay) { pos.forEach(function (ax) {
       if ((ax === 6 && ay === 6) || (ax === 6 && ay === N - 7) || (ax === N - 7 && ay === 6)) return;
-      if (!(clear && Math.hypot(ax + 0.5 - N / 2, ay + 0.5 - N / 2) < clear + 2.5)) aligns.push(align(ax - 2 + off, ay - 2 + off, o.eye));
+      if (!(clear && Math.hypot(ax + 0.5 - N / 2, ay + 0.5 - N / 2) < clear + 2.5)) aligns.push(align(ax - 2 + offX, ay - 2 + offY, o.eye));
       for (var dy = -2; dy <= 2; dy++) for (var dx = -2; dx <= 2; dx++) inAlign[(ay + dy) * N + ax + dx] = 1;
     }); });
     for (y = 0; y < N; y++) for (x = 0; x < N; x++) {
       if (inFinder(y, x) || inAlign[y * N + x] || !qr.isDark(y, x)) continue;
       if (clear && Math.hypot(x + 0.5 - N / 2, y + 0.5 - N / 2) < clear) continue;
-      mods.push(mod(x + off, y + off, o.dot));
+      mods.push(mod(x + offX, y + offY, o.dot));
     }
-    if (fill) {
+    if (fill && lay) {
+      var rnd = rng(hash(text)), qx0 = offX + N / 2, qy0 = offY + N / 2;
+      var x0 = Math.floor(-offX) - 1, x1 = Math.ceil(W - offX) + 1, y0 = Math.floor(-offY) - 1, y1 = Math.ceil(Hc - offY) + 1;
+      for (y = y0; y <= y1; y++) for (x = x0; x <= x1; x++) {
+        var dk = rnd() < 0.5;
+        if (x >= -1 && x < N + 1 && y >= -1 && y < N + 1) continue;
+        var X = x + offX + 0.5, Y = y + offY + 0.5;
+        if (lay.sdf(X, Y) > -(lay.inset + 0.5)) continue;
+        if (lay.skip && lay.skip(X, Y, qx0, qy0)) continue;
+        if (dk) mods.push(mod(x + offX, y + offY, o.dot));
+      }
+    }
+    if (fill && !lay) {
       var rand = rng(hash(text)), gap = 1;
       var lo = Math.floor(N / 2 - R) - 1, hi = Math.ceil(N / 2 + R) + 1;
       for (y = lo; y <= hi; y++) for (x = lo; x <= hi; x++) {
@@ -624,32 +734,34 @@ var RQ = (function () {
         if (dark) mods.push(mod(x + off, y + off, o.dot));
       }
     }
-    var eyes = eye(off, off, o.eye) + eye(off + N - 7, off, o.eye) + eye(off, off + N - 7, o.eye);
-    var ring = ringOn ? circ(c, c, R + 1.7) + circ(c, c, R + 0.7) : "";
+    var eyes = eye(offX, offY, o.eye) + eye(offX + N - 7, offY, o.eye) + eye(offX, offY + N - 7, o.eye);
+    var ring = ringOn && !lay ? circ(c, c, R + 1.7) + circ(c, c, R + 0.7) : "";
 
     // Optional text under the code. o.labelW100 = measured text width at font size 100 (in the same units), used to shrink long text.
-    var H = W, label = null, txt = (o.labelText || "").trim();
+    var H = Hc, label = null, txt = (o.labelText || "").trim();
     if (o.label && txt) {
       var fs = Math.max(N * (square ? 0.14 : 0.17), 3.5), maxW = W * 0.86;
       if (o.labelW100) fs = Math.min(fs, maxW * 100 / o.labelW100);
-      var top = square ? W - Q + 1.4 : W + 0.9;
+      var top = square ? W - Q + 1.4 : Hc + 0.9;
       label = { text: txt, fs: fs, y: top + fs * 0.62 };
       H = top + fs * 1.45;
     }
-    return { W: W, H: H, c: c, N: N, version: (N - 17) / 4, ec: ec, square: square, mods: mods.join(""), eyes: eyes,
-      aligns: aligns.join(""), ring: ring, discR: discR, logoR: logoR, logoBox: logoR * Math.SQRT2 * 0.9, label: label };
+    return { W: W, H: H, Hc: Hc, c: c, cx: W / 2, cy: Hc / 2, qx: offX + N / 2, qy: offY + N / 2, shape: o.shape,
+      N: N, version: (N - 17) / 4, ec: ec, square: square, mods: mods.join(""), eyes: eyes,
+      aligns: aligns.join(""), ring: ring, discR: discR, logoR: logoR, logoBox: logoR * Math.SQRT2 * 0.9, label: label,
+      outlines: lay ? lay.paths : null, bgPad: lay ? lay.bgPad : 0, ringW: lay && ringOn ? lay.ringW : 0 };
   }
 
   function fitBox(box, aspect) { var w = box, h = box; if (aspect > 1) h = box / aspect; else w = box * aspect; return { w: w, h: h }; }
   function esc(t) { return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
-  function fullBg(g, o) { return g.square || o.bgShape === "square"; }
+  function fullBg(g, o) { return g.square || (o.bgShape === "square" && !g.outlines); }
   // Gradient endpoints in module units, over the code area (not the text below).
   function gradSpec(g, o) {
     if (!o.grad) return null;
     var W = g.W;
-    if (o.gradDir === "radial") return { radial: true, cx: g.c, cy: g.c, r: W / 2 };
-    if (o.gradDir === "vertical") return { x1: 0, y1: 0, x2: 0, y2: W };
-    return { x1: 0, y1: 0, x2: W, y2: W };
+    if (o.gradDir === "radial") return { radial: true, cx: g.cx, cy: g.cy, r: Math.max(W, g.Hc) / 2 };
+    if (o.gradDir === "vertical") return { x1: 0, y1: 0, x2: 0, y2: g.Hc };
+    return { x1: 0, y1: 0, x2: W, y2: g.Hc };
   }
 
   // cm (optional): physical width of the whole image, written as width/height in cm.
@@ -657,7 +769,9 @@ var RQ = (function () {
     var W = f(g.W), H = f(g.H);
     var dims = cm ? 'width="' + f(cm) + 'cm" height="' + f(cm * g.H / g.W) + 'cm"' : 'width="' + Math.round(g.W * 20) + '" height="' + Math.round(g.H * 20) + '"';
     var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + " " + H + '" ' + dims + '>';
-    s += fullBg(g, o) ? '<rect width="' + W + '" height="' + H + '" fill="' + o.bg + '"/>' : '<circle cx="' + f(g.c) + '" cy="' + f(g.c) + '" r="' + f(g.discR) + '" fill="' + o.bg + '"/>';
+    if (fullBg(g, o)) s += '<rect width="' + W + '" height="' + H + '" fill="' + o.bg + '"/>';
+    else if (g.outlines) g.outlines.forEach(function (d) { s += '<path d="' + d + '" fill="' + o.bg + '" stroke="' + o.bg + '" stroke-width="' + f(2 * g.bgPad) + '" stroke-linejoin="round"/>'; });
+    else s += '<circle cx="' + f(g.c) + '" cy="' + f(g.c) + '" r="' + f(g.discR) + '" fill="' + o.bg + '"/>';
     var gs = gradSpec(g, o), paint = o.fg;
     if (gs) {
       var stops = '<stop offset="0" stop-color="' + o.fg + '"/><stop offset="1" stop-color="' + o.fg2 + '"/>';
@@ -666,14 +780,18 @@ var RQ = (function () {
         : '<linearGradient id="qrg" gradientUnits="userSpaceOnUse" x1="' + f(gs.x1) + '" y1="' + f(gs.y1) + '" x2="' + f(gs.x2) + '" y2="' + f(gs.y2) + '">' + stops + "</linearGradient>") + "</defs>";
       paint = "url(#qrg)";
     }
+    if (g.ringW) {
+      g.outlines.forEach(function (d) { s += '<path d="' + d + '" fill="none" stroke="' + paint + '" stroke-width="' + f(2 * g.ringW) + '" stroke-linejoin="round"/>'; });
+      g.outlines.forEach(function (d) { s += '<path d="' + d + '" fill="' + o.bg + '"/>'; });
+    }
     if (g.mods) s += '<path d="' + g.mods + '" fill="' + paint + '"/>';
     if (g.aligns) s += '<path d="' + g.aligns + '" fill="' + paint + '" fill-rule="evenodd"/>';
     s += '<path d="' + g.eyes + '" fill="' + o.eyec + '" fill-rule="evenodd"/>';
     if (g.ring) s += '<path d="' + g.ring + '" fill="' + paint + '" fill-rule="evenodd"/>';
     if (logo && g.logoR) {
       var b = fitBox(g.logoBox, logo.aspect);
-      s += '<circle cx="' + f(g.c) + '" cy="' + f(g.c) + '" r="' + f(g.logoR) + '" fill="' + o.bg + '"/>';
-      s += '<image href="' + logo.src + '" x="' + f(g.c - b.w / 2) + '" y="' + f(g.c - b.h / 2) + '" width="' + f(b.w) + '" height="' + f(b.h) + '"/>';
+      s += '<circle cx="' + f(g.qx) + '" cy="' + f(g.qy) + '" r="' + f(g.logoR) + '" fill="' + o.bg + '"/>';
+      s += '<image href="' + logo.src + '" x="' + f(g.qx - b.w / 2) + '" y="' + f(g.qy - b.h / 2) + '" width="' + f(b.w) + '" height="' + f(b.h) + '"/>';
     }
     if (g.label) s += '<text x="' + f(g.c) + '" y="' + f(g.label.y) + '" font-family="' + LABEL_FONT.replace(/"/g, "") + '" font-weight="600" font-size="' + f(g.label.fs) +
       '" text-anchor="middle" dominant-baseline="central" fill="' + o.fg + '">' + esc(g.label.text) + "</text>";
@@ -687,22 +805,28 @@ var RQ = (function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save(); ctx.scale(k, k);
     ctx.fillStyle = o.bg;
+    ctx.lineJoin = "round";
     if (opaque || fullBg(g, o)) ctx.fillRect(0, 0, g.W, g.H);
+    else if (g.outlines) { ctx.strokeStyle = o.bg; ctx.lineWidth = 2 * g.bgPad; g.outlines.forEach(function (d) { var p = new Path2D(d); ctx.stroke(p); ctx.fill(p); }); }
     else { ctx.beginPath(); ctx.arc(g.c, g.c, g.discR, 0, Math.PI * 2); ctx.fill(); }
     var gs = gradSpec(g, o), paint = o.fg;
     if (gs) {
       paint = gs.radial ? ctx.createRadialGradient(gs.cx, gs.cy, 0, gs.cx, gs.cy, gs.r) : ctx.createLinearGradient(gs.x1, gs.y1, gs.x2, gs.y2);
       paint.addColorStop(0, o.fg); paint.addColorStop(1, o.fg2);
     }
+    if (g.ringW) {
+      ctx.strokeStyle = paint; ctx.lineWidth = 2 * g.ringW; g.outlines.forEach(function (d) { ctx.stroke(new Path2D(d)); });
+      ctx.fillStyle = o.bg; g.outlines.forEach(function (d) { ctx.fill(new Path2D(d)); });
+    }
     ctx.fillStyle = paint; if (g.mods) ctx.fill(new Path2D(g.mods));
     if (g.aligns) ctx.fill(new Path2D(g.aligns), "evenodd");
     ctx.fillStyle = o.eyec; ctx.fill(new Path2D(g.eyes), "evenodd");
     if (g.ring) { ctx.fillStyle = paint; ctx.fill(new Path2D(g.ring), "evenodd"); }
     if (logo && g.logoR) {
-      ctx.fillStyle = o.bg; ctx.beginPath(); ctx.arc(g.c, g.c, g.logoR, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = o.bg; ctx.beginPath(); ctx.arc(g.qx, g.qy, g.logoR, 0, Math.PI * 2); ctx.fill();
       var b = fitBox(g.logoBox, logo.aspect);
       ctx.imageSmoothingQuality = "high";
-      ctx.drawImage(logo.img, g.c - b.w / 2, g.c - b.h / 2, b.w, b.h);
+      ctx.drawImage(logo.img, g.qx - b.w / 2, g.qy - b.h / 2, b.w, b.h);
     }
     if (g.label) {
       ctx.fillStyle = o.fg; ctx.textAlign = "center"; ctx.textBaseline = "middle";
@@ -720,7 +844,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon };
 })();
 </script>
 
@@ -760,7 +884,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return (g.square ? "Firkant" : "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -785,6 +909,9 @@ var RQ = (function () {
       subtitleXmas: "Juleudgaven. Indsæt et link, pynt koden, og gem den som PNG, JPG eller SVG.",
       hearts: "Hjerter", trees: "Træer", gifts: "Gaver", stars: "Stjerner", santas: "Nisser", mix: "Blandet",
       defaultLabelXmas: "Glædelig jul",
+      sHeart: "Hjerte", sTree: "Juletræ", sGift: "Gave", sStar: "Stjerne", sSanta: "Nisse", sBauble: "Julekugle",
+      fillXmas: "Fyld formen med mønster", exFillXmas: "Pyntprikker uden data, der fylder formen ud omkring koden.", exRingXmas: "En tynd pyntering langs kanten af formen.",
+      exFormXmas: "Cirkel og Firkant er de klassiske. Juleformerne lægger koden i midten og fylder resten af formen med mønster.",
       exModulesXmas: "Juleformerne dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
       exEyesXmas: "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner julekugler."
     },
@@ -819,7 +946,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return (g.square ? "Square" : "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -844,6 +971,9 @@ var RQ = (function () {
       subtitleXmas: "The Christmas edition. Paste a link, decorate the code, save it as PNG, JPG or SVG.",
       hearts: "Hearts", trees: "Trees", gifts: "Presents", stars: "Stars", santas: "Santas", mix: "Mixed",
       defaultLabelXmas: "Merry Christmas",
+      sHeart: "Heart", sTree: "Tree", sGift: "Present", sStar: "Star", sSanta: "Santa", sBauble: "Bauble",
+      fillXmas: "Fill the shape with pattern", exFillXmas: "Decorative dots with no data that fill out the shape around the code.", exRingXmas: "A thin decorative ring along the edge of the shape.",
+      exFormXmas: "Circle and Square are the classics. The Christmas shapes put the code in the middle and fill the rest of the shape with pattern.",
       exModulesXmas: "The Christmas shapes cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
       exEyesXmas: "The three big squares the phone uses to find the code. Circle looks like baubles."
     }
@@ -981,7 +1111,7 @@ var RQ = (function () {
     hint.hidden = !n.added; if (n.added) hint.textContent = t("encodedAs") + n.text;
     lastText = n.text;
 
-    document.querySelectorAll(".circle-only").forEach(function (el) { el.hidden = o.shape === "square"; });
+    document.querySelectorAll(".circle-only").forEach(function (el) { el.hidden = o.shape === "square" || (el.classList.contains("bg-field") && o.shape !== "circle"); });
     $("labelText").hidden = !o.label;
     updateFormat();
     document.querySelectorAll('input[name="ec"]').forEach(function (el) { el.disabled = !!logo; });
@@ -1029,8 +1159,8 @@ var RQ = (function () {
     var s = 720, pad = 50, ctx = scanCv.getContext("2d", { willReadFrequently: true });
     scanCv.width = scanCv.height = s;
     ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, s, s);
-    var h = Math.min(s - 2 * pad, (s - 2 * pad) * preview.height / preview.width);
-    ctx.drawImage(preview, pad, pad, s - 2 * pad, h);
+    var k = Math.min((s - 2 * pad) / preview.width, (s - 2 * pad) / preview.height), dw = preview.width * k, dh = preview.height * k;
+    ctx.drawImage(preview, (s - dw) / 2, (s - dh) / 2, dw, dh);
     var res = null;
     try { res = jsQR(ctx.getImageData(0, 0, s, s).data, s, s, { inversionAttempts: "dontInvert" }); } catch (e) {}
     if (res && res.data === text) setScan(true, "scanOk");
@@ -1231,12 +1361,18 @@ var RQ = (function () {
     svg.innerHTML = '<path d="' + d + '"/>';
   });
 
+  document.querySelectorAll("#xshapes svg[data-oshape]").forEach(function (svg) {
+    var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
+    svg.setAttribute("viewBox", ic.vb);
+    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+  });
+
   function snapshot() {
-    return { dot: radio("dot"), eye: radio("eye"), fg: $("fg").value, eyec: $("eyec").value, bg: $("bg").value, fg2: $("fg2").value,
+    return { shape: radio("shape"), dot: radio("dot"), eye: radio("eye"), fg: $("fg").value, eyec: $("eyec").value, bg: $("bg").value, fg2: $("fg2").value,
       grad: $("grad").checked, gdir: radio("gdir"), label: $("label").checked, labelText: $("labelText").value };
   }
   function applySnap(p) {
-    if (p.dot) setRadio("dot", p.dot); if (p.eye) setRadio("eye", p.eye);
+    if (p.shape) setRadio("shape", p.shape); if (p.dot) setRadio("dot", p.dot); if (p.eye) setRadio("eye", p.eye);
     ["fg", "eyec", "bg", "fg2"].forEach(function (k) { if (/^#[0-9a-f]{6}$/i.test(p[k] || "")) $(k).value = p[k]; });
     if (typeof p.grad === "boolean") $("grad").checked = p.grad; if (p.gdir) setRadio("gdir", p.gdir);
     if (typeof p.label === "boolean") $("label").checked = p.label; if (typeof p.labelText === "string") $("labelText").value = p.labelText;
@@ -1253,12 +1389,13 @@ var RQ = (function () {
     PRESETS = on ? XMAS_SETS : PLAIN;
     buildPresets();
     if (on && byUser) {
-      setRadio("dot", "hearts"); setRadio("eye", "circle");
+      setRadio("shape", "heart"); setRadio("dot", "hearts"); setRadio("eye", "circle");
       var p = XMAS_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
       $("label").checked = true; $("labelText").value = T[lang].defaultLabelXmas;
     } else if (!on) {
       if (xmasPrev) applySnap(xmasPrev);
       if (RQ.XMAS.concat("mix").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      if (RQ.XSHAPES.indexOf(radio("shape")) >= 0) setRadio("shape", "circle");
       xmasPrev = null;
     }
     applyLang(lang);
