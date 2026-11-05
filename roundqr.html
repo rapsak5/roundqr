@@ -202,7 +202,11 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 
 
 
+
+
 </style>
+
+
 
 
 
@@ -270,7 +274,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="shape" id="shape-square" value="square"><span data-t="square">Firkant</span></label>
             </div>
           </div>
-                                                            <p class="explain" id="ex-form" data-t="exForm" hidden></p>
+                                                                                <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
         <div class="field">
@@ -282,7 +286,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="dot" id="dot-squares" value="squares"><span data-t="squaresPl">Firkanter</span></label>
             </div>
           </div>
-                                                            <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
+                                                                                <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
         <div class="field">
@@ -401,7 +405,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </section>
   </div>
 
-          
+              
   <footer class="foot" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;font-size:13px;color:var(--muted);padding-top:18px;border-top:1px solid var(--line)">
     <span>Round QR · <a href="https://roundqr.dk" style="color:inherit">roundqr.dk</a></span>
     <span data-t="footNote"></span>
@@ -12892,6 +12896,21 @@ var RQ = (function () {
   var COIN = (function () { var a = ["M"]; for (var i = 0; i < 48; i++) { var t = i / 48 * 2 * Math.PI, r = .44 + .03 * Math.cos(12 * t);
     if (i) a.push("L"); a.push(.5 + r * Math.cos(t), .5 + r * Math.sin(t)); } a.push("Z"); return a; })();
   var PIRATE = ["chests", "ships", "anchors", "skulls", "coins"];
+  // Oktoberfest. A hole is a loop drawn the other way round, so the nonzero fill leaves it empty.
+  function hole(x, y, cx, cy, rx, ry) { var s = "M", n = 20; for (var i = 0; i <= n; i++) { var t = -i / n * 2 * Math.PI; s += (i ? "L" : "") + f(x + cx + rx * Math.cos(t)) + " " + f(y + cy + ry * Math.sin(t)) + " "; } return s + "Z"; }
+  var STEIN = ["M", .12, .16, "L", .7, .16, "L", .7, .3, "L", .84, .3, "C", .96, .3, .98, .42, .98, .52, "C", .98, .64, .94, .74, .84, .74, "L", .7, .74, "L", .7, .94, "L", .12, .94, "Z"];
+  var PRETZEL = ["M", .5, .3, "C", .62, .08, .98, .12, .96, .48, "C", .95, .72, .78, .9, .6, .92, "L", .5, .82, "L", .4, .92, "C", .22, .9, .05, .72, .04, .48, "C", .02, .12, .38, .08, .5, .3, "Z"];
+  var RHOMB = ["M", .5, .02, "L", .98, .5, "L", .5, .98, "L", .02, .5, "Z"];
+  var ALPHAT = ["M", .26, .62, "L", .32, .22, "C", .4, .14, .6, .14, .68, .22, "L", .74, .62, "L", .96, .66, "C", .98, .76, .9, .8, .8, .8, "L", .2, .8, "C", .1, .8, .02, .76, .04, .66, "Z"];
+  var ALPFEATHER = ["M", .72, .34, "L", .9, .02, "L", .96, .06, "L", .78, .4, "Z"];
+  var WIESN = ["steins", "pretzels", "lhearts", "rhombs", "alphats"];
+  // Fødselsdag
+  var CAKE = ["M", .04, .42, "C", .04, .36, .1, .33, .18, .33, "L", .82, .33, "C", .9, .33, .96, .36, .96, .42, "L", .96, .97, "L", .04, .97, "Z"];
+  var BALLOON = ["M", .5, .04, "C", .78, .04, .9, .26, .9, .44, "C", .9, .64, .7, .8, .54, .82, "L", .6, .9, "L", .4, .9, "L", .46, .82, "C", .3, .8, .1, .64, .1, .44, "C", .1, .26, .22, .04, .5, .04, "Z"];
+  var CAKEMAN = ["M", .5, .02, "C", .62, .02, .7, .1, .7, .2, "C", .7, .26, .67, .3, .63, .33, "L", .9, .4, "C", .97, .42, .97, .52, .9, .52, "L", .68, .5, "L", .76, .9,
+    "C", .78, .98, .66, 1, .62, .94, "L", .5, .7, "L", .38, .94, "C", .34, 1, .22, .98, .24, .9, "L", .32, .5, "L", .1, .52, "C", .03, .52, .03, .42, .1, .4, "L", .37, .33,
+    "C", .33, .3, .3, .26, .3, .2, "C", .3, .1, .38, .02, .5, .02, "Z"];
+  var HURRA = ["flags", "cakes", "bgifts", "balloons", "cakemen"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -12918,6 +12937,17 @@ var RQ = (function () {
     if (style === "anchors") return sh(x, y, ANCHOR);
     if (style === "skulls") return sh(x, y, SKULL);
     if (style === "coins") return sh(x, y, COIN);
+    if (style === "steins") return sh(x, y, STEIN);
+    if (style === "pretzels") return sh(x, y, PRETZEL) + hole(x, y, .29, .44, .1, .12) + hole(x, y, .71, .44, .1, .12);
+    if (style === "lhearts") return rect(x + .47, y + .02, .06, .14) + sh(x + .075, y + .15, HEART, .85);
+    if (style === "rhombs") return sh(x, y, RHOMB);
+    if (style === "alphats") return sh(x, y, ALPHAT) + sh(x, y, ALPFEATHER);
+    // The cross is placed high and to the left like on Dannebrog, so the middle of the cell stays red.
+    if (style === "flags") return rect(x, y + .03, .3, .28) + rect(x + .34, y + .03, .66, .28) + rect(x, y + .35, .3, .62) + rect(x + .34, y + .35, .66, .62);
+    if (style === "cakes") return sh(x, y, CAKE) + rect(x + .45, y + .15, .1, .18) + circ(x + .5, y + .07, .06);
+    if (style === "bgifts") return sh(x, y, GIFT);
+    if (style === "balloons") return sh(x, y, BALLOON);
+    if (style === "cakemen") return sh(x, y, CAKEMAN);
     return null;
   }
 
@@ -12930,6 +12960,8 @@ var RQ = (function () {
     if (style === "spring") style = SPRING[cellPick(x, y, 5)];
     if (style === "party") style = PARTY[cellPick(x, y, 5)];
     if (style === "pirates") style = PIRATE[cellPick(x, y, 5)];
+    if (style === "wiesn") style = WIESN[cellPick(x, y, 5)];
+    if (style === "hurra") style = HURRA[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -13075,6 +13107,46 @@ var RQ = (function () {
     // Teeth: thin gaps in the jaw below the code.
     skip: function (X, Y, qx, qy, U, V) { return V > 0.84 && V < 0.94 && U > 0.3 && U < 0.7 && ((U - 0.3) % 0.08) < 0.016; } };
   var PSHAPES = ["chest", "ship", "map", "flag", "wheel", "skull"];
+  // Oktoberfest
+  SHAPES.stein = { anchor: [0.4, 0.62], prims: [{ poly: [[0.1, 0.18], [0.7, 0.18], [0.7, 1], [0.1, 1]] },
+    { poly: arcPts(0.7, 0.58, 0.26, 0.26, -Math.PI / 2, Math.PI / 2, 16).concat(arcPts(0.7, 0.58, 0.14, 0.14, Math.PI / 2, -Math.PI / 2, 16)) },
+    { circle: [0.16, 0.18, 0.09] }, { circle: [0.32, 0.14, 0.11] }, { circle: [0.5, 0.15, 0.1] }, { circle: [0.64, 0.18, 0.08] }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.3 && U < 0.7 && ((U > 0.24 && U < 0.26) || (U > 0.54 && U < 0.56)); } };
+  SHAPES.pretzel = { anchor: [0.5, 0.48], prims: [{ circle: [0.3, 0.42, 0.28] }, { circle: [0.7, 0.42, 0.28] },
+    { poly: [[0.08, 0.54], [0.5, 1], [0.92, 0.54]] }],
+    // Three holes like a real pretzel: two big loops and a small one where the arms cross.
+    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.24, V - 0.46) < 0.12 || Math.hypot(U - 0.76, V - 0.46) < 0.12 ||
+      (V > 0.72 && V < 0.84 && Math.abs(U - 0.5) < (0.84 - V) * 0.9); } };
+  SHAPES.lheart = { anchor: [0.5, 0.42], prims: [{ poly: HEART_PTS }],
+    // A thin line of icing just inside the edge.
+    skip: function (X, Y, qx, qy, U, V) { var d = sdPoly(HEART_PTS, U, V); return d > -0.06 && d < -0.042; } };
+  SHAPES.rhomb = { anchor: [0.5, 0.5], prims: [{ poly: [[0.5, 0], [1, 0.5], [0.5, 1], [0, 0.5]] }],
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.abs(U - 0.5) + Math.abs(V - 0.5); return d > 0.4 && d < 0.42; } };
+  SHAPES.alphat = { anchor: [0.5, 0.46], prims: [{ poly: [[0.24, 0.72], [0.32, 0.2], [0.5, 0.12], [0.68, 0.2], [0.76, 0.72]] }, { poly: ellPts(0.5, 0.76, 0.5, 0.12, 0, 32) },
+    { poly: [[0.72, 0.34], [0.94, 0], [1, 0.04], [0.8, 0.42]] }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.6 && V < 0.65 && U > 0.24 && U < 0.76; } };
+  SHAPES.barrel = { anchor: [0.5, 0.5], prims: [{ poly: [[0.14, 0.04], [0.86, 0.04], [0.86, 0.96], [0.14, 0.96]] }, { poly: ellPts(0.5, 0.5, 0.44, 0.46, 0, 40) }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.16 && V < 0.19) || (V > 0.81 && V < 0.84); } };
+  var OSHAPES = ["stein", "pretzel", "lheart", "rhomb", "alphat", "barrel"];
+  // Fødselsdag
+  SHAPES.dkflag = { anchor: [0.56, 0.4], prims: [{ poly: [[0.1, 0.04], [1, 0.04], [1, 0.76], [0.1, 0.76]] }, { poly: [[0.02, 0], [0.08, 0], [0.08, 1.1], [0.02, 1.1]] }, { circle: [0.05, -0.02, 0.045] }],
+    // The white cross of Dannebrog in the pattern: 12:4:21 across, 12:4:12 down.
+    skip: function (X, Y, qx, qy, U, V) { return U > 0.1 && V > 0.04 && V < 0.76 && ((U > 0.392 && U < 0.489) || (V > 0.349 && V < 0.452)); } };
+  SHAPES.cake = { anchor: [0.5, 0.7], prims: [{ poly: [[0.06, 0.44], [0.94, 0.44], [0.94, 1], [0.06, 1]] }, { poly: ellPts(0.5, 0.44, 0.44, 0.07, 0, 32) },
+    { poly: [[0.26, 0.2], [0.31, 0.2], [0.31, 0.44], [0.26, 0.44]] }, { poly: [[0.475, 0.2], [0.525, 0.2], [0.525, 0.44], [0.475, 0.44]] }, { poly: [[0.69, 0.2], [0.74, 0.2], [0.74, 0.44], [0.69, 0.44]] },
+    { circle: [0.285, 0.15, 0.045] }, { circle: [0.5, 0.15, 0.045] }, { circle: [0.715, 0.15, 0.045] }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.64 && V < 0.66) || (V > 0.84 && V < 0.86); } };
+  SHAPES.cakeman = { anchor: [0.5, 0.48], prims: [{ circle: [0.5, 0.16, 0.15] }, { poly: [[0.3, 0.3], [0.7, 0.3], [0.72, 0.7], [0.28, 0.7]] },
+    { poly: barPts(0.34, 0.38, 0.02, 0.58, 0.15) }, { poly: barPts(0.66, 0.38, 0.98, 0.58, 0.15) },
+    { poly: barPts(0.4, 0.64, 0.24, 1, 0.17) }, { poly: barPts(0.6, 0.64, 0.76, 1, 0.17) }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.9 && V < 0.92) || ((U < 0.14 || U > 0.86) && Math.abs(V - 0.52) < 0.012); } };
+  SHAPES.balloon = { anchor: [0.5, 0.44], prims: [{ poly: ellPts(0.5, 0.44, 0.4, 0.44, 0, 40) }, { poly: [[0.44, 0.92], [0.56, 0.92], [0.5, 0.84]] }, { poly: barPts(0.5, 0.9, 0.44, 1.2, 0.035) }] };
+  SHAPES.crown = { anchor: [0.5, 0.64], prims: [{ poly: [[0.06, 0.6], [0.94, 0.6], [0.94, 0.96], [0.06, 0.96]] },
+    { poly: [[0.06, 0.62], [0.06, 0.12], [0.28, 0.4], [0.5, 0.04], [0.72, 0.4], [0.94, 0.12], [0.94, 0.62]] },
+    { circle: [0.06, 0.1, 0.05] }, { circle: [0.5, 0.03, 0.05] }, { circle: [0.94, 0.1, 0.05] }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.6 && V < 0.63; } };
+  SHAPES.bpresent = SHAPES.gift;
+  var BSHAPES = ["dkflag", "cake", "cakeman", "balloon", "crown", "bpresent"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -13291,7 +13363,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES, WIESN: WIESN, OSHAPES: OSHAPES, HURRA: HURRA, BSHAPES: BSHAPES };
 })();
 </script>
 
@@ -13332,7 +13404,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved", stein: "Ølkrus", pretzel: "Kringle", lheart: "Honningkagehjerte", rhomb: "Rude", alphat: "Tyrolerhat", barrel: "Øltønde", dkflag: "Dannebrog", cake: "Lagkage", cakeman: "Kagemand", balloon: "Ballon", crown: "Krone", bpresent: "Gave" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -13395,7 +13467,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull", stein: "Stein", pretzel: "Pretzel", lheart: "Gingerbread heart", rhomb: "Diamond", alphat: "Alpine hat", barrel: "Barrel", dkflag: "Danish flag", cake: "Layer cake", cakeman: "Cake man", balloon: "Balloon", crown: "Crown", bpresent: "Present" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -13488,7 +13560,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf", "stein": "Maßkrug", "pretzel": "Brezn", "lheart": "Lebkuchenherz", "rhomb": "Raute", "alphat": "Trachtenhut", "barrel": "Fass", "dkflag": "Dänische Flagge", "cake": "Torte", "cakeman": "Kuchenmann", "balloon": "Ballon", "crown": "Krone", "bpresent": "Geschenk"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -13607,7 +13679,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode", "stein": "Ølkrus", "pretzel": "Kringle", "lheart": "Pepperkakehjerte", "rhomb": "Rute", "alphat": "Tirolerhatt", "barrel": "Øltønne", "dkflag": "Dansk flagg", "cake": "Bløtkake", "cakeman": "Kakemann", "balloon": "Ballong", "crown": "Krone", "bpresent": "Gave"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -13726,7 +13798,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle", "stein": "Ölsejdel", "pretzel": "Kringla", "lheart": "Pepparkakshjärta", "rhomb": "Ruta", "alphat": "Tyrolerhatt", "barrel": "Öltunna", "dkflag": "Danska flaggan", "cake": "Tårta", "cakeman": "Kakgubbe", "balloon": "Ballong", "crown": "Krona", "bpresent": "Present"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -13784,9 +13856,9 @@ var RQ = (function () {
       sizePx: function (px, hpx) { return px + " × " + hpx + " px"; }
     }
   };
-          var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false;
+              var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false, okt = false, bday = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : okt ? "Okt" : bday ? "Bday" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -13855,7 +13927,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v; }); }
 
   function opts() {
     return {
@@ -14163,8 +14235,10 @@ var RQ = (function () {
   
   
   
+  
+  
   restore();
-            var startLang = null;
+                var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (!startLang) {
     // First visit: follow the browser's language when we have it, otherwise Danish.
@@ -14173,7 +14247,7 @@ var RQ = (function () {
     startLang = startLang || "da";
   }
   applyLang(startLang);
-            fillSizes();
+                fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
     setScan(null, "notReady");

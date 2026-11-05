@@ -609,6 +609,155 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
   .pgarland .pf, .tchest, .pirat .pwheel, .pirat .pflag .cloth { animation: none; }
 }
 /* pirat:end */
+
+/* oktober:start */
+/* Oktoberfest: blue and white Bavarian diamonds over a light sky; panels keep their own light or dark surface. */
+:root.okt {
+  --page: #eef4fb; --page-ink: #1f1d18; --page-muted: #4f5d70;
+  --bg: #f8fafc; --surface: #ffffff; --stage: #eef3fa; --ink: #1f1d18; --muted: #5f6876; --line: #dbe4ef;
+  --accent: #1f5fa8; --accent-strong: #164a85; --accent-ink: #ffffff; --lattice: rgb(31 95 168 / 0.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root.okt:not([data-theme="light"]) {
+    --page: #0d1a2e; --page-ink: #eef2f8; --page-muted: #a6b3c6;
+    --bg: #101d30; --surface: #142339; --stage: #1b2c45; --ink: #eef2f8; --muted: #a6b3c6; --line: #263955;
+    --accent: #4f8fe0; --accent-strong: #8fb8f0; --accent-ink: #0b1424; --lattice: rgb(143 184 240 / 0.06);
+  }
+}
+:root.okt[data-theme="dark"] {
+  --page: #0d1a2e; --page-ink: #eef2f8; --page-muted: #a6b3c6;
+  --bg: #101d30; --surface: #142339; --stage: #1b2c45; --ink: #eef2f8; --muted: #a6b3c6; --line: #263955;
+  --accent: #4f8fe0; --accent-strong: #8fb8f0; --accent-ink: #0b1424; --lattice: rgb(143 184 240 / 0.06);
+}
+:root.okt body {
+  background:
+    repeating-linear-gradient(60deg, var(--lattice) 0 1.5px, transparent 1.5px 34px),
+    repeating-linear-gradient(-60deg, var(--lattice) 0 1.5px, transparent 1.5px 34px),
+    var(--page);
+  color: var(--page-ink); padding-top: 74px;
+}
+.okt .preview, .okt .controls, .okt .xbar, .okt .sp-list, .okt .download { color: var(--ink); }
+.okt header p, .okt .sp-intro p, .okt .foot { color: var(--page-muted); }
+.okt header .about .sig { color: var(--page-ink); }
+.okt h1 .o { border-color: #1f5fa8; background: repeating-conic-gradient(#1f5fa8 0 25%, #ffffff 0 50%) 50% 50% / 0.2em 0.2em; }
+.okt .stage {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, #1f5fa8 26%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in srgb, #8a4a14 22%, transparent) 1.2px, transparent 1.6px);
+  background-size: 22px 22px; background-position: 0 0, 11px 11px;
+}
+:root:not(.okt) .okt-only { display: none !important; }
+.okt .plain-only { display: none !important; }
+.ogarland .rope { fill: none; stroke: #1f5fa8; stroke-width: 2.4; stroke-dasharray: 4 3; }
+.ogarland .rope2 { fill: none; stroke: #ffffff; stroke-width: 2.4; stroke-dasharray: 3 4; stroke-dashoffset: 3.5; }
+.ogarland .of { animation: bulbOn .35s var(--i) both; }
+.ogarland .og { animation: oswing 3s var(--d) infinite ease-in-out; transform-box: fill-box; transform-origin: 50% 0; }
+@keyframes oswing { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+.oswitch .knob svg { width: 17px; height: 17px; }
+.oswitch .knob .mug { fill: var(--muted); opacity: 0.45; transition: fill .2s, opacity .2s; }
+.oswitch .knob .froth { fill: var(--muted); opacity: 0.25; }
+.oswitch input:checked + .track { background: repeating-linear-gradient(135deg, #1f5fa8 0 7px, #ffffff 7px 14px); }
+.oswitch input:checked + .track .mug { fill: #e0a800; opacity: 1; }
+.oswitch input:checked + .track .froth { fill: #ffffff; opacity: 1; stroke: #c9c3b4; stroke-width: .5; }
+.odecor { display: flex; gap: 8px; align-items: flex-end; height: 58px; flex: none; filter: grayscale(1); opacity: 0.45; transition: filter .3s, opacity .3s; }
+.omug { width: 50px; height: 56px; overflow: visible; }
+.omug .glass { fill: none; stroke: #8a8578; stroke-width: 2; }
+.omug .facet { stroke: rgb(138 133 120 / 0.5); stroke-width: 1.4; }
+.omug .handle { fill: none; stroke: #8a8578; stroke-width: 4; }
+.omug .beer { fill: #e9a800; transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform 1.3s cubic-bezier(.3,.9,.4,1); }
+.omug .bub { fill: #fff3c4; opacity: 0; }
+.omug .foam { fill: #ffffff; stroke: #d8d2c4; stroke-width: 1; opacity: 0; transform: translateY(26px) scaleY(0.4); transform-box: fill-box; transform-origin: 50% 100%; transition: opacity .3s 1s, transform .5s 1s; }
+.obrezn { width: 42px; height: 36px; }
+.obrezn path { fill: none; stroke: #8a4a14; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.obrezn .salt { fill: #ffffff; }
+.okt .odecor { filter: none; opacity: 1; }
+.okt .omug .beer { transform: scaleY(1); }
+.okt .omug .foam { opacity: 1; transform: none; }
+.okt .omug .bub { opacity: 1; animation: orise 1.5s linear infinite; }
+.okt .omug .bub:nth-of-type(2) { animation-delay: -.5s; }
+.okt .omug .bub:nth-of-type(3) { animation-delay: -1s; }
+.okt .omug { animation: prost 3s 1.6s ease-in-out infinite; transform-origin: 30% 100%; }
+@keyframes prost { 0%, 70%, 100% { transform: rotate(0); } 80% { transform: rotate(-9deg); } 90% { transform: rotate(3deg); } }
+@keyframes orise { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-14px); opacity: 0; } }
+@media (max-width: 480px) { .odecor { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .ogarland .og, .okt .omug, .okt .omug .bub { animation: none; }
+  .omug .beer, .omug .foam { transition: none; }
+}
+/* oktober:end */
+
+/* foedselsdag:start */
+/* Fødselsdag: a warm room full of Danish flags; panels keep their own light or dark surface. */
+:root.bday {
+  --page: #fff6ee; --page-ink: #1f1d18; --page-muted: #6b5a4e;
+  --bg: #fffaf5; --surface: #ffffff; --stage: #fbefe6; --ink: #1f1d18; --muted: #6b5f55; --line: #efdfd2;
+  --accent: #c8102e; --accent-strong: #a30d25; --accent-ink: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root.bday:not([data-theme="light"]) {
+    --page: #1d1014; --page-ink: #f5ebe6; --page-muted: #c2a9ad;
+    --bg: #1c1215; --surface: #22171a; --stage: #2b1d21; --ink: #f5ebe6; --muted: #b9a6a8; --line: #3a282d;
+    --accent: #e0314a; --accent-strong: #ff7f90; --accent-ink: #ffffff;
+  }
+}
+:root.bday[data-theme="dark"] {
+  --page: #1d1014; --page-ink: #f5ebe6; --page-muted: #c2a9ad;
+  --bg: #1c1215; --surface: #22171a; --stage: #2b1d21; --ink: #f5ebe6; --muted: #b9a6a8; --line: #3a282d;
+  --accent: #e0314a; --accent-strong: #ff7f90; --accent-ink: #ffffff;
+}
+:root.bday body {
+  background:
+    radial-gradient(circle at 12% 20%, rgb(200 16 46 / 0.10) 0 3px, transparent 4px) 0 0 / 120px 120px,
+    radial-gradient(circle at 62% 70%, rgb(253 206 59 / 0.22) 0 3px, transparent 4px) 0 0 / 140px 140px,
+    radial-gradient(circle at 40% 40%, rgb(80 150 220 / 0.14) 0 2.5px, transparent 3.5px) 0 0 / 100px 100px,
+    var(--page);
+  color: var(--page-ink); padding-top: 74px;
+}
+.bday .preview, .bday .controls, .bday .xbar, .bday .sp-list, .bday .download { color: var(--ink); }
+.bday header p, .bday .sp-intro p, .bday .foot { color: var(--page-muted); }
+.bday header .about .sig { color: var(--page-ink); }
+.bday h1 .o { border-color: #c8102e;
+  background: linear-gradient(90deg, transparent 32%, #ffffff 32% 46%, transparent 46%), linear-gradient(180deg, transparent 40%, #ffffff 40% 56%, transparent 56%), #c8102e; }
+.bday .stage {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, #c8102e 22%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in srgb, #e0a800 30%, transparent) 1.2px, transparent 1.6px);
+  background-size: 22px 22px; background-position: 0 0, 11px 11px;
+}
+:root:not(.bday) .bday-only { display: none !important; }
+.bday .plain-only { display: none !important; }
+.bgarland .wire { fill: none; stroke: #8a7a6a; stroke-width: 1.2; }
+.bgarland .bf { animation: bulbOn .35s var(--i) both, bwave 2.6s var(--d) infinite ease-in-out; transform-box: fill-box; transform-origin: 50% 0; }
+@keyframes bwave { 0%, 100% { transform: skewX(-5deg); } 50% { transform: skewX(5deg); } }
+.bswitch .knob svg { width: 17px; height: 17px; }
+.bswitch .knob .pole { stroke: var(--muted); stroke-width: 1.2; stroke-linecap: round; opacity: 0.6; }
+.bswitch .knob .dk { fill: var(--muted); opacity: 0.45; transition: fill .2s, opacity .2s; }
+.bswitch .knob .cr { stroke: var(--surface); stroke-width: 1.3; }
+.bswitch input:checked + .track { background: repeating-linear-gradient(135deg, #c8102e 0 7px, #ffffff 7px 14px); }
+.bswitch input:checked + .track .dk { fill: #c8102e; opacity: 1; }
+.bswitch input:checked + .track .pole { stroke: #8a7a6a; opacity: 1; }
+.bdecor { display: flex; align-items: flex-end; height: 58px; flex: none; filter: grayscale(1); opacity: 0.45; transition: filter .3s, opacity .3s; }
+.bcake { width: 62px; height: 58px; overflow: visible; }
+.bcake .plate { fill: #e9e4dc; }
+.bcake .layer { fill: #f4c9a8; }
+.bcake .cream { stroke: #ffffff; stroke-width: 3; }
+.bcake .icing { fill: #ffffff; stroke: #eadfd4; stroke-width: .8; }
+.bcake .candles rect { fill: #5096dc; }
+.bcake .candles rect:nth-child(2) { fill: #fdce3b; }
+.bcake .flames path { fill: #ffb43a; opacity: 0; transform-box: fill-box; transform-origin: 50% 100%; transition: opacity .3s; }
+.bcake .stick { stroke: #8a7a6a; stroke-width: 1.2; }
+.bcake .dkf { fill: #c8102e; }
+.bcake .dkc { stroke: #ffffff; stroke-width: 1.4; }
+.bday .bdecor { filter: none; opacity: 1; }
+.bday .bcake .flames path { opacity: 1; animation: flick .9s ease-in-out infinite alternate; filter: drop-shadow(0 0 3px #ffb43a); }
+.bday .bcake .flames path:nth-child(2) { animation-delay: -.3s; }
+.bday .bcake .flames path:nth-child(3) { animation-delay: -.6s; }
+@keyframes flick { from { transform: scaleY(1) rotate(-3deg); } to { transform: scaleY(1.15) rotate(3deg); } }
+@media (max-width: 480px) { .bdecor { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .bgarland .bf, .bday .bcake .flames path { animation: none; }
+}
+/* foedselsdag:end */
 </style>
 
 <!-- julelys:start -->
@@ -669,6 +818,14 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 <!-- pirat:start -->
 <div class="garland pgarland" id="pgarland" aria-hidden="true"></div>
 <!-- pirat:end -->
+
+<!-- oktober:start -->
+<div class="garland ogarland" id="ogarland" aria-hidden="true"></div>
+<!-- oktober:end -->
+
+<!-- foedselsdag:start -->
+<div class="garland bgarland" id="bgarland" aria-hidden="true"></div>
+<!-- foedselsdag:end -->
 
 <div class="wrap">
   <header>
@@ -781,6 +938,26 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="shape" id="shape-skull" value="skull"><span><svg data-oshape="skull"></svg><b data-t="pSkull">Dødningehoved</b></span></label>
           </div>
           <!-- pirat:end -->
+          <!-- oktober:start -->
+          <div class="xgrid okt-only" id="oshapes" role="radiogroup" data-t-aria="form" aria-label="Form">
+            <label><input type="radio" name="shape" id="shape-stein" value="stein"><span><svg data-oshape="stein"></svg><b data-t="oStein">Ølkrus</b></span></label>
+            <label><input type="radio" name="shape" id="shape-pretzel" value="pretzel"><span><svg data-oshape="pretzel"></svg><b data-t="oPretzel">Kringle</b></span></label>
+            <label><input type="radio" name="shape" id="shape-lheart" value="lheart"><span><svg data-oshape="lheart"></svg><b data-t="oHeart">Honningkagehjerte</b></span></label>
+            <label><input type="radio" name="shape" id="shape-rhomb" value="rhomb"><span><svg data-oshape="rhomb"></svg><b data-t="oRhomb">Rude</b></span></label>
+            <label><input type="radio" name="shape" id="shape-alphat" value="alphat"><span><svg data-oshape="alphat"></svg><b data-t="oHat">Tyrolerhat</b></span></label>
+            <label><input type="radio" name="shape" id="shape-barrel" value="barrel"><span><svg data-oshape="barrel"></svg><b data-t="oBarrel">Øltønde</b></span></label>
+          </div>
+          <!-- oktober:end -->
+          <!-- foedselsdag:start -->
+          <div class="xgrid bday-only" id="bshapes" role="radiogroup" data-t-aria="form" aria-label="Form">
+            <label><input type="radio" name="shape" id="shape-dkflag" value="dkflag"><span><svg data-oshape="dkflag"></svg><b data-t="bFlag">Dannebrog</b></span></label>
+            <label><input type="radio" name="shape" id="shape-cake" value="cake"><span><svg data-oshape="cake"></svg><b data-t="bCake">Lagkage</b></span></label>
+            <label><input type="radio" name="shape" id="shape-cakeman" value="cakeman"><span><svg data-oshape="cakeman"></svg><b data-t="bCakeman">Kagemand</b></span></label>
+            <label><input type="radio" name="shape" id="shape-balloon" value="balloon"><span><svg data-oshape="balloon"></svg><b data-t="bBalloon">Ballon</b></span></label>
+            <label><input type="radio" name="shape" id="shape-crown" value="crown"><span><svg data-oshape="crown"></svg><b data-t="bCrown">Krone</b></span></label>
+            <label><input type="radio" name="shape" id="shape-bpresent" value="bpresent"><span><svg data-oshape="bpresent"></svg><b data-t="bPresent">Gave</b></span></label>
+          </div>
+          <!-- foedselsdag:end -->
           <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
@@ -843,6 +1020,26 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="dot" id="dot-pirates" value="pirates"><span><svg viewBox="0 0 1 1" data-shape="pirates"></svg><b data-t="pirates">Blandet</b></span></label>
           </div>
           <!-- pirat:end -->
+          <!-- oktober:start -->
+          <div class="xgrid okt-only" id="ogrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+            <label><input type="radio" name="dot" id="dot-steins" value="steins"><span><svg viewBox="0 0 1 1" data-shape="steins"></svg><b data-t="steins">Ølkrus</b></span></label>
+            <label><input type="radio" name="dot" id="dot-pretzels" value="pretzels"><span><svg viewBox="0 0 1 1" data-shape="pretzels"></svg><b data-t="pretzels">Kringler</b></span></label>
+            <label><input type="radio" name="dot" id="dot-lhearts" value="lhearts"><span><svg viewBox="0 0 1 1" data-shape="lhearts"></svg><b data-t="lhearts">Hjerter</b></span></label>
+            <label><input type="radio" name="dot" id="dot-rhombs" value="rhombs"><span><svg viewBox="0 0 1 1" data-shape="rhombs"></svg><b data-t="rhombs">Ruder</b></span></label>
+            <label><input type="radio" name="dot" id="dot-alphats" value="alphats"><span><svg viewBox="0 0 1 1" data-shape="alphats"></svg><b data-t="alphats">Tyrolerhatte</b></span></label>
+            <label><input type="radio" name="dot" id="dot-wiesn" value="wiesn"><span><svg viewBox="0 0 1 1" data-shape="wiesn"></svg><b data-t="wiesn">Blandet</b></span></label>
+          </div>
+          <!-- oktober:end -->
+          <!-- foedselsdag:start -->
+          <div class="xgrid bday-only" id="bgrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+            <label><input type="radio" name="dot" id="dot-flags" value="flags"><span><svg viewBox="0 0 1 1" data-shape="flags"></svg><b data-t="flags">Flag</b></span></label>
+            <label><input type="radio" name="dot" id="dot-cakes" value="cakes"><span><svg viewBox="0 0 1 1" data-shape="cakes"></svg><b data-t="cakes">Lagkager</b></span></label>
+            <label><input type="radio" name="dot" id="dot-bgifts" value="bgifts"><span><svg viewBox="0 0 1 1" data-shape="bgifts"></svg><b data-t="bgifts">Gaver</b></span></label>
+            <label><input type="radio" name="dot" id="dot-balloons" value="balloons"><span><svg viewBox="0 0 1 1" data-shape="balloons"></svg><b data-t="balloons">Balloner</b></span></label>
+            <label><input type="radio" name="dot" id="dot-cakemen" value="cakemen"><span><svg viewBox="0 0 1 1" data-shape="cakemen"></svg><b data-t="cakemen">Kagemænd</b></span></label>
+            <label><input type="radio" name="dot" id="dot-hurra" value="hurra"><span><svg viewBox="0 0 1 1" data-shape="hurra"></svg><b data-t="hurra">Blandet</b></span></label>
+          </div>
+          <!-- foedselsdag:end -->
           <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
@@ -1026,6 +1223,39 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
   </section>
   <!-- pirat:end -->
+  <!-- oktober:start -->
+  <section class="xbar obar" id="obar" data-t-aria="oktAria" aria-label="Oktoberfest">
+    <label class="xbar-main" for="okt">
+      <span class="xswitch oswitch"><input type="checkbox" id="okt" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="mug" d="M2.6 4.2h8.2v9.6H2.6zM10.8 6h1.6c1.2 0 1.8.8 1.8 2v1.6c0 1.2-.6 2-1.8 2h-1.6v-1.4h1.2c.5 0 .8-.3.8-.8V8.2c0-.5-.3-.8-.8-.8h-1.2z"/><path class="froth" d="M2.2 4.6c0-1.6 1.4-2.4 2.6-1.8.6-1 2.2-1.2 3.1-.3 1.1-.5 2.8.2 3 1.8.1.6-.2 1-.6 1H2.8c-.4 0-.6-.3-.6-.7z"/></svg></span></span></span>
+      <span class="xtext"><span class="xtitle" data-t="oktLabel">Slå hanen i tønden</span><span class="hint" data-t="oktHint">Ølkrus, kringler, hjerter og blå og hvide ruder i stedet for prikker. Og skum, der bobler op.</span></span>
+    </label>
+    <div class="odecor" aria-hidden="true">
+      <svg class="omug" viewBox="0 0 56 62"><defs><clipPath id="om-clip"><rect x="7" y="15" width="30" height="41" rx="2"/></clipPath></defs>
+        <path class="handle" d="M37 24h6c5 0 7 4 7 9v6c0 5-2 9-7 9h-6"/>
+        <g clip-path="url(#om-clip)"><rect class="beer" x="7" y="15" width="30" height="41"/><circle class="bub" cx="15" cy="48" r="1.4"/><circle class="bub" cx="24" cy="44" r="1.1"/><circle class="bub" cx="30" cy="50" r="1.2"/></g>
+        <rect class="glass" x="5" y="13" width="34" height="45" rx="3"/><path class="facet" d="M16 18v36M28 18v36"/>
+        <path class="foam" d="M3 16c0-5 4-8 8-6 2-4 8-5 11-2 3-3 9-2 11 2 4-1 8 2 7 6 0 2-1 3-3 3H6c-2 0-3-1-3-3z"/></svg>
+      <svg class="obrezn" viewBox="0 0 50 42"><path d="M25 23C18 10 4 6 4 18s14 14 21 5c7 9 21 7 21-5S32 10 25 23M14 34L25 23L36 34"/><g class="salt"><circle cx="10" cy="13" r="1.1"/><circle cx="40" cy="14" r="1.1"/><circle cx="18" cy="26" r="1.1"/><circle cx="33" cy="26" r="1.1"/></g></svg>
+    </div>
+  </section>
+  <!-- oktober:end -->
+  <!-- foedselsdag:start -->
+  <section class="xbar bbar" id="bbar" data-t-aria="bdayAria" aria-label="Fødselsdag">
+    <label class="xbar-main" for="bday">
+      <span class="xswitch bswitch"><input type="checkbox" id="bday" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="pole" d="M3.2 1.4v13.4"/><path class="dk" d="M3.6 2.4h10v7.2h-10z"/><path class="cr" d="M6.4 2.4v7.2M3.6 5.6h10"/></svg></span></span></span>
+      <span class="xtext"><span class="xtitle" data-t="bdayLabel">Hejs flaget, det er fødselsdag</span><span class="hint" data-t="bdayHint">Flag, lagkager, gaver og balloner i stedet for prikker. Og en flagallé, der springer op.</span></span>
+    </label>
+    <div class="bdecor" aria-hidden="true">
+      <svg class="bcake" viewBox="0 0 64 60">
+        <ellipse class="plate" cx="32" cy="55" rx="29" ry="4"/>
+        <rect class="layer" x="8" y="30" width="48" height="24" rx="3"/><path class="cream" d="M8 41h48"/>
+        <path class="icing" d="M8 33c0-3 2-5 5-5h38c3 0 5 2 5 5v2c-2 3-4 3-6 0-2 3-4 3-6 0-2 3-4 3-6 0-2 3-4 3-6 0-2 3-4 3-6 0-2 3-4 3-6 0-2 3-4 3-6 0-2 3-4 3-7 0z"/>
+        <g class="candles"><rect x="18" y="14" width="4" height="14" rx="1"/><rect x="30" y="12" width="4" height="16" rx="1"/><rect x="42" y="14" width="4" height="14" rx="1"/></g>
+        <g class="flames"><path d="M20 4c3 3 3 7 0 8-3-1-3-5 0-8z"/><path d="M32 2c3 3 3 7 0 8-3-1-3-5 0-8z"/><path d="M44 4c3 3 3 7 0 8-3-1-3-5 0-8z"/></g>
+        <path class="stick" d="M53 28V6"/><rect class="dkf" x="53" y="6" width="10" height="7"/><path class="dkc" d="M56.2 6v7M53 9.5h10"/></svg>
+    </div>
+  </section>
+  <!-- foedselsdag:end -->
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
@@ -1110,6 +1340,21 @@ var RQ = (function () {
   var COIN = (function () { var a = ["M"]; for (var i = 0; i < 48; i++) { var t = i / 48 * 2 * Math.PI, r = .44 + .03 * Math.cos(12 * t);
     if (i) a.push("L"); a.push(.5 + r * Math.cos(t), .5 + r * Math.sin(t)); } a.push("Z"); return a; })();
   var PIRATE = ["chests", "ships", "anchors", "skulls", "coins"];
+  // Oktoberfest. A hole is a loop drawn the other way round, so the nonzero fill leaves it empty.
+  function hole(x, y, cx, cy, rx, ry) { var s = "M", n = 20; for (var i = 0; i <= n; i++) { var t = -i / n * 2 * Math.PI; s += (i ? "L" : "") + f(x + cx + rx * Math.cos(t)) + " " + f(y + cy + ry * Math.sin(t)) + " "; } return s + "Z"; }
+  var STEIN = ["M", .12, .16, "L", .7, .16, "L", .7, .3, "L", .84, .3, "C", .96, .3, .98, .42, .98, .52, "C", .98, .64, .94, .74, .84, .74, "L", .7, .74, "L", .7, .94, "L", .12, .94, "Z"];
+  var PRETZEL = ["M", .5, .3, "C", .62, .08, .98, .12, .96, .48, "C", .95, .72, .78, .9, .6, .92, "L", .5, .82, "L", .4, .92, "C", .22, .9, .05, .72, .04, .48, "C", .02, .12, .38, .08, .5, .3, "Z"];
+  var RHOMB = ["M", .5, .02, "L", .98, .5, "L", .5, .98, "L", .02, .5, "Z"];
+  var ALPHAT = ["M", .26, .62, "L", .32, .22, "C", .4, .14, .6, .14, .68, .22, "L", .74, .62, "L", .96, .66, "C", .98, .76, .9, .8, .8, .8, "L", .2, .8, "C", .1, .8, .02, .76, .04, .66, "Z"];
+  var ALPFEATHER = ["M", .72, .34, "L", .9, .02, "L", .96, .06, "L", .78, .4, "Z"];
+  var WIESN = ["steins", "pretzels", "lhearts", "rhombs", "alphats"];
+  // Fødselsdag
+  var CAKE = ["M", .04, .42, "C", .04, .36, .1, .33, .18, .33, "L", .82, .33, "C", .9, .33, .96, .36, .96, .42, "L", .96, .97, "L", .04, .97, "Z"];
+  var BALLOON = ["M", .5, .04, "C", .78, .04, .9, .26, .9, .44, "C", .9, .64, .7, .8, .54, .82, "L", .6, .9, "L", .4, .9, "L", .46, .82, "C", .3, .8, .1, .64, .1, .44, "C", .1, .26, .22, .04, .5, .04, "Z"];
+  var CAKEMAN = ["M", .5, .02, "C", .62, .02, .7, .1, .7, .2, "C", .7, .26, .67, .3, .63, .33, "L", .9, .4, "C", .97, .42, .97, .52, .9, .52, "L", .68, .5, "L", .76, .9,
+    "C", .78, .98, .66, 1, .62, .94, "L", .5, .7, "L", .38, .94, "C", .34, 1, .22, .98, .24, .9, "L", .32, .5, "L", .1, .52, "C", .03, .52, .03, .42, .1, .4, "L", .37, .33,
+    "C", .33, .3, .3, .26, .3, .2, "C", .3, .1, .38, .02, .5, .02, "Z"];
+  var HURRA = ["flags", "cakes", "bgifts", "balloons", "cakemen"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -1136,6 +1381,17 @@ var RQ = (function () {
     if (style === "anchors") return sh(x, y, ANCHOR);
     if (style === "skulls") return sh(x, y, SKULL);
     if (style === "coins") return sh(x, y, COIN);
+    if (style === "steins") return sh(x, y, STEIN);
+    if (style === "pretzels") return sh(x, y, PRETZEL) + hole(x, y, .29, .44, .1, .12) + hole(x, y, .71, .44, .1, .12);
+    if (style === "lhearts") return rect(x + .47, y + .02, .06, .14) + sh(x + .075, y + .15, HEART, .85);
+    if (style === "rhombs") return sh(x, y, RHOMB);
+    if (style === "alphats") return sh(x, y, ALPHAT) + sh(x, y, ALPFEATHER);
+    // The cross is placed high and to the left like on Dannebrog, so the middle of the cell stays red.
+    if (style === "flags") return rect(x, y + .03, .3, .28) + rect(x + .34, y + .03, .66, .28) + rect(x, y + .35, .3, .62) + rect(x + .34, y + .35, .66, .62);
+    if (style === "cakes") return sh(x, y, CAKE) + rect(x + .45, y + .15, .1, .18) + circ(x + .5, y + .07, .06);
+    if (style === "bgifts") return sh(x, y, GIFT);
+    if (style === "balloons") return sh(x, y, BALLOON);
+    if (style === "cakemen") return sh(x, y, CAKEMAN);
     return null;
   }
 
@@ -1148,6 +1404,8 @@ var RQ = (function () {
     if (style === "spring") style = SPRING[cellPick(x, y, 5)];
     if (style === "party") style = PARTY[cellPick(x, y, 5)];
     if (style === "pirates") style = PIRATE[cellPick(x, y, 5)];
+    if (style === "wiesn") style = WIESN[cellPick(x, y, 5)];
+    if (style === "hurra") style = HURRA[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -1293,6 +1551,46 @@ var RQ = (function () {
     // Teeth: thin gaps in the jaw below the code.
     skip: function (X, Y, qx, qy, U, V) { return V > 0.84 && V < 0.94 && U > 0.3 && U < 0.7 && ((U - 0.3) % 0.08) < 0.016; } };
   var PSHAPES = ["chest", "ship", "map", "flag", "wheel", "skull"];
+  // Oktoberfest
+  SHAPES.stein = { anchor: [0.4, 0.62], prims: [{ poly: [[0.1, 0.18], [0.7, 0.18], [0.7, 1], [0.1, 1]] },
+    { poly: arcPts(0.7, 0.58, 0.26, 0.26, -Math.PI / 2, Math.PI / 2, 16).concat(arcPts(0.7, 0.58, 0.14, 0.14, Math.PI / 2, -Math.PI / 2, 16)) },
+    { circle: [0.16, 0.18, 0.09] }, { circle: [0.32, 0.14, 0.11] }, { circle: [0.5, 0.15, 0.1] }, { circle: [0.64, 0.18, 0.08] }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.3 && U < 0.7 && ((U > 0.24 && U < 0.26) || (U > 0.54 && U < 0.56)); } };
+  SHAPES.pretzel = { anchor: [0.5, 0.48], prims: [{ circle: [0.3, 0.42, 0.28] }, { circle: [0.7, 0.42, 0.28] },
+    { poly: [[0.08, 0.54], [0.5, 1], [0.92, 0.54]] }],
+    // Three holes like a real pretzel: two big loops and a small one where the arms cross.
+    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.24, V - 0.46) < 0.12 || Math.hypot(U - 0.76, V - 0.46) < 0.12 ||
+      (V > 0.72 && V < 0.84 && Math.abs(U - 0.5) < (0.84 - V) * 0.9); } };
+  SHAPES.lheart = { anchor: [0.5, 0.42], prims: [{ poly: HEART_PTS }],
+    // A thin line of icing just inside the edge.
+    skip: function (X, Y, qx, qy, U, V) { var d = sdPoly(HEART_PTS, U, V); return d > -0.06 && d < -0.042; } };
+  SHAPES.rhomb = { anchor: [0.5, 0.5], prims: [{ poly: [[0.5, 0], [1, 0.5], [0.5, 1], [0, 0.5]] }],
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.abs(U - 0.5) + Math.abs(V - 0.5); return d > 0.4 && d < 0.42; } };
+  SHAPES.alphat = { anchor: [0.5, 0.46], prims: [{ poly: [[0.24, 0.72], [0.32, 0.2], [0.5, 0.12], [0.68, 0.2], [0.76, 0.72]] }, { poly: ellPts(0.5, 0.76, 0.5, 0.12, 0, 32) },
+    { poly: [[0.72, 0.34], [0.94, 0], [1, 0.04], [0.8, 0.42]] }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.6 && V < 0.65 && U > 0.24 && U < 0.76; } };
+  SHAPES.barrel = { anchor: [0.5, 0.5], prims: [{ poly: [[0.14, 0.04], [0.86, 0.04], [0.86, 0.96], [0.14, 0.96]] }, { poly: ellPts(0.5, 0.5, 0.44, 0.46, 0, 40) }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.16 && V < 0.19) || (V > 0.81 && V < 0.84); } };
+  var OSHAPES = ["stein", "pretzel", "lheart", "rhomb", "alphat", "barrel"];
+  // Fødselsdag
+  SHAPES.dkflag = { anchor: [0.56, 0.4], prims: [{ poly: [[0.1, 0.04], [1, 0.04], [1, 0.76], [0.1, 0.76]] }, { poly: [[0.02, 0], [0.08, 0], [0.08, 1.1], [0.02, 1.1]] }, { circle: [0.05, -0.02, 0.045] }],
+    // The white cross of Dannebrog in the pattern: 12:4:21 across, 12:4:12 down.
+    skip: function (X, Y, qx, qy, U, V) { return U > 0.1 && V > 0.04 && V < 0.76 && ((U > 0.392 && U < 0.489) || (V > 0.349 && V < 0.452)); } };
+  SHAPES.cake = { anchor: [0.5, 0.7], prims: [{ poly: [[0.06, 0.44], [0.94, 0.44], [0.94, 1], [0.06, 1]] }, { poly: ellPts(0.5, 0.44, 0.44, 0.07, 0, 32) },
+    { poly: [[0.26, 0.2], [0.31, 0.2], [0.31, 0.44], [0.26, 0.44]] }, { poly: [[0.475, 0.2], [0.525, 0.2], [0.525, 0.44], [0.475, 0.44]] }, { poly: [[0.69, 0.2], [0.74, 0.2], [0.74, 0.44], [0.69, 0.44]] },
+    { circle: [0.285, 0.15, 0.045] }, { circle: [0.5, 0.15, 0.045] }, { circle: [0.715, 0.15, 0.045] }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.64 && V < 0.66) || (V > 0.84 && V < 0.86); } };
+  SHAPES.cakeman = { anchor: [0.5, 0.48], prims: [{ circle: [0.5, 0.16, 0.15] }, { poly: [[0.3, 0.3], [0.7, 0.3], [0.72, 0.7], [0.28, 0.7]] },
+    { poly: barPts(0.34, 0.38, 0.02, 0.58, 0.15) }, { poly: barPts(0.66, 0.38, 0.98, 0.58, 0.15) },
+    { poly: barPts(0.4, 0.64, 0.24, 1, 0.17) }, { poly: barPts(0.6, 0.64, 0.76, 1, 0.17) }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.9 && V < 0.92) || ((U < 0.14 || U > 0.86) && Math.abs(V - 0.52) < 0.012); } };
+  SHAPES.balloon = { anchor: [0.5, 0.44], prims: [{ poly: ellPts(0.5, 0.44, 0.4, 0.44, 0, 40) }, { poly: [[0.44, 0.92], [0.56, 0.92], [0.5, 0.84]] }, { poly: barPts(0.5, 0.9, 0.44, 1.2, 0.035) }] };
+  SHAPES.crown = { anchor: [0.5, 0.64], prims: [{ poly: [[0.06, 0.6], [0.94, 0.6], [0.94, 0.96], [0.06, 0.96]] },
+    { poly: [[0.06, 0.62], [0.06, 0.12], [0.28, 0.4], [0.5, 0.04], [0.72, 0.4], [0.94, 0.12], [0.94, 0.62]] },
+    { circle: [0.06, 0.1, 0.05] }, { circle: [0.5, 0.03, 0.05] }, { circle: [0.94, 0.1, 0.05] }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.6 && V < 0.63; } };
+  SHAPES.bpresent = SHAPES.gift;
+  var BSHAPES = ["dkflag", "cake", "cakeman", "balloon", "crown", "bpresent"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -1509,7 +1807,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES, WIESN: WIESN, OSHAPES: OSHAPES, HURRA: HURRA, BSHAPES: BSHAPES };
 })();
 </script>
 
@@ -1549,7 +1847,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved", stein: "Ølkrus", pretzel: "Kringle", lheart: "Honningkagehjerte", rhomb: "Rude", alphat: "Tyrolerhat", barrel: "Øltønde", dkflag: "Dannebrog", cake: "Lagkage", cakeman: "Kagemand", balloon: "Ballon", crown: "Krone", bpresent: "Gave" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -1611,7 +1909,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull", stein: "Stein", pretzel: "Pretzel", lheart: "Gingerbread heart", rhomb: "Diamond", alphat: "Alpine hat", barrel: "Barrel", dkflag: "Danish flag", cake: "Layer cake", cakeman: "Cake man", balloon: "Balloon", crown: "Crown", bpresent: "Present" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -1703,7 +2001,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf", "stein": "Maßkrug", "pretzel": "Brezn", "lheart": "Lebkuchenherz", "rhomb": "Raute", "alphat": "Trachtenhut", "barrel": "Fass", "dkflag": "Dänische Flagge", "cake": "Torte", "cakeman": "Kuchenmann", "balloon": "Ballon", "crown": "Krone", "bpresent": "Geschenk"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -1821,7 +2119,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode", "stein": "Ølkrus", "pretzel": "Kringle", "lheart": "Pepperkakehjerte", "rhomb": "Rute", "alphat": "Tirolerhatt", "barrel": "Øltønne", "dkflag": "Dansk flagg", "cake": "Bløtkake", "cakeman": "Kakemann", "balloon": "Ballong", "crown": "Krone", "bpresent": "Gave"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -1939,7 +2237,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle", "stein": "Ölsejdel", "pretzel": "Kringla", "lheart": "Pepparkakshjärta", "rhomb": "Ruta", "alphat": "Tyrolerhatt", "barrel": "Öltunna", "dkflag": "Danska flaggan", "cake": "Tårta", "cakeman": "Kakgubbe", "balloon": "Ballong", "crown": "Krona", "bpresent": "Present"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -2777,9 +3075,399 @@ var RQ = (function () {
   };
   Object.keys(TP).forEach(function (l) { for (var k in TP[l]) T[l][k] = TP[l][k]; });
   /* pirat:end */
-  var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false;
+  /* oktober:start */
+  var TO = {
+   "da": {
+    "presetsOkt": [
+     "Bayern",
+     "Hvedeøl",
+     "Lederhosen",
+     "Kringle",
+     "Dirndl",
+     "Mørk øl",
+     "Ensian",
+     "Wiesn"
+    ],
+    "oktAria": "Oktoberfest",
+    "oktLabel": "Slå hanen i tønden",
+    "oktLabelOkt": "O'zapft is!",
+    "oktHint": "Ølkrus, kringler, hjerter og blå og hvide ruder i stedet for prikker. Og skum, der bobler op.",
+    "subtitleOkt": "Oktoberfestudgaven. Indsæt et link, pynt koden, og gem den som PNG, JPG eller SVG.",
+    "steins": "Ølkrus",
+    "pretzels": "Kringler",
+    "lhearts": "Hjerter",
+    "rhombs": "Ruder",
+    "alphats": "Tyrolerhatte",
+    "wiesn": "Blandet",
+    "defaultLabelOkt": "Skål!",
+    "oktCheer": "O'zapft is!",
+    "oStein": "Ølkrus",
+    "oPretzel": "Kringle",
+    "oHeart": "Honningkagehjerte",
+    "oRhomb": "Rude",
+    "oHat": "Tyrolerhat",
+    "oBarrel": "Øltønde",
+    "exEyesOkt": "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner små ølbrikker.",
+    "fillOkt": "Fyld formen med mønster",
+    "exFillOkt": "Pyntprikker uden data, der fylder formen ud omkring koden.",
+    "exRingOkt": "En tynd pyntering langs kanten af formen.",
+    "exFormOkt": "Cirkel og Firkant er de klassiske. Oktoberfestformerne lægger koden i midten og fylder resten af formen med mønster.",
+    "exModulesOkt": "Oktoberfestformerne dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
+    "oktHintOkt": "Slå det fra igen, så får du den almindelige Round QR og dine egne farver tilbage."
+   },
+   "en": {
+    "presetsOkt": [
+     "Bavaria",
+     "Wheat beer",
+     "Lederhosen",
+     "Pretzel",
+     "Dirndl",
+     "Dark beer",
+     "Gentian",
+     "Wiesn"
+    ],
+    "oktAria": "Oktoberfest",
+    "oktLabel": "Tap the keg",
+    "oktLabelOkt": "O'zapft is!",
+    "oktHint": "Steins, pretzels, hearts and blue and white diamonds instead of dots. And foam bubbling up.",
+    "subtitleOkt": "The Oktoberfest edition. Paste a link, decorate the code, save it as PNG, JPG or SVG.",
+    "steins": "Steins",
+    "pretzels": "Pretzels",
+    "lhearts": "Hearts",
+    "rhombs": "Diamonds",
+    "alphats": "Alpine hats",
+    "wiesn": "Mixed",
+    "defaultLabelOkt": "Cheers!",
+    "oktCheer": "O'zapft is!",
+    "oStein": "Stein",
+    "oPretzel": "Pretzel",
+    "oHeart": "Gingerbread heart",
+    "oRhomb": "Diamond",
+    "oHat": "Alpine hat",
+    "oBarrel": "Barrel",
+    "exEyesOkt": "The three big squares the phone uses to find the code. Circle looks like little beer mats.",
+    "fillOkt": "Fill the shape with pattern",
+    "exFillOkt": "Decorative dots with no data that fill out the shape around the code.",
+    "exRingOkt": "A thin decorative ring along the edge of the shape.",
+    "exFormOkt": "Circle and Square are the classics. The Oktoberfest shapes put the code in the middle and fill the rest of the shape with pattern.",
+    "exModulesOkt": "The Oktoberfest shapes cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
+    "oktHintOkt": "Turn it off again to get the regular Round QR and your own colours back."
+   },
+   "de": {
+    "presetsOkt": [
+     "Bayern",
+     "Weißbier",
+     "Lederhosn",
+     "Brezn",
+     "Dirndl",
+     "Dunkles",
+     "Enzian",
+     "Wiesn"
+    ],
+    "oktAria": "Oktoberfest",
+    "oktLabel": "Das Fass anstechen",
+    "oktLabelOkt": "O'zapft is!",
+    "oktHint": "Maßkrüge, Brezn, Herzen und weiß-blaue Rauten statt Punkten. Und Schaum, der aufsteigt.",
+    "subtitleOkt": "Die Wiesn-Ausgabe. Link einfügen, Code schmücken und als PNG, JPG oder SVG speichern.",
+    "steins": "Krüge",
+    "pretzels": "Brezn",
+    "lhearts": "Herzen",
+    "rhombs": "Rauten",
+    "alphats": "Trachtenhüte",
+    "wiesn": "Gemischt",
+    "defaultLabelOkt": "Prost!",
+    "oktCheer": "O'zapft is!",
+    "oStein": "Maßkrug",
+    "oPretzel": "Brezn",
+    "oHeart": "Lebkuchenherz",
+    "oRhomb": "Raute",
+    "oHat": "Trachtenhut",
+    "oBarrel": "Fass",
+    "exEyesOkt": "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie kleine Bierdeckel.",
+    "fillOkt": "Form mit Muster füllen",
+    "exFillOkt": "Zierpunkte ohne Daten, die die Form rund um den Code ausfüllen.",
+    "exRingOkt": "Ein dünner Zierring entlang der Kante der Form.",
+    "exFormOkt": "Kreis und Quadrat sind die Klassiker. Die Wiesnformen setzen den Code in die Mitte und füllen den Rest der Form mit Muster.",
+    "exModulesOkt": "Die Wiesnformen decken die Mitte jedes Feldes ab, wo das Handy hinschaut. Behalte das Etikett unter dem Code im Blick.",
+    "oktHintOkt": "Schalte es wieder aus, dann bekommst du das normale Round QR und deine eigenen Farben zurück."
+   },
+   "no": {
+    "presetsOkt": [
+     "Bayern",
+     "Hveteøl",
+     "Lederhosen",
+     "Kringle",
+     "Dirndl",
+     "Mørkt øl",
+     "Søte",
+     "Wiesn"
+    ],
+    "oktAria": "Oktoberfest",
+    "oktLabel": "Slå tappen i tønnen",
+    "oktLabelOkt": "O'zapft is!",
+    "oktHint": "Ølkrus, kringler, hjerter og blå og hvite ruter i stedet for prikker. Og skum som bobler opp.",
+    "subtitleOkt": "Oktoberfestutgaven. Lim inn en lenke, pynt koden, og lagre den som PNG, JPG eller SVG.",
+    "steins": "Ølkrus",
+    "pretzels": "Kringler",
+    "lhearts": "Hjerter",
+    "rhombs": "Ruter",
+    "alphats": "Tirolerhatter",
+    "wiesn": "Blandet",
+    "defaultLabelOkt": "Skål!",
+    "oktCheer": "O'zapft is!",
+    "oStein": "Ølkrus",
+    "oPretzel": "Kringle",
+    "oHeart": "Pepperkakehjerte",
+    "oRhomb": "Rute",
+    "oHat": "Tirolerhatt",
+    "oBarrel": "Øltønne",
+    "exEyesOkt": "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner små ølbrikker.",
+    "fillOkt": "Fyll formen med mønster",
+    "exFillOkt": "Pynteprikker uten data som fyller ut formen rundt koden.",
+    "exRingOkt": "En tynn pyntering langs kanten av formen.",
+    "exFormOkt": "Sirkel og Firkant er de klassiske. Oktoberfestformene legger koden i midten og fyller resten av formen med mønster.",
+    "exModulesOkt": "Oktoberfestformene dekker midten av hvert felt, der telefonen ser. Følg med på merket under koden.",
+    "oktHintOkt": "Slå det av igjen, så får du vanlig Round QR og dine egne farger tilbake."
+   },
+   "sv": {
+    "presetsOkt": [
+     "Bayern",
+     "Veteöl",
+     "Lederhosen",
+     "Kringla",
+     "Dirndl",
+     "Mörk öl",
+     "Gentiana",
+     "Wiesn"
+    ],
+    "oktAria": "Oktoberfest",
+    "oktLabel": "Slå upp ölfatet",
+    "oktLabelOkt": "O'zapft is!",
+    "oktHint": "Ölsejdlar, kringlor, hjärtan och blå och vita rutor i stället för prickar. Och skum som bubblar upp.",
+    "subtitleOkt": "Oktoberfestutgåvan. Klistra in en länk, pynta koden och spara den som PNG, JPG eller SVG.",
+    "steins": "Ölsejdlar",
+    "pretzels": "Kringlor",
+    "lhearts": "Hjärtan",
+    "rhombs": "Rutor",
+    "alphats": "Tyrolerhattar",
+    "wiesn": "Blandat",
+    "defaultLabelOkt": "Skål!",
+    "oktCheer": "O'zapft is!",
+    "oStein": "Ölsejdel",
+    "oPretzel": "Kringla",
+    "oHeart": "Pepparkakshjärta",
+    "oRhomb": "Ruta",
+    "oHat": "Tyrolerhatt",
+    "oBarrel": "Öltunna",
+    "exEyesOkt": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små ölunderlägg.",
+    "fillOkt": "Fyll formen med mönster",
+    "exFillOkt": "Dekorprickar utan data som fyller ut formen runt koden.",
+    "exRingOkt": "En tunn dekorring längs kanten av formen.",
+    "exFormOkt": "Cirkel och Fyrkant är de klassiska. Oktoberfestformerna lägger koden i mitten och fyller resten av formen med mönster.",
+    "exModulesOkt": "Oktoberfestformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
+    "oktHintOkt": "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka."
+   }
+  };
+  Object.keys(TO).forEach(function (l) { for (var k in TO[l]) T[l][k] = TO[l][k]; });
+  /* oktober:end */
+  /* foedselsdag:start */
+  var TB = {
+   "da": {
+    "presetsBday": [
+     "Dannebrog",
+     "Lagkage",
+     "Kagemand",
+     "Flagallé",
+     "Ballon",
+     "Gavebånd",
+     "Chokolade",
+     "Hurra"
+    ],
+    "bdayAria": "Fødselsdag",
+    "bdayLabel": "Hejs flaget, det er fødselsdag",
+    "bdayLabelBday": "Tillykke med fødselsdagen!",
+    "bdayHint": "Flag, lagkager, gaver og balloner i stedet for prikker. Og en flagallé, der springer op.",
+    "subtitleBday": "Fødselsdagsudgaven. Indsæt et link, pynt koden, og gem den som PNG, JPG eller SVG.",
+    "flags": "Flag",
+    "cakes": "Lagkager",
+    "bgifts": "Gaver",
+    "balloons": "Balloner",
+    "cakemen": "Kagemænd",
+    "hurra": "Blandet",
+    "defaultLabelBday": "Tillykke",
+    "bdayCheer": "Hurra! Hurra! Hurra!",
+    "bFlag": "Dannebrog",
+    "bCake": "Lagkage",
+    "bCakeman": "Kagemand",
+    "bBalloon": "Ballon",
+    "bCrown": "Krone",
+    "bPresent": "Gave",
+    "exEyesBday": "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner små balloner.",
+    "fillBday": "Fyld formen med mønster",
+    "exFillBday": "Pyntprikker uden data, der fylder formen ud omkring koden.",
+    "exRingBday": "En tynd pyntering langs kanten af formen.",
+    "exFormBday": "Cirkel og Firkant er de klassiske. Fødselsdagsformerne lægger koden i midten og fylder resten af formen med mønster.",
+    "exModulesBday": "Fødselsdagsformerne dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
+    "bdayHintBday": "Slå det fra igen, så får du den almindelige Round QR og dine egne farver tilbage."
+   },
+   "en": {
+    "presetsBday": [
+     "Dannebrog",
+     "Layer cake",
+     "Cake man",
+     "Flag row",
+     "Balloon",
+     "Ribbon",
+     "Chocolate",
+     "Hooray"
+    ],
+    "bdayAria": "Birthday",
+    "bdayLabel": "Raise the flag, it's a birthday",
+    "bdayLabelBday": "Happy birthday!",
+    "bdayHint": "Flags, cakes, presents and balloons instead of dots. And a row of Danish flags popping up.",
+    "subtitleBday": "The birthday edition. Paste a link, decorate the code, save it as PNG, JPG or SVG.",
+    "flags": "Flags",
+    "cakes": "Cakes",
+    "bgifts": "Presents",
+    "balloons": "Balloons",
+    "cakemen": "Cake men",
+    "hurra": "Mixed",
+    "defaultLabelBday": "Happy birthday",
+    "bdayCheer": "Hip hip hooray!",
+    "bFlag": "Danish flag",
+    "bCake": "Layer cake",
+    "bCakeman": "Cake man",
+    "bBalloon": "Balloon",
+    "bCrown": "Crown",
+    "bPresent": "Present",
+    "exEyesBday": "The three big squares the phone uses to find the code. Circle looks like little balloons.",
+    "fillBday": "Fill the shape with pattern",
+    "exFillBday": "Decorative dots with no data that fill out the shape around the code.",
+    "exRingBday": "A thin decorative ring along the edge of the shape.",
+    "exFormBday": "Circle and Square are the classics. The birthday shapes put the code in the middle and fill the rest of the shape with pattern.",
+    "exModulesBday": "The birthday shapes cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
+    "bdayHintBday": "Turn it off again to get the regular Round QR and your own colours back."
+   },
+   "de": {
+    "presetsBday": [
+     "Dannebrog",
+     "Torte",
+     "Kuchenmann",
+     "Fahnenreihe",
+     "Ballon",
+     "Schleife",
+     "Schokolade",
+     "Hurra"
+    ],
+    "bdayAria": "Geburtstag",
+    "bdayLabel": "Die Fahne hissen, es ist Geburtstag",
+    "bdayLabelBday": "Alles Gute zum Geburtstag!",
+    "bdayHint": "Fahnen, Torten, Geschenke und Ballons statt Punkten. Und eine Reihe dänischer Fahnen, die aufspringt.",
+    "subtitleBday": "Die Geburtstagsausgabe. Link einfügen, Code schmücken und als PNG, JPG oder SVG speichern.",
+    "flags": "Fahnen",
+    "cakes": "Torten",
+    "bgifts": "Geschenke",
+    "balloons": "Ballons",
+    "cakemen": "Kuchenmänner",
+    "hurra": "Gemischt",
+    "defaultLabelBday": "Alles Gute",
+    "bdayCheer": "Hipp hipp hurra!",
+    "bFlag": "Dänische Flagge",
+    "bCake": "Torte",
+    "bCakeman": "Kuchenmann",
+    "bBalloon": "Ballon",
+    "bCrown": "Krone",
+    "bPresent": "Geschenk",
+    "exEyesBday": "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie kleine Ballons.",
+    "fillBday": "Form mit Muster füllen",
+    "exFillBday": "Zierpunkte ohne Daten, die die Form rund um den Code ausfüllen.",
+    "exRingBday": "Ein dünner Zierring entlang der Kante der Form.",
+    "exFormBday": "Kreis und Quadrat sind die Klassiker. Die Geburtstagsformen setzen den Code in die Mitte und füllen den Rest der Form mit Muster.",
+    "exModulesBday": "Die Geburtstagsformen decken die Mitte jedes Feldes ab, wo das Handy hinschaut. Behalte das Etikett unter dem Code im Blick.",
+    "bdayHintBday": "Schalte es wieder aus, dann bekommst du das normale Round QR und deine eigenen Farben zurück."
+   },
+   "no": {
+    "presetsBday": [
+     "Dannebrog",
+     "Bløtkake",
+     "Kakemann",
+     "Flaggrekke",
+     "Ballong",
+     "Gavebånd",
+     "Sjokolade",
+     "Hurra"
+    ],
+    "bdayAria": "Bursdag",
+    "bdayLabel": "Heis flagget, det er bursdag",
+    "bdayLabelBday": "Gratulerer med dagen!",
+    "bdayHint": "Flagg, kaker, gaver og ballonger i stedet for prikker. Og en rekke danske flagg som spretter opp.",
+    "subtitleBday": "Bursdagsutgaven. Lim inn en lenke, pynt koden, og lagre den som PNG, JPG eller SVG.",
+    "flags": "Flagg",
+    "cakes": "Kaker",
+    "bgifts": "Gaver",
+    "balloons": "Ballonger",
+    "cakemen": "Kakemenn",
+    "hurra": "Blandet",
+    "defaultLabelBday": "Gratulerer",
+    "bdayCheer": "Hipp hipp hurra!",
+    "bFlag": "Dansk flagg",
+    "bCake": "Bløtkake",
+    "bCakeman": "Kakemann",
+    "bBalloon": "Ballong",
+    "bCrown": "Krone",
+    "bPresent": "Gave",
+    "exEyesBday": "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner små ballonger.",
+    "fillBday": "Fyll formen med mønster",
+    "exFillBday": "Pynteprikker uten data som fyller ut formen rundt koden.",
+    "exRingBday": "En tynn pyntering langs kanten av formen.",
+    "exFormBday": "Sirkel og Firkant er de klassiske. Bursdagsformene legger koden i midten og fyller resten av formen med mønster.",
+    "exModulesBday": "Bursdagsformene dekker midten av hvert felt, der telefonen ser. Følg med på merket under koden.",
+    "bdayHintBday": "Slå det av igjen, så får du vanlig Round QR og dine egne farger tilbake."
+   },
+   "sv": {
+    "presetsBday": [
+     "Dannebrog",
+     "Tårta",
+     "Kakgubbe",
+     "Flaggrad",
+     "Ballong",
+     "Presentband",
+     "Choklad",
+     "Hurra"
+    ],
+    "bdayAria": "Födelsedag",
+    "bdayLabel": "Hissa flaggan, det är födelsedag",
+    "bdayLabelBday": "Grattis på födelsedagen!",
+    "bdayHint": "Flaggor, tårtor, presenter och ballonger i stället för prickar. Och en rad danska flaggor som skjuter upp.",
+    "subtitleBday": "Födelsedagsutgåvan. Klistra in en länk, pynta koden och spara den som PNG, JPG eller SVG.",
+    "flags": "Flaggor",
+    "cakes": "Tårtor",
+    "bgifts": "Presenter",
+    "balloons": "Ballonger",
+    "cakemen": "Kakgubbar",
+    "hurra": "Blandat",
+    "defaultLabelBday": "Grattis",
+    "bdayCheer": "Hipp hipp hurra!",
+    "bFlag": "Danska flaggan",
+    "bCake": "Tårta",
+    "bCakeman": "Kakgubbe",
+    "bBalloon": "Ballong",
+    "bCrown": "Krona",
+    "bPresent": "Present",
+    "exEyesBday": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små ballonger.",
+    "fillBday": "Fyll formen med mönster",
+    "exFillBday": "Dekorprickar utan data som fyller ut formen runt koden.",
+    "exRingBday": "En tunn dekorring längs kanten av formen.",
+    "exFormBday": "Cirkel och Fyrkant är de klassiska. Födelsedagsformerna lägger koden i mitten och fyller resten av formen med mönster.",
+    "exModulesBday": "Födelsedagsformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
+    "bdayHintBday": "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka."
+   }
+  };
+  Object.keys(TB).forEach(function (l) { for (var k in TB[l]) T[l][k] = TB[l][k]; });
+  /* foedselsdag:end */
+  var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false, okt = false, bday = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : okt ? "Okt" : bday ? "Bday" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -2848,7 +3536,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v; }); }
 
   function opts() {
     return {
@@ -3188,6 +3876,8 @@ var RQ = (function () {
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
+    if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    if (on && bday && typeof setBday === "function") setBday(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!xmasPrev;
     if (on && byUser) xmasPrev = snapshot();
     xmas = on;
@@ -3358,6 +4048,8 @@ var RQ = (function () {
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
+    if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    if (on && bday && typeof setBday === "function") setBday(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!hallPrev;
     if (on && byUser) hallPrev = snapshot();
     hall = on;
@@ -3582,6 +4274,8 @@ var RQ = (function () {
     if (on && hall && typeof setHall === "function") setHall(false, true);
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
+    if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    if (on && bday && typeof setBday === "function") setBday(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!easterPrev;
     if (on && byUser) easterPrev = snapshot();
     easter = on;
@@ -3828,6 +4522,8 @@ var RQ = (function () {
     if (on && hall && typeof setHall === "function") setHall(false, true);
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
+    if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    if (on && bday && typeof setBday === "function") setBday(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!nytPrev;
     if (on && byUser) nytPrev = snapshot();
     nyt = on;
@@ -4053,6 +4749,8 @@ var RQ = (function () {
     if (on && hall && typeof setHall === "function") setHall(false, true);
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    if (on && bday && typeof setBday === "function") setBday(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!piratPrev;
     if (on && byUser) piratPrev = snapshot();
     pirat = on;
@@ -4273,6 +4971,428 @@ var RQ = (function () {
   $("pirat").addEventListener("change", function () { setPirat(this.checked, true); });
   /* pirat:end */
 
+  /* oktober:start */
+  // ---------- Oktoberfest ----------
+  // Works like the other modes and reuses snapshot() and applySnap() from the Christmas code. Only one mode can be on.
+  var reduceMotionO = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function cellAtO(d, k, dx, dy) { return d.replace(/-?[\d.]+ -?[\d.]+/g, function (m) { var p = m.split(" "); return (+p[0] * k + dx) + " " + (+p[1] * k + dy); }); }
+  document.querySelectorAll("#ogrid svg[data-shape]").forEach(function (svg) {
+    var st = svg.getAttribute("data-shape");
+    var d = st === "wiesn" ? cellAtO(RQ.mod(0, 0, "steins"), .5, 0, 0) + cellAtO(RQ.mod(0, 0, "pretzels"), .5, .5, 0) +
+      cellAtO(RQ.mod(0, 0, "lhearts"), .5, 0, .5) + cellAtO(RQ.mod(0, 0, "rhombs"), .5, .5, .5) : RQ.mod(0, 0, st);
+    svg.innerHTML = '<path d="' + d + '"/>';
+  });
+  document.querySelectorAll("#oshapes svg[data-oshape]").forEach(function (svg) {
+    var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
+    svg.setAttribute("viewBox", ic.vb);
+    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+  });
+
+  var OKT_SETS = [
+    { fg: "#1f5fa8", eyec: "#13294b", bg: "#ffffff" },
+    { fg: "#7a5200", eyec: "#3a2a14", bg: "#fffbea" },
+    { fg: "#5a3a1a", eyec: "#2a1a0a", bg: "#f7f0e4" },
+    { fg: "#8a4a14", fg2: "#4a2408", grad: "radial", eyec: "#4a2408", bg: "#fff6ea" },
+    { fg: "#a0233a", eyec: "#1f5c3a", bg: "#ffffff" },
+    { fg: "#3a1e0e", fg2: "#1f1d18", grad: "vertical", eyec: "#7a5200", bg: "#fff8ee" },
+    { fg: "#1d3f8a", fg2: "#3a2a7a", grad: "diagonal", eyec: "#1d3f8a", bg: "#f4f7ff" },
+    { fg: "#1f5c3a", eyec: "#1f5fa8", bg: "#ffffff" }
+  ];
+  var oktPrev = null;
+  function saveOkt() { try { localStorage.setItem("round-qr-okt", JSON.stringify({ on: okt, prev: oktPrev })); } catch (e) {} }
+
+  function setOkt(on, byUser) {
+    if (on && xmas && typeof setXmas === "function") setXmas(false, true);
+    if (on && hall && typeof setHall === "function") setHall(false, true);
+    if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    if (on && pirat && typeof setPirat === "function") setPirat(false, true);
+    if (on && bday && typeof setBday === "function") setBday(false, true);
+    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!oktPrev;
+    if (on && byUser) oktPrev = snapshot();
+    okt = on;
+    document.documentElement.classList.toggle("okt", on);
+    $("okt").checked = on;
+    PRESETS = on ? OKT_SETS : PLAIN;
+    buildPresets();
+    if (on && byUser) {
+      setRadio("shape", "pretzel"); setRadio("dot", "rhombs"); setRadio("eye", "circle");
+      var p = OKT_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
+      $("label").checked = true; $("labelText").value = T[lang].defaultLabelOkt;
+    } else if (!on) {
+      if (oktPrev) applySnap(oktPrev);
+      if (RQ.WIESN.concat("wiesn").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      if (RQ.OSHAPES.indexOf(radio("shape")) >= 0) setRadio("shape", "circle");
+      oktPrev = null;
+    }
+    applyLang(lang);
+    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
+    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
+    buildWiesn(); OFX.toggle(on, byUser);
+    saveOkt();
+    if (typeof qrcode !== "undefined") render();
+  }
+
+  // A blue and white rope with Bavarian pennants, pretzels and gingerbread hearts.
+  var MINI_BREZN = "M0 7C-3 1-9 0-9 5s6 6 9 2c3 4 9 3 9-2S3 1 0 7M-5 12L0 7L5 12";
+  var MINI_HEART = "M0 13C-6 9-9 6-9 2.6-9 0-7-1.6-4.8-1.6-2.6-1.6-1 0 0 1.6 1 0 2.6-1.6 4.8-1.6 7-1.6 9 0 9 2.6 9 6 6 9 0 13Z";
+  function buildWiesn() {
+    var g = $("ogarland");
+    if (!okt) { g.innerHTML = ""; return; }
+    var W = document.documentElement.clientWidth, spans = Math.max(2, Math.round(W / 220)), sw = W / spans;
+    var wire = "M0 3", items = "", k = 0;
+    for (var i = 0; i < spans; i++) {
+      var x0 = i * sw, x1 = x0 + sw, cx = x0 + sw / 2, n = Math.max(4, Math.round(sw / 30));
+      wire += " Q" + cx.toFixed(1) + " 36 " + x1.toFixed(1) + " 3";
+      for (var j = 1; j <= n; j++) {
+        var tt = j / (n + 1), u = 1 - tt;
+        var x = u * u * x0 + 2 * tt * u * cx + tt * tt * x1, y = u * u * 3 + 2 * tt * u * 36 + tt * tt * 3;
+        var ang = Math.atan2(66 * (1 - 2 * tt), sw) * 180 / Math.PI, st = "--i:" + (k * 0.03).toFixed(2) + "s;--d:" + (-((k * 7) % 11) * 0.27).toFixed(2) + "s";
+        if (j === Math.ceil(n / 2) && n > 4) {
+          var hang = (i % 2) ? '<path d="' + MINI_BREZN + '" fill="none" stroke="#8a4a14" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'
+            : '<path d="' + MINI_HEART + '" fill="#9a5a24" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="2 1.4"/>';
+          items += '<g class="og" style="' + st + '"><line x1="' + x.toFixed(1) + '" y1="' + y.toFixed(1) + '" x2="' + x.toFixed(1) + '" y2="' + (y + 8).toFixed(1) + '" stroke="#5f6876" stroke-width="1"/>' +
+            '<g transform="translate(' + x.toFixed(1) + ' ' + (y + 10).toFixed(1) + ')">' + hang + '</g></g>';
+        } else {
+          items += '<path class="of" style="' + st + '" fill="url(#og-raute)" stroke="#1f5fa8" stroke-width=".8" d="M-9 0H9L0 17Z" transform="translate(' + x.toFixed(1) + ' ' + (y - 1).toFixed(1) + ') rotate(' + ang.toFixed(1) + ')"/>';
+        }
+        k++;
+      }
+    }
+    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none"><defs><pattern id="og-raute" width="7" height="7" patternUnits="userSpaceOnUse">' +
+      '<rect width="7" height="7" fill="#ffffff"/><path d="M3.5 0L7 3.5L3.5 7L0 3.5Z" fill="#1f5fa8"/></pattern></defs>' +
+      '<path class="rope" d="' + wire + '"/><path class="rope2" d="' + wire + '"/>' + items + "</svg>";
+  }
+  var wiesnTimer;
+  window.addEventListener("resize", function () { clearTimeout(wiesnTimer); wiesnTimer = setTimeout(buildWiesn, 150); });
+
+  // Foam bubbles rise, pretzels and hearts tumble down, and "O'zapft is!" when the keg is tapped. Never over the QR code.
+  var OFX = (function () {
+    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, banner = null;
+    var bubbles = [], bits = [], foam = [], burst = [];
+    var SHAPES = ["pretzels", "lhearts", "rhombs", "steins"];
+    var PATHS = {};
+    function path(st) { return PATHS[st] || (PATHS[st] = new Path2D(RQ.mod(0, 0, st))); }
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function setup() {
+      if (cv) return;
+      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
+      window.addEventListener("resize", size);
+    }
+    function size() {
+      if (!cv) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var nb = Math.max(10, Math.min(26, Math.round(W * H / 36000))), nt = Math.max(5, Math.min(10, Math.round(W / 160)));
+      while (bubbles.length < nb) bubbles.push(bubble(true)); bubbles.length = nb;
+      while (bits.length < nt) bits.push(bit(true)); bits.length = nt;
+    }
+    function bubble(anywhere) { return { x: Math.random() * W, y: anywhere ? Math.random() * H : H + 10, r: 2 + Math.random() * 5, vy: 18 + Math.random() * 30, ph: Math.random() * 6.3, sway: 6 + Math.random() * 12 }; }
+    function bit(anywhere) {
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -20, s: 12 + Math.random() * 8, vy: 16 + Math.random() * 20, rot: Math.random() * 6.3, vr: (Math.random() - .5) * 1.4,
+        ph: Math.random() * 6.3, shape: pick(SHAPES.slice(0, 3)), c: pick(["#8a4a14", "#1f5fa8", "#9a5a24", "#a0233a"]) };
+    }
+    function pop() {
+      var sw = $("okt").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
+      for (var i = 0; i < 90; i++) {
+        var a = -Math.PI / 2 + (Math.random() - .5) * 2.2, v = 200 + Math.random() * 520;
+        foam.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: 3 + Math.random() * 7, age: 0, life: 1.4 + Math.random() * 1 });
+      }
+      for (var k = 0; k < 50; k++) {
+        var b = -Math.PI / 2 + (Math.random() - .5) * 2.4, w = 260 + Math.random() * 500;
+        burst.push({ x: ox, y: oy, vx: Math.cos(b) * w, vy: Math.sin(b) * w, s: 10 + Math.random() * 10, rot: Math.random() * 6.3, vr: (Math.random() - .5) * 9,
+          life: 1.6 + Math.random() * 1.2, age: 0, shape: pick(SHAPES), c: pick(["#1f5fa8", "#8a4a14", "#e9a800", "#a0233a", "#1f5c3a"]) });
+      }
+      banner = { t: 0, text: t("oktCheer") };
+    }
+    function drawShape(o, s) {
+      ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot || 0); ctx.fillStyle = o.c;
+      ctx.scale(s, s); ctx.translate(-.5, -.5); ctx.fill(path(o.shape));
+      ctx.restore();
+    }
+    function drawBanner() {
+      if (!banner) return;
+      var a = banner.t < 0.25 ? banner.t / 0.25 : Math.max(0, 1 - (banner.t - 2) / 0.8), big = Math.min(W * 0.1, 80) * (1 + Math.max(0, 0.25 - banner.t) * 0.8);
+      ctx.save(); ctx.globalAlpha = Math.max(0, Math.min(1, a));
+      ctx.font = "700 " + Math.round(big) + "px 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
+      ctx.lineWidth = Math.max(5, big * 0.1); ctx.strokeStyle = "#13294b";
+      ctx.strokeText(banner.text, W / 2, H * 0.4); ctx.fillStyle = "#ffffff"; ctx.fillText(banner.text, W / 2, H * 0.4);
+      ctx.restore();
+    }
+    function frame(now) {
+      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      var st = $("stage").getBoundingClientRect();
+      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
+      if (on) {
+        bubbles.forEach(function (b) {
+          b.y -= b.vy * dt; b.ph += dt * 1.5;
+          if (b.y < -10) { var n = bubble(false); for (var k in n) b[k] = n[k]; }
+          ctx.globalAlpha = 0.7; ctx.fillStyle = "rgba(233, 168, 0, 0.22)"; ctx.strokeStyle = "rgba(200, 140, 0, 0.55)"; ctx.lineWidth = 1.1;
+          ctx.beginPath(); ctx.arc(b.x + Math.sin(b.ph) * b.sway, b.y, b.r, 0, 6.283); ctx.fill(); ctx.stroke();
+        });
+        ctx.globalAlpha = 0.85;
+        bits.forEach(function (b) {
+          b.y += b.vy * dt; b.rot += b.vr * dt; b.ph += dt;
+          if (b.y > H + 24) { var n = bit(false); for (var k in n) b[k] = n[k]; }
+          drawShape({ x: b.x + Math.sin(b.ph) * 14, y: b.y, rot: b.rot, c: b.c, shape: b.shape }, b.s);
+        });
+      }
+      foam = foam.filter(function (f) { return f.age < f.life; });
+      foam.forEach(function (f) {
+        f.age += dt; f.vy += 520 * dt; f.vx *= 0.98; f.x += f.vx * dt; f.y += f.vy * dt;
+        ctx.globalAlpha = Math.max(0, 1 - f.age / f.life); ctx.fillStyle = "#fffdf6"; ctx.strokeStyle = "#d8cfb8"; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.283); ctx.fill(); ctx.stroke();
+      });
+      burst = burst.filter(function (b) { return b.age < b.life; });
+      burst.forEach(function (b) {
+        b.age += dt; b.vy += 620 * dt; b.vx *= 0.985; b.x += b.vx * dt; b.y += b.vy * dt; b.rot += b.vr * dt;
+        ctx.globalAlpha = Math.max(0, 1 - b.age / b.life); drawShape(b, b.s);
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      if (banner) { banner.t += dt; drawBanner(); if (banner.t > 2.8) banner = null; }
+      if (on || foam.length || burst.length || banner) raf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, W, H); raf = 0; }
+    }
+    function toggle(state, withBurst) {
+      on = state;
+      if (reduceMotionO) return;
+      setup();
+      if (on && withBurst) pop();
+      if (!raf && (on || foam.length || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    return { toggle: toggle };
+  })();
+
+  $("okt").addEventListener("change", function () { setOkt(this.checked, true); });
+  /* oktober:end */
+
+  /* foedselsdag:start */
+  // ---------- Fødselsdag ----------
+  // A Danish birthday: Dannebrog everywhere, layer cake, cake man and three cheers. Reuses snapshot() and applySnap().
+  var reduceMotionB = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function cellAtB(d, k, dx, dy) { return d.replace(/-?[\d.]+ -?[\d.]+/g, function (m) { var p = m.split(" "); return (+p[0] * k + dx) + " " + (+p[1] * k + dy); }); }
+  document.querySelectorAll("#bgrid svg[data-shape]").forEach(function (svg) {
+    var st = svg.getAttribute("data-shape");
+    var d = st === "hurra" ? cellAtB(RQ.mod(0, 0, "flags"), .5, 0, 0) + cellAtB(RQ.mod(0, 0, "cakes"), .5, .5, 0) +
+      cellAtB(RQ.mod(0, 0, "balloons"), .5, 0, .5) + cellAtB(RQ.mod(0, 0, "cakemen"), .5, .5, .5) : RQ.mod(0, 0, st);
+    svg.innerHTML = '<path d="' + d + '"/>';
+  });
+  document.querySelectorAll("#bshapes svg[data-oshape]").forEach(function (svg) {
+    var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
+    svg.setAttribute("viewBox", ic.vb);
+    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+  });
+
+  var BDAY_SETS = [
+    { fg: "#b3122e", eyec: "#b3122e", bg: "#ffffff" },
+    { fg: "#8a3c2a", eyec: "#b3122e", bg: "#fff6ee" },
+    { fg: "#6b3a1e", eyec: "#1f1d18", bg: "#fff4e8" },
+    { fg: "#b3122e", fg2: "#6e0a1a", grad: "radial", eyec: "#6e0a1a", bg: "#ffffff" },
+    { fg: "#1f5c8a", eyec: "#b3122e", bg: "#ffffff" },
+    { fg: "#a0234a", fg2: "#4b2a7a", grad: "diagonal", eyec: "#4b2a7a", bg: "#ffffff" },
+    { fg: "#4a2c1a", fg2: "#2b190e", grad: "vertical", eyec: "#b3122e", bg: "#fbf3e8" },
+    { fg: "#b3122e", fg2: "#1f5c8a", grad: "diagonal", eyec: "#1f1d18", bg: "#ffffff" }
+  ];
+  var bdayPrev = null;
+  function saveBday() { try { localStorage.setItem("round-qr-bday", JSON.stringify({ on: bday, prev: bdayPrev })); } catch (e) {} }
+
+  function setBday(on, byUser) {
+    if (on && xmas && typeof setXmas === "function") setXmas(false, true);
+    if (on && hall && typeof setHall === "function") setHall(false, true);
+    if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    if (on && pirat && typeof setPirat === "function") setPirat(false, true);
+    if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!bdayPrev;
+    if (on && byUser) bdayPrev = snapshot();
+    bday = on;
+    document.documentElement.classList.toggle("bday", on);
+    $("bday").checked = on;
+    PRESETS = on ? BDAY_SETS : PLAIN;
+    buildPresets();
+    if (on && byUser) {
+      setRadio("shape", "dkflag"); setRadio("dot", "flags"); setRadio("eye", "circle");
+      var p = BDAY_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
+      $("label").checked = true; $("labelText").value = T[lang].defaultLabelBday;
+    } else if (!on) {
+      if (bdayPrev) applySnap(bdayPrev);
+      if (RQ.HURRA.concat("hurra").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      if (RQ.BSHAPES.indexOf(radio("shape")) >= 0) setRadio("shape", "circle");
+      bdayPrev = null;
+    }
+    applyLang(lang);
+    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
+    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
+    buildFlagline(); BFX.toggle(on, byUser);
+    saveBday();
+    if (typeof qrcode !== "undefined") render();
+  }
+
+  // A line of small Dannebrog flags across the top.
+  function dkFlagSvg(w, h) {
+    var vx = w * 12 / 37, vw = w * 4 / 37, hy = h * 12 / 28, hh = h * 4 / 28;
+    return '<rect width="' + w + '" height="' + h + '" fill="#c8102e"/><rect x="' + vx.toFixed(1) + '" width="' + vw.toFixed(1) + '" height="' + h + '" fill="#ffffff"/>' +
+      '<rect y="' + hy.toFixed(1) + '" width="' + w + '" height="' + hh.toFixed(1) + '" fill="#ffffff"/>';
+  }
+  function buildFlagline() {
+    var g = $("bgarland");
+    if (!bday) { g.innerHTML = ""; return; }
+    var W = document.documentElement.clientWidth, spans = Math.max(2, Math.round(W / 200)), sw = W / spans;
+    var wire = "M0 3", items = "", k = 0, fl = dkFlagSvg(20, 15);
+    for (var i = 0; i < spans; i++) {
+      var x0 = i * sw, x1 = x0 + sw, cx = x0 + sw / 2, n = Math.max(4, Math.round(sw / 30));
+      wire += " Q" + cx.toFixed(1) + " 34 " + x1.toFixed(1) + " 3";
+      for (var j = 1; j <= n; j++) {
+        var tt = j / (n + 1), u = 1 - tt;
+        var x = u * u * x0 + 2 * tt * u * cx + tt * tt * x1, y = u * u * 3 + 2 * tt * u * 34 + tt * tt * 3;
+        var ang = Math.atan2(62 * (1 - 2 * tt), sw) * 180 / Math.PI, st = "--i:" + (k * 0.03).toFixed(2) + "s;--d:" + (-((k * 7) % 11) * 0.23).toFixed(2) + "s";
+        items += '<g transform="translate(' + (x - 10).toFixed(1) + ' ' + (y - 1).toFixed(1) + ') rotate(' + ang.toFixed(1) + ' 10 0)"><g class="bf" style="' + st + '">' + fl + '</g></g>';
+        k++;
+      }
+    }
+    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none"><path class="wire" d="' + wire + '"/>' + items + "</svg>";
+  }
+  var flagTimer;
+  window.addEventListener("resize", function () { clearTimeout(flagTimer); flagTimer = setTimeout(buildFlagline, 150); });
+
+  // Balloons float up, confetti falls, and when the flag goes up a row of table flags pops up along the bottom with three cheers. Never over the QR code.
+  var BFX = (function () {
+    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, clock = 0, nextBalloon = 0, cheer = null, row = null;
+    var balloons = [], confetti = [], burst = [];
+    var BCOL = ["#c8102e", "#ffffff", "#fdce3b", "#5096dc", "#3d9a5a", "#e46aa0", "#c8102e"];
+    var SHAPES = ["flags", "cakes", "bgifts", "balloons", "cakemen"];
+    var PATHS = {};
+    function path(st) { return PATHS[st] || (PATHS[st] = new Path2D(RQ.mod(0, 0, st))); }
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function setup() {
+      if (cv) return;
+      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
+      window.addEventListener("resize", size);
+    }
+    function size() {
+      if (!cv) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var nc = Math.max(10, Math.min(26, Math.round(W * H / 36000)));
+      while (confetti.length < nc) confetti.push(piece(true)); confetti.length = nc;
+    }
+    function piece(anywhere) {
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -12, w: 4 + Math.random() * 4, h: 7 + Math.random() * 5, vy: 26 + Math.random() * 34,
+        ph: Math.random() * 6.3, sway: 10 + Math.random() * 20, rot: Math.random() * 6.3, vr: (Math.random() - .5) * 6, c: pick(["#c8102e", "#fdce3b", "#5096dc", "#e46aa0", "#c8102e"]) };
+    }
+    function balloon(x, y) {
+      balloons.push({ x: x === undefined ? 30 + Math.random() * (W - 60) : x, y: y === undefined ? H + 60 : y, r: 15 + Math.random() * 8, vy: 42 + Math.random() * 30,
+        ph: Math.random() * 6.3, sway: 10 + Math.random() * 16, c: pick(BCOL) });
+    }
+    function pop() {
+      var sw = $("bday").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
+      for (var i = 0; i < 100; i++) {
+        var a = -Math.PI / 2 + (Math.random() - .5) * 2.6, v = 260 + Math.random() * 540, sh = Math.random() < .4;
+        burst.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, s: sh ? 11 + Math.random() * 9 : 7 + Math.random() * 7, rot: Math.random() * 6.3,
+          vr: (Math.random() - .5) * 9, life: 1.8 + Math.random() * 1.2, age: 0, shape: sh ? pick(SHAPES) : null, c: pick(["#c8102e", "#ffffff", "#fdce3b", "#5096dc", "#e46aa0"]) });
+      }
+      for (var k = 0; k < 6; k++) balloon(ox + (Math.random() - .5) * 120, oy + 20 + Math.random() * 30);
+      var n = Math.max(5, Math.floor(W / 62)), xs = [];
+      for (var j = 0; j < n; j++) xs.push((j + 0.5) * W / n);
+      row = { t: 0, xs: xs };
+      cheer = { t: 0, words: t("bdayCheer").split(" ") };
+      nextBalloon = clock + 1.5;
+    }
+    function drawShape(o, s) {
+      ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot || 0); ctx.fillStyle = o.c;
+      if (o.c === "#ffffff") { ctx.shadowColor = "rgba(0,0,0,0.25)"; ctx.shadowBlur = 2; }
+      if (!o.shape) { ctx.fillRect(-s / 2, -s / 5, s, s / 2.5); }
+      else { ctx.scale(s, s); ctx.translate(-.5, -.5); ctx.fill(path(o.shape)); }
+      ctx.restore();
+    }
+    function dkFlag(x, y, w, h, wave) {
+      ctx.save(); ctx.translate(x, y); ctx.transform(1, wave * 0.12, 0, 1, 0, 0);
+      ctx.fillStyle = "#c8102e"; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(w * 12 / 37, 0, w * 4 / 37, h); ctx.fillRect(0, h * 12 / 28, w, h * 4 / 28);
+      ctx.restore();
+    }
+    function drawBalloon(b) {
+      var x = b.x + Math.sin(b.ph) * b.sway, y = b.y, r = b.r;
+      ctx.strokeStyle = "rgba(120, 100, 90, 0.6)"; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, y + r * 1.18); ctx.quadraticCurveTo(x - 6 * Math.sin(b.ph * 1.3), y + r * 2, x + 3, y + r * 2.8); ctx.stroke();
+      ctx.fillStyle = b.c; ctx.strokeStyle = b.c === "#ffffff" ? "#d8c8c0" : "rgba(0,0,0,0.12)";
+      ctx.beginPath(); ctx.ellipse(x, y, r * 0.86, r, 0, 0, 6.283); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x - 3, y + r * 1.18); ctx.lineTo(x + 3, y + r * 1.18); ctx.lineTo(x, y + r * 0.96); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,0.45)"; ctx.beginPath(); ctx.ellipse(x - r * 0.32, y - r * 0.38, r * 0.16, r * 0.26, -0.5, 0, 6.283); ctx.fill();
+    }
+    function drawRow() {
+      if (!row) return;
+      var up = row.t < 0.6 ? row.t / 0.6 : row.t > 5.2 ? Math.max(0, 1 - (row.t - 5.2) / 0.6) : 1;
+      row.xs.forEach(function (x, i) {
+        var d = Math.min(1, Math.max(0, up * 1.25 - i * 0.02)), ease = 1 - Math.pow(1 - d, 3), lift = 76 * ease;
+        var base = H + 2, top = base - lift, wave = Math.sin(row.t * 5 + i * 0.8);
+        ctx.strokeStyle = "#8a7a6a"; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(x, base); ctx.lineTo(x, top); ctx.stroke();
+        ctx.fillStyle = "#fdce3b"; ctx.beginPath(); ctx.arc(x, top - 1.5, 2.2, 0, 6.283); ctx.fill();
+        dkFlag(x + 1, top + 1, 24, 18, wave);
+      });
+    }
+    function drawCheer() {
+      if (!cheer) return;
+      var n = cheer.words.length, k = Math.min(n, Math.floor(cheer.t / 0.55) + 1), last = cheer.t - (k - 1) * 0.55;
+      var a = cheer.t > n * 0.55 + 1.2 ? Math.max(0, 1 - (cheer.t - n * 0.55 - 1.2) / 0.6) : 1;
+      var txt = cheer.words.slice(0, k).join(" "), big = Math.min(W * 0.085, 72) * (1 + Math.max(0, 0.18 - last) * 1.2);
+      ctx.save(); ctx.globalAlpha = a;
+      ctx.font = "700 " + Math.round(big) + "px 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
+      ctx.lineWidth = Math.max(5, big * 0.1); ctx.strokeStyle = "#ffffff";
+      ctx.strokeText(txt, W / 2, H * 0.4); ctx.fillStyle = "#c8102e"; ctx.fillText(txt, W / 2, H * 0.4);
+      ctx.restore();
+    }
+    function frame(now) {
+      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now; clock += dt;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      var st = $("stage").getBoundingClientRect();
+      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
+      if (on) {
+        confetti.forEach(function (p) {
+          p.y += p.vy * dt; p.ph += dt * 1.6; p.rot += p.vr * dt;
+          if (p.y > H + 12) { var n = piece(false); for (var k in n) p[k] = n[k]; }
+          ctx.save(); ctx.globalAlpha = 0.8; ctx.translate(p.x + Math.sin(p.ph) * p.sway, p.y); ctx.rotate(p.rot); ctx.scale(Math.cos(p.ph * 2.2), 1);
+          ctx.fillStyle = p.c; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); ctx.restore();
+        });
+        if (clock > nextBalloon && balloons.length < 8) { balloon(); nextBalloon = clock + 1.6 + Math.random() * 2; }
+      }
+      ctx.globalAlpha = 0.92;
+      balloons = balloons.filter(function (b) { return b.y > -80; });
+      balloons.forEach(function (b) { b.y -= b.vy * dt; b.ph += dt * 1.1; drawBalloon(b); });
+      ctx.globalAlpha = 1;
+      if (row) { row.t += dt; drawRow(); if (row.t > 5.9) row = null; }
+      burst = burst.filter(function (b) { return b.age < b.life; });
+      burst.forEach(function (b) {
+        b.age += dt; b.vy += 620 * dt; b.vx *= 0.985; b.x += b.vx * dt; b.y += b.vy * dt; b.rot += b.vr * dt;
+        ctx.globalAlpha = Math.max(0, 1 - b.age / b.life); drawShape(b, b.s);
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      if (cheer) { cheer.t += dt; drawCheer(); if (cheer.t > cheer.words.length * 0.55 + 1.9) cheer = null; }
+      if (on || balloons.length || burst.length || row || cheer) raf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, W, H); raf = 0; }
+    }
+    function toggle(state, withBurst) {
+      on = state;
+      if (reduceMotionB) return;
+      setup();
+      if (on && withBurst) pop();
+      else if (on) nextBalloon = clock + 1;
+      if (!on) { row = null; cheer = null; }
+      if (!raf && (on || balloons.length || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    return { toggle: toggle };
+  })();
+
+  $("bday").addEventListener("change", function () { setBday(this.checked, true); });
+  /* foedselsdag:end */
+
   restore();
   /* julelys:start */
   try {
@@ -4304,6 +5424,18 @@ var RQ = (function () {
     if (ps && ps.on && !xmas && !hall && !easter && !nyt) { piratPrev = ps.prev || null; pirat = true; document.documentElement.classList.add("pirat"); PRESETS = PIRAT_SETS; buildPresets(); }
   } catch (e) {}
   /* pirat:end */
+  /* oktober:start */
+  try {
+    var os = JSON.parse(localStorage.getItem("round-qr-okt") || "null");
+    if (os && os.on && !xmas && !hall && !easter && !nyt && !pirat) { oktPrev = os.prev || null; okt = true; document.documentElement.classList.add("okt"); PRESETS = OKT_SETS; buildPresets(); }
+  } catch (e) {}
+  /* oktober:end */
+  /* foedselsdag:start */
+  try {
+    var bs = JSON.parse(localStorage.getItem("round-qr-bday") || "null");
+    if (bs && bs.on && !xmas && !hall && !easter && !nyt && !pirat && !okt) { bdayPrev = bs.prev || null; bday = true; document.documentElement.classList.add("bday"); PRESETS = BDAY_SETS; buildPresets(); }
+  } catch (e) {}
+  /* foedselsdag:end */
   var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (!startLang) {
@@ -4318,6 +5450,8 @@ var RQ = (function () {
   /* paaske:start */ if (easter) { $("easter").checked = true; buildBunting(); EFX.toggle(true, false); } /* paaske:end */
   /* nytaar:start */ if (nyt) { $("nytaar").checked = true; buildSky(); NFX.toggle(true, false); } /* nytaar:end */
   /* pirat:start */ if (pirat) { $("pirat").checked = true; buildRope(); PFX.toggle(true, false); placeChests(); } /* pirat:end */
+  /* oktober:start */ if (okt) { $("okt").checked = true; buildWiesn(); OFX.toggle(true, false); } /* oktober:end */
+  /* foedselsdag:start */ if (bday) { $("bday").checked = true; buildFlagline(); BFX.toggle(true, false); } /* foedselsdag:end */
   fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
