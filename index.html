@@ -393,6 +393,71 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 }
 /* halloween:end */
 
+/* paaske:start */
+/* Påske: a spring sky over the page, the brand yellow as accent; panels keep their own light or dark surface. */
+:root.easter {
+  --page: #eef6e4; --page-ink: #1f1d18; --page-muted: #56624b;
+  --bg: #fbfaf2; --surface: #ffffff; --stage: #f6f3e2; --ink: #1f1d18; --muted: #6b665a; --line: #e5e2cd;
+  --accent: #fdce3b; --accent-strong: #7a5c00; --accent-ink: #1f1d18;
+}
+@media (prefers-color-scheme: dark) {
+  :root.easter:not([data-theme="light"]) {
+    --page: #121a14; --page-ink: #eef0e4; --page-muted: #a9b59c;
+    --bg: #181d16; --surface: #1e241b; --stage: #262d22; --ink: #eef0e4; --muted: #a9ad98; --line: #343b2d;
+    --accent: #fdce3b; --accent-strong: #fdce3b; --accent-ink: #17150f;
+  }
+}
+:root.easter[data-theme="dark"] {
+  --page: #121a14; --page-ink: #eef0e4; --page-muted: #a9b59c;
+  --bg: #181d16; --surface: #1e241b; --stage: #262d22; --ink: #eef0e4; --muted: #a9ad98; --line: #343b2d;
+  --accent: #fdce3b; --accent-strong: #fdce3b; --accent-ink: #17150f;
+}
+:root.easter body {
+  background:
+    radial-gradient(circle at calc(100% - 64px) 38px, #fff6c2 0 22px, rgb(253 206 59 / 0.55) 24px, rgb(253 206 59 / 0.18) 48px, transparent 92px),
+    linear-gradient(180deg, color-mix(in srgb, #a9d8f5 55%, var(--page)) 0, var(--page) 460px);
+  color: var(--page-ink); padding-top: 74px;
+}
+.easter .preview, .easter .controls, .easter .xbar, .easter .sp-list, .easter .download { color: var(--ink); }
+.easter header p, .easter .sp-intro p, .easter .foot { color: var(--page-muted); }
+.easter header .about .sig { color: var(--page-ink); }
+.easter h1 .o { border-color: #e0a800; border-radius: 50% / 58% 58% 42% 42%; height: 0.7em; vertical-align: -0.02em;
+  background: linear-gradient(180deg, #fdce3b 0 34%, #f4a7c4 34% 50%, #fdce3b 50% 66%, #a9d8f5 66%); }
+.easter .stage {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, #e46aa0 26%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in srgb, #3d8a4a 26%, transparent) 1.2px, transparent 1.6px);
+  background-size: 22px 22px; background-position: 0 0, 11px 11px;
+}
+:root:not(.easter) .easter-only { display: none !important; }
+.easter .plain-only { display: none !important; }
+
+/* Vimpler og påskeæg øverst */
+.egarland .wire { fill: none; stroke: #8a7a5a; stroke-width: 1.6; }
+.egarland .f { animation: bulbOn .35s var(--i) both; }
+.egarland .eg { animation: eswing 3s var(--d) infinite ease-in-out; transform-box: fill-box; transform-origin: 50% 0; }
+@keyframes eswing { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+
+/* Påskehare-kontakten */
+.eswitch .knob svg { width: 18px; height: 18px; }
+.eswitch .knob .bun { fill: var(--muted); opacity: 0.45; transition: fill .2s, opacity .2s; }
+.eswitch .knob .ear, .eswitch .knob .eye { fill: var(--surface); }
+.eswitch input:checked + .track { background: repeating-linear-gradient(135deg, #fdce3b 0 7px, #bfe3a4 7px 14px); }
+.eswitch input:checked + .track .bun { fill: #a9805a; opacity: 1; }
+.eswitch input:checked + .track .ear { fill: #f4a7c4; }
+.eswitch input:checked + .track .eye { fill: #1f1d18; }
+.eeggs { display: flex; gap: 12px; align-items: flex-start; height: 58px; flex: none; }
+.eeggs svg { width: 31px; height: 57px; overflow: visible; transform-origin: 50% 0; filter: grayscale(1); opacity: 0.4; transition: filter .3s, opacity .3s; }
+.eeggs svg:nth-child(2) { width: 26px; margin-top: -5px; }
+.easter .eeggs svg { filter: none; opacity: 1; animation: eswing 3.2s ease-in-out infinite; }
+.easter .eeggs svg:nth-child(2) { animation-delay: -1.1s; }
+.easter .eeggs svg:nth-child(3) { animation-delay: -2.2s; }
+@media (max-width: 480px) { .eeggs { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .egarland .eg, .easter .eeggs svg { animation: none; }
+}
+/* paaske:end */
+
 /* Sponsors, download, footer (website only) */
 :root { --plate: #ffffff; }
 .sponsors { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 20px 48px; align-items: start;
@@ -463,6 +528,25 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 </svg>
 <div class="garland hgarland" id="hgarland" aria-hidden="true"></div>
 <!-- halloween:end -->
+
+<!-- paaske:start -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="pe-clip"><path d="M30 18C46 18 56 46 56 66C56 90 44 104 30 104C16 104 4 90 4 66C4 46 14 18 30 18Z"/></clipPath>
+    <symbol id="pe" viewBox="0 0 60 110">
+      <path d="M30 0V19" stroke="var(--e2, #7a5c00)" stroke-width="1.6" fill="none"/>
+      <path d="M30 18C46 18 56 46 56 66C56 90 44 104 30 104C16 104 4 90 4 66C4 46 14 18 30 18Z" fill="var(--e1, #fdce3b)"/>
+      <g clip-path="url(#pe-clip)">
+        <path d="M0 56L7 48L14 56L21 48L28 56L35 48L42 56L49 48L56 56L63 48" stroke="var(--e2, #7a5c00)" stroke-width="5" fill="none" stroke-linejoin="round"/>
+        <rect x="0" y="72" width="60" height="5" fill="var(--e3, #ffffff)"/>
+        <circle cx="14" cy="88" r="3.4" fill="var(--e2, #7a5c00)"/><circle cx="30" cy="91" r="3.4" fill="var(--e2, #7a5c00)"/><circle cx="46" cy="88" r="3.4" fill="var(--e2, #7a5c00)"/>
+        <circle cx="22" cy="34" r="2.6" fill="var(--e3, #ffffff)"/><circle cx="38" cy="34" r="2.6" fill="var(--e3, #ffffff)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+<div class="garland egarland" id="egarland" aria-hidden="true"></div>
+<!-- paaske:end -->
 
 <div class="wrap">
   <header>
@@ -545,6 +629,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="shape" id="shape-candy" value="candy"><span><svg data-oshape="candy"></svg><b data-t="hCandy">Slik</b></span></label>
           </div>
           <!-- halloween:end -->
+          <!-- paaske:start -->
+          <div class="xgrid easter-only" id="eshapes" role="radiogroup" data-t-aria="form" aria-label="Form">
+            <label><input type="radio" name="shape" id="shape-egg" value="egg"><span><svg data-oshape="egg"></svg><b data-t="eEgg">Påskeæg</b></span></label>
+            <label><input type="radio" name="shape" id="shape-bunny" value="bunny"><span><svg data-oshape="bunny"></svg><b data-t="eBunny">Påskehare</b></span></label>
+            <label><input type="radio" name="shape" id="shape-chick" value="chick"><span><svg data-oshape="chick"></svg><b data-t="eChick">Kylling</b></span></label>
+            <label><input type="radio" name="shape" id="shape-flower" value="flower"><span><svg data-oshape="flower"></svg><b data-t="eFlower">Blomst</b></span></label>
+            <label><input type="radio" name="shape" id="shape-basket" value="basket"><span><svg data-oshape="basket"></svg><b data-t="eBasket">Kurv</b></span></label>
+            <label><input type="radio" name="shape" id="shape-tulip" value="tulip"><span><svg data-oshape="tulip"></svg><b data-t="eTulip">Tulipan</b></span></label>
+          </div>
+          <!-- paaske:end -->
           <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
@@ -577,6 +671,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="dot" id="dot-spooky" value="spooky"><span><svg viewBox="0 0 1 1" data-shape="spooky"></svg><b data-t="spooky">Blandet</b></span></label>
           </div>
           <!-- halloween:end -->
+          <!-- paaske:start -->
+          <div class="xgrid easter-only" id="egrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+            <label><input type="radio" name="dot" id="dot-eggs" value="eggs"><span><svg viewBox="0 0 1 1" data-shape="eggs"></svg><b data-t="eggs">Æg</b></span></label>
+            <label><input type="radio" name="dot" id="dot-bunnies" value="bunnies"><span><svg viewBox="0 0 1 1" data-shape="bunnies"></svg><b data-t="bunnies">Harer</b></span></label>
+            <label><input type="radio" name="dot" id="dot-chicks" value="chicks"><span><svg viewBox="0 0 1 1" data-shape="chicks"></svg><b data-t="chicks">Kyllinger</b></span></label>
+            <label><input type="radio" name="dot" id="dot-flowers" value="flowers"><span><svg viewBox="0 0 1 1" data-shape="flowers"></svg><b data-t="flowers">Blomster</b></span></label>
+            <label><input type="radio" name="dot" id="dot-tulips" value="tulips"><span><svg viewBox="0 0 1 1" data-shape="tulips"></svg><b data-t="tulips">Tulipaner</b></span></label>
+            <label><input type="radio" name="dot" id="dot-spring" value="spring"><span><svg viewBox="0 0 1 1" data-shape="spring"></svg><b data-t="spring">Blandet</b></span></label>
+          </div>
+          <!-- paaske:end -->
           <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
@@ -722,6 +826,19 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
   </section>
   <!-- halloween:end -->
+  <!-- paaske:start -->
+  <section class="xbar ebar" id="ebar" data-t-aria="eastAria" aria-label="Påske">
+    <label class="xbar-main" for="easter">
+      <span class="xswitch eswitch"><input type="checkbox" id="easter" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="bun" d="M5.2 1.2c.9-.3 1.6 1.6 1.7 4l.2 1.1h1.8l.2-1.1c.1-2.4.8-4.3 1.7-4 1 .3.9 3.1.1 5.2 1.4.8 2.3 2.2 2.3 3.8 0 2.6-2.3 4.6-5.2 4.6S2.8 12.8 2.8 10.2c0-1.6.9-3 2.3-3.8-.8-2.1-.9-4.9.1-5.2z"/><path class="ear" d="M5.5 2.4c.4 0 .7 1.4.8 3.6l-.6.3c-.5-1.6-.6-3.9-.2-3.9zM10.5 2.4c.4 0 .3 2.3-.2 3.9l-.6-.3c.1-2.2.4-3.6.8-3.6z"/><circle class="eye" cx="6.4" cy="9.6" r=".6"/><circle class="eye" cx="9.6" cy="9.6" r=".6"/><circle class="ear" cx="8" cy="11.1" r=".55"/></svg></span></span></span>
+      <span class="xtext"><span class="xtitle" data-t="eastLabel">Slip påskeharen løs</span><span class="hint" data-t="eastHint">Æg, harer, kyllinger og blomster i stedet for prikker. Og en hare, der hopper rundt og lægger æg.</span></span>
+    </label>
+    <div class="eeggs" aria-hidden="true">
+      <svg viewBox="0 0 60 110" style="--e1:#fdce3b;--e2:#2f6b3a;--e3:#ffffff"><use href="#pe"/></svg>
+      <svg viewBox="0 0 60 110" style="--e1:#f4a7c4;--e2:#8a3c6e;--e3:#fff3b0"><use href="#pe"/></svg>
+      <svg viewBox="0 0 60 110" style="--e1:#a9d8f5;--e2:#1f5c8a;--e3:#fdce3b"><use href="#pe"/></svg>
+    </div>
+  </section>
+  <!-- paaske:end -->
 
   <section class="sponsors" id="sponsorer" aria-labelledby="sp-h">
     <div class="sp-intro">
@@ -774,7 +891,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
     <div class="dl-action">
       <a class="btn primary big" href="roundqr.html" download="roundqr.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span data-t="dlBtn">Hent roundqr.html</span></a>
-      <span class="spec">HTML · 599 KB</span>
+      <span class="spec">HTML · 604 KB</span>
     </div>
   </section>
 
@@ -838,6 +955,17 @@ var RQ = (function () {
   var WHAT = ["M", .64, .02, "L", .77, .66, "L", .97, .71, "C", 1, .79, .96, .87, .86, .87, "L", .14, .87, "C", .04, .87, 0, .79, .03, .71,
     "L", .23, .66, "C", .33, .4, .44, .12, .64, .02, "Z"];
   var HALL = ["pumpkins", "ghosts", "bats", "cats", "hats"];
+  // Påske
+  var EGG = ["M", .5, .03, "C", .76, .03, .92, .44, .92, .62, "C", .92, .84, .73, .97, .5, .97, "C", .27, .97, .08, .84, .08, .62, "C", .08, .44, .24, .03, .5, .03, "Z"];
+  var BUNNY = ["M", .3, .02, "C", .38, .02, .43, .2, .43, .4, "L", .57, .4, "C", .57, .2, .62, .02, .7, .02, "C", .8, .02, .8, .28, .7, .44,
+    "C", .84, .52, .9, .64, .88, .76, "C", .86, .92, .7, .98, .5, .98, "C", .3, .98, .14, .92, .12, .76, "C", .1, .64, .16, .52, .3, .44, "C", .2, .28, .2, .02, .3, .02, "Z"];
+  var CHICK = ["M", .45, .06, "L", .52, .14, "L", .58, .05, "L", .6, .16, "C", .78, .2, .9, .36, .9, .55, "L", .99, .58, "L", .9, .63,
+    "C", .87, .84, .7, .96, .5, .96, "C", .28, .96, .1, .8, .1, .56, "C", .1, .34, .26, .18, .44, .16, "Z"];
+  var FLOWER = (function () { var a = ["M"]; for (var i = 0; i < 60; i++) { var t = i / 60 * 2 * Math.PI, r = .31 + .17 * Math.cos(5 * t);
+    if (i) a.push("L"); a.push(.5 + r * Math.sin(t), .5 - r * Math.cos(t)); } a.push("Z"); return a; })();
+  var TULIP = ["M", .2, .18, "L", .35, .32, "L", .5, .1, "L", .65, .32, "L", .8, .18, "C", .86, .5, .76, .72, .55, .76, "L", .55, .98, "L", .45, .98,
+    "L", .45, .76, "C", .24, .72, .14, .5, .2, .18, "Z"];
+  var SPRING = ["eggs", "bunnies", "chicks", "flowers", "tulips"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -849,6 +977,11 @@ var RQ = (function () {
     if (style === "bats") return sh(x, y, BAT);
     if (style === "cats") return sh(x, y, CAT);
     if (style === "hats") return sh(x, y, WHAT);
+    if (style === "eggs") return sh(x, y, EGG);
+    if (style === "bunnies") return sh(x, y, BUNNY);
+    if (style === "chicks") return sh(x, y, CHICK);
+    if (style === "flowers") return sh(x, y, FLOWER);
+    if (style === "tulips") return sh(x, y, TULIP);
     return null;
   }
 
@@ -858,6 +991,7 @@ var RQ = (function () {
     if (style === "rounded") return rrect(x + 0.06, y + 0.06, 0.88, 0.88, 0.3);
     if (style === "mix") style = XMAS[cellPick(x, y, 5)];
     if (style === "spooky") style = HALL[cellPick(x, y, 5)];
+    if (style === "spring") style = SPRING[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -940,6 +1074,25 @@ var RQ = (function () {
   };
   var XSHAPES = ["heart", "tree", "gift", "star", "santa", "bauble"];
   var HSHAPES = ["pumpkin", "ghost", "bat", "cat", "hat", "candy"];
+  // Påske: egg and ears are sampled outlines; the rest are circles and polygons like the others.
+  function ellPts(cx, cy, rx, ry, rot, n) { var a = [], c = Math.cos(rot), s = Math.sin(rot); for (var i = 0; i < n; i++) { var t = i / n * 2 * Math.PI, x = rx * Math.cos(t), y = ry * Math.sin(t); a.push([cx + x * c - y * s, cy + x * s + y * c]); } return a; }
+  function eggPts(cx, cy, rx, ry) { var a = []; for (var i = 0; i < 56; i++) { var t = i / 56 * 2 * Math.PI, sn = Math.sin(t); a.push([cx + rx * Math.cos(t), cy + ry * sn * (sn < 0 ? 1.15 : 0.85)]); } return a; }
+  function bandPts(cx, cy, ro, ri, n) { var a = [], i, t; for (i = 0; i <= n; i++) { t = Math.PI + i / n * Math.PI; a.push([cx + ro * Math.cos(t), cy + ro * Math.sin(t)]); }
+    for (i = n; i >= 0; i--) { t = Math.PI + i / n * Math.PI; a.push([cx + ri * Math.cos(t), cy + ri * Math.sin(t)]); } return a; }
+  SHAPES.egg = { anchor: [0.5, 0.56], prims: [{ poly: eggPts(0.5, 0.56, 0.42, 0.46) }],
+    // Two zigzag stripes, one near the top and one near the bottom.
+    skip: function (X, Y, qx, qy, U, V) { return Math.abs(V - (0.18 + 0.022 * Math.sin(U * 45))) < 0.016 || Math.abs(V - (0.9 + 0.02 * Math.sin(U * 45 + 1))) < 0.014; } };
+  SHAPES.bunny = { anchor: [0.5, 0.66], prims: [{ circle: [0.5, 0.66, 0.32] }, { poly: ellPts(0.37, 0.27, 0.085, 0.25, -0.18, 28) }, { poly: ellPts(0.63, 0.27, 0.085, 0.25, 0.18, 28) }] };
+  SHAPES.chick = { anchor: [0.48, 0.6], prims: [{ circle: [0.48, 0.6, 0.38] }, { poly: [[0.84, 0.5], [1, 0.58], [0.84, 0.66]] },
+    { poly: [[0.4, 0.26], [0.43, 0.08], [0.5, 0.2], [0.58, 0.06], [0.58, 0.26]] }] };
+  SHAPES.flower = { anchor: [0.5, 0.5], prims: [{ circle: [0.5, 0.5, 0.22] }].concat([0, 1, 2, 3, 4, 5].map(function (k) { var a = k * Math.PI / 3 - Math.PI / 2; return { circle: [0.5 + 0.27 * Math.cos(a), 0.5 + 0.27 * Math.sin(a), 0.16] }; })),
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.hypot(U - 0.5, V - 0.5); return d > 0.215 && d < 0.235; } };
+  SHAPES.basket = { anchor: [0.5, 0.7], prims: [{ poly: [[0.02, 0.44], [0.98, 0.44], [0.86, 0.98], [0.14, 0.98]] }, { poly: bandPts(0.5, 0.47, 0.42, 0.35, 24) }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.47 && ((V - 0.47) % 0.1) < 0.016; } };
+  SHAPES.tulip = { anchor: [0.5, 0.44], prims: [
+    { poly: [[0.14, 0.06], [0.33, 0.24], [0.5, 0], [0.67, 0.24], [0.86, 0.06], [0.92, 0.48], [0.8, 0.76], [0.5, 0.86], [0.2, 0.76], [0.08, 0.48]] },
+    { poly: [[0.46, 0.84], [0.54, 0.84], [0.54, 1.22], [0.46, 1.22]] }, { poly: [[0.53, 1.14], [0.84, 0.9], [0.72, 1.16]] }, { poly: [[0.47, 1.08], [0.18, 0.92], [0.3, 1.12]] }] };
+  var ESHAPES = ["egg", "bunny", "chick", "flower", "basket", "tulip"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -1156,7 +1309,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES };
 })();
 </script>
 
@@ -1209,7 +1362,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -1284,7 +1437,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -1389,7 +1542,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -1520,7 +1673,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -1651,7 +1804,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -1899,9 +2052,199 @@ var RQ = (function () {
   };
   Object.keys(TH).forEach(function (l) { for (var k in TH[l]) T[l][k] = TH[l][k]; });
   /* halloween:end */
-  var lang = "da", xmas = false, hall = false;
+  /* paaske:start */
+  var TE = {
+   "da": {
+    "presetsEaster": [
+     "Påskeæg",
+     "Forår",
+     "Påskelilje",
+     "Kylling",
+     "Lavendel",
+     "Tulipan",
+     "Himmel",
+     "Græs"
+    ],
+    "eastAria": "Påske",
+    "eastLabel": "Slip påskeharen løs",
+    "eastLabelEaster": "Påskeharen er sluppet løs",
+    "eastHint": "Æg, harer, kyllinger og blomster i stedet for prikker. Og en hare, der hopper rundt og lægger æg.",
+    "eastHintEaster": "Slå det fra igen, så får du den almindelige Round QR og dine egne farver tilbage.",
+    "subtitleEaster": "Påskeudgaven. Indsæt et link, pynt koden, og gem den som PNG, JPG eller SVG.",
+    "eggs": "Æg",
+    "bunnies": "Harer",
+    "chicks": "Kyllinger",
+    "flowers": "Blomster",
+    "tulips": "Tulipaner",
+    "spring": "Blandet",
+    "defaultLabelEaster": "God påske",
+    "eEgg": "Påskeæg",
+    "eBunny": "Påskehare",
+    "eChick": "Kylling",
+    "eFlower": "Blomst",
+    "eBasket": "Kurv",
+    "eTulip": "Tulipan",
+    "fillEaster": "Fyld formen med mønster",
+    "exFillEaster": "Pyntprikker uden data, der fylder formen ud omkring koden.",
+    "exRingEaster": "En tynd pyntering langs kanten af formen.",
+    "exFormEaster": "Cirkel og Firkant er de klassiske. Påskeformerne lægger koden i midten og fylder resten af formen med mønster.",
+    "exModulesEaster": "Påskeformerne dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
+    "exEyesEaster": "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner små æggeblommer."
+   },
+   "en": {
+    "presetsEaster": [
+     "Easter egg",
+     "Spring",
+     "Daffodil",
+     "Chick",
+     "Lavender",
+     "Tulip",
+     "Sky",
+     "Grass"
+    ],
+    "eastAria": "Easter",
+    "eastLabel": "Let the Easter Bunny loose",
+    "eastLabelEaster": "The Easter Bunny is loose",
+    "eastHint": "Eggs, bunnies, chicks and flowers instead of dots. And a bunny hopping about, laying eggs.",
+    "eastHintEaster": "Turn it off again to get the regular Round QR and your own colours back.",
+    "subtitleEaster": "The Easter edition. Paste a link, decorate the code, save it as PNG, JPG or SVG.",
+    "eggs": "Eggs",
+    "bunnies": "Bunnies",
+    "chicks": "Chicks",
+    "flowers": "Flowers",
+    "tulips": "Tulips",
+    "spring": "Mixed",
+    "defaultLabelEaster": "Happy Easter",
+    "eEgg": "Egg",
+    "eBunny": "Easter Bunny",
+    "eChick": "Chick",
+    "eFlower": "Flower",
+    "eBasket": "Basket",
+    "eTulip": "Tulip",
+    "fillEaster": "Fill the shape with pattern",
+    "exFillEaster": "Decorative dots with no data that fill out the shape around the code.",
+    "exRingEaster": "A thin decorative ring along the edge of the shape.",
+    "exFormEaster": "Circle and Square are the classics. The Easter shapes put the code in the middle and fill the rest of the shape with pattern.",
+    "exModulesEaster": "The Easter shapes cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
+    "exEyesEaster": "The three big squares the phone uses to find the code. Circle looks like little egg yolks."
+   },
+   "de": {
+    "presetsEaster": [
+     "Osterei",
+     "Frühling",
+     "Osterglocke",
+     "Küken",
+     "Lavendel",
+     "Tulpe",
+     "Himmel",
+     "Gras"
+    ],
+    "eastAria": "Ostern",
+    "eastLabel": "Den Osterhasen loslassen",
+    "eastLabelEaster": "Der Osterhase ist los",
+    "eastHint": "Eier, Hasen, Küken und Blumen statt Punkten. Und ein Hase, der herumhoppelt und Eier legt.",
+    "eastHintEaster": "Schalte es wieder aus, dann bekommst du das normale Round QR und deine eigenen Farben zurück.",
+    "subtitleEaster": "Die Osterausgabe. Link einfügen, Code schmücken und als PNG, JPG oder SVG speichern.",
+    "eggs": "Eier",
+    "bunnies": "Hasen",
+    "chicks": "Küken",
+    "flowers": "Blumen",
+    "tulips": "Tulpen",
+    "spring": "Gemischt",
+    "defaultLabelEaster": "Frohe Ostern",
+    "eEgg": "Osterei",
+    "eBunny": "Osterhase",
+    "eChick": "Küken",
+    "eFlower": "Blume",
+    "eBasket": "Korb",
+    "eTulip": "Tulpe",
+    "fillEaster": "Form mit Muster füllen",
+    "exFillEaster": "Zierpunkte ohne Daten, die die Form rund um den Code ausfüllen.",
+    "exRingEaster": "Ein dünner Zierring entlang der Kante der Form.",
+    "exFormEaster": "Kreis und Quadrat sind die Klassiker. Die Osterformen setzen den Code in die Mitte und füllen den Rest der Form mit Muster.",
+    "exModulesEaster": "Die Osterformen decken die Mitte jedes Feldes ab, wo das Handy hinschaut. Behalte das Etikett unter dem Code im Blick.",
+    "exEyesEaster": "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie kleine Eigelbe."
+   },
+   "no": {
+    "presetsEaster": [
+     "Påskeegg",
+     "Vår",
+     "Påskelilje",
+     "Kylling",
+     "Lavendel",
+     "Tulipan",
+     "Himmel",
+     "Gress"
+    ],
+    "eastAria": "Påske",
+    "eastLabel": "Slipp påskeharen løs",
+    "eastLabelEaster": "Påskeharen er sluppet løs",
+    "eastHint": "Egg, harer, kyllinger og blomster i stedet for prikker. Og en hare som hopper rundt og legger egg.",
+    "eastHintEaster": "Slå det av igjen, så får du vanlig Round QR og dine egne farger tilbake.",
+    "subtitleEaster": "Påskeutgaven. Lim inn en lenke, pynt koden, og lagre den som PNG, JPG eller SVG.",
+    "eggs": "Egg",
+    "bunnies": "Harer",
+    "chicks": "Kyllinger",
+    "flowers": "Blomster",
+    "tulips": "Tulipaner",
+    "spring": "Blandet",
+    "defaultLabelEaster": "God påske",
+    "eEgg": "Påskeegg",
+    "eBunny": "Påskehare",
+    "eChick": "Kylling",
+    "eFlower": "Blomst",
+    "eBasket": "Kurv",
+    "eTulip": "Tulipan",
+    "fillEaster": "Fyll formen med mønster",
+    "exFillEaster": "Pynteprikker uten data som fyller ut formen rundt koden.",
+    "exRingEaster": "En tynn pyntering langs kanten av formen.",
+    "exFormEaster": "Sirkel og Firkant er de klassiske. Påskeformene legger koden i midten og fyller resten av formen med mønster.",
+    "exModulesEaster": "Påskeformene dekker midten av hvert felt, der telefonen ser. Følg med på merket under koden.",
+    "exEyesEaster": "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner små eggeplommer."
+   },
+   "sv": {
+    "presetsEaster": [
+     "Påskägg",
+     "Vår",
+     "Påsklilja",
+     "Kyckling",
+     "Lavendel",
+     "Tulpan",
+     "Himmel",
+     "Gräs"
+    ],
+    "eastAria": "Påsk",
+    "eastLabel": "Släpp lös påskharen",
+    "eastLabelEaster": "Påskharen är lös",
+    "eastHint": "Ägg, harar, kycklingar och blommor i stället för prickar. Och en hare som skuttar omkring och lägger ägg.",
+    "eastHintEaster": "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka.",
+    "subtitleEaster": "Påskutgåvan. Klistra in en länk, pynta koden och spara den som PNG, JPG eller SVG.",
+    "eggs": "Ägg",
+    "bunnies": "Harar",
+    "chicks": "Kycklingar",
+    "flowers": "Blommor",
+    "tulips": "Tulpaner",
+    "spring": "Blandat",
+    "defaultLabelEaster": "Glad påsk",
+    "eEgg": "Påskägg",
+    "eBunny": "Påskhare",
+    "eChick": "Kyckling",
+    "eFlower": "Blomma",
+    "eBasket": "Korg",
+    "eTulip": "Tulpan",
+    "fillEaster": "Fyll formen med mönster",
+    "exFillEaster": "Dekorprickar utan data som fyller ut formen runt koden.",
+    "exRingEaster": "En tunn dekorring längs kanten av formen.",
+    "exFormEaster": "Cirkel och Fyrkant är de klassiska. Påskformerna lägger koden i mitten och fyller resten av formen med mönster.",
+    "exModulesEaster": "Påskformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
+    "exEyesEaster": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små äggulor."
+   }
+  };
+  Object.keys(TE).forEach(function (l) { for (var k in TE[l]) T[l][k] = TE[l][k]; });
+  /* paaske:end */
+  var lang = "da", xmas = false, hall = false, easter = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -1970,7 +2313,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v; }); }
 
   function opts() {
     return {
@@ -2307,6 +2650,7 @@ var RQ = (function () {
 
   function setXmas(on, byUser) {
     if (on && hall && typeof setHall === "function") setHall(false, true);
+    if (on && easter && typeof setEaster === "function") setEaster(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!xmasPrev;
     if (on && byUser) xmasPrev = snapshot();
     xmas = on;
@@ -2474,6 +2818,7 @@ var RQ = (function () {
 
   function setHall(on, byUser) {
     if (on && xmas) setXmas(false, true);
+    if (on && easter && typeof setEaster === "function") setEaster(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!hallPrev;
     if (on && byUser) hallPrev = snapshot();
     hall = on;
@@ -2663,6 +3008,250 @@ var RQ = (function () {
   $("halloween").addEventListener("change", function () { setHall(this.checked, true); });
   /* halloween:end */
 
+  /* paaske:start */
+  // ---------- Påske ----------
+  // Works like the other two modes and reuses snapshot() and applySnap() from the Christmas code. Only one mode can be on.
+  var reduceMotionE = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function cellAtE(d, k, dx, dy) { return d.replace(/-?[\d.]+ -?[\d.]+/g, function (m) { var p = m.split(" "); return (+p[0] * k + dx) + " " + (+p[1] * k + dy); }); }
+  document.querySelectorAll("#egrid svg[data-shape]").forEach(function (svg) {
+    var st = svg.getAttribute("data-shape");
+    var d = st === "spring" ? cellAtE(RQ.mod(0, 0, "eggs"), .5, 0, 0) + cellAtE(RQ.mod(0, 0, "bunnies"), .5, .5, 0) +
+      cellAtE(RQ.mod(0, 0, "chicks"), .5, 0, .5) + cellAtE(RQ.mod(0, 0, "flowers"), .5, .5, .5) : RQ.mod(0, 0, st);
+    svg.innerHTML = '<path d="' + d + '"/>';
+  });
+  document.querySelectorAll("#eshapes svg[data-oshape]").forEach(function (svg) {
+    var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
+    svg.setAttribute("viewBox", ic.vb);
+    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+  });
+
+  var EASTER_SETS = [
+    { fg: "#8a3c6e", eyec: "#2f6b3a", bg: "#fffbea" },
+    { fg: "#2f6b3a", eyec: "#a0457a", bg: "#ffffff" },
+    { fg: "#6b5200", eyec: "#2f6b3a", bg: "#fff8d6" },
+    { fg: "#8a5a00", fg2: "#4a3000", grad: "radial", eyec: "#5a3a00", bg: "#fff6cc" },
+    { fg: "#4b3a8a", eyec: "#2a1f5c", bg: "#f7f3ff" },
+    { fg: "#a0234a", fg2: "#2f6b3a", grad: "vertical", eyec: "#2f6b3a", bg: "#ffffff" },
+    { fg: "#1f5c8a", fg2: "#3a2a7a", grad: "diagonal", eyec: "#1f3d5c", bg: "#f2f8ff" },
+    { fg: "#2f6b1f", fg2: "#1d4b3b", grad: "radial", eyec: "#8a3c6e", bg: "#fbfff2" }
+  ];
+  var easterPrev = null;
+  function saveEaster() { try { localStorage.setItem("round-qr-easter", JSON.stringify({ on: easter, prev: easterPrev })); } catch (e) {} }
+
+  function setEaster(on, byUser) {
+    if (on && xmas && typeof setXmas === "function") setXmas(false, true);
+    if (on && hall && typeof setHall === "function") setHall(false, true);
+    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!easterPrev;
+    if (on && byUser) easterPrev = snapshot();
+    easter = on;
+    document.documentElement.classList.toggle("easter", on);
+    $("easter").checked = on;
+    PRESETS = on ? EASTER_SETS : PLAIN;
+    buildPresets();
+    if (on && byUser) {
+      setRadio("shape", "egg"); setRadio("dot", "eggs"); setRadio("eye", "circle");
+      var p = EASTER_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
+      $("label").checked = true; $("labelText").value = T[lang].defaultLabelEaster;
+    } else if (!on) {
+      if (easterPrev) applySnap(easterPrev);
+      if (RQ.SPRING.concat("spring").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      if (RQ.ESHAPES.indexOf(radio("shape")) >= 0) setRadio("shape", "circle");
+      easterPrev = null;
+    }
+    applyLang(lang);
+    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
+    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
+    buildBunting(); EFX.toggle(on, byUser);
+    saveEaster();
+    if (typeof qrcode !== "undefined") render();
+  }
+
+  // Pastel bunting with painted eggs hanging between the flags.
+  var EGG_D = "M0 0C6 0 9.6 9 9.6 15C9.6 21.6 5.4 25 0 25S-9.6 21.6-9.6 15C-9.6 9 -6 0 0 0Z";
+  function buildBunting() {
+    var g = $("egarland");
+    if (!easter) { g.innerHTML = ""; return; }
+    var W = document.documentElement.clientWidth, spans = Math.max(2, Math.round(W / 220)), sw = W / spans;
+    var FL = ["#fdce3b", "#f4a7c4", "#a9d8f5", "#bfe3a4", "#d9c2f0", "#ffffff"], EG = [["#fdce3b", "#2f6b3a"], ["#f4a7c4", "#8a3c6e"], ["#a9d8f5", "#1f5c8a"], ["#bfe3a4", "#6b5200"]];
+    var wire = "M0 3", items = "", k = 0, ke = 0;
+    for (var i = 0; i < spans; i++) {
+      var x0 = i * sw, x1 = x0 + sw, cx = x0 + sw / 2, n = Math.max(4, Math.round(sw / 30));
+      wire += " Q" + cx.toFixed(1) + " 36 " + x1.toFixed(1) + " 3";
+      for (var j = 1; j <= n; j++) {
+        var tt = j / (n + 1), u = 1 - tt;
+        var x = u * u * x0 + 2 * tt * u * cx + tt * tt * x1, y = u * u * 3 + 2 * tt * u * 36 + tt * tt * 3;
+        var ang = Math.atan2(66 * (1 - 2 * tt), sw) * 180 / Math.PI, st = "--i:" + (k * 0.03).toFixed(2) + "s;--d:" + ((k * 7) % 11 * 0.27).toFixed(2) + "s";
+        if (j === Math.ceil(n / 2) && n > 4) {
+          var c = EG[ke++ % EG.length];
+          items += '<g class="eg" style="' + st + '"><line x1="' + x.toFixed(1) + '" y1="' + y.toFixed(1) + '" x2="' + x.toFixed(1) + '" y2="' + (y + 8).toFixed(1) + '" stroke="#8a7a5a" stroke-width="1"/>' +
+            '<g transform="translate(' + x.toFixed(1) + ' ' + (y + 8).toFixed(1) + ')"><path d="' + EGG_D + '" fill="' + c[0] + '"/>' +
+            '<path d="M-9 12L-6 9L-3 12L0 9L3 12L6 9L9 12" stroke="' + c[1] + '" stroke-width="1.8" fill="none"/><circle cy="19" r="1.6" fill="' + c[1] + '"/><circle cx="-4.4" cy="18" r="1.3" fill="' + c[1] + '"/><circle cx="4.4" cy="18" r="1.3" fill="' + c[1] + '"/></g></g>';
+        } else {
+          items += '<path class="f" style="' + st + '" fill="' + FL[k % FL.length] + '" stroke="rgb(0 0 0 / 0.08)" d="M-9 0H9L0 17Z" transform="translate(' + x.toFixed(1) + ' ' + (y - 1).toFixed(1) + ') rotate(' + ang.toFixed(1) + ')"/>';
+        }
+        k++;
+      }
+    }
+    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none"><path class="wire" d="' + wire + '"/>' + items + "</svg>";
+  }
+  var buntingTimer;
+  window.addEventListener("resize", function () { clearTimeout(buntingTimer); buntingTimer = setTimeout(buildBunting, 150); });
+
+  // The Easter Bunny hops across the bottom of the screen and leaves eggs; blossoms fall and butterflies flutter. Never over the QR code.
+  var EFX = (function () {
+    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, clock = 0, nextBunny = 0;
+    var petals = [], flies = [], bunnies = [], eggs = [], burst = [];
+    var EGGC = [["#fdce3b", "#2f6b3a"], ["#f4a7c4", "#8a3c6e"], ["#a9d8f5", "#1f5c8a"], ["#bfe3a4", "#6b5200"], ["#d9c2f0", "#4b3a8a"]];
+    var SHAPES = ["eggs", "bunnies", "chicks", "flowers", "tulips"];
+    var PATHS = {};
+    function path(st) { return PATHS[st] || (PATHS[st] = new Path2D(RQ.mod(0, 0, st))); }
+    var EGGP = new Path2D("M0 -1C.56 -1 .9 -.2 .9 .3C.9 .78 .5 1 0 1S-.9 .78-.9 .3C-.9 -.2-.56 -1 0 -1Z");
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function setup() {
+      if (cv) return;
+      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
+      window.addEventListener("resize", size);
+    }
+    function size() {
+      if (!cv) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var np = Math.max(10, Math.min(34, Math.round(W * H / 30000))), nf = Math.max(2, Math.min(4, Math.round(W / 360)));
+      while (petals.length < np) petals.push(petal(true)); petals.length = np;
+      while (flies.length < nf) flies.push(fly()); flies.length = nf;
+    }
+    function petal(anywhere) {
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -10, s: 3 + Math.random() * 3.5, vy: 16 + Math.random() * 26, ph: Math.random() * 6.3,
+        sway: 14 + Math.random() * 22, rot: Math.random() * 6.3, vr: (Math.random() - .5) * 2.4, c: pick(["#ffd1e1", "#ffffff", "#ffe9a8", "#f7c6da"]) };
+    }
+    function fly() {
+      return { x: Math.random() * W, y: 80 + Math.random() * H * 0.6, tx: Math.random() * W, ty: 80 + Math.random() * H * 0.6, ph: Math.random() * 6.3,
+        s: 9 + Math.random() * 6, c: pick(["#fdce3b", "#f08fb4", "#7cc4f0", "#b48ee8"]) };
+    }
+    // A bunny is a run of hops along a ground line. Each hop is one parabola.
+    function bunny(x, ground, dir, hops) {
+      bunnies.push({ x: x, g: ground, dir: dir, s: 30 + Math.random() * 10, hop: 0, len: 62 + Math.random() * 26, h: 34 + Math.random() * 18,
+        dur: 0.46 + Math.random() * 0.1, left: hops || 999, nextEgg: 2 + Math.floor(Math.random() * 3) });
+    }
+    function layEgg(b) {
+      var c = pick(EGGC);
+      eggs.push({ x: b.x - b.dir * b.s * 0.5, y: b.g - 7, s: 7 + Math.random() * 2, c: c[0], c2: c[1], age: 0, life: 7, rot: (Math.random() - .5) * 0.5 });
+    }
+    function pop() {
+      var sw = $("easter").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
+      for (var i = 0; i < 80; i++) {
+        var a = -Math.PI / 2 + (Math.random() - .5) * 2.4, v = 240 + Math.random() * 500, sh = Math.random() < .7;
+        burst.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, s: 9 + Math.random() * 10, rot: Math.random() * 6.3,
+          vr: (Math.random() - .5) * 9, life: 1.6 + Math.random() * 1.2, age: 0, shape: sh ? pick(SHAPES) : null,
+          c: pick(["#fdce3b", "#f4a7c4", "#a9d8f5", "#bfe3a4", "#d9c2f0", "#f08fb4", "#2f6b3a"]) });
+      }
+      // The first bunny jumps out of the switch and runs off the nearest side.
+      var dir = ox < W / 2 ? -1 : 1;
+      bunny(ox, sw.bottom + 2, dir, Math.ceil((dir > 0 ? W - ox : ox) / 70) + 2);
+      nextBunny = clock + 2.2;
+    }
+    function drawBunny(b) {
+      var p = b.hop, yOff = -4 * b.h * p * (1 - p), sq = p < 0.12 ? 1 - (0.12 - p) * 1.6 : p > 0.88 ? 1 - (p - 0.88) * 1.6 : 1.05, s = b.s;
+      ctx.save(); ctx.translate(b.x, b.g + yOff); ctx.scale(b.dir, 1); ctx.scale(1 / Math.sqrt(sq), sq);
+      ctx.shadowColor = "rgba(0,0,0,0.18)"; ctx.shadowBlur = 4; ctx.shadowOffsetY = 1;
+      ctx.fillStyle = "#b08b66"; ctx.strokeStyle = "#7d5f42"; ctx.lineWidth = 1.2;
+      var ear = p > 0.1 && p < 0.9 ? -0.35 : -0.15;
+      ctx.beginPath(); ctx.ellipse(s * .26, -s * 1.02, s * .075, s * .26, ear, 0, 6.283); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(s * .42, -s * 1.0, s * .075, s * .25, ear + 0.3, 0, 6.283); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(0, -s * .36, s * .42, s * .3, -0.12, 0, 6.283); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.arc(s * .36, -s * .62, s * .21, 0, 6.283); ctx.fill(); ctx.stroke();
+      ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+      ctx.fillStyle = "#f4a7c4";
+      ctx.beginPath(); ctx.ellipse(s * .26, -s * 1.02, s * .03, s * .17, ear, 0, 6.283); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(s * .42, -s * 1.0, s * .03, s * .16, ear + 0.3, 0, 6.283); ctx.fill();
+      ctx.beginPath(); ctx.arc(s * .56, -s * .6, s * .04, 0, 6.283); ctx.fill();
+      ctx.fillStyle = "#ffffff"; ctx.beginPath(); ctx.arc(-s * .42, -s * .42, s * .12, 0, 6.283); ctx.fill();
+      ctx.fillStyle = "#2a1f14"; ctx.beginPath(); ctx.arc(s * .43, -s * .68, s * .035, 0, 6.283); ctx.fill();
+      ctx.restore();
+    }
+    function drawEgg(e) {
+      ctx.save(); ctx.translate(e.x, e.y); ctx.rotate(e.rot); ctx.scale(e.s, e.s * 1.25);
+      ctx.fillStyle = e.c; ctx.fill(EGGP);
+      ctx.strokeStyle = e.c2; ctx.lineWidth = 0.22; ctx.beginPath(); ctx.moveTo(-.85, .15); ctx.lineTo(-.5, -.1); ctx.lineTo(-.15, .15); ctx.lineTo(.2, -.1); ctx.lineTo(.55, .15); ctx.lineTo(.88, -.08); ctx.stroke();
+      ctx.restore();
+    }
+    function drawShape(o, s) {
+      ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot || 0); ctx.fillStyle = o.c;
+      if (!o.shape) { ctx.fillRect(-s / 2, -s / 5, s, s / 2.5); }
+      else { ctx.scale(s, s); ctx.translate(-.5, -.5); ctx.fill(path(o.shape)); }
+      ctx.restore();
+    }
+    function frame(now) {
+      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now; clock += dt;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      var st = $("stage").getBoundingClientRect();
+      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
+      if (on) {
+        petals.forEach(function (p) {
+          p.y += p.vy * dt; p.ph += dt * 1.2; p.rot += p.vr * dt;
+          if (p.y > H + 10) { var n = petal(false); for (var k in n) p[k] = n[k]; }
+          ctx.save(); ctx.globalAlpha = 0.85; ctx.translate(p.x + Math.sin(p.ph) * p.sway, p.y); ctx.rotate(p.rot);
+          ctx.fillStyle = p.c; ctx.beginPath(); ctx.ellipse(0, 0, p.s, p.s * 0.55, 0, 0, 6.283); ctx.fill(); ctx.restore();
+        });
+        flies.forEach(function (f) {
+          f.ph += dt;
+          var dx = f.tx - f.x, dy = f.ty - f.y, d = Math.hypot(dx, dy);
+          if (d < 20) { f.tx = Math.random() * W; f.ty = 80 + Math.random() * H * 0.6; }
+          else { f.x += dx / d * 46 * dt; f.y += dy / d * 46 * dt + Math.sin(f.ph * 5) * 0.6; }
+          var flap = 0.25 + 0.75 * Math.abs(Math.sin(f.ph * 14)), s = f.s;
+          ctx.save(); ctx.globalAlpha = 0.9; ctx.translate(f.x, f.y); ctx.rotate(Math.atan2(dy, dx) * 0.15);
+          ctx.fillStyle = f.c;
+          ctx.beginPath(); ctx.ellipse(-s * .5 * flap, -s * .3, s * .55 * flap, s * .45, -0.5, 0, 6.283); ctx.ellipse(s * .5 * flap, -s * .3, s * .55 * flap, s * .45, 0.5, 0, 6.283); ctx.fill();
+          ctx.beginPath(); ctx.ellipse(-s * .35 * flap, s * .25, s * .35 * flap, s * .3, 0.4, 0, 6.283); ctx.ellipse(s * .35 * flap, s * .25, s * .35 * flap, s * .3, -0.4, 0, 6.283); ctx.fill();
+          ctx.fillStyle = "#3a2a1a"; ctx.fillRect(-s * .06, -s * .5, s * .12, s);
+          ctx.restore();
+        });
+        if (clock > nextBunny) {
+          var dir = Math.random() < .5 ? 1 : -1;
+          bunny(dir > 0 ? -40 : W + 40, H - 6, dir);
+          nextBunny = clock + 7 + Math.random() * 6;
+        }
+      }
+      eggs = eggs.filter(function (e) { return e.age < e.life; });
+      eggs.forEach(function (e) { e.age += dt; ctx.globalAlpha = Math.min(1, e.age * 4, (e.life - e.age) / 1.2); drawEgg(e); });
+      ctx.globalAlpha = 1;
+      bunnies = bunnies.filter(function (b) { return b.left > 0 && b.x > -80 && b.x < W + 80; });
+      bunnies.forEach(function (b) {
+        var before = b.hop;
+        b.hop += dt / b.dur;
+        b.x += b.dir * b.len * (Math.min(1, b.hop) - before);
+        if (b.hop >= 1) {
+          b.hop = 0; b.left--; b.nextEgg--;
+          if (b.nextEgg <= 0) { layEgg(b); b.nextEgg = 2 + Math.floor(Math.random() * 4); }
+        }
+        drawBunny(b);
+      });
+      burst = burst.filter(function (b) { return b.age < b.life; });
+      burst.forEach(function (b) {
+        b.age += dt; b.vy += 620 * dt; b.vx *= 0.985; b.x += b.vx * dt; b.y += b.vy * dt; b.rot += b.vr * dt;
+        ctx.globalAlpha = Math.max(0, 1 - b.age / b.life); drawShape(b, b.s);
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      if (on || bunnies.length || eggs.length || burst.length) raf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, W, H); raf = 0; }
+    }
+    function toggle(state, withBurst) {
+      on = state;
+      if (reduceMotionE) return;
+      setup();
+      if (on && withBurst) pop();
+      else if (on) nextBunny = clock + 1.5;
+      if (!on) bunnies.forEach(function (b) { b.left = Math.min(b.left, 3); });
+      if (!raf && (on || bunnies.length || eggs.length || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    return { toggle: toggle };
+  })();
+
+  $("easter").addEventListener("change", function () { setEaster(this.checked, true); });
+  /* paaske:end */
+
   restore();
   /* julelys:start */
   try {
@@ -2676,6 +3265,12 @@ var RQ = (function () {
     if (hs && hs.on && !xmas) { hallPrev = hs.prev || null; hall = true; document.documentElement.classList.add("hall"); PRESETS = HALL_SETS; buildPresets(); }
   } catch (e) {}
   /* halloween:end */
+  /* paaske:start */
+  try {
+    var es = JSON.parse(localStorage.getItem("round-qr-easter") || "null");
+    if (es && es.on && !xmas && !hall) { easterPrev = es.prev || null; easter = true; document.documentElement.classList.add("easter"); PRESETS = EASTER_SETS; buildPresets(); }
+  } catch (e) {}
+  /* paaske:end */
   var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (!startLang) {
@@ -2687,6 +3282,7 @@ var RQ = (function () {
   applyLang(startLang);
   /* julelys:start */ if (xmas) { $("xmas").checked = true; buildLights(); FX.toggle(true, false); } /* julelys:end */
   /* halloween:start */ if (hall) { $("halloween").checked = true; buildPumpkins(); HFX.toggle(true, false); } /* halloween:end */
+  /* paaske:start */ if (easter) { $("easter").checked = true; buildBunting(); EFX.toggle(true, false); } /* paaske:end */
   fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");

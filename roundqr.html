@@ -199,7 +199,9 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 
+
 </style>
+
 
 
 
@@ -264,7 +266,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="shape" id="shape-square" value="square"><span data-t="square">Firkant</span></label>
             </div>
           </div>
-                              <p class="explain" id="ex-form" data-t="exForm" hidden></p>
+                                        <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
         <div class="field">
@@ -276,7 +278,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="dot" id="dot-squares" value="squares"><span data-t="squaresPl">Firkanter</span></label>
             </div>
           </div>
-                              <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
+                                        <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
         <div class="field">
@@ -395,7 +397,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </section>
   </div>
 
-    
+      
   <footer class="foot" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;font-size:13px;color:var(--muted);padding-top:18px;border-top:1px solid var(--line)">
     <span>Round QR · <a href="https://roundqr.dk" style="color:inherit">roundqr.dk</a></span>
     <span data-t="footNote"></span>
@@ -12858,6 +12860,17 @@ var RQ = (function () {
   var WHAT = ["M", .64, .02, "L", .77, .66, "L", .97, .71, "C", 1, .79, .96, .87, .86, .87, "L", .14, .87, "C", .04, .87, 0, .79, .03, .71,
     "L", .23, .66, "C", .33, .4, .44, .12, .64, .02, "Z"];
   var HALL = ["pumpkins", "ghosts", "bats", "cats", "hats"];
+  // Påske
+  var EGG = ["M", .5, .03, "C", .76, .03, .92, .44, .92, .62, "C", .92, .84, .73, .97, .5, .97, "C", .27, .97, .08, .84, .08, .62, "C", .08, .44, .24, .03, .5, .03, "Z"];
+  var BUNNY = ["M", .3, .02, "C", .38, .02, .43, .2, .43, .4, "L", .57, .4, "C", .57, .2, .62, .02, .7, .02, "C", .8, .02, .8, .28, .7, .44,
+    "C", .84, .52, .9, .64, .88, .76, "C", .86, .92, .7, .98, .5, .98, "C", .3, .98, .14, .92, .12, .76, "C", .1, .64, .16, .52, .3, .44, "C", .2, .28, .2, .02, .3, .02, "Z"];
+  var CHICK = ["M", .45, .06, "L", .52, .14, "L", .58, .05, "L", .6, .16, "C", .78, .2, .9, .36, .9, .55, "L", .99, .58, "L", .9, .63,
+    "C", .87, .84, .7, .96, .5, .96, "C", .28, .96, .1, .8, .1, .56, "C", .1, .34, .26, .18, .44, .16, "Z"];
+  var FLOWER = (function () { var a = ["M"]; for (var i = 0; i < 60; i++) { var t = i / 60 * 2 * Math.PI, r = .31 + .17 * Math.cos(5 * t);
+    if (i) a.push("L"); a.push(.5 + r * Math.sin(t), .5 - r * Math.cos(t)); } a.push("Z"); return a; })();
+  var TULIP = ["M", .2, .18, "L", .35, .32, "L", .5, .1, "L", .65, .32, "L", .8, .18, "C", .86, .5, .76, .72, .55, .76, "L", .55, .98, "L", .45, .98,
+    "L", .45, .76, "C", .24, .72, .14, .5, .2, .18, "Z"];
+  var SPRING = ["eggs", "bunnies", "chicks", "flowers", "tulips"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -12869,6 +12882,11 @@ var RQ = (function () {
     if (style === "bats") return sh(x, y, BAT);
     if (style === "cats") return sh(x, y, CAT);
     if (style === "hats") return sh(x, y, WHAT);
+    if (style === "eggs") return sh(x, y, EGG);
+    if (style === "bunnies") return sh(x, y, BUNNY);
+    if (style === "chicks") return sh(x, y, CHICK);
+    if (style === "flowers") return sh(x, y, FLOWER);
+    if (style === "tulips") return sh(x, y, TULIP);
     return null;
   }
 
@@ -12878,6 +12896,7 @@ var RQ = (function () {
     if (style === "rounded") return rrect(x + 0.06, y + 0.06, 0.88, 0.88, 0.3);
     if (style === "mix") style = XMAS[cellPick(x, y, 5)];
     if (style === "spooky") style = HALL[cellPick(x, y, 5)];
+    if (style === "spring") style = SPRING[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -12960,6 +12979,25 @@ var RQ = (function () {
   };
   var XSHAPES = ["heart", "tree", "gift", "star", "santa", "bauble"];
   var HSHAPES = ["pumpkin", "ghost", "bat", "cat", "hat", "candy"];
+  // Påske: egg and ears are sampled outlines; the rest are circles and polygons like the others.
+  function ellPts(cx, cy, rx, ry, rot, n) { var a = [], c = Math.cos(rot), s = Math.sin(rot); for (var i = 0; i < n; i++) { var t = i / n * 2 * Math.PI, x = rx * Math.cos(t), y = ry * Math.sin(t); a.push([cx + x * c - y * s, cy + x * s + y * c]); } return a; }
+  function eggPts(cx, cy, rx, ry) { var a = []; for (var i = 0; i < 56; i++) { var t = i / 56 * 2 * Math.PI, sn = Math.sin(t); a.push([cx + rx * Math.cos(t), cy + ry * sn * (sn < 0 ? 1.15 : 0.85)]); } return a; }
+  function bandPts(cx, cy, ro, ri, n) { var a = [], i, t; for (i = 0; i <= n; i++) { t = Math.PI + i / n * Math.PI; a.push([cx + ro * Math.cos(t), cy + ro * Math.sin(t)]); }
+    for (i = n; i >= 0; i--) { t = Math.PI + i / n * Math.PI; a.push([cx + ri * Math.cos(t), cy + ri * Math.sin(t)]); } return a; }
+  SHAPES.egg = { anchor: [0.5, 0.56], prims: [{ poly: eggPts(0.5, 0.56, 0.42, 0.46) }],
+    // Two zigzag stripes, one near the top and one near the bottom.
+    skip: function (X, Y, qx, qy, U, V) { return Math.abs(V - (0.18 + 0.022 * Math.sin(U * 45))) < 0.016 || Math.abs(V - (0.9 + 0.02 * Math.sin(U * 45 + 1))) < 0.014; } };
+  SHAPES.bunny = { anchor: [0.5, 0.66], prims: [{ circle: [0.5, 0.66, 0.32] }, { poly: ellPts(0.37, 0.27, 0.085, 0.25, -0.18, 28) }, { poly: ellPts(0.63, 0.27, 0.085, 0.25, 0.18, 28) }] };
+  SHAPES.chick = { anchor: [0.48, 0.6], prims: [{ circle: [0.48, 0.6, 0.38] }, { poly: [[0.84, 0.5], [1, 0.58], [0.84, 0.66]] },
+    { poly: [[0.4, 0.26], [0.43, 0.08], [0.5, 0.2], [0.58, 0.06], [0.58, 0.26]] }] };
+  SHAPES.flower = { anchor: [0.5, 0.5], prims: [{ circle: [0.5, 0.5, 0.22] }].concat([0, 1, 2, 3, 4, 5].map(function (k) { var a = k * Math.PI / 3 - Math.PI / 2; return { circle: [0.5 + 0.27 * Math.cos(a), 0.5 + 0.27 * Math.sin(a), 0.16] }; })),
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.hypot(U - 0.5, V - 0.5); return d > 0.215 && d < 0.235; } };
+  SHAPES.basket = { anchor: [0.5, 0.7], prims: [{ poly: [[0.02, 0.44], [0.98, 0.44], [0.86, 0.98], [0.14, 0.98]] }, { poly: bandPts(0.5, 0.47, 0.42, 0.35, 24) }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.47 && ((V - 0.47) % 0.1) < 0.016; } };
+  SHAPES.tulip = { anchor: [0.5, 0.44], prims: [
+    { poly: [[0.14, 0.06], [0.33, 0.24], [0.5, 0], [0.67, 0.24], [0.86, 0.06], [0.92, 0.48], [0.8, 0.76], [0.5, 0.86], [0.2, 0.76], [0.08, 0.48]] },
+    { poly: [[0.46, 0.84], [0.54, 0.84], [0.54, 1.22], [0.46, 1.22]] }, { poly: [[0.53, 1.14], [0.84, 0.9], [0.72, 1.16]] }, { poly: [[0.47, 1.08], [0.18, 0.92], [0.3, 1.12]] }] };
+  var ESHAPES = ["egg", "bunny", "chick", "flower", "basket", "tulip"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -13176,7 +13214,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES };
 })();
 </script>
 
@@ -13217,7 +13255,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -13280,7 +13318,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -13373,7 +13411,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -13492,7 +13530,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -13611,7 +13649,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -13669,9 +13707,9 @@ var RQ = (function () {
       sizePx: function (px, hpx) { return px + " × " + hpx + " px"; }
     }
   };
-    var lang = "da", xmas = false, hall = false;
+      var lang = "da", xmas = false, hall = false, easter = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -13740,7 +13778,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v; }); }
 
   function opts() {
     return {
@@ -14045,8 +14083,9 @@ var RQ = (function () {
 
   
   
+  
   restore();
-      var startLang = null;
+        var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (!startLang) {
     // First visit: follow the browser's language when we have it, otherwise Danish.
@@ -14055,7 +14094,7 @@ var RQ = (function () {
     startLang = startLang || "da";
   }
   applyLang(startLang);
-      fillSizes();
+        fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
     setScan(null, "notReady");
