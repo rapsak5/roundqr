@@ -522,6 +522,93 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
   .nclock .hh, .nclock .mh { transition: none; }
 }
 /* nytaar:end */
+
+/* pirat:start */
+/* Pirat: the page turns into an old treasure map; panels keep their own light or dark surface. */
+:root.pirat {
+  --page: #efe3c6; --page-ink: #3a2814; --page-muted: #6b5536;
+  --bg: #fbf6ea; --surface: #fffdf8; --stage: #f4ead2; --ink: #1f1d18; --muted: #6b5f4a; --line: #e6d8b8;
+  --accent: #b3261c; --accent-strong: #8a1c14; --accent-ink: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root.pirat:not([data-theme="light"]) {
+    --page: #0f1b24; --page-ink: #eee6d6; --page-muted: #a9b4b8;
+    --bg: #142029; --surface: #182630; --stage: #203039; --ink: #eee6d6; --muted: #a8b0ae; --line: #2a3b45;
+    --accent: #e0503f; --accent-strong: #ff8a7a; --accent-ink: #ffffff;
+  }
+}
+:root.pirat[data-theme="dark"] {
+  --page: #0f1b24; --page-ink: #eee6d6; --page-muted: #a9b4b8;
+  --bg: #142029; --surface: #182630; --stage: #203039; --ink: #eee6d6; --muted: #a8b0ae; --line: #2a3b45;
+  --accent: #e0503f; --accent-strong: #ff8a7a; --accent-ink: #ffffff;
+}
+:root.pirat body {
+  background:
+    radial-gradient(ellipse 900px 420px at 50% -60px, rgb(255 255 255 / 0.28), transparent),
+    radial-gradient(circle at 8% 70%, rgb(140 100 50 / 0.14), transparent 30%),
+    radial-gradient(circle at 92% 28%, rgb(140 100 50 / 0.12), transparent 26%),
+    radial-gradient(circle at 70% 95%, rgb(140 100 50 / 0.1), transparent 30%),
+    var(--page);
+  color: var(--page-ink); padding-top: 74px;
+}
+.pirat .preview, .pirat .controls, .pirat .xbar, .pirat .sp-list, .pirat .download { color: var(--ink); }
+.pirat header p, .pirat .sp-intro p, .pirat .foot { color: var(--page-muted); }
+.pirat header .about .sig { color: var(--page-ink); }
+.pirat h1 .o { border-color: #6b4a2b;
+  background: radial-gradient(circle, #6b4a2b 0 22%, transparent 24%), repeating-conic-gradient(#6b4a2b 0 9deg, transparent 9deg 45deg); }
+.pirat .stage {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, #8a5a2a 28%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in srgb, #1f6b78 24%, transparent) 1.2px, transparent 1.6px);
+  background-size: 22px 22px; background-position: 0 0, 11px 11px;
+}
+:root:not(.pirat) .pirat-only { display: none !important; }
+.pirat .plain-only { display: none !important; }
+
+/* Reb med flag øverst */
+.pgarland .rope { fill: none; stroke: #7a5a34; stroke-width: 3; stroke-dasharray: 5 2; }
+.pgarland .pf { animation: bulbOn .35s var(--i) both, flap 2.4s var(--d) infinite ease-in-out; transform-box: fill-box; transform-origin: 50% 0; }
+@keyframes flap { 0%, 100% { transform: skewX(-6deg); } 50% { transform: skewX(6deg); } }
+
+/* Gemte skattekister */
+.tchest { flex: none; display: inline-grid; place-items: center; width: 34px; height: 30px; padding: 0; border: 0; background: transparent; cursor: pointer;
+  align-self: flex-end; margin-left: auto; animation: peek 2.8s ease-in-out infinite; }
+.tchest svg { width: 30px; height: 26px; overflow: visible; filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.25)); }
+.tchest .lid { transform-box: fill-box; transform-origin: 0 100%; transition: transform .35s cubic-bezier(.3,1.5,.5,1); }
+.tchest .glow { opacity: 0; transition: opacity .3s; }
+.tchest.open { animation: none; cursor: default; }
+.tchest.open .lid { transform: rotate(-38deg); }
+.tchest.open .glow { opacity: 1; }
+.tchest:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; border-radius: 6px; }
+@keyframes peek { 0%, 86%, 100% { transform: rotate(0); } 90% { transform: rotate(-8deg); } 94% { transform: rotate(7deg); } }
+.hunt { font-size: 13px; font-weight: 600; color: var(--accent-strong); margin-top: 3px; }
+
+/* Pirat-kontakten */
+.pswitch .knob svg { width: 17px; height: 17px; }
+.pswitch .knob .sk { fill: var(--muted); opacity: 0.45; transition: fill .2s, opacity .2s; }
+.pswitch .knob .se { fill: var(--surface); stroke: var(--surface); stroke-width: .9; stroke-linecap: round; }
+.pswitch input:checked + .track { background: repeating-linear-gradient(135deg, #1f1d18 0 7px, #b3261c 7px 14px); }
+.pswitch input:checked + .track .sk { fill: #1f1d18; opacity: 1; }
+.pdecor { display: flex; gap: 10px; align-items: flex-end; height: 58px; flex: none; filter: grayscale(1); opacity: 0.45; transition: filter .3s, opacity .3s; }
+.pdecor .pwheel { width: 52px; height: 52px; }
+.pwheel .spokes path { stroke: #6b4a2b; stroke-width: 4.5; stroke-linecap: round; }
+.pwheel .rim { fill: none; stroke: #8a6236; stroke-width: 5; }
+.pwheel .hub { fill: #6b4a2b; }
+.pdecor .pflag { width: 44px; height: 52px; overflow: visible; }
+.pflag .pole { stroke: #6b4a2b; stroke-width: 3; stroke-linecap: round; }
+.pflag .cloth { fill: #1f1d18; transform-box: fill-box; transform-origin: 0 50%; }
+.pflag .bone { fill: #f4ead2; }
+.pflag .bonel { stroke: #f4ead2; stroke-width: 2.6; stroke-linecap: round; }
+.pflag .eyeh { fill: #1f1d18; }
+.pirat .pdecor { filter: none; opacity: 1; }
+.pirat .pwheel { animation: spin 9s linear infinite; }
+.pirat .pflag .cloth { animation: flap 1.8s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 480px) { .pdecor { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .pgarland .pf, .tchest, .pirat .pwheel, .pirat .pflag .cloth { animation: none; }
+}
+/* pirat:end */
 </style>
 
 <!-- julelys:start -->
@@ -578,6 +665,10 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 <!-- nytaar:start -->
 <div class="garland ngarland" id="ngarland" aria-hidden="true"></div>
 <!-- nytaar:end -->
+
+<!-- pirat:start -->
+<div class="garland pgarland" id="pgarland" aria-hidden="true"></div>
+<!-- pirat:end -->
 
 <div class="wrap">
   <header>
@@ -680,6 +771,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="shape" id="shape-partyhat" value="partyhat"><span><svg data-oshape="partyhat"></svg><b data-t="nHat">Festhat</b></span></label>
           </div>
           <!-- nytaar:end -->
+          <!-- pirat:start -->
+          <div class="xgrid pirat-only" id="pshapes" role="radiogroup" data-t-aria="form" aria-label="Form">
+            <label><input type="radio" name="shape" id="shape-chest" value="chest"><span><svg data-oshape="chest"></svg><b data-t="pChest">Skattekiste</b></span></label>
+            <label><input type="radio" name="shape" id="shape-ship" value="ship"><span><svg data-oshape="ship"></svg><b data-t="pShip">Skib</b></span></label>
+            <label><input type="radio" name="shape" id="shape-map" value="map"><span><svg data-oshape="map"></svg><b data-t="pMap">Skattekort</b></span></label>
+            <label><input type="radio" name="shape" id="shape-flag" value="flag"><span><svg data-oshape="flag"></svg><b data-t="pFlag">Piratflag</b></span></label>
+            <label><input type="radio" name="shape" id="shape-wheel" value="wheel"><span><svg data-oshape="wheel"></svg><b data-t="pWheel">Ror</b></span></label>
+            <label><input type="radio" name="shape" id="shape-skull" value="skull"><span><svg data-oshape="skull"></svg><b data-t="pSkull">Dødningehoved</b></span></label>
+          </div>
+          <!-- pirat:end -->
           <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
@@ -732,6 +833,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="dot" id="dot-party" value="party"><span><svg viewBox="0 0 1 1" data-shape="party"></svg><b data-t="party">Blandet</b></span></label>
           </div>
           <!-- nytaar:end -->
+          <!-- pirat:start -->
+          <div class="xgrid pirat-only" id="pgrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+            <label><input type="radio" name="dot" id="dot-chests" value="chests"><span><svg viewBox="0 0 1 1" data-shape="chests"></svg><b data-t="chests">Kister</b></span></label>
+            <label><input type="radio" name="dot" id="dot-ships" value="ships"><span><svg viewBox="0 0 1 1" data-shape="ships"></svg><b data-t="ships">Skibe</b></span></label>
+            <label><input type="radio" name="dot" id="dot-anchors" value="anchors"><span><svg viewBox="0 0 1 1" data-shape="anchors"></svg><b data-t="anchors">Ankre</b></span></label>
+            <label><input type="radio" name="dot" id="dot-skulls" value="skulls"><span><svg viewBox="0 0 1 1" data-shape="skulls"></svg><b data-t="skulls">Kranier</b></span></label>
+            <label><input type="radio" name="dot" id="dot-coins" value="coins"><span><svg viewBox="0 0 1 1" data-shape="coins"></svg><b data-t="coins">Mønter</b></span></label>
+            <label><input type="radio" name="dot" id="dot-pirates" value="pirates"><span><svg viewBox="0 0 1 1" data-shape="pirates"></svg><b data-t="pirates">Blandet</b></span></label>
+          </div>
+          <!-- pirat:end -->
           <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
@@ -903,6 +1014,18 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
   </section>
   <!-- nytaar:end -->
+  <!-- pirat:start -->
+  <section class="xbar pbar" id="pbar" data-t-aria="piratAria" aria-label="Pirat">
+    <label class="xbar-main" for="pirat">
+      <span class="xswitch pswitch"><input type="checkbox" id="pirat" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="sk" d="M8 1.6c3.3 0 5.2 2.2 5.2 4.9 0 1.8-1 2.9-2 3.4v2.4H4.8V9.9c-1-.5-2-1.6-2-3.4C2.8 3.8 4.7 1.6 8 1.6z"/><circle class="se" cx="5.9" cy="6.9" r="1.3"/><circle class="se" cx="10.1" cy="6.9" r="1.3"/><path class="se" d="M8 8.6l.9 1.5H7.1zM6.4 12.3v1.8M8 12.3v1.8M9.6 12.3v1.8"/></svg></span></span></span>
+      <span class="xtext"><span class="xtitle" data-t="piratLabel">Hejs piratflaget</span><span class="hint" data-t="piratHint">Skattekister, skibe, ankre og mønter i stedet for prikker. Og tre skattekister gemt rundt på siden.</span><span class="hunt" id="huntCount" hidden></span></span>
+    </label>
+    <div class="pdecor" aria-hidden="true">
+      <svg class="pwheel" viewBox="0 0 60 60"><g class="spokes"><path d="M30 2v56M2 30h56M10.2 10.2l39.6 39.6M49.8 10.2L10.2 49.8"/></g><circle cx="30" cy="30" r="19" class="rim"/><circle cx="30" cy="30" r="5" class="hub"/></svg>
+      <svg class="pflag" viewBox="0 0 54 62"><path class="pole" d="M4 2v58"/><path class="cloth" d="M5 4c8-3 14 3 24 0s14-3 22 0v26c-8-3-12 3-22 0S13 27 5 30z"/><circle class="bone" cx="28" cy="13" r="5.5"/><path class="bonel" d="M18 18l20 9M38 18l-20 9"/><circle class="eyeh" cx="26" cy="12.6" r="1.4"/><circle class="eyeh" cx="30" cy="12.6" r="1.4"/></svg>
+    </div>
+  </section>
+  <!-- pirat:end -->
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
@@ -977,6 +1100,16 @@ var RQ = (function () {
   var BOTTLE = ["M", .42, .02, "L", .58, .02, "L", .58, .26, "C", .58, .34, .76, .38, .76, .5, "L", .76, .96, "L", .24, .96, "L", .24, .5, "C", .24, .38, .42, .34, .42, .26, "Z"];
   var SPARKLE = ["M", .5, 0, "C", .56, .4, .6, .44, 1, .5, "C", .6, .56, .56, .6, .5, 1, "C", .44, .6, .4, .56, 0, .5, "C", .4, .44, .44, .4, .5, 0, "Z"];
   var PARTY = ["rockets", "glasses", "bottles", "clocks", "sparkles"];
+  // Pirat
+  var CHEST = ["M", .06, .44, "C", .06, .12, .94, .12, .94, .44, "L", .94, .92, "L", .06, .92, "Z"];
+  var SHIP = ["M", .5, .03, "L", .86, .56, "L", .97, .62, "L", .8, .92, "L", .2, .92, "L", .03, .62, "L", .2, .58, "L", .4, .58, "L", .4, .14, "Z"];
+  var ANCHOR = ["M", .38, .12, "L", .5, .01, "L", .62, .12, "L", .62, .26, "L", .8, .26, "L", .8, .36, "L", .62, .36, "L", .62, .8, "L", .78, .7, "L", .74, .62, "L", .95, .58,
+    "L", .88, .8, "L", .68, .9, "L", .5, .98, "L", .32, .9, "L", .12, .8, "L", .05, .58, "L", .26, .62, "L", .22, .7, "L", .38, .8, "L", .38, .36, "L", .2, .36, "L", .2, .26, "L", .38, .26, "Z"];
+  var SKULL = ["M", .5, .04, "C", .8, .04, .94, .24, .94, .46, "C", .94, .62, .84, .7, .76, .74, "L", .76, .94, "L", .24, .94, "L", .24, .74,
+    "C", .16, .7, .06, .62, .06, .46, "C", .06, .24, .2, .04, .5, .04, "Z"];
+  var COIN = (function () { var a = ["M"]; for (var i = 0; i < 48; i++) { var t = i / 48 * 2 * Math.PI, r = .44 + .03 * Math.cos(12 * t);
+    if (i) a.push("L"); a.push(.5 + r * Math.cos(t), .5 + r * Math.sin(t)); } a.push("Z"); return a; })();
+  var PIRATE = ["chests", "ships", "anchors", "skulls", "coins"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -998,6 +1131,11 @@ var RQ = (function () {
     if (style === "bottles") return sh(x, y, BOTTLE);
     if (style === "sparkles") return sh(x, y, SPARKLE);
     if (style === "clocks") return circ(x + .5, y + .56, .4) + circ(x + .26, y + .14, .1) + circ(x + .74, y + .14, .1);
+    if (style === "chests") return sh(x, y, CHEST);
+    if (style === "ships") return sh(x, y, SHIP);
+    if (style === "anchors") return sh(x, y, ANCHOR);
+    if (style === "skulls") return sh(x, y, SKULL);
+    if (style === "coins") return sh(x, y, COIN);
     return null;
   }
 
@@ -1009,6 +1147,7 @@ var RQ = (function () {
     if (style === "spooky") style = HALL[cellPick(x, y, 5)];
     if (style === "spring") style = SPRING[cellPick(x, y, 5)];
     if (style === "party") style = PARTY[cellPick(x, y, 5)];
+    if (style === "pirates") style = PIRATE[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -1127,6 +1266,33 @@ var RQ = (function () {
   SHAPES.partyhat = { anchor: [0.5, 0.64], prims: [{ poly: [[0.5, 0.04], [0.92, 0.9], [0.08, 0.9]] }, { circle: [0.5, 0.05, 0.08] }, { poly: ellPts(0.5, 0.9, 0.44, 0.08, 0, 32) }],
     skip: function (X, Y, qx, qy, U, V) { return V > 0.12 && V < 0.86 && ((U + V * 0.7) * 8 % 1) < 0.1; } };
   var NSHAPES = ["rocket", "glass", "bottle", "clock", "sparkle", "partyhat"];
+  // Pirat
+  function arcPts(cx, cy, rx, ry, a0, a1, n) { var a = []; for (var i = 0; i <= n; i++) { var t = a0 + (a1 - a0) * i / n; a.push([cx + rx * Math.cos(t), cy + ry * Math.sin(t)]); } return a; }
+  function barPts(x0, y0, x1, y1, w) { var dx = x1 - x0, dy = y1 - y0, l = Math.hypot(dx, dy), nx = -dy / l * w / 2, ny = dx / l * w / 2;
+    return [[x0 + nx, y0 + ny], [x1 + nx, y1 + ny], [x1 - nx, y1 - ny], [x0 - nx, y0 - ny]]; }
+  SHAPES.chest = { anchor: [0.5, 0.66], prims: [{ poly: [[0.04, 0.44], [0.96, 0.44], [0.96, 0.98], [0.04, 0.98]] }, { poly: arcPts(0.5, 0.45, 0.46, 0.3, Math.PI, 2 * Math.PI, 24) }],
+    // Lid seam and two iron straps.
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.43 && V < 0.46) || (U > 0.17 && U < 0.2) || (U > 0.8 && U < 0.83); } };
+  SHAPES.ship = { anchor: [0.5, 0.42], prims: [{ poly: [[0.2, 0.14], [0.8, 0.14], [0.88, 0.68], [0.12, 0.68]] }, { poly: [[0, 0.7], [1, 0.7], [0.84, 0.98], [0.16, 0.98]] },
+    { poly: [[0.47, 0], [0.53, 0], [0.53, 0.16], [0.47, 0.16]] }, { poly: [[0.53, 0], [0.72, 0.04], [0.53, 0.09]] }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.68 && V < 0.705; } };
+  SHAPES.map = { anchor: [0.5, 0.5], prims: [{ poly: [[0.08, 0.08], [0.92, 0.08], [0.92, 0.92], [0.08, 0.92]] },
+    { poly: [[0.02, 0.01], [0.98, 0.01], [0.98, 0.12], [0.02, 0.12]] }, { poly: [[0.02, 0.88], [0.98, 0.88], [0.98, 0.99], [0.02, 0.99]] }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.115 && V < 0.135) || (V > 0.865 && V < 0.885); } };
+  SHAPES.flag = { anchor: [0.56, 0.33], prims: [
+    { poly: [[0.12, 0.04], [0.3, 0.0], [0.5, 0.04], [0.7, 0.0], [0.96, 0.04], [0.96, 0.62], [0.74, 0.58], [0.54, 0.64], [0.32, 0.58], [0.12, 0.62]] },
+    { poly: [[0.04, -0.02], [0.12, -0.02], [0.12, 1.06], [0.04, 1.06]] }, { circle: [0.08, -0.04, 0.05] }] };
+  SHAPES.wheel = { anchor: [0.5, 0.5], prims: [{ circle: [0.5, 0.5, 0.34] }].concat([0, 1, 2, 3, 4, 5, 6, 7].map(function (k) { var a = k * Math.PI / 4;
+      return { poly: barPts(0.5 + 0.3 * Math.cos(a), 0.5 + 0.3 * Math.sin(a), 0.5 + 0.47 * Math.cos(a), 0.5 + 0.47 * Math.sin(a), 0.07) }; }))
+    .concat([0, 1, 2, 3, 4, 5, 6, 7].map(function (k) { var a = k * Math.PI / 4; return { circle: [0.5 + 0.47 * Math.cos(a), 0.5 + 0.47 * Math.sin(a), 0.05] }; })),
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.hypot(U - 0.5, V - 0.5); return d > 0.28 && d < 0.3; } };
+  SHAPES.skull = { anchor: [0.5, 0.42], prims: [{ circle: [0.5, 0.42, 0.38] }, { poly: [[0.27, 0.66], [0.73, 0.66], [0.7, 0.94], [0.3, 0.94]] },
+    { poly: barPts(0.06, 0.7, 0.94, 1.04, 0.08) }, { poly: barPts(0.94, 0.7, 0.06, 1.04, 0.08) },
+    { circle: [0.05, 0.66, 0.05] }, { circle: [0.1, 0.72, 0.05] }, { circle: [0.95, 0.66, 0.05] }, { circle: [0.9, 0.72, 0.05] },
+    { circle: [0.05, 1.08, 0.05] }, { circle: [0.1, 1.02, 0.05] }, { circle: [0.95, 1.08, 0.05] }, { circle: [0.9, 1.02, 0.05] }],
+    // Teeth: thin gaps in the jaw below the code.
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.84 && V < 0.94 && U > 0.3 && U < 0.7 && ((U - 0.3) % 0.08) < 0.016; } };
+  var PSHAPES = ["chest", "ship", "map", "flag", "wheel", "skull"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -1343,7 +1509,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES };
 })();
 </script>
 
@@ -1383,7 +1549,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -1445,7 +1611,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -1537,7 +1703,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -1655,7 +1821,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -1773,7 +1939,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -2406,9 +2572,214 @@ var RQ = (function () {
   };
   Object.keys(TN).forEach(function (l) { for (var k in TN[l]) T[l][k] = TN[l][k]; });
   /* nytaar:end */
-  var lang = "da", xmas = false, hall = false, easter = false, nyt = false;
+  /* pirat:start */
+  var TP = {
+   "da": {
+    "presetsPirat": [
+     "Sørøver",
+     "Hav",
+     "Skattekort",
+     "Rom",
+     "Kanon",
+     "Lagune",
+     "Blodrød",
+     "Midnatshav"
+    ],
+    "piratAria": "Pirat",
+    "piratLabel": "Hejs piratflaget",
+    "piratLabelPirat": "Piratflaget er hejst",
+    "piratHint": "Skattekister, skibe, ankre og mønter i stedet for prikker. Og tre skattekister gemt rundt på siden.",
+    "piratHintPirat": "Find de tre skattekister, der er gemt på siden. Slå det fra igen for at få den almindelige Round QR tilbage.",
+    "subtitlePirat": "Piratudgaven. Indsæt et link, gør koden sørøveragtig, og gem den som PNG, JPG eller SVG.",
+    "chests": "Kister",
+    "ships": "Skibe",
+    "anchors": "Ankre",
+    "skulls": "Kranier",
+    "coins": "Mønter",
+    "pirates": "Blandet",
+    "defaultLabelPirat": "Her er skatten",
+    "huntFound": "Skatte fundet: {n} af {t}",
+    "huntDone": "Du fandt hele skatten!",
+    "chestAria": "Skattekiste",
+    "pChest": "Skattekiste",
+    "pShip": "Skib",
+    "pMap": "Skattekort",
+    "pFlag": "Piratflag",
+    "pWheel": "Ror",
+    "pSkull": "Dødningehoved",
+    "fillPirat": "Fyld formen med mønster",
+    "exFillPirat": "Pyntprikker uden data, der fylder formen ud omkring koden.",
+    "exRingPirat": "En tynd pyntering langs kanten af formen.",
+    "exFormPirat": "Cirkel og Firkant er de klassiske. Piratformerne lægger koden i midten og fylder resten af formen med mønster.",
+    "exModulesPirat": "Piratformerne dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
+    "exEyesPirat": "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner små kanonkugler."
+   },
+   "en": {
+    "presetsPirat": [
+     "Buccaneer",
+     "Sea",
+     "Treasure map",
+     "Rum",
+     "Cannon",
+     "Lagoon",
+     "Blood red",
+     "Midnight sea"
+    ],
+    "piratAria": "Pirate",
+    "piratLabel": "Hoist the pirate flag",
+    "piratLabelPirat": "The pirate flag is up",
+    "piratHint": "Treasure chests, ships, anchors and coins instead of dots. And three treasure chests hidden around the page.",
+    "piratHintPirat": "Find the three treasure chests hidden on the page. Turn it off again to get the regular Round QR back.",
+    "subtitlePirat": "The pirate edition. Paste a link, make the code shipshape, save it as PNG, JPG or SVG.",
+    "chests": "Chests",
+    "ships": "Ships",
+    "anchors": "Anchors",
+    "skulls": "Skulls",
+    "coins": "Coins",
+    "pirates": "Mixed",
+    "defaultLabelPirat": "X marks the spot",
+    "huntFound": "Treasure found: {n} of {t}",
+    "huntDone": "You found all the treasure!",
+    "chestAria": "Treasure chest",
+    "pChest": "Treasure chest",
+    "pShip": "Ship",
+    "pMap": "Treasure map",
+    "pFlag": "Pirate flag",
+    "pWheel": "Ship's wheel",
+    "pSkull": "Skull",
+    "fillPirat": "Fill the shape with pattern",
+    "exFillPirat": "Decorative dots with no data that fill out the shape around the code.",
+    "exRingPirat": "A thin decorative ring along the edge of the shape.",
+    "exFormPirat": "Circle and Square are the classics. The pirate shapes put the code in the middle and fill the rest of the shape with pattern.",
+    "exModulesPirat": "The pirate shapes cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
+    "exEyesPirat": "The three big squares the phone uses to find the code. Circle looks like little cannonballs."
+   },
+   "de": {
+    "presetsPirat": [
+     "Freibeuter",
+     "Meer",
+     "Schatzkarte",
+     "Rum",
+     "Kanone",
+     "Lagune",
+     "Blutrot",
+     "Mitternachtsmeer"
+    ],
+    "piratAria": "Piraten",
+    "piratLabel": "Die Piratenflagge hissen",
+    "piratLabelPirat": "Die Piratenflagge weht",
+    "piratHint": "Schatztruhen, Schiffe, Anker und Münzen statt Punkten. Und drei Schatztruhen, die auf der Seite versteckt sind.",
+    "piratHintPirat": "Finde die drei Schatztruhen, die auf der Seite versteckt sind. Schalte es wieder aus, dann bekommst du das normale Round QR zurück.",
+    "subtitlePirat": "Die Piratenausgabe. Link einfügen, Code entern und als PNG, JPG oder SVG speichern.",
+    "chests": "Truhen",
+    "ships": "Schiffe",
+    "anchors": "Anker",
+    "skulls": "Totenköpfe",
+    "coins": "Münzen",
+    "pirates": "Gemischt",
+    "defaultLabelPirat": "Hier liegt der Schatz",
+    "huntFound": "Schätze gefunden: {n} von {t}",
+    "huntDone": "Du hast den ganzen Schatz gefunden!",
+    "chestAria": "Schatztruhe",
+    "pChest": "Schatztruhe",
+    "pShip": "Schiff",
+    "pMap": "Schatzkarte",
+    "pFlag": "Piratenflagge",
+    "pWheel": "Steuerrad",
+    "pSkull": "Totenkopf",
+    "fillPirat": "Form mit Muster füllen",
+    "exFillPirat": "Zierpunkte ohne Daten, die die Form rund um den Code ausfüllen.",
+    "exRingPirat": "Ein dünner Zierring entlang der Kante der Form.",
+    "exFormPirat": "Kreis und Quadrat sind die Klassiker. Die Piratenformen setzen den Code in die Mitte und füllen den Rest der Form mit Muster.",
+    "exModulesPirat": "Die Piratenformen decken die Mitte jedes Feldes ab, wo das Handy hinschaut. Behalte das Etikett unter dem Code im Blick.",
+    "exEyesPirat": "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie kleine Kanonenkugeln."
+   },
+   "no": {
+    "presetsPirat": [
+     "Sjørøver",
+     "Hav",
+     "Skattekart",
+     "Rom",
+     "Kanon",
+     "Lagune",
+     "Blodrød",
+     "Midnattshav"
+    ],
+    "piratAria": "Pirat",
+    "piratLabel": "Heis piratflagget",
+    "piratLabelPirat": "Piratflagget er heist",
+    "piratHint": "Skattekister, skip, ankre og mynter i stedet for prikker. Og tre skattekister gjemt rundt på siden.",
+    "piratHintPirat": "Finn de tre skattekistene som er gjemt på siden. Slå det av igjen for å få vanlig Round QR tilbake.",
+    "subtitlePirat": "Piratutgaven. Lim inn en lenke, gjør koden sjørøveraktig, og lagre den som PNG, JPG eller SVG.",
+    "chests": "Kister",
+    "ships": "Skip",
+    "anchors": "Ankre",
+    "skulls": "Hodeskaller",
+    "coins": "Mynter",
+    "pirates": "Blandet",
+    "defaultLabelPirat": "Her er skatten",
+    "huntFound": "Skatter funnet: {n} av {t}",
+    "huntDone": "Du fant hele skatten!",
+    "chestAria": "Skattekiste",
+    "pChest": "Skattekiste",
+    "pShip": "Skip",
+    "pMap": "Skattekart",
+    "pFlag": "Piratflagg",
+    "pWheel": "Ror",
+    "pSkull": "Dødningehode",
+    "fillPirat": "Fyll formen med mønster",
+    "exFillPirat": "Pynteprikker uten data som fyller ut formen rundt koden.",
+    "exRingPirat": "En tynn pyntering langs kanten av formen.",
+    "exFormPirat": "Sirkel og Firkant er de klassiske. Piratformene legger koden i midten og fyller resten av formen med mønster.",
+    "exModulesPirat": "Piratformene dekker midten av hvert felt, der telefonen ser. Følg med på merket under koden.",
+    "exEyesPirat": "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner små kanonkuler."
+   },
+   "sv": {
+    "presetsPirat": [
+     "Sjörövare",
+     "Hav",
+     "Skattkarta",
+     "Rom",
+     "Kanon",
+     "Lagun",
+     "Blodröd",
+     "Midnattshav"
+    ],
+    "piratAria": "Pirat",
+    "piratLabel": "Hissa piratflaggan",
+    "piratLabelPirat": "Piratflaggan är hissad",
+    "piratHint": "Skattkistor, skepp, ankare och mynt i stället för prickar. Och tre skattkistor gömda runt om på sidan.",
+    "piratHintPirat": "Hitta de tre skattkistorna som är gömda på sidan. Stäng av det igen för att få tillbaka vanliga Round QR.",
+    "subtitlePirat": "Piratutgåvan. Klistra in en länk, gör koden sjörövaraktig och spara den som PNG, JPG eller SVG.",
+    "chests": "Kistor",
+    "ships": "Skepp",
+    "anchors": "Ankare",
+    "skulls": "Dödskallar",
+    "coins": "Mynt",
+    "pirates": "Blandat",
+    "defaultLabelPirat": "Här är skatten",
+    "huntFound": "Skatter hittade: {n} av {t}",
+    "huntDone": "Du hittade hela skatten!",
+    "chestAria": "Skattkista",
+    "pChest": "Skattkista",
+    "pShip": "Skepp",
+    "pMap": "Skattkarta",
+    "pFlag": "Piratflagga",
+    "pWheel": "Ratt",
+    "pSkull": "Dödskalle",
+    "fillPirat": "Fyll formen med mönster",
+    "exFillPirat": "Dekorprickar utan data som fyller ut formen runt koden.",
+    "exRingPirat": "En tunn dekorring längs kanten av formen.",
+    "exFormPirat": "Cirkel och Fyrkant är de klassiska. Piratformerna lägger koden i mitten och fyller resten av formen med mönster.",
+    "exModulesPirat": "Piratformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
+    "exEyesPirat": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små kanonkulor."
+   }
+  };
+  Object.keys(TP).forEach(function (l) { for (var k in TP[l]) T[l][k] = TP[l][k]; });
+  /* pirat:end */
+  var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -2477,7 +2848,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v; }); }
 
   function opts() {
     return {
@@ -2816,6 +3187,7 @@ var RQ = (function () {
     if (on && hall && typeof setHall === "function") setHall(false, true);
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!xmasPrev;
     if (on && byUser) xmasPrev = snapshot();
     xmas = on;
@@ -2985,6 +3357,7 @@ var RQ = (function () {
     if (on && xmas) setXmas(false, true);
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!hallPrev;
     if (on && byUser) hallPrev = snapshot();
     hall = on;
@@ -3208,6 +3581,7 @@ var RQ = (function () {
     if (on && xmas && typeof setXmas === "function") setXmas(false, true);
     if (on && hall && typeof setHall === "function") setHall(false, true);
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!easterPrev;
     if (on && byUser) easterPrev = snapshot();
     easter = on;
@@ -3453,6 +3827,7 @@ var RQ = (function () {
     if (on && xmas && typeof setXmas === "function") setXmas(false, true);
     if (on && hall && typeof setHall === "function") setHall(false, true);
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!nytPrev;
     if (on && byUser) nytPrev = snapshot();
     nyt = on;
@@ -3642,6 +4017,262 @@ var RQ = (function () {
   $("nytaar").addEventListener("change", function () { setNyt(this.checked, true); });
   /* nytaar:end */
 
+  /* pirat:start */
+  // ---------- Pirat ----------
+  // Works like the other modes and reuses snapshot() and applySnap() from the Christmas code. Only one mode can be on.
+  // On top of the decoration there is a small treasure hunt: three chests hidden in different parts of the page.
+  var reduceMotionP = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function cellAtP(d, k, dx, dy) { return d.replace(/-?[\d.]+ -?[\d.]+/g, function (m) { var p = m.split(" "); return (+p[0] * k + dx) + " " + (+p[1] * k + dy); }); }
+  document.querySelectorAll("#pgrid svg[data-shape]").forEach(function (svg) {
+    var st = svg.getAttribute("data-shape");
+    var d = st === "pirates" ? cellAtP(RQ.mod(0, 0, "chests"), .5, 0, 0) + cellAtP(RQ.mod(0, 0, "ships"), .5, .5, 0) +
+      cellAtP(RQ.mod(0, 0, "anchors"), .5, 0, .5) + cellAtP(RQ.mod(0, 0, "skulls"), .5, .5, .5) : RQ.mod(0, 0, st);
+    svg.innerHTML = '<path d="' + d + '"/>';
+  });
+  document.querySelectorAll("#pshapes svg[data-oshape]").forEach(function (svg) {
+    var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
+    svg.setAttribute("viewBox", ic.vb);
+    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+  });
+
+  var PIRAT_SETS = [
+    { fg: "#1f1d18", eyec: "#a3261c", bg: "#ffffff" },
+    { fg: "#0b4f6c", fg2: "#0a2a44", grad: "radial", eyec: "#0a2a44", bg: "#ffffff" },
+    { fg: "#5a3a1a", eyec: "#a3261c", bg: "#f7ecd2" },
+    { fg: "#6b2a12", fg2: "#3a1606", grad: "vertical", eyec: "#3a1606", bg: "#fff6e8" },
+    { fg: "#2f3640", eyec: "#1f1d18", bg: "#ffffff" },
+    { fg: "#0f5c55", eyec: "#0b4f6c", bg: "#f2fbf8" },
+    { fg: "#7a1c14", eyec: "#1f1d18", bg: "#ffffff" },
+    { fg: "#13294b", fg2: "#0f5c55", grad: "diagonal", eyec: "#a3261c", bg: "#ffffff" }
+  ];
+  var piratPrev = null;
+  function savePirat() { try { localStorage.setItem("round-qr-pirat", JSON.stringify({ on: pirat, prev: piratPrev })); } catch (e) {} }
+
+  function setPirat(on, byUser) {
+    if (on && xmas && typeof setXmas === "function") setXmas(false, true);
+    if (on && hall && typeof setHall === "function") setHall(false, true);
+    if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!piratPrev;
+    if (on && byUser) piratPrev = snapshot();
+    pirat = on;
+    document.documentElement.classList.toggle("pirat", on);
+    $("pirat").checked = on;
+    PRESETS = on ? PIRAT_SETS : PLAIN;
+    buildPresets();
+    if (on && byUser) {
+      setRadio("shape", "chest"); setRadio("dot", "coins"); setRadio("eye", "circle");
+      var p = PIRAT_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
+      $("label").checked = true; $("labelText").value = T[lang].defaultLabelPirat;
+    } else if (!on) {
+      if (piratPrev) applySnap(piratPrev);
+      if (RQ.PIRATE.concat("pirates").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      if (RQ.PSHAPES.indexOf(radio("shape")) >= 0) setRadio("shape", "circle");
+      piratPrev = null;
+    }
+    applyLang(lang);
+    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
+    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
+    buildRope(); PFX.toggle(on, byUser);
+    if (on) placeChests(); else hideChests();
+    savePirat();
+    if (typeof qrcode !== "undefined") render();
+  }
+
+  // A rope with pirate flags.
+  function buildRope() {
+    var g = $("pgarland");
+    if (!pirat) { g.innerHTML = ""; return; }
+    var W = document.documentElement.clientWidth, spans = Math.max(2, Math.round(W / 220)), sw = W / spans;
+    var FL = ["#1f1d18", "#b3261c", "#f2e6c8"], wire = "M0 3", items = "", k = 0;
+    for (var i = 0; i < spans; i++) {
+      var x0 = i * sw, x1 = x0 + sw, cx = x0 + sw / 2, n = Math.max(4, Math.round(sw / 32));
+      wire += " Q" + cx.toFixed(1) + " 38 " + x1.toFixed(1) + " 3";
+      for (var j = 1; j <= n; j++) {
+        var tt = j / (n + 1), u = 1 - tt;
+        var x = u * u * x0 + 2 * tt * u * cx + tt * tt * x1, y = u * u * 3 + 2 * tt * u * 38 + tt * tt * 3;
+        var ang = Math.atan2(70 * (1 - 2 * tt), sw) * 180 / Math.PI, c = FL[k % 3];
+        var st = "--i:" + (k * 0.03).toFixed(2) + "s;--d:" + (-((k * 7) % 11) * 0.21).toFixed(2) + "s";
+        var skull = c === "#1f1d18" ? '<circle cx="0" cy="6" r="2.4" fill="#f4ead2"/><path d="M-3.4 9.2l6.8 3M3.4 9.2l-6.8 3" stroke="#f4ead2" stroke-width="1.3" stroke-linecap="round"/>' : "";
+        items += '<g transform="translate(' + x.toFixed(1) + ' ' + (y - 1).toFixed(1) + ') rotate(' + ang.toFixed(1) + ')"><g class="pf" style="' + st + '">' +
+          '<path d="M-10 0H10L7 10L10 20H-10L-7 10Z" fill="' + c + '" stroke="rgb(0 0 0 / 0.12)"/>' + skull + '</g></g>';
+        k++;
+      }
+    }
+    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none"><path class="rope" d="' + wire + '"/>' + items + "</svg>";
+  }
+  var ropeTimer;
+  window.addEventListener("resize", function () { clearTimeout(ropeTimer); ropeTimer = setTimeout(buildRope, 150); });
+
+  // The treasure hunt.
+  var CHEST_SVG = '<svg viewBox="0 0 30 26" aria-hidden="true"><ellipse class="glow" cx="15" cy="9" rx="13" ry="7" fill="#fdce3b"/>' +
+    '<rect x="2" y="11" width="26" height="14" rx="2" fill="#8a5a2a" stroke="#4a2e14" stroke-width="1.4"/>' +
+    '<path class="lid" d="M2 12V8c0-4 4-6 13-6s13 2 13 6v4z" fill="#a8703a" stroke="#4a2e14" stroke-width="1.4"/>' +
+    '<path d="M8 11v14M22 11v14" stroke="#4a2e14" stroke-width="2"/><rect x="13" y="12" width="4" height="5" rx="1" fill="#fdce3b" stroke="#4a2e14" stroke-width="1"/></svg>';
+  var hunt = { found: 0, total: 0, els: [] };
+  function updateHunt() {
+    var el = $("huntCount");
+    el.hidden = !pirat || !hunt.total;
+    el.textContent = hunt.found >= hunt.total ? t("huntDone") : t("huntFound").replace("{n}", hunt.found).replace("{t}", hunt.total);
+    hunt.els.forEach(function (b) { b.setAttribute("aria-label", t("chestAria")); b.title = t("chestAria"); });
+  }
+  function hideChests() { hunt.els.forEach(function (b) { b.remove(); }); hunt.els = []; hunt.found = 0; hunt.total = 0; updateHunt(); }
+  function placeChests() {
+    hideChests();
+    var spots = [document.querySelector("header"), $("scan").parentNode, document.querySelector(".controls"), $("pbar"),
+      document.querySelector(".sp-intro"), document.querySelector(".dl-text"), document.querySelector(".foot")].filter(Boolean);
+    for (var i = spots.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), tmp = spots[i]; spots[i] = spots[j]; spots[j] = tmp; }
+    spots.slice(0, 3).forEach(function (spot) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "tchest"; b.innerHTML = CHEST_SVG;
+      b.addEventListener("click", function () {
+        if (b.classList.contains("open")) return;
+        b.classList.add("open"); hunt.found++;
+        var r = b.getBoundingClientRect(); PFX.coins(r.left + r.width / 2, r.top + r.height / 3);
+        updateHunt();
+        if (hunt.found >= hunt.total) PFX.jackpot();
+      });
+      spot.appendChild(b); hunt.els.push(b);
+    });
+    hunt.total = hunt.els.length; updateHunt();
+  }
+  document.querySelectorAll('input[name="lang"]').forEach(function (el) { el.addEventListener("change", updateHunt); });
+
+  // A ship sails along the bottom now and then, gulls glide by, and coins fly. Never over the QR code.
+  var PFX = (function () {
+    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, clock = 0, nextShip = 0, banner = null;
+    var ships = [], gulls = [], coins = [], burst = [];
+    var SHAPES = ["chests", "ships", "anchors", "skulls", "coins"];
+    var PATHS = {};
+    function path(st) { return PATHS[st] || (PATHS[st] = new Path2D(RQ.mod(0, 0, st))); }
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function setup() {
+      if (cv) return;
+      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
+      window.addEventListener("resize", size);
+    }
+    function size() {
+      if (!cv) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var ng = Math.max(2, Math.min(4, Math.round(W / 360)));
+      while (gulls.length < ng) gulls.push(gull(true)); gulls.length = ng;
+    }
+    function gull(anywhere) {
+      var dir = Math.random() < .5 ? 1 : -1;
+      return { x: anywhere ? Math.random() * W : dir > 0 ? -30 : W + 30, y: 90 + Math.random() * H * 0.35, dir: dir, v: 30 + Math.random() * 30, s: 9 + Math.random() * 6, ph: Math.random() * 6.3 };
+    }
+    function ship(dir) { ships.push({ x: dir > 0 ? -70 : W + 70, dir: dir, v: 48 + Math.random() * 20, s: 56 + Math.random() * 16, ph: Math.random() * 6.3 }); }
+    function coin(x, y, vx, vy, life) { coins.push({ x: x, y: y, vx: vx, vy: vy, r: 5 + Math.random() * 3, spin: Math.random() * 6.3, vs: 6 + Math.random() * 8, age: 0, life: life || 1.8 + Math.random() * .8 }); }
+    function coinsAt(x, y) {
+      for (var i = 0; i < 30; i++) { var a = -Math.PI / 2 + (Math.random() - .5) * 1.6, v = 220 + Math.random() * 300; coin(x, y, Math.cos(a) * v, Math.sin(a) * v); }
+    }
+    function jackpot() {
+      for (var i = 0; i < 150; i++) coin(Math.random() * W, -20 - Math.random() * H * 0.8, (Math.random() - .5) * 40, 60 + Math.random() * 120, 3.4 + Math.random());
+      banner = { t: 0, text: t("huntDone") };
+      if (!raf) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    function pop() {
+      var sw = $("pirat").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
+      for (var i = 0; i < 70; i++) {
+        var a = -Math.PI / 2 + (Math.random() - .5) * 2.4, v = 260 + Math.random() * 520;
+        burst.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, s: 10 + Math.random() * 10, rot: Math.random() * 6.3,
+          vr: (Math.random() - .5) * 9, life: 1.6 + Math.random() * 1.2, age: 0, shape: pick(SHAPES), c: pick(["#1f1d18", "#b3261c", "#8a5a2a", "#0b4f6c", "#f2e6c8"]) });
+      }
+      coinsAt(ox, oy); coinsAt(ox, oy);
+      ship(ox < W / 2 ? 1 : -1);
+      nextShip = clock + 12;
+    }
+    function drawShape(o, s) {
+      ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot || 0); ctx.fillStyle = o.c;
+      ctx.scale(s, s); ctx.translate(-.5, -.5); ctx.fill(path(o.shape));
+      ctx.restore();
+    }
+    function drawCoin(c) {
+      var sx = Math.abs(Math.cos(c.spin)) * 0.85 + 0.15;
+      ctx.save(); ctx.translate(c.x, c.y); ctx.scale(sx, 1);
+      ctx.fillStyle = "#fdce3b"; ctx.strokeStyle = "#a87b00"; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.arc(0, 0, c.r, 0, 6.283); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, 0, c.r * 0.58, 0, 6.283); ctx.stroke();
+      ctx.restore();
+    }
+    function drawShip(b) {
+      var s = b.s, y = H - 10 + Math.sin(b.ph * 2.2) * 2.5;
+      ctx.save(); ctx.translate(b.x, y);
+      ctx.strokeStyle = "rgba(31, 107, 120, 0.7)"; ctx.lineWidth = 2.2; ctx.beginPath();
+      for (var i = -1; i <= 1.001; i += 0.1) { var xx = i * s * 0.85, yy = 4 + Math.sin(i * 9 + b.ph * 4) * 2; i < -0.95 ? ctx.moveTo(xx, yy) : ctx.lineTo(xx, yy); }
+      ctx.stroke();
+      ctx.rotate(Math.sin(b.ph * 2.2) * 0.05); ctx.scale(b.dir, 1);
+      ctx.fillStyle = "#6b4a2b"; ctx.strokeStyle = "#3a2410"; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(-.55 * s, -.2 * s); ctx.lineTo(.6 * s, -.2 * s); ctx.lineTo(.42 * s, .06 * s); ctx.lineTo(-.42 * s, .06 * s); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = "#4a2e14"; ctx.fillRect(-.02 * s, -1.02 * s, .04 * s, .84 * s);
+      ctx.fillStyle = "#f4ead2"; ctx.strokeStyle = "#c9b48a";
+      ctx.beginPath(); ctx.moveTo(-.34 * s, -.84 * s); ctx.quadraticCurveTo(-.02 * s, -.74 * s, .32 * s, -.84 * s); ctx.lineTo(.38 * s, -.3 * s); ctx.quadraticCurveTo(0, -.22 * s, -.4 * s, -.3 * s); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = "#1f1d18"; ctx.beginPath(); ctx.moveTo(.02 * s, -1.04 * s); ctx.lineTo(.26 * s, -.98 * s); ctx.lineTo(.02 * s, -.9 * s); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = "#1f1d18"; ctx.beginPath(); ctx.arc(-.02 * s, -.56 * s, .07 * s, 0, 6.283); ctx.fill();
+      ctx.restore();
+    }
+    function drawBanner() {
+      if (!banner) return;
+      var a = banner.t < 0.25 ? banner.t / 0.25 : Math.max(0, 1 - (banner.t - 2.2) / 0.8), big = Math.min(W * 0.08, 64);
+      ctx.save(); ctx.globalAlpha = Math.max(0, Math.min(1, a));
+      ctx.font = "700 " + Math.round(big) + "px 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
+      ctx.lineWidth = Math.max(4, big * 0.08); ctx.strokeStyle = "rgba(31, 29, 24, 0.9)";
+      ctx.strokeText(banner.text, W / 2, H * 0.4); ctx.fillStyle = "#fdce3b"; ctx.fillText(banner.text, W / 2, H * 0.4);
+      ctx.restore();
+    }
+    function frame(now) {
+      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now; clock += dt;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      var st = $("stage").getBoundingClientRect();
+      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
+      if (on) {
+        gulls.forEach(function (g) {
+          g.x += g.dir * g.v * dt; g.ph += dt;
+          if ((g.dir > 0 && g.x > W + 40) || (g.dir < 0 && g.x < -40)) { var n = gull(false); for (var k in n) g[k] = n[k]; }
+          var f = Math.sin(g.ph * 5) * 0.35, s = g.s, y = g.y + Math.sin(g.ph * 0.8) * 8;
+          ctx.strokeStyle = "rgba(58, 40, 20, 0.7)"; ctx.lineWidth = 1.8; ctx.lineCap = "round";
+          ctx.beginPath(); ctx.moveTo(g.x - s, y - s * (0.3 + f)); ctx.quadraticCurveTo(g.x - s * 0.4, y - s * 0.55, g.x, y); ctx.quadraticCurveTo(g.x + s * 0.4, y - s * 0.55, g.x + s, y - s * (0.3 + f)); ctx.stroke();
+        });
+        if (clock > nextShip) { ship(Math.random() < .5 ? 1 : -1); nextShip = clock + 14 + Math.random() * 8; }
+      }
+      ships = ships.filter(function (b) { return b.x > -90 && b.x < W + 90; });
+      ships.forEach(function (b) { b.x += b.dir * b.v * dt; b.ph += dt; drawShip(b); });
+      burst = burst.filter(function (b) { return b.age < b.life; });
+      burst.forEach(function (b) {
+        b.age += dt; b.vy += 620 * dt; b.vx *= 0.985; b.x += b.vx * dt; b.y += b.vy * dt; b.rot += b.vr * dt;
+        ctx.globalAlpha = Math.max(0, 1 - b.age / b.life); drawShape(b, b.s);
+      });
+      ctx.globalAlpha = 1;
+      coins = coins.filter(function (c) { return c.age < c.life && c.y < H + 30; });
+      coins.forEach(function (c) {
+        c.age += dt; c.vy += 520 * dt; c.vx *= 0.99; c.x += c.vx * dt; c.y += c.vy * dt; c.spin += c.vs * dt;
+        ctx.globalAlpha = Math.max(0, Math.min(1, (c.life - c.age) / 0.4)); drawCoin(c);
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      if (banner) { banner.t += dt; drawBanner(); if (banner.t > 3) banner = null; }
+      if (on || ships.length || coins.length || burst.length || banner) raf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, W, H); raf = 0; }
+    }
+    function toggle(state, withBurst) {
+      on = state;
+      if (reduceMotionP) return;
+      setup();
+      if (on && withBurst) pop();
+      else if (on) nextShip = clock + 2;
+      if (!raf && (on || ships.length || coins.length || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    // Coins and the jackpot also respect reduced motion; the counter in the switch bar still shows progress.
+    function guard(fn) { return function (a, b) { if (reduceMotionP) return; setup(); fn(a, b); if (!raf) { lastT = 0; raf = requestAnimationFrame(frame); } }; }
+    return { toggle: toggle, coins: guard(coinsAt), jackpot: guard(jackpot) };
+  })();
+
+  $("pirat").addEventListener("change", function () { setPirat(this.checked, true); });
+  /* pirat:end */
+
   restore();
   /* julelys:start */
   try {
@@ -3667,6 +4298,12 @@ var RQ = (function () {
     if (ns && ns.on && !xmas && !hall && !easter) { nytPrev = ns.prev || null; nyt = true; document.documentElement.classList.add("nyt"); PRESETS = NYT_SETS; buildPresets(); }
   } catch (e) {}
   /* nytaar:end */
+  /* pirat:start */
+  try {
+    var ps = JSON.parse(localStorage.getItem("round-qr-pirat") || "null");
+    if (ps && ps.on && !xmas && !hall && !easter && !nyt) { piratPrev = ps.prev || null; pirat = true; document.documentElement.classList.add("pirat"); PRESETS = PIRAT_SETS; buildPresets(); }
+  } catch (e) {}
+  /* pirat:end */
   var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (!startLang) {
@@ -3680,6 +4317,7 @@ var RQ = (function () {
   /* halloween:start */ if (hall) { $("halloween").checked = true; buildPumpkins(); HFX.toggle(true, false); } /* halloween:end */
   /* paaske:start */ if (easter) { $("easter").checked = true; buildBunting(); EFX.toggle(true, false); } /* paaske:end */
   /* nytaar:start */ if (nyt) { $("nytaar").checked = true; buildSky(); NFX.toggle(true, false); } /* nytaar:end */
+  /* pirat:start */ if (pirat) { $("pirat").checked = true; buildRope(); PFX.toggle(true, false); placeChests(); } /* pirat:end */
   fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
