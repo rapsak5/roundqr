@@ -200,7 +200,9 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 
 
 
+
 </style>
+
 
 
 
@@ -266,7 +268,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="shape" id="shape-square" value="square"><span data-t="square">Firkant</span></label>
             </div>
           </div>
-                                        <p class="explain" id="ex-form" data-t="exForm" hidden></p>
+                                                  <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
         <div class="field">
@@ -278,7 +280,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="dot" id="dot-squares" value="squares"><span data-t="squaresPl">Firkanter</span></label>
             </div>
           </div>
-                                        <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
+                                                  <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
         <div class="field">
@@ -397,7 +399,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </section>
   </div>
 
-      
+        
   <footer class="foot" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;font-size:13px;color:var(--muted);padding-top:18px;border-top:1px solid var(--line)">
     <span>Round QR · <a href="https://roundqr.dk" style="color:inherit">roundqr.dk</a></span>
     <span data-t="footNote"></span>
@@ -12871,6 +12873,13 @@ var RQ = (function () {
   var TULIP = ["M", .2, .18, "L", .35, .32, "L", .5, .1, "L", .65, .32, "L", .8, .18, "C", .86, .5, .76, .72, .55, .76, "L", .55, .98, "L", .45, .98,
     "L", .45, .76, "C", .24, .72, .14, .5, .2, .18, "Z"];
   var SPRING = ["eggs", "bunnies", "chicks", "flowers", "tulips"];
+  // Nytår
+  var ROCKET = ["M", .5, .02, "L", .64, .2, "L", .64, .62, "L", .8, .8, "L", .64, .78, "L", .6, .92, "L", .4, .92, "L", .36, .78, "L", .2, .8, "L", .36, .62, "L", .36, .2, "Z"];
+  var FLUTE = ["M", .16, .03, "L", .84, .03, "C", .86, .38, .74, .62, .57, .66, "L", .57, .82, "L", .76, .9, "L", .76, .97, "L", .24, .97, "L", .24, .9, "L", .43, .82,
+    "L", .43, .66, "C", .26, .62, .14, .38, .16, .03, "Z"];
+  var BOTTLE = ["M", .42, .02, "L", .58, .02, "L", .58, .26, "C", .58, .34, .76, .38, .76, .5, "L", .76, .96, "L", .24, .96, "L", .24, .5, "C", .24, .38, .42, .34, .42, .26, "Z"];
+  var SPARKLE = ["M", .5, 0, "C", .56, .4, .6, .44, 1, .5, "C", .6, .56, .56, .6, .5, 1, "C", .44, .6, .4, .56, 0, .5, "C", .4, .44, .44, .4, .5, 0, "Z"];
+  var PARTY = ["rockets", "glasses", "bottles", "clocks", "sparkles"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -12887,6 +12896,11 @@ var RQ = (function () {
     if (style === "chicks") return sh(x, y, CHICK);
     if (style === "flowers") return sh(x, y, FLOWER);
     if (style === "tulips") return sh(x, y, TULIP);
+    if (style === "rockets") return sh(x, y, ROCKET);
+    if (style === "glasses") return sh(x, y, FLUTE);
+    if (style === "bottles") return sh(x, y, BOTTLE);
+    if (style === "sparkles") return sh(x, y, SPARKLE);
+    if (style === "clocks") return circ(x + .5, y + .56, .4) + circ(x + .26, y + .14, .1) + circ(x + .74, y + .14, .1);
     return null;
   }
 
@@ -12897,6 +12911,7 @@ var RQ = (function () {
     if (style === "mix") style = XMAS[cellPick(x, y, 5)];
     if (style === "spooky") style = HALL[cellPick(x, y, 5)];
     if (style === "spring") style = SPRING[cellPick(x, y, 5)];
+    if (style === "party") style = PARTY[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -12998,6 +13013,23 @@ var RQ = (function () {
     { poly: [[0.14, 0.06], [0.33, 0.24], [0.5, 0], [0.67, 0.24], [0.86, 0.06], [0.92, 0.48], [0.8, 0.76], [0.5, 0.86], [0.2, 0.76], [0.08, 0.48]] },
     { poly: [[0.46, 0.84], [0.54, 0.84], [0.54, 1.22], [0.46, 1.22]] }, { poly: [[0.53, 1.14], [0.84, 0.9], [0.72, 1.16]] }, { poly: [[0.47, 1.08], [0.18, 0.92], [0.3, 1.12]] }] };
   var ESHAPES = ["egg", "bunny", "chick", "flower", "basket", "tulip"];
+  // Nytår
+  SHAPES.rocket = { anchor: [0.5, 0.52], prims: [{ poly: [[0.3, 0.24], [0.7, 0.24], [0.7, 0.8], [0.3, 0.8]] }, { poly: [[0.3, 0.26], [0.5, 0], [0.7, 0.26]] },
+    { poly: [[0.3, 0.56], [0.06, 0.88], [0.3, 0.8]] }, { poly: [[0.7, 0.56], [0.94, 0.88], [0.7, 0.8]] }, { poly: [[0.38, 0.78], [0.62, 0.78], [0.5, 1.02]] }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.25 && V < 0.27) || (V > 0.79 && V < 0.81); } };
+  SHAPES.glass = { anchor: [0.5, 0.27], prims: [{ poly: [[0.18, 0], [0.82, 0], [0.78, 0.42], [0.64, 0.6], [0.36, 0.6], [0.22, 0.42]] },
+    { poly: [[0.46, 0.58], [0.54, 0.58], [0.54, 0.9], [0.46, 0.9]] }, { poly: ellPts(0.5, 0.92, 0.24, 0.05, 0, 28) }] };
+  SHAPES.bottle = { anchor: [0.5, 0.7], prims: [{ poly: [[0.4, 0], [0.6, 0], [0.6, 0.3], [0.4, 0.3]] }, { poly: [[0.4, 0.28], [0.6, 0.28], [0.82, 0.44], [0.82, 1], [0.18, 1], [0.18, 0.44]] }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.1 && V < 0.125) || (V > 0.44 && V < 0.465) || (V > 0.955 && V < 0.975); } };
+  SHAPES.clock = { anchor: [0.5, 0.56], prims: [{ circle: [0.5, 0.56, 0.42] }, { circle: [0.25, 0.14, 0.09] }, { circle: [0.75, 0.14, 0.09] }, { poly: [[0.46, 0.06], [0.54, 0.06], [0.54, 0.16], [0.46, 0.16]] }, { circle: [0.5, 0.05, 0.045] },
+    { poly: [[0.26, 0.9], [0.34, 0.95], [0.2, 1.04]] }, { poly: [[0.74, 0.9], [0.66, 0.95], [0.8, 1.04]] }],
+    // Twelve hour marks just inside the rim.
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.hypot(U - 0.5, V - 0.56); if (d < 0.33 || d > 0.4) return false;
+      var a = Math.atan2(V - 0.56, U - 0.5) * 180 / Math.PI + 360; return (a % 30) < 3.5 || (a % 30) > 26.5; } };
+  SHAPES.sparkle = { anchor: [0.5, 0.5], prims: [{ poly: starPts(0.5, 0.5, 0.5, 0.25, 4) }, { circle: [0.5, 0.5, 0.22] }] };
+  SHAPES.partyhat = { anchor: [0.5, 0.64], prims: [{ poly: [[0.5, 0.04], [0.92, 0.9], [0.08, 0.9]] }, { circle: [0.5, 0.05, 0.08] }, { poly: ellPts(0.5, 0.9, 0.44, 0.08, 0, 32) }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.12 && V < 0.86 && ((U + V * 0.7) * 8 % 1) < 0.1; } };
+  var NSHAPES = ["rocket", "glass", "bottle", "clock", "sparkle", "partyhat"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -13214,7 +13246,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES };
 })();
 </script>
 
@@ -13255,7 +13287,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -13318,7 +13350,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -13411,7 +13443,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -13530,7 +13562,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -13649,7 +13681,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -13707,9 +13739,9 @@ var RQ = (function () {
       sizePx: function (px, hpx) { return px + " × " + hpx + " px"; }
     }
   };
-      var lang = "da", xmas = false, hall = false, easter = false;
+        var lang = "da", xmas = false, hall = false, easter = false, nyt = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -13778,7 +13810,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v; }); }
 
   function opts() {
     return {
@@ -14084,8 +14116,9 @@ var RQ = (function () {
   
   
   
+  
   restore();
-        var startLang = null;
+          var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (!startLang) {
     // First visit: follow the browser's language when we have it, otherwise Danish.
@@ -14094,7 +14127,7 @@ var RQ = (function () {
     startLang = startLang || "da";
   }
   applyLang(startLang);
-        fillSizes();
+          fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
     setScan(null, "notReady");

@@ -458,6 +458,99 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 }
 /* paaske:end */
 
+/* nytaar:start */
+/* Nytår: a starry midnight sky over the page, the brand yellow as sparkle; panels keep their own light or dark surface. */
+:root.nyt {
+  --page: #0e1330; --page-ink: #f3f1ea; --page-muted: #b9bdd6;
+  --bg: #f7f6f1; --surface: #ffffff; --stage: #f1efe6; --ink: #1f1d18; --muted: #6b665a; --line: #e3e0d4;
+  --accent: #fdce3b; --accent-strong: #6b5200; --accent-ink: #1f1d18;
+}
+@media (prefers-color-scheme: dark) {
+  :root.nyt:not([data-theme="light"]) {
+    --page: #090c1f; --page-ink: #eef0f7; --page-muted: #a6abc4;
+    --bg: #12162a; --surface: #171c33; --stage: #1f2540; --ink: #eef0f7; --muted: #a6abc4; --line: #2c3352;
+    --accent: #fdce3b; --accent-strong: #fdce3b; --accent-ink: #17150f;
+  }
+}
+:root.nyt[data-theme="dark"] {
+  --page: #090c1f; --page-ink: #eef0f7; --page-muted: #a6abc4;
+  --bg: #12162a; --surface: #171c33; --stage: #1f2540; --ink: #eef0f7; --muted: #a6abc4; --line: #2c3352;
+  --accent: #fdce3b; --accent-strong: #fdce3b; --accent-ink: #17150f;
+}
+:root.nyt body {
+  background:
+    radial-gradient(1.2px 1.2px at 23px 41px, #fff 50%, transparent 100%),
+    radial-gradient(1px 1px at 117px 13px, rgb(255 255 255 / 0.8) 50%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 171px 97px, rgb(255 240 190 / 0.9) 50%, transparent 100%),
+    radial-gradient(1px 1px at 61px 151px, rgb(255 255 255 / 0.7) 50%, transparent 100%),
+    radial-gradient(1.1px 1.1px at 201px 181px, #fff 50%, transparent 100%),
+    radial-gradient(1100px 520px at 50% -140px, rgb(90 80 190 / 0.45), transparent),
+    var(--page);
+  background-size: 220px 220px, 220px 220px, 220px 220px, 220px 220px, 220px 220px, auto, auto;
+  color: var(--page-ink); padding-top: 74px;
+}
+.nyt .preview, .nyt .controls, .nyt .xbar, .nyt .sp-list, .nyt .download { color: var(--ink); }
+.nyt header p, .nyt .sp-intro p, .nyt .foot { color: var(--page-muted); }
+.nyt header .about .sig { color: var(--page-ink); }
+.nyt h1 .o { position: relative; border-color: var(--accent); background: #fffaeb; }
+.nyt h1 .o::before, .nyt h1 .o::after { content: ""; position: absolute; left: 50%; bottom: 50%; width: 0.06em; border-radius: 1px;
+  background: #1f1d18; transform: translateX(-50%); transform-origin: 50% 100%; }
+.nyt h1 .o::before { height: 0.17em; }
+.nyt h1 .o::after { height: 0.24em; }
+.nyt .stage {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, #fdce3b 34%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in srgb, #5a50be 24%, transparent) 1.2px, transparent 1.6px);
+  background-size: 22px 22px; background-position: 0 0, 11px 11px;
+}
+:root:not(.nyt) .nyt-only { display: none !important; }
+.nyt .plain-only { display: none !important; }
+
+/* Stjerner, glimmer og serpentiner øverst */
+.ngarland .wire { fill: none; stroke: rgb(255 255 255 / 0.35); stroke-width: 1.2; }
+.ngarland .tw { animation: bulbOn .35s var(--i) both, twinkle 1.8s calc(var(--i) + var(--d)) infinite ease-in-out; }
+.ngarland .st { fill: #fdce3b; filter: drop-shadow(0 0 4px rgb(253 206 59 / 0.8)); }
+.ngarland .sg { animation: eswing 3.4s var(--d) infinite ease-in-out; transform-box: fill-box; transform-origin: 50% 0; }
+.ngarland .ser { fill: none; stroke-width: 2; stroke-linecap: round; }
+@keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.38; } }
+@keyframes eswing { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+
+/* Nytårs-kontakten */
+.nswitch .knob svg { width: 17px; height: 17px; }
+.nswitch .knob .rk { fill: var(--muted); opacity: 0.45; transition: fill .2s, opacity .2s; }
+.nswitch .knob .fl { fill: var(--muted); opacity: 0.25; }
+.nswitch input:checked + .track { background: repeating-linear-gradient(135deg, #fdce3b 0 7px, #1b1f4a 7px 14px); }
+.nswitch input:checked + .track .rk { fill: #c8102e; opacity: 1; }
+.nswitch input:checked + .track .fl { fill: #fdce3b; opacity: 1; filter: drop-shadow(0 0 3px #fdce3b); }
+.nclock { display: flex; gap: 4px; align-items: flex-end; height: 58px; flex: none; filter: grayscale(1); opacity: 0.45; transition: filter .3s, opacity .3s; }
+.nclock .dial { width: 54px; height: 54px; }
+.nclock .face { fill: #fffaeb; stroke: #1f1d18; stroke-width: 2.5; }
+.nclock .ticks path { stroke: #1f1d18; stroke-width: 2.5; stroke-linecap: round; }
+.nclock .hh, .nclock .mh { stroke: #1f1d18; stroke-width: 3; stroke-linecap: round; transform-origin: 30px 30px; transition: transform 1.6s cubic-bezier(.3,.9,.4,1); }
+.nclock .hh { transform: rotate(-12deg); }
+.nclock .mh { transform: rotate(-150deg); stroke-width: 2.2; }
+.nclock .pin { fill: #c8102e; }
+.nclock .flute { width: 22px; height: 47px; overflow: visible; transform-origin: 50% 100%; transition: transform .5s cubic-bezier(.3,1.4,.5,1); }
+.nclock .glass { fill: rgb(255 255 255 / 0.55); stroke: #8a8578; stroke-width: 1.4; }
+.nclock .wine { fill: #fdce3b; }
+.nclock .bub { fill: #ffffff; }
+.nyt .nclock { filter: drop-shadow(0 0 8px rgb(253 206 59 / 0.45)); opacity: 1; }
+.nyt .nclock .hh, .nyt .nclock .mh { transform: rotate(0deg); }
+.nyt .nclock .f1 { transform: rotate(14deg) translateX(4px); animation: clinkL 2.6s 1.6s ease-in-out infinite; }
+.nyt .nclock .f2 { transform: rotate(-14deg) translateX(-4px); animation: clinkR 2.6s 1.6s ease-in-out infinite; }
+.nyt .nclock .bub { animation: rise 1.4s linear infinite; }
+.nyt .nclock .bub:nth-of-type(2) { animation-delay: -.5s; }
+.nyt .nclock .bub:nth-of-type(3) { animation-delay: -1s; }
+@keyframes clinkL { 0%, 100% { transform: rotate(14deg) translateX(4px); } 50% { transform: rotate(4deg) translateX(1px); } }
+@keyframes clinkR { 0%, 100% { transform: rotate(-14deg) translateX(-4px); } 50% { transform: rotate(-4deg) translateX(-1px); } }
+@keyframes rise { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-9px); opacity: 0; } }
+@media (max-width: 480px) { .nclock { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .ngarland .tw, .ngarland .sg, .nyt .nclock .flute, .nyt .nclock .bub { animation: none; }
+  .nclock .hh, .nclock .mh { transition: none; }
+}
+/* nytaar:end */
+
 /* Sponsors, download, footer (website only) */
 :root { --plate: #ffffff; }
 .sponsors { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 20px 48px; align-items: start;
@@ -547,6 +640,10 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 </svg>
 <div class="garland egarland" id="egarland" aria-hidden="true"></div>
 <!-- paaske:end -->
+
+<!-- nytaar:start -->
+<div class="garland ngarland" id="ngarland" aria-hidden="true"></div>
+<!-- nytaar:end -->
 
 <div class="wrap">
   <header>
@@ -639,6 +736,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="shape" id="shape-tulip" value="tulip"><span><svg data-oshape="tulip"></svg><b data-t="eTulip">Tulipan</b></span></label>
           </div>
           <!-- paaske:end -->
+          <!-- nytaar:start -->
+          <div class="xgrid nyt-only" id="nshapes" role="radiogroup" data-t-aria="form" aria-label="Form">
+            <label><input type="radio" name="shape" id="shape-rocket" value="rocket"><span><svg data-oshape="rocket"></svg><b data-t="nRocket">Raket</b></span></label>
+            <label><input type="radio" name="shape" id="shape-glass" value="glass"><span><svg data-oshape="glass"></svg><b data-t="nGlass">Champagneglas</b></span></label>
+            <label><input type="radio" name="shape" id="shape-bottle" value="bottle"><span><svg data-oshape="bottle"></svg><b data-t="nBottle">Flaske</b></span></label>
+            <label><input type="radio" name="shape" id="shape-clock" value="clock"><span><svg data-oshape="clock"></svg><b data-t="nClock">Ur</b></span></label>
+            <label><input type="radio" name="shape" id="shape-sparkle" value="sparkle"><span><svg data-oshape="sparkle"></svg><b data-t="nSparkle">Gnist</b></span></label>
+            <label><input type="radio" name="shape" id="shape-partyhat" value="partyhat"><span><svg data-oshape="partyhat"></svg><b data-t="nHat">Festhat</b></span></label>
+          </div>
+          <!-- nytaar:end -->
           <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
@@ -681,6 +788,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="dot" id="dot-spring" value="spring"><span><svg viewBox="0 0 1 1" data-shape="spring"></svg><b data-t="spring">Blandet</b></span></label>
           </div>
           <!-- paaske:end -->
+          <!-- nytaar:start -->
+          <div class="xgrid nyt-only" id="ngrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+            <label><input type="radio" name="dot" id="dot-rockets" value="rockets"><span><svg viewBox="0 0 1 1" data-shape="rockets"></svg><b data-t="rockets">Raketter</b></span></label>
+            <label><input type="radio" name="dot" id="dot-glasses" value="glasses"><span><svg viewBox="0 0 1 1" data-shape="glasses"></svg><b data-t="glasses">Glas</b></span></label>
+            <label><input type="radio" name="dot" id="dot-bottles" value="bottles"><span><svg viewBox="0 0 1 1" data-shape="bottles"></svg><b data-t="bottles">Flasker</b></span></label>
+            <label><input type="radio" name="dot" id="dot-clocks" value="clocks"><span><svg viewBox="0 0 1 1" data-shape="clocks"></svg><b data-t="clocks">Ure</b></span></label>
+            <label><input type="radio" name="dot" id="dot-sparkles" value="sparkles"><span><svg viewBox="0 0 1 1" data-shape="sparkles"></svg><b data-t="sparkles">Gnister</b></span></label>
+            <label><input type="radio" name="dot" id="dot-party" value="party"><span><svg viewBox="0 0 1 1" data-shape="party"></svg><b data-t="party">Blandet</b></span></label>
+          </div>
+          <!-- nytaar:end -->
           <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
@@ -839,6 +956,19 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
   </section>
   <!-- paaske:end -->
+  <!-- nytaar:start -->
+  <section class="xbar nbar" id="nbar" data-t-aria="nyAria" aria-label="Nytår">
+    <label class="xbar-main" for="nytaar">
+      <span class="xswitch nswitch"><input type="checkbox" id="nytaar" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="rk" d="M8 .8l2.2 2.8v6.2l1.9 2.2-1.9-.2-.5 1.6H6.3l-.5-1.6-1.9.2 1.9-2.2V3.6z"/><path class="fl" d="M6.9 13.6h2.2L8 15.6z"/></svg></span></span></span>
+      <span class="xtext"><span class="xtitle" data-t="nyLabel">Skyd det nye år ind</span><span class="hint" data-t="nyHint">Raketter, champagneglas, flasker og ure i stedet for prikker. Og en nedtælling med fyrværkeri ved midnat.</span></span>
+    </label>
+    <div class="nclock" aria-hidden="true">
+      <svg class="flute f1" viewBox="0 0 30 64"><path class="glass" d="M5 2h20c1 14-2 24-8 27v24l7 4v3H6v-3l7-4V29C7 26 4 16 5 2z"/><path class="wine" d="M6.4 10h17.2c-.2 9-3 15.6-8.6 17.4C9.4 25.6 6.6 19 6.4 10z"/><circle class="bub" cx="12" cy="20" r="1.1"/><circle class="bub" cx="17" cy="15" r=".9"/><circle class="bub" cx="14" cy="12" r=".7"/></svg>
+      <svg class="dial" viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" class="face"/><g class="ticks"><path d="M30 6v5M30 49v5M6 30h5M49 30h5"/></g><path class="hh" d="M30 30V15"/><path class="mh" d="M30 30V9"/><circle cx="30" cy="30" r="2.4" class="pin"/></svg>
+      <svg class="flute f2" viewBox="0 0 30 64"><path class="glass" d="M5 2h20c1 14-2 24-8 27v24l7 4v3H6v-3l7-4V29C7 26 4 16 5 2z"/><path class="wine" d="M6.4 10h17.2c-.2 9-3 15.6-8.6 17.4C9.4 25.6 6.6 19 6.4 10z"/><circle class="bub" cx="13" cy="19" r="1"/><circle class="bub" cx="18" cy="13" r=".8"/><circle class="bub" cx="11" cy="14" r=".7"/></svg>
+    </div>
+  </section>
+  <!-- nytaar:end -->
 
   <section class="sponsors" id="sponsorer" aria-labelledby="sp-h">
     <div class="sp-intro">
@@ -891,7 +1021,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
     <div class="dl-action">
       <a class="btn primary big" href="roundqr.html" download="roundqr.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span data-t="dlBtn">Hent roundqr.html</span></a>
-      <span class="spec">HTML · 604 KB</span>
+      <span class="spec">HTML · 608 KB</span>
     </div>
   </section>
 
@@ -966,6 +1096,13 @@ var RQ = (function () {
   var TULIP = ["M", .2, .18, "L", .35, .32, "L", .5, .1, "L", .65, .32, "L", .8, .18, "C", .86, .5, .76, .72, .55, .76, "L", .55, .98, "L", .45, .98,
     "L", .45, .76, "C", .24, .72, .14, .5, .2, .18, "Z"];
   var SPRING = ["eggs", "bunnies", "chicks", "flowers", "tulips"];
+  // Nytår
+  var ROCKET = ["M", .5, .02, "L", .64, .2, "L", .64, .62, "L", .8, .8, "L", .64, .78, "L", .6, .92, "L", .4, .92, "L", .36, .78, "L", .2, .8, "L", .36, .62, "L", .36, .2, "Z"];
+  var FLUTE = ["M", .16, .03, "L", .84, .03, "C", .86, .38, .74, .62, .57, .66, "L", .57, .82, "L", .76, .9, "L", .76, .97, "L", .24, .97, "L", .24, .9, "L", .43, .82,
+    "L", .43, .66, "C", .26, .62, .14, .38, .16, .03, "Z"];
+  var BOTTLE = ["M", .42, .02, "L", .58, .02, "L", .58, .26, "C", .58, .34, .76, .38, .76, .5, "L", .76, .96, "L", .24, .96, "L", .24, .5, "C", .24, .38, .42, .34, .42, .26, "Z"];
+  var SPARKLE = ["M", .5, 0, "C", .56, .4, .6, .44, 1, .5, "C", .6, .56, .56, .6, .5, 1, "C", .44, .6, .4, .56, 0, .5, "C", .4, .44, .44, .4, .5, 0, "Z"];
+  var PARTY = ["rockets", "glasses", "bottles", "clocks", "sparkles"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -982,6 +1119,11 @@ var RQ = (function () {
     if (style === "chicks") return sh(x, y, CHICK);
     if (style === "flowers") return sh(x, y, FLOWER);
     if (style === "tulips") return sh(x, y, TULIP);
+    if (style === "rockets") return sh(x, y, ROCKET);
+    if (style === "glasses") return sh(x, y, FLUTE);
+    if (style === "bottles") return sh(x, y, BOTTLE);
+    if (style === "sparkles") return sh(x, y, SPARKLE);
+    if (style === "clocks") return circ(x + .5, y + .56, .4) + circ(x + .26, y + .14, .1) + circ(x + .74, y + .14, .1);
     return null;
   }
 
@@ -992,6 +1134,7 @@ var RQ = (function () {
     if (style === "mix") style = XMAS[cellPick(x, y, 5)];
     if (style === "spooky") style = HALL[cellPick(x, y, 5)];
     if (style === "spring") style = SPRING[cellPick(x, y, 5)];
+    if (style === "party") style = PARTY[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -1093,6 +1236,23 @@ var RQ = (function () {
     { poly: [[0.14, 0.06], [0.33, 0.24], [0.5, 0], [0.67, 0.24], [0.86, 0.06], [0.92, 0.48], [0.8, 0.76], [0.5, 0.86], [0.2, 0.76], [0.08, 0.48]] },
     { poly: [[0.46, 0.84], [0.54, 0.84], [0.54, 1.22], [0.46, 1.22]] }, { poly: [[0.53, 1.14], [0.84, 0.9], [0.72, 1.16]] }, { poly: [[0.47, 1.08], [0.18, 0.92], [0.3, 1.12]] }] };
   var ESHAPES = ["egg", "bunny", "chick", "flower", "basket", "tulip"];
+  // Nytår
+  SHAPES.rocket = { anchor: [0.5, 0.52], prims: [{ poly: [[0.3, 0.24], [0.7, 0.24], [0.7, 0.8], [0.3, 0.8]] }, { poly: [[0.3, 0.26], [0.5, 0], [0.7, 0.26]] },
+    { poly: [[0.3, 0.56], [0.06, 0.88], [0.3, 0.8]] }, { poly: [[0.7, 0.56], [0.94, 0.88], [0.7, 0.8]] }, { poly: [[0.38, 0.78], [0.62, 0.78], [0.5, 1.02]] }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.25 && V < 0.27) || (V > 0.79 && V < 0.81); } };
+  SHAPES.glass = { anchor: [0.5, 0.27], prims: [{ poly: [[0.18, 0], [0.82, 0], [0.78, 0.42], [0.64, 0.6], [0.36, 0.6], [0.22, 0.42]] },
+    { poly: [[0.46, 0.58], [0.54, 0.58], [0.54, 0.9], [0.46, 0.9]] }, { poly: ellPts(0.5, 0.92, 0.24, 0.05, 0, 28) }] };
+  SHAPES.bottle = { anchor: [0.5, 0.7], prims: [{ poly: [[0.4, 0], [0.6, 0], [0.6, 0.3], [0.4, 0.3]] }, { poly: [[0.4, 0.28], [0.6, 0.28], [0.82, 0.44], [0.82, 1], [0.18, 1], [0.18, 0.44]] }],
+    skip: function (X, Y, qx, qy, U, V) { return (V > 0.1 && V < 0.125) || (V > 0.44 && V < 0.465) || (V > 0.955 && V < 0.975); } };
+  SHAPES.clock = { anchor: [0.5, 0.56], prims: [{ circle: [0.5, 0.56, 0.42] }, { circle: [0.25, 0.14, 0.09] }, { circle: [0.75, 0.14, 0.09] }, { poly: [[0.46, 0.06], [0.54, 0.06], [0.54, 0.16], [0.46, 0.16]] }, { circle: [0.5, 0.05, 0.045] },
+    { poly: [[0.26, 0.9], [0.34, 0.95], [0.2, 1.04]] }, { poly: [[0.74, 0.9], [0.66, 0.95], [0.8, 1.04]] }],
+    // Twelve hour marks just inside the rim.
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.hypot(U - 0.5, V - 0.56); if (d < 0.33 || d > 0.4) return false;
+      var a = Math.atan2(V - 0.56, U - 0.5) * 180 / Math.PI + 360; return (a % 30) < 3.5 || (a % 30) > 26.5; } };
+  SHAPES.sparkle = { anchor: [0.5, 0.5], prims: [{ poly: starPts(0.5, 0.5, 0.5, 0.25, 4) }, { circle: [0.5, 0.5, 0.22] }] };
+  SHAPES.partyhat = { anchor: [0.5, 0.64], prims: [{ poly: [[0.5, 0.04], [0.92, 0.9], [0.08, 0.9]] }, { circle: [0.5, 0.05, 0.08] }, { poly: ellPts(0.5, 0.9, 0.44, 0.08, 0, 32) }],
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.12 && V < 0.86 && ((U + V * 0.7) * 8 % 1) < 0.1; } };
+  var NSHAPES = ["rocket", "glass", "bottle", "clock", "sparkle", "partyhat"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -1309,7 +1469,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES };
 })();
 </script>
 
@@ -1362,7 +1522,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -1437,7 +1597,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -1542,7 +1702,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -1673,7 +1833,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -1804,7 +1964,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -2242,9 +2402,204 @@ var RQ = (function () {
   };
   Object.keys(TE).forEach(function (l) { for (var k in TE[l]) T[l][k] = TE[l][k]; });
   /* paaske:end */
-  var lang = "da", xmas = false, hall = false, easter = false;
+  /* nytaar:start */
+  var TN = {
+   "da": {
+    "presetsNyt": [
+     "Midnat",
+     "Champagne",
+     "Sølv",
+     "Konfetti",
+     "Raket",
+     "Stjernenat",
+     "Bobler",
+     "Nytårsaften"
+    ],
+    "nyAria": "Nytår",
+    "nyLabel": "Skyd det nye år ind",
+    "nyLabelNyt": "Det nye år er skudt ind",
+    "nyHint": "Raketter, champagneglas, flasker og ure i stedet for prikker. Og en nedtælling med fyrværkeri ved midnat.",
+    "nyHintNyt": "Slå det fra igen, så får du den almindelige Round QR og dine egne farver tilbage.",
+    "subtitleNyt": "Nytårsudgaven. Indsæt et link, pynt koden, og gem den som PNG, JPG eller SVG.",
+    "rockets": "Raketter",
+    "glasses": "Glas",
+    "bottles": "Flasker",
+    "clocks": "Ure",
+    "sparkles": "Gnister",
+    "party": "Blandet",
+    "defaultLabelNyt": "Godt nytår",
+    "cheer": "Godt nytår!",
+    "nRocket": "Raket",
+    "nGlass": "Champagneglas",
+    "nBottle": "Flaske",
+    "nClock": "Ur",
+    "nSparkle": "Gnist",
+    "nHat": "Festhat",
+    "fillNyt": "Fyld formen med mønster",
+    "exFillNyt": "Pyntprikker uden data, der fylder formen ud omkring koden.",
+    "exRingNyt": "En tynd pyntering langs kanten af formen.",
+    "exFormNyt": "Cirkel og Firkant er de klassiske. Nytårsformerne lægger koden i midten og fylder resten af formen med mønster.",
+    "exModulesNyt": "Nytårsformerne dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
+    "exEyesNyt": "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner små champagnebobler."
+   },
+   "en": {
+    "presetsNyt": [
+     "Midnight",
+     "Champagne",
+     "Silver",
+     "Confetti",
+     "Rocket",
+     "Starry night",
+     "Bubbles",
+     "New Year's Eve"
+    ],
+    "nyAria": "New Year",
+    "nyLabel": "Ring in the New Year",
+    "nyLabelNyt": "The New Year has arrived",
+    "nyHint": "Rockets, champagne glasses, bottles and clocks instead of dots. And a countdown with fireworks at midnight.",
+    "nyHintNyt": "Turn it off again to get the regular Round QR and your own colours back.",
+    "subtitleNyt": "The New Year edition. Paste a link, decorate the code, save it as PNG, JPG or SVG.",
+    "rockets": "Rockets",
+    "glasses": "Glasses",
+    "bottles": "Bottles",
+    "clocks": "Clocks",
+    "sparkles": "Sparkles",
+    "party": "Mixed",
+    "defaultLabelNyt": "Happy New Year",
+    "cheer": "Happy New Year!",
+    "nRocket": "Rocket",
+    "nGlass": "Champagne glass",
+    "nBottle": "Bottle",
+    "nClock": "Clock",
+    "nSparkle": "Sparkle",
+    "nHat": "Party hat",
+    "fillNyt": "Fill the shape with pattern",
+    "exFillNyt": "Decorative dots with no data that fill out the shape around the code.",
+    "exRingNyt": "A thin decorative ring along the edge of the shape.",
+    "exFormNyt": "Circle and Square are the classics. The New Year shapes put the code in the middle and fill the rest of the shape with pattern.",
+    "exModulesNyt": "The New Year shapes cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
+    "exEyesNyt": "The three big squares the phone uses to find the code. Circle looks like little champagne bubbles."
+   },
+   "de": {
+    "presetsNyt": [
+     "Mitternacht",
+     "Sekt",
+     "Silber",
+     "Konfetti",
+     "Rakete",
+     "Sternennacht",
+     "Perlen",
+     "Silvester"
+    ],
+    "nyAria": "Neujahr",
+    "nyLabel": "Das neue Jahr einläuten",
+    "nyLabelNyt": "Das neue Jahr ist da",
+    "nyHint": "Raketen, Sektgläser, Flaschen und Uhren statt Punkten. Und ein Countdown mit Feuerwerk um Mitternacht.",
+    "nyHintNyt": "Schalte es wieder aus, dann bekommst du das normale Round QR und deine eigenen Farben zurück.",
+    "subtitleNyt": "Die Silvesterausgabe. Link einfügen, Code schmücken und als PNG, JPG oder SVG speichern.",
+    "rockets": "Raketen",
+    "glasses": "Gläser",
+    "bottles": "Flaschen",
+    "clocks": "Uhren",
+    "sparkles": "Funken",
+    "party": "Gemischt",
+    "defaultLabelNyt": "Frohes neues Jahr",
+    "cheer": "Frohes neues Jahr!",
+    "nRocket": "Rakete",
+    "nGlass": "Sektglas",
+    "nBottle": "Flasche",
+    "nClock": "Uhr",
+    "nSparkle": "Funke",
+    "nHat": "Partyhut",
+    "fillNyt": "Form mit Muster füllen",
+    "exFillNyt": "Zierpunkte ohne Daten, die die Form rund um den Code ausfüllen.",
+    "exRingNyt": "Ein dünner Zierring entlang der Kante der Form.",
+    "exFormNyt": "Kreis und Quadrat sind die Klassiker. Die Silvesterformen setzen den Code in die Mitte und füllen den Rest der Form mit Muster.",
+    "exModulesNyt": "Die Silvesterformen decken die Mitte jedes Feldes ab, wo das Handy hinschaut. Behalte das Etikett unter dem Code im Blick.",
+    "exEyesNyt": "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie kleine Sektperlen."
+   },
+   "no": {
+    "presetsNyt": [
+     "Midnatt",
+     "Champagne",
+     "Sølv",
+     "Konfetti",
+     "Rakett",
+     "Stjernenatt",
+     "Bobler",
+     "Nyttårsaften"
+    ],
+    "nyAria": "Nyttår",
+    "nyLabel": "Skyt inn det nye året",
+    "nyLabelNyt": "Det nye året er skutt inn",
+    "nyHint": "Raketter, champagneglass, flasker og klokker i stedet for prikker. Og en nedtelling med fyrverkeri ved midnatt.",
+    "nyHintNyt": "Slå det av igjen, så får du vanlig Round QR og dine egne farger tilbake.",
+    "subtitleNyt": "Nyttårsutgaven. Lim inn en lenke, pynt koden, og lagre den som PNG, JPG eller SVG.",
+    "rockets": "Raketter",
+    "glasses": "Glass",
+    "bottles": "Flasker",
+    "clocks": "Klokker",
+    "sparkles": "Gnister",
+    "party": "Blandet",
+    "defaultLabelNyt": "Godt nytt år",
+    "cheer": "Godt nytt år!",
+    "nRocket": "Rakett",
+    "nGlass": "Champagneglass",
+    "nBottle": "Flaske",
+    "nClock": "Klokke",
+    "nSparkle": "Gnist",
+    "nHat": "Festhatt",
+    "fillNyt": "Fyll formen med mønster",
+    "exFillNyt": "Pynteprikker uten data som fyller ut formen rundt koden.",
+    "exRingNyt": "En tynn pyntering langs kanten av formen.",
+    "exFormNyt": "Sirkel og Firkant er de klassiske. Nyttårsformene legger koden i midten og fyller resten av formen med mønster.",
+    "exModulesNyt": "Nyttårsformene dekker midten av hvert felt, der telefonen ser. Følg med på merket under koden.",
+    "exEyesNyt": "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner små champagnebobler."
+   },
+   "sv": {
+    "presetsNyt": [
+     "Midnatt",
+     "Champagne",
+     "Silver",
+     "Konfetti",
+     "Raket",
+     "Stjärnnatt",
+     "Bubblor",
+     "Nyårsafton"
+    ],
+    "nyAria": "Nyår",
+    "nyLabel": "Skjut in det nya året",
+    "nyLabelNyt": "Det nya året är inskjutet",
+    "nyHint": "Raketer, champagneglas, flaskor och klockor i stället för prickar. Och en nedräkning med fyrverkeri vid midnatt.",
+    "nyHintNyt": "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka.",
+    "subtitleNyt": "Nyårsutgåvan. Klistra in en länk, pynta koden och spara den som PNG, JPG eller SVG.",
+    "rockets": "Raketer",
+    "glasses": "Glas",
+    "bottles": "Flaskor",
+    "clocks": "Klockor",
+    "sparkles": "Gnistor",
+    "party": "Blandat",
+    "defaultLabelNyt": "Gott nytt år",
+    "cheer": "Gott nytt år!",
+    "nRocket": "Raket",
+    "nGlass": "Champagneglas",
+    "nBottle": "Flaska",
+    "nClock": "Klocka",
+    "nSparkle": "Gnista",
+    "nHat": "Partyhatt",
+    "fillNyt": "Fyll formen med mönster",
+    "exFillNyt": "Dekorprickar utan data som fyller ut formen runt koden.",
+    "exRingNyt": "En tunn dekorring längs kanten av formen.",
+    "exFormNyt": "Cirkel och Fyrkant är de klassiska. Nyårsformerna lägger koden i mitten och fyller resten av formen med mönster.",
+    "exModulesNyt": "Nyårsformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
+    "exEyesNyt": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små champagnebubblor."
+   }
+  };
+  Object.keys(TN).forEach(function (l) { for (var k in TN[l]) T[l][k] = TN[l][k]; });
+  /* nytaar:end */
+  var lang = "da", xmas = false, hall = false, easter = false, nyt = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -2313,7 +2668,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v; }); }
 
   function opts() {
     return {
@@ -2651,6 +3006,7 @@ var RQ = (function () {
   function setXmas(on, byUser) {
     if (on && hall && typeof setHall === "function") setHall(false, true);
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!xmasPrev;
     if (on && byUser) xmasPrev = snapshot();
     xmas = on;
@@ -2819,6 +3175,7 @@ var RQ = (function () {
   function setHall(on, byUser) {
     if (on && xmas) setXmas(false, true);
     if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!hallPrev;
     if (on && byUser) hallPrev = snapshot();
     hall = on;
@@ -3041,6 +3398,7 @@ var RQ = (function () {
   function setEaster(on, byUser) {
     if (on && xmas && typeof setXmas === "function") setXmas(false, true);
     if (on && hall && typeof setHall === "function") setHall(false, true);
+    if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!easterPrev;
     if (on && byUser) easterPrev = snapshot();
     easter = on;
@@ -3252,6 +3610,229 @@ var RQ = (function () {
   $("easter").addEventListener("change", function () { setEaster(this.checked, true); });
   /* paaske:end */
 
+  /* nytaar:start */
+  // ---------- Nytår ----------
+  // Works like the other modes and reuses snapshot() and applySnap() from the Christmas code. Only one mode can be on.
+  var reduceMotionN = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function cellAtN(d, k, dx, dy) { return d.replace(/-?[\d.]+ -?[\d.]+/g, function (m) { var p = m.split(" "); return (+p[0] * k + dx) + " " + (+p[1] * k + dy); }); }
+  document.querySelectorAll("#ngrid svg[data-shape]").forEach(function (svg) {
+    var st = svg.getAttribute("data-shape");
+    var d = st === "party" ? cellAtN(RQ.mod(0, 0, "rockets"), .5, 0, 0) + cellAtN(RQ.mod(0, 0, "glasses"), .5, .5, 0) +
+      cellAtN(RQ.mod(0, 0, "bottles"), .5, 0, .5) + cellAtN(RQ.mod(0, 0, "sparkles"), .5, .5, .5) : RQ.mod(0, 0, st);
+    svg.innerHTML = '<path d="' + d + '"/>';
+  });
+  document.querySelectorAll("#nshapes svg[data-oshape]").forEach(function (svg) {
+    var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
+    svg.setAttribute("viewBox", ic.vb);
+    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+  });
+
+  var NYT_SETS = [
+    { fg: "#13294b", eyec: "#7a5c00", bg: "#ffffff" },
+    { fg: "#6b5200", eyec: "#1f1d18", bg: "#fffaeb" },
+    { fg: "#2f3640", fg2: "#5a6472", grad: "vertical", eyec: "#1f1d18", bg: "#ffffff" },
+    { fg: "#8a1c5e", fg2: "#13294b", grad: "diagonal", eyec: "#13294b", bg: "#ffffff" },
+    { fg: "#a0231a", eyec: "#13294b", bg: "#fff6ee" },
+    { fg: "#1b1f4a", fg2: "#4b2a7a", grad: "radial", eyec: "#1b1f4a", bg: "#f6f5ff" },
+    { fg: "#2a5c6b", eyec: "#6b5200", bg: "#ffffff" },
+    { fg: "#1f1d18", fg2: "#3a2a7a", grad: "diagonal", eyec: "#8a1c5e", bg: "#ffffff" }
+  ];
+  var nytPrev = null;
+  function saveNyt() { try { localStorage.setItem("round-qr-nytaar", JSON.stringify({ on: nyt, prev: nytPrev })); } catch (e) {} }
+
+  function setNyt(on, byUser) {
+    if (on && xmas && typeof setXmas === "function") setXmas(false, true);
+    if (on && hall && typeof setHall === "function") setHall(false, true);
+    if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!nytPrev;
+    if (on && byUser) nytPrev = snapshot();
+    nyt = on;
+    document.documentElement.classList.toggle("nyt", on);
+    $("nytaar").checked = on;
+    PRESETS = on ? NYT_SETS : PLAIN;
+    buildPresets();
+    if (on && byUser) {
+      setRadio("shape", "clock"); setRadio("dot", "sparkles"); setRadio("eye", "circle");
+      var p = NYT_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
+      $("label").checked = true; $("labelText").value = T[lang].defaultLabelNyt;
+    } else if (!on) {
+      if (nytPrev) applySnap(nytPrev);
+      if (RQ.PARTY.concat("party").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      if (RQ.NSHAPES.indexOf(radio("shape")) >= 0) setRadio("shape", "circle");
+      nytPrev = null;
+    }
+    applyLang(lang);
+    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
+    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
+    buildSky(); NFX.toggle(on, byUser);
+    saveNyt();
+    if (typeof qrcode !== "undefined") render();
+  }
+
+  // A thin wire with twinkling lights, hanging stars and curled streamers.
+  function starPath(r) { var a = [], i; for (i = 0; i < 10; i++) { var rr = i % 2 ? r * 0.45 : r, t = -Math.PI / 2 + i * Math.PI / 5; a.push((rr * Math.cos(t)).toFixed(1) + " " + (rr * Math.sin(t)).toFixed(1)); } return "M" + a.join("L") + "Z"; }
+  function buildSky() {
+    var g = $("ngarland");
+    if (!nyt) { g.innerHTML = ""; return; }
+    var W = document.documentElement.clientWidth, spans = Math.max(2, Math.round(W / 200)), sw = W / spans;
+    var SER = ["#fdce3b", "#f08fb4", "#7cc4f0", "#b48ee8", "#9be39b"], wire = "M0 3", items = "", k = 0;
+    for (var i = 0; i < spans; i++) {
+      var x0 = i * sw, x1 = x0 + sw, cx = x0 + sw / 2, n = Math.max(4, Math.round(sw / 26));
+      wire += " Q" + cx.toFixed(1) + " 40 " + x1.toFixed(1) + " 3";
+      for (var j = 1; j <= n; j++) {
+        var tt = j / (n + 1), u = 1 - tt;
+        var x = u * u * x0 + 2 * tt * u * cx + tt * tt * x1, y = u * u * 3 + 2 * tt * u * 40 + tt * tt * 3;
+        var st = "--i:" + (k * 0.03).toFixed(2) + "s;--d:" + ((k * 7) % 11 * 0.19).toFixed(2) + "s";
+        if (k % 5 === 2) {
+          var L = 8 + (k * 3) % 9;
+          items += '<g class="sg" style="' + st + '"><line x1="' + x.toFixed(1) + '" y1="' + y.toFixed(1) + '" x2="' + x.toFixed(1) + '" y2="' + (y + L).toFixed(1) + '" stroke="rgb(255 255 255 / 0.4)" stroke-width="1"/>' +
+            '<path class="st" d="' + starPath(6.5) + '" transform="translate(' + x.toFixed(1) + ' ' + (y + L + 6).toFixed(1) + ')"/></g>';
+        } else if (k % 5 === 4) {
+          var c = SER[k % SER.length], d = "M" + x.toFixed(1) + " " + y.toFixed(1);
+          for (var q = 1; q <= 4; q++) d += " q" + (q % 2 ? 5 : -5) + " 3 0 6";
+          items += '<path class="ser" stroke="' + c + '" d="' + d + '"/>';
+        } else {
+          items += '<circle class="tw" style="' + st + '" cx="' + x.toFixed(1) + '" cy="' + (y + 1.5).toFixed(1) + '" r="2.2" fill="' + (k % 2 ? "#fff6d0" : "#fdce3b") + '" filter="drop-shadow(0 0 3px #fdce3b)"/>';
+        }
+        k++;
+      }
+    }
+    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none"><path class="wire" d="' + wire + '"/>' + items + "</svg>";
+  }
+  var skyTimer;
+  window.addEventListener("resize", function () { clearTimeout(skyTimer); skyTimer = setTimeout(buildSky, 150); });
+
+  // Countdown 3, 2, 1, then fireworks and confetti. Afterwards a rocket goes up every few seconds. Never over the QR code.
+  var NFX = (function () {
+    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, clock = 0, nextRocket = 0, count = null;
+    var rockets = [], sparks = [], confetti = [], burst = [];
+    var COLS = ["#fdce3b", "#ffffff", "#ff5fa8", "#7cc4f0", "#b48ee8", "#9be39b", "#ff8a3d"];
+    var SHAPES = ["rockets", "glasses", "bottles", "clocks", "sparkles"];
+    var PATHS = {};
+    function path(st) { return PATHS[st] || (PATHS[st] = new Path2D(RQ.mod(0, 0, st))); }
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function setup() {
+      if (cv) return;
+      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
+      window.addEventListener("resize", size);
+    }
+    function size() {
+      if (!cv) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var nc = Math.max(14, Math.min(40, Math.round(W * H / 26000)));
+      while (confetti.length < nc) confetti.push(piece(true)); confetti.length = nc;
+    }
+    function piece(anywhere) {
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -12, w: 4 + Math.random() * 4, h: 7 + Math.random() * 5, vy: 30 + Math.random() * 40,
+        ph: Math.random() * 6.3, sway: 10 + Math.random() * 24, rot: Math.random() * 6.3, vr: (Math.random() - .5) * 6, c: pick(COLS) };
+    }
+    function launch(x, ty, delay) {
+      var g = 380, vy = -Math.sqrt(2 * g * Math.max(80, H + 10 - ty));
+      rockets.push({ x: x, y: H + 10, vx: (Math.random() - .5) * 50, vy: vy, delay: delay || 0, c: pick(COLS) });
+    }
+    function explode(r) {
+      var n = 60 + Math.floor(Math.random() * 40), c1 = pick(COLS), c2 = pick(COLS), kind = Math.random();
+      for (var i = 0; i < n; i++) {
+        var a = Math.random() * 6.283, v = kind < .35 ? 190 + Math.random() * 20 : kind < .6 ? 60 + Math.random() * 120 : 40 + Math.random() * 230;
+        var sh = Math.random() < .08;
+        sparks.push({ x: r.x, y: r.y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: (kind >= .35 && kind < .6 ? 1.9 : 1.1) + Math.random() * .8, age: 0,
+          g: kind >= .35 && kind < .6 ? 70 : 150, c: i % 3 ? c1 : c2, shape: sh ? pick(SHAPES) : null, s: sh ? 9 + Math.random() * 6 : 1.4 + Math.random() * 1.3, rot: Math.random() * 6.3 });
+      }
+    }
+    function pop() {
+      var sw = $("nytaar").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
+      for (var i = 0; i < 110; i++) {
+        var a = -Math.PI / 2 + (Math.random() - .5) * 2.6, v = 260 + Math.random() * 560, sh = Math.random() < .45;
+        burst.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, s: sh ? 10 + Math.random() * 10 : 7 + Math.random() * 7, rot: Math.random() * 6.3,
+          vr: (Math.random() - .5) * 9, life: 1.8 + Math.random() * 1.2, age: 0, shape: sh ? pick(SHAPES) : null, c: pick(COLS) });
+      }
+      for (var k = 0; k < 8; k++) launch(W * (0.08 + 0.84 * k / 7) + (Math.random() - .5) * 40, H * (0.08 + Math.random() * 0.3), k * 0.16 + Math.random() * 0.12);
+      nextRocket = clock + 1.8;
+    }
+    function drawShape(o, s) {
+      ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot || 0); ctx.fillStyle = o.c;
+      if (!o.shape) { ctx.fillRect(-s / 2, -s / 5, s, s / 2.5); }
+      else { ctx.scale(s, s); ctx.translate(-.5, -.5); ctx.fill(path(o.shape)); }
+      ctx.restore();
+    }
+    function drawCount() {
+      if (!count) return;
+      var k = count.t % 0.75 / 0.75, n = 3 - Math.floor(count.t / 0.75), txt, big, a;
+      if (n > 0) { txt = String(n); big = Math.min(W, H) * 0.34 * (1.25 - 0.35 * k); a = k < 0.15 ? k / 0.15 : 1 - Math.max(0, k - 0.6) / 0.4; }
+      else { var c = count.t - 2.25; txt = t("cheer"); big = Math.min(W * 0.11, 84) * (1 + Math.min(1, c * 4) * 0.08); a = c < 0.2 ? c / 0.2 : Math.max(0, 1 - (c - 1.6) / 0.6); }
+      ctx.save(); ctx.globalAlpha = Math.max(0, Math.min(1, a));
+      ctx.font = "700 " + Math.round(big) + "px 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.lineWidth = Math.max(4, big * 0.06); ctx.strokeStyle = "rgba(9, 12, 31, 0.85)"; ctx.lineJoin = "round";
+      ctx.shadowColor = "rgba(253, 206, 59, 0.75)"; ctx.shadowBlur = 24;
+      ctx.strokeText(txt, W / 2, H * 0.4); ctx.fillStyle = "#fdce3b"; ctx.fillText(txt, W / 2, H * 0.4);
+      ctx.restore();
+    }
+    function frame(now) {
+      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now; clock += dt;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      if (count) {
+        var before = count.t; count.t += dt;
+        if (before < 2.25 && count.t >= 2.25) pop();
+        if (count.t > 4.6) count = null;
+      }
+      ctx.save();
+      var st = $("stage").getBoundingClientRect();
+      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
+      if (on && !count) {
+        confetti.forEach(function (p) {
+          p.y += p.vy * dt; p.ph += dt * 1.6; p.rot += p.vr * dt;
+          if (p.y > H + 12) { var n = piece(false); for (var k in n) p[k] = n[k]; }
+          ctx.save(); ctx.globalAlpha = 0.85; ctx.translate(p.x + Math.sin(p.ph) * p.sway, p.y); ctx.rotate(p.rot); ctx.scale(Math.cos(p.ph * 2.2), 1);
+          ctx.fillStyle = p.c; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); ctx.restore();
+        });
+        if (clock > nextRocket) { launch(W * (0.08 + Math.random() * 0.84), H * (0.08 + Math.random() * 0.3)); nextRocket = clock + 2.4 + Math.random() * 3; }
+      }
+      ctx.globalCompositeOperation = "lighter";
+      rockets = rockets.filter(function (r) {
+        if (r.delay > 0) { r.delay -= dt; return true; }
+        r.vy += 380 * dt; r.x += r.vx * dt; r.y += r.vy * dt;
+        ctx.globalAlpha = 0.9; ctx.strokeStyle = r.c; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(r.x, r.y); ctx.lineTo(r.x - r.vx * 0.04, r.y - r.vy * 0.04); ctx.stroke();
+        if (r.vy > -30) { explode(r); return false; }
+        return true;
+      });
+      sparks = sparks.filter(function (p) { return p.age < p.life; });
+      sparks.forEach(function (p) {
+        p.age += dt; p.vy += p.g * dt; p.vx *= 0.986; p.vy *= 0.986; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += dt * 2;
+        var a = Math.max(0, 1 - p.age / p.life);
+        ctx.globalAlpha = a * (0.65 + 0.35 * Math.sin(p.age * 40 + p.x));
+        if (p.shape) drawShape(p, p.s);
+        else { ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, 6.283); ctx.fill(); }
+      });
+      ctx.globalCompositeOperation = "source-over";
+      burst = burst.filter(function (b) { return b.age < b.life; });
+      burst.forEach(function (b) {
+        b.age += dt; b.vy += 620 * dt; b.vx *= 0.985; b.x += b.vx * dt; b.y += b.vy * dt; b.rot += b.vr * dt;
+        ctx.globalAlpha = Math.max(0, 1 - b.age / b.life); drawShape(b, b.s);
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      drawCount();
+      if (on || count || rockets.length || sparks.length || burst.length) raf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, W, H); raf = 0; }
+    }
+    function toggle(state, withBurst) {
+      on = state;
+      if (reduceMotionN) return;
+      setup();
+      if (on && withBurst) count = { t: 0 };
+      else if (on) nextRocket = clock + 1.2;
+      if (!on) count = null;
+      if (!raf && (on || rockets.length || sparks.length || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    return { toggle: toggle };
+  })();
+
+  $("nytaar").addEventListener("change", function () { setNyt(this.checked, true); });
+  /* nytaar:end */
+
   restore();
   /* julelys:start */
   try {
@@ -3271,6 +3852,12 @@ var RQ = (function () {
     if (es && es.on && !xmas && !hall) { easterPrev = es.prev || null; easter = true; document.documentElement.classList.add("easter"); PRESETS = EASTER_SETS; buildPresets(); }
   } catch (e) {}
   /* paaske:end */
+  /* nytaar:start */
+  try {
+    var ns = JSON.parse(localStorage.getItem("round-qr-nytaar") || "null");
+    if (ns && ns.on && !xmas && !hall && !easter) { nytPrev = ns.prev || null; nyt = true; document.documentElement.classList.add("nyt"); PRESETS = NYT_SETS; buildPresets(); }
+  } catch (e) {}
+  /* nytaar:end */
   var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (!startLang) {
@@ -3283,6 +3870,7 @@ var RQ = (function () {
   /* julelys:start */ if (xmas) { $("xmas").checked = true; buildLights(); FX.toggle(true, false); } /* julelys:end */
   /* halloween:start */ if (hall) { $("halloween").checked = true; buildPumpkins(); HFX.toggle(true, false); } /* halloween:end */
   /* paaske:start */ if (easter) { $("easter").checked = true; buildBunting(); EFX.toggle(true, false); } /* paaske:end */
+  /* nytaar:start */ if (nyt) { $("nytaar").checked = true; buildSky(); NFX.toggle(true, false); } /* nytaar:end */
   fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");

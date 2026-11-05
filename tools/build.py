@@ -255,12 +255,13 @@ assert END_WRAP in body, 'wrap end'
 DESC = 'Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.'
 
 # ---------- offline single file ----------
-# Julelys, Halloween og påske er kun til hjemmesiden. Download-filen får ingen af tilstandene.
-FEST = re.compile(r'(?:<!-- (julelys|halloween|paaske):start -->|/\* (julelys|halloween|paaske):start \*/).*?(?:<!-- (?:\1|\2):end -->|/\* (?:\1|\2):end \*/)\n?', re.S)
+# Julelys, Halloween, påske og nytår er kun til hjemmesiden. Download-filen får ingen af tilstandene.
+FEST = re.compile(r'(?:<!-- (julelys|halloween|paaske|nytaar):start -->|/\* (julelys|halloween|paaske|nytaar):start \*/).*?(?:<!-- (?:\1|\2):end -->|/\* (?:\1|\2):end \*/)\n?', re.S)
 off = FEST.sub('', body)
 assert 'julelys:' not in off and 'id="xbar"' not in off and 'setXmas' not in off
 assert 'halloween:' not in off and 'id="hbar"' not in off and 'setHall' not in off and 'HFX' not in off
 assert 'paaske:' not in off and 'id="ebar"' not in off and 'setEaster' not in off and 'EFX' not in off
+assert 'nytaar:' not in off and 'id="nbar"' not in off and 'setNyt' not in off and 'NFX' not in off
 off = off.replace('<style>\n', '<style>\n' + fontface(True) + '\n', 1)
 off = off.replace(END_WRAP, OFFLINE_FOOT + END_WRAP, 1).replace(CDN, libs(True), 1)
 off = add_strings(off, {'da': {'footNote': 'Virker uden internet. Ingen cookies og ingen sporing.'}, 'en': {'footNote': 'Works offline. No cookies and no tracking.'},
