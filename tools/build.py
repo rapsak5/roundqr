@@ -126,7 +126,7 @@ SPONSORS = [
   ('StemplerInd', 'stemplerind.dk', 'https://stemplerind.dk', 'stemplerind.svg', 'sp3'),
   ('Forlaget Uldahl', 'forlagetuldahl.dk', 'https://forlagetuldahl.dk', 'forlaget-uldahl.png', 'sp4'),
   ('Cider Kompagniet', 'ciderkompagniet.dk', 'https://ciderkompagniet.dk', 'ciderkompagniet.png', 'sp5'),
-  ('Arbejdsliv.ai', 'arbejdsliv.ai', 'https://arbejdsliv.ai', 'arbejdsliv.png', 'sp6'),
+  ('Arbejdsliv.ai', 'arbejdsliv.ai', 'https://arbejdsliv.ai', 'arbejdsliv.svg', 'sp6'),
   ('PharmaConsulting.ai', 'pharmaconsulting.ai', 'https://pharmaconsulting.ai', 'pharmaconsulting.png', 'sp7'),
 ]
 
