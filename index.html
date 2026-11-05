@@ -99,9 +99,9 @@ header p { margin: 0; color: var(--muted); }
   background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 10%, transparent) 1px, transparent 1.2px);
   background-size: 14px 14px;
   border-radius: 10px; aspect-ratio: 1 / 1; max-width: 100%;
-  display: grid; place-items: center; padding: 7%;
+  display: grid; place-items: center; padding: 7%; grid-template: minmax(0, 1fr) / minmax(0, 1fr);
 }
-.stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.stage img { width: 100%; height: 100%; min-height: 0; object-fit: contain; display: block; }
 .stage .empty { color: var(--muted); text-align: center; max-width: 26ch; }
 .status-row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
 .pill { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500;
@@ -207,6 +207,104 @@ header .lang span { display: inline-flex; align-items: center; gap: 9px; padding
 header .lang input:not(:checked) + span .flag { opacity: 0.7; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
+/* Julelys: the page ground turns to pine at night; panels keep their own light or dark surface. */
+:root {
+  --page: var(--bg); --page-ink: var(--ink); --page-muted: var(--muted); --snow: #ffffff;
+  --x-red: #c8102e; --x-green: #1e5b3a; --x-yellow: #fdce3b; --x-wire: #0b1a12;
+}
+:root.xmas {
+  --page: #12352a; --page-ink: #f6efe4; --page-muted: #b9cdbf;
+  --bg: #f8f1ea; --surface: #ffffff; --stage: #f5e9e2; --ink: #1f1d18; --muted: #6b5f55; --line: #eadbd0;
+  --accent: #c8102e; --accent-strong: #a30d25; --accent-ink: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root.xmas:not([data-theme="light"]) {
+    --page: #0a1d14; --page-ink: #f1eadf; --page-muted: #9fb4a5;
+    --bg: #0e2219; --surface: #11271c; --stage: #163024; --ink: #f1eadf; --muted: #a9bcad; --line: #24432f;
+    --accent: #e0314a; --accent-strong: #ff7f90; --accent-ink: #ffffff;
+  }
+}
+:root.xmas[data-theme="dark"] {
+  --page: #0a1d14; --page-ink: #f1eadf; --page-muted: #9fb4a5;
+  --bg: #0e2219; --surface: #11271c; --stage: #163024; --ink: #f1eadf; --muted: #a9bcad; --line: #24432f;
+  --accent: #e0314a; --accent-strong: #ff7f90; --accent-ink: #ffffff;
+}
+:root.xmas body {
+  background: radial-gradient(1100px 520px at 50% -120px, color-mix(in srgb, var(--x-green) 70%, transparent), transparent), var(--page);
+  color: var(--page-ink); padding-top: 74px;
+}
+.xmas .preview, .xmas .controls, .xmas .xbar, .xmas .sp-list, .xmas .download { color: var(--ink); }
+.xmas header p, .xmas .sp-intro p, .xmas .foot { color: var(--page-muted); }
+.xmas header .about .sig { color: var(--page-ink); }
+.xmas h1 .o { position: relative; border-color: var(--x-red);
+  background: radial-gradient(circle at 34% 32%, #ff9aa8 0 12%, var(--x-red) 46%, #6e0a1a 100%); }
+.xmas h1 .o::before { content: ""; position: absolute; left: 50%; top: -0.27em; width: 0.2em; height: 0.13em;
+  transform: translateX(-50%); border-radius: 2px; background: var(--x-yellow); }
+.xmas .stage {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, var(--x-red) 22%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in srgb, var(--x-green) 22%, transparent) 1.2px, transparent 1.6px);
+  background-size: 22px 22px; background-position: 0 0, 11px 11px;
+}
+:root:not(.xmas) .xmas-only { display: none !important; }
+.xmas .plain-only { display: none !important; }
+
+/* Lyskæde */
+.garland { position: absolute; left: 0; right: 0; top: env(safe-area-inset-top, 0px); height: 62px; pointer-events: none; overflow: hidden; z-index: 2; }
+.garland svg { display: block; width: 100%; height: 62px; }
+.garland .wire { fill: none; stroke: var(--x-wire); stroke-width: 2; }
+.garland .b rect { fill: #2c2a24; }
+.garland .b path { fill: currentColor; filter: drop-shadow(0 0 5px currentColor); }
+.garland .b.r { color: #ff3b4f; } .garland .b.g { color: #3ddc84; } .garland .b.y { color: #fdce3b; }
+.garland .b.u { color: #6ec6ff; } .garland .b.w { color: #fff1c9; }
+.garland .b { animation: bulbOn .35s var(--i) both, twinkle 2.6s calc(var(--i) + var(--d)) infinite ease-in-out; }
+@keyframes bulbOn { from { opacity: 0.08; } to { opacity: 1; } }
+@keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.38; } }
+.xfx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 40; }
+
+/* Juleformer i QR-koden */
+.xgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.xgrid label { position: relative; }
+.xgrid input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.xgrid span { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px 7px; border-radius: 9px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--muted); font-size: 12.5px; cursor: pointer; }
+.xgrid b { font-weight: inherit; }
+.xgrid svg { width: 22px; height: 22px; fill: var(--accent); }
+.xgrid input:checked + span { background: var(--surface); color: var(--ink); border-color: var(--accent); font-weight: 500;
+  box-shadow: 0 0 0 1px var(--accent); }
+.xgrid input:focus-visible + span { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+
+/* Julelys-kontakten */
+.xbar { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; }
+.xbar-main { display: flex; align-items: center; gap: 16px; cursor: pointer; flex: 1 1 280px; min-width: 0; }
+.xswitch { position: relative; flex: none; width: 66px; height: 36px; }
+.xswitch input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.xswitch .track { position: absolute; inset: 0; border-radius: 999px; background: var(--line); pointer-events: none;
+  transition: background .2s; box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.12); }
+.xswitch .knob { position: absolute; top: 3px; left: 3px; width: 30px; height: 30px; border-radius: 50%; background: var(--surface);
+  display: grid; place-items: center; box-shadow: 0 1px 3px rgb(0 0 0 / 0.25); transition: transform .25s cubic-bezier(.3,1.4,.5,1); }
+.xswitch .knob svg { width: 16px; height: 16px; }
+.xswitch .knob .glass { fill: var(--muted); opacity: 0.45; transition: fill .2s, opacity .2s; }
+.xswitch .knob .cap { fill: var(--muted); opacity: 0.6; }
+.xswitch input:checked + .track { background: repeating-linear-gradient(135deg, var(--x-red) 0 7px, #ffffff 7px 14px); }
+.xswitch input:checked + .track .knob { transform: translateX(30px); }
+.xswitch input:checked + .track .glass { fill: var(--x-yellow); opacity: 1; filter: drop-shadow(0 0 4px var(--x-yellow)); }
+.xswitch input:focus-visible + .track { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
+.xtext { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.xtitle { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.15; letter-spacing: -0.01em; }
+.xhearts { display: flex; gap: 14px; align-items: flex-start; height: 58px; flex: none; }
+.xhearts svg { width: 34px; height: 58px; overflow: visible; transform-origin: 50% 0; filter: grayscale(1); opacity: 0.4; transition: filter .3s, opacity .3s; }
+.xhearts svg:nth-child(2) { width: 28px; margin-top: -6px; }
+.xmas .xhearts svg { filter: none; opacity: 1; animation: swing 3.2s ease-in-out infinite; }
+.xmas .xhearts svg:nth-child(2) { animation-delay: -1.1s; }
+.xmas .xhearts svg:nth-child(3) { animation-delay: -2.2s; }
+@keyframes swing { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+@media (max-width: 480px) { .xhearts { display: none; } .xbar { padding: 14px 16px; } }
+@media (prefers-reduced-motion: reduce) {
+  .garland .b, .xmas .xhearts svg { animation: none; }
+}
+
 /* Sponsors, download, footer (website only) */
 :root { --plate: #ffffff; }
 .sponsors { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 20px 48px; align-items: start;
@@ -245,6 +343,21 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
 .foot a { color: inherit; }
 @media (max-width: 480px) { .download { padding: 20px 18px; } }
 </style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="jh-weave" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(45 50 56)">
+      <rect width="13" height="13" fill="#ffffff"/><rect width="6.5" height="6.5" fill="#c8102e"/><rect x="6.5" y="6.5" width="6.5" height="6.5" fill="#c8102e"/>
+    </pattern>
+    <symbol id="jh" viewBox="0 0 100 170">
+      <path d="M50 0V60" stroke="#c8102e" stroke-width="2.5" fill="none"/>
+      <circle cx="32" cy="76" r="25.5" fill="#c8102e"/>
+      <circle cx="68" cy="76" r="25.5" fill="#ffffff" stroke="#c8102e" stroke-width="2"/>
+      <path d="M50 58L86 94L50 130L14 94Z" fill="url(#jh-weave)" stroke="#c8102e" stroke-width="2"/>
+    </symbol>
+  </defs>
+</svg>
+<div class="garland" id="garland" aria-hidden="true"></div>
 
 <div class="wrap">
   <header>
@@ -310,11 +423,19 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
         <div class="field">
           <div class="row">
             <span class="lbl"><span data-t="modules">Moduler</span><button type="button" class="info" aria-controls="ex-modules" aria-expanded="false">i</button></span>
-            <div class="seg" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+            <div class="seg plain-only" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
               <label><input type="radio" name="dot" id="dot-dots" value="dots" checked><span data-t="dots">Prikker</span></label>
               <label><input type="radio" name="dot" id="dot-rounded" value="rounded"><span data-t="roundedPl">Afrundede</span></label>
               <label><input type="radio" name="dot" id="dot-squares" value="squares"><span data-t="squaresPl">Firkanter</span></label>
             </div>
+          </div>
+          <div class="xgrid xmas-only" id="xgrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+            <label><input type="radio" name="dot" id="dot-hearts" value="hearts"><span><svg viewBox="0 0 1 1" data-shape="hearts"></svg><b data-t="hearts">Hjerter</b></span></label>
+            <label><input type="radio" name="dot" id="dot-trees" value="trees"><span><svg viewBox="0 0 1 1" data-shape="trees"></svg><b data-t="trees">Træer</b></span></label>
+            <label><input type="radio" name="dot" id="dot-gifts" value="gifts"><span><svg viewBox="0 0 1 1" data-shape="gifts"></svg><b data-t="gifts">Gaver</b></span></label>
+            <label><input type="radio" name="dot" id="dot-stars" value="stars"><span><svg viewBox="0 0 1 1" data-shape="stars"></svg><b data-t="stars">Stjerner</b></span></label>
+            <label><input type="radio" name="dot" id="dot-santas" value="santas"><span><svg viewBox="0 0 1 1" data-shape="santas"></svg><b data-t="santas">Nisser</b></span></label>
+            <label><input type="radio" name="dot" id="dot-mix" value="mix"><span><svg viewBox="0 0 1 1" data-shape="mix"></svg><b data-t="mix">Blandet</b></span></label>
           </div>
           <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
@@ -435,6 +556,18 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
     </section>
   </div>
 
+  <section class="xbar" id="xbar" data-t-aria="xmasAria" aria-label="Julelys">
+    <label class="xbar-main" for="xmas">
+      <span class="xswitch"><input type="checkbox" id="xmas" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><rect class="cap" x="5.6" y="1" width="4.8" height="3.6" rx="1"/><path class="glass" d="M8 4c4 0 5.2 4.2 4.8 6.4C12.4 13 10.4 15 8 15s-4.4-2-4.8-4.6C2.8 8.2 4 4 8 4z"/></svg></span></span></span>
+      <span class="xtext"><span class="xtitle" data-t="xmasLabel">Tænd julelyset</span><span class="hint" data-t="xmasHint">Hjerter, juletræer, gaver og nisser i stedet for prikker. Og en del sne.</span></span>
+    </label>
+    <div class="xhearts" aria-hidden="true">
+      <svg viewBox="0 0 100 170"><use href="#jh"/></svg>
+      <svg viewBox="0 0 100 170"><use href="#jh"/></svg>
+      <svg viewBox="0 0 100 170"><use href="#jh"/></svg>
+    </div>
+  </section>
+
   <section class="sponsors" id="sponsorer" aria-labelledby="sp-h">
     <div class="sp-intro">
       <h2 class="site-h2" id="sp-h" data-t="spTitle">Sponsorer</h2>
@@ -486,7 +619,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
     </div>
     <div class="dl-action">
       <a class="btn primary big" href="roundqr.html" download="roundqr.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span data-t="dlBtn">Hent roundqr.html</span></a>
-      <span class="spec">HTML · 559 KB</span>
+      <span class="spec">HTML · 582 KB</span>
     </div>
   </section>
 
@@ -516,9 +649,40 @@ var RQ = (function () {
   function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
   function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 
+  // Julelys: shapes drawn in a 1×1 cell. Each one covers the middle of the cell, which is where scanners sample.
+  function sh(x, y, a, k) {
+    k = k || 1; var s = "", i = 0;
+    while (i < a.length) {
+      if (typeof a[i] === "string") { s += a[i]; i++; }
+      else { s += f(x + a[i] * k) + " " + f(y + a[i + 1] * k) + " "; i += 2; }
+    }
+    return s;
+  }
+  var HEART = ["M", .5, .95, "C", .16, .72, .01, .53, .03, .33, "C", .05, .13, .22, .05, .34, .06, "C", .42, .07, .48, .13, .5, .2,
+    "C", .52, .13, .58, .07, .66, .06, "C", .78, .05, .95, .13, .97, .33, "C", .99, .53, .84, .72, .5, .95, "Z"];
+  var TREE = ["M", .5, .02, "L", .8, .37, "L", .69, .37, "L", .95, .73, "L", .59, .73, "L", .59, .98, "L", .41, .98, "L", .41, .73,
+    "L", .05, .73, "L", .31, .37, "L", .2, .37, "Z"];
+  var GIFT = ["M", .05, .25, "L", .95, .25, "L", .95, .39, "L", .05, .39, "Z", "M", .11, .43, "L", .89, .43, "L", .89, .97, "L", .11, .97, "Z",
+    "M", .5, .25, "C", .4, .0, .14, .03, .25, .25, "Z", "M", .5, .25, "C", .6, .0, .86, .03, .75, .25, "Z"];
+  var STAR = (function () { var a = ["M"]; for (var i = 0; i < 10; i++) { var r = i % 2 ? .24 : .54, t = -Math.PI / 2 + i * Math.PI / 5;
+    if (i) a.push("L"); a.push(.5 + r * Math.cos(t), .55 + r * Math.sin(t)); } a.push("Z"); return a; })();
+  var SANTA_HAT = ["M", .17, .41, "C", .26, .2, .48, .1, .7, .14, "L", .84, .41, "Z"];
+  var SANTA_BEARD = ["M", .17, .58, "L", .83, .58, "C", .86, .8, .7, .97, .5, .97, "C", .3, .97, .14, .8, .17, .58, "Z"];
+  var XMAS = ["hearts", "trees", "gifts", "stars", "santas"];
+  function xshape(x, y, style) {
+    if (style === "hearts") return sh(x, y, HEART);
+    if (style === "trees") return sh(x, y, TREE);
+    if (style === "gifts") return sh(x, y, GIFT);
+    if (style === "stars") return sh(x, y, STAR);
+    if (style === "santas") return sh(x, y, SANTA_HAT) + circ(x + .72, y + .13, .11) + rrect(x + .1, y + .38, .8, .16, .08) + sh(x, y, SANTA_BEARD);
+    return null;
+  }
+
   function mod(x, y, style) {
     if (style === "dots") return circ(x + 0.5, y + 0.5, 0.43);
     if (style === "rounded") return rrect(x + 0.06, y + 0.06, 0.88, 0.88, 0.3);
+    if (style === "mix") style = XMAS[((Math.imul(Math.round(x * 10), 73856093) ^ Math.imul(Math.round(y * 10), 19349663)) >>> 0) % 5];
+    var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
   function eye(x, y, style) {
@@ -674,7 +838,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS };
 })();
 </script>
 
@@ -744,7 +908,16 @@ var RQ = (function () {
       gradient: "Farveforløb", cCode2: "Slutfarve", direction: "Retning", dDiagonal: "Diagonal", dVertical: "Lodret", dRadial: "Radial",
       exGrad: "Koden glider fra Kode til Slutfarve, så hold begge farver mørke.",
       presetsLbl: "Farvesæt", custom: "Egne farver", prev: "Forrige", next: "Næste",
-      presets: ["Blæk", "Sort", "Guld", "Navy og guld", "Skov", "Hav", "Bordeaux", "Aubergine", "Grafit", "Terrakotta", "Kaffe", "Solnedgang", "Nordlys", "Dybhav", "Blomme", "Mos", "Nat"]
+      presets: ["Blæk", "Sort", "Guld", "Navy og guld", "Skov", "Hav", "Bordeaux", "Aubergine", "Grafit", "Terrakotta", "Kaffe", "Solnedgang", "Nordlys", "Dybhav", "Blomme", "Mos", "Nat"],
+      presetsXmas: ["Julerød", "Gran", "Nissehue", "Juletræ", "Gløgg", "Rød og grøn", "Pebernød", "Juleaften"],
+      xmasAria: "Julelys", xmasLabel: "Tænd julelyset", xmasLabelXmas: "Julelyset er tændt",
+      xmasHint: "Hjerter, juletræer, gaver og nisser i stedet for prikker. Og en del sne.",
+      xmasHintXmas: "Slå det fra igen, så får du den almindelige Round QR og dine egne farver tilbage.",
+      subtitleXmas: "Juleudgaven. Indsæt et link, pynt koden, og gem den som PNG, JPG eller SVG.",
+      hearts: "Hjerter", trees: "Træer", gifts: "Gaver", stars: "Stjerner", santas: "Nisser", mix: "Blandet",
+      defaultLabelXmas: "Glædelig jul",
+      exModulesXmas: "Juleformerne dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
+      exEyesXmas: "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner julekugler."
     },
     en: {
       spTitle: "Sponsors",
@@ -807,13 +980,22 @@ var RQ = (function () {
       gradient: "Gradient", cCode2: "End colour", direction: "Direction", dDiagonal: "Diagonal", dVertical: "Vertical", dRadial: "Radial",
       exGrad: "The code blends from Code to End colour, so keep both colours dark.",
       presetsLbl: "Colour sets", custom: "Custom", prev: "Previous", next: "Next",
-      presets: ["Ink", "Black", "Gold", "Navy & gold", "Forest", "Ocean", "Burgundy", "Aubergine", "Graphite", "Terracotta", "Coffee", "Sunset", "Aurora", "Deep sea", "Plum", "Moss", "Night"]
+      presets: ["Ink", "Black", "Gold", "Navy & gold", "Forest", "Ocean", "Burgundy", "Aubergine", "Graphite", "Terracotta", "Coffee", "Sunset", "Aurora", "Deep sea", "Plum", "Moss", "Night"],
+      presetsXmas: ["Christmas red", "Spruce", "Santa hat", "Christmas tree", "Mulled wine", "Red and green", "Gingerbread", "Christmas Eve"],
+      xmasAria: "Christmas lights", xmasLabel: "Turn on the Christmas lights", xmasLabelXmas: "The Christmas lights are on",
+      xmasHint: "Hearts, trees, presents and Santas instead of dots. And quite a bit of snow.",
+      xmasHintXmas: "Turn it off again to get the regular Round QR and your own colours back.",
+      subtitleXmas: "The Christmas edition. Paste a link, decorate the code, save it as PNG, JPG or SVG.",
+      hearts: "Hearts", trees: "Trees", gifts: "Presents", stars: "Stars", santas: "Santas", mix: "Mixed",
+      defaultLabelXmas: "Merry Christmas",
+      exModulesXmas: "The Christmas shapes cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
+      exEyesXmas: "The three big squares the phone uses to find the code. Circle looks like baubles."
     }
   };
-  var lang = "da";
-  function t(k) { return T[lang][k]; }
+  var lang = "da", xmas = false;
+  function t(k) { var d = T[lang]; return xmas && d[k + "Xmas"] !== undefined ? d[k + "Xmas"] : d[k]; }
 
-  var PRESETS = [
+  var PLAIN = [
     { fg: "#1f1d18", eyec: "#1f1d18", bg: "#ffffff" },
     { fg: "#000000", eyec: "#000000", bg: "#ffffff" },
     { fg: "#1f1d18", eyec: "#9a7400", bg: "#ffffff" },
@@ -832,6 +1014,17 @@ var RQ = (function () {
     { fg: "#1d4b3b", fg2: "#6b8e23", grad: "vertical", eyec: "#163a2e", bg: "#fbfaf3" },
     { fg: "#13294b", fg2: "#4b2a7a", grad: "radial", eyec: "#a8812a", bg: "#ffffff" }
   ];
+  var XMAS_SETS = [
+    { fg: "#b3122e", eyec: "#1e5b3a", bg: "#ffffff" },
+    { fg: "#1e5b3a", eyec: "#b3122e", bg: "#ffffff" },
+    { fg: "#c8102e", fg2: "#6e0a1a", grad: "radial", eyec: "#6e0a1a", bg: "#ffffff" },
+    { fg: "#2f7d4a", fg2: "#123a24", grad: "vertical", eyec: "#b3122e", bg: "#ffffff" },
+    { fg: "#5e1224", eyec: "#8a1c2e", bg: "#fff6ee" },
+    { fg: "#b3122e", fg2: "#1e5b3a", grad: "diagonal", eyec: "#1e5b3a", bg: "#ffffff" },
+    { fg: "#6b3a1e", eyec: "#b3122e", bg: "#fff4e8" },
+    { fg: "#13294b", fg2: "#1e5b3a", grad: "radial", eyec: "#b3122e", bg: "#ffffff" }
+  ];
+  var PRESETS = PLAIN;
   var presetBtns = [];
   function markPreset(o) {
     var hit = -1;
@@ -841,7 +1034,7 @@ var RQ = (function () {
       b.setAttribute("aria-pressed", same ? "true" : "false");
       if (same) hit = i;
     });
-    $("presetName").textContent = hit < 0 ? t("custom") : t("presets")[hit];
+    $("presetName").textContent = hit < 0 ? t("custom") : t("presets")[hit] || "";
   }
   var logo = null, timer = null, lastText = "", lastGeom = null, downloads, presetLabels = [];
   var preview = document.createElement("canvas"), scanCv = document.createElement("canvas");
@@ -862,10 +1055,12 @@ var RQ = (function () {
       b.setAttribute("aria-label", t("explain") + ": " + name);
     });
     presetBtns.forEach(function (b, i) { b.setAttribute("aria-label", t("presets")[i]); b.title = t("presets")[i]; });
-    if ($("labelText").value === prevDefault || $("labelText").value === T.da.defaultLabel || $("labelText").value === T.en.defaultLabel) $("labelText").value = t("defaultLabel");
+    if ($("labelText").value === prevDefault || isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
     $("logoBtn").textContent = logo ? t("replace") : t("addLogo");
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
+
+  function isDefaultLabel(v) { return [T.da.defaultLabel, T.en.defaultLabel, T.da.defaultLabelXmas, T.en.defaultLabelXmas].indexOf(v) >= 0; }
 
   function opts() {
     return {
@@ -1084,6 +1279,8 @@ var RQ = (function () {
   }
 
   // Presets
+  function buildPresets() {
+  $("presets").innerHTML = ""; presetBtns = [];
   PRESETS.forEach(function (p) {
     var b = document.createElement("button"), sw = document.createElement("span");
     b.type = "button"; b.className = "preset"; b.setAttribute("aria-pressed", "false");
@@ -1102,6 +1299,10 @@ var RQ = (function () {
     });
     $("presets").appendChild(b);
   });
+  presetBtns.forEach(function (b, i) { b.setAttribute("aria-label", t("presets")[i]); b.title = t("presets")[i]; });
+  $("presets").scrollLeft = 0; setTimeout(stripNav, 0);
+  }
+  buildPresets();
 
   // Colour set strip arrows
   function stripNav() {
@@ -1161,10 +1362,174 @@ var RQ = (function () {
     el.addEventListener("change", function () { fillSizes(); updateFormat(); save(); });
   });
 
+  // ---------- Julelys ----------
+  var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("#xgrid svg[data-shape]").forEach(function (svg) {
+    var st = svg.getAttribute("data-shape");
+    var d = st === "mix" ? RQ.mod(0, 0, "hearts").replace(/[\d.]+ [\d.]+/g, function (m) { var p = m.split(" "); return (p[0] * .5) + " " + (p[1] * .5); }) +
+      RQ.mod(.5, 0, "trees").replace(/[\d.]+ [\d.]+/g, function (m) { var p = m.split(" "); return (p[0] * .5 + .25) + " " + (p[1] * .5); }) +
+      RQ.mod(0, .5, "gifts").replace(/[\d.]+ [\d.]+/g, function (m) { var p = m.split(" "); return (p[0] * .5) + " " + (p[1] * .5 + .25); }) +
+      RQ.mod(.5, .5, "stars").replace(/[\d.]+ [\d.]+/g, function (m) { var p = m.split(" "); return (p[0] * .5 + .25) + " " + (p[1] * .5 + .25); })
+      : RQ.mod(0, 0, st);
+    svg.innerHTML = '<path d="' + d + '"/>';
+  });
+
+  function snapshot() {
+    return { dot: radio("dot"), eye: radio("eye"), fg: $("fg").value, eyec: $("eyec").value, bg: $("bg").value, fg2: $("fg2").value,
+      grad: $("grad").checked, gdir: radio("gdir"), label: $("label").checked, labelText: $("labelText").value };
+  }
+  function applySnap(p) {
+    if (p.dot) setRadio("dot", p.dot); if (p.eye) setRadio("eye", p.eye);
+    ["fg", "eyec", "bg", "fg2"].forEach(function (k) { if (/^#[0-9a-f]{6}$/i.test(p[k] || "")) $(k).value = p[k]; });
+    if (typeof p.grad === "boolean") $("grad").checked = p.grad; if (p.gdir) setRadio("gdir", p.gdir);
+    if (typeof p.label === "boolean") $("label").checked = p.label; if (typeof p.labelText === "string") $("labelText").value = p.labelText;
+  }
+  var xmasPrev = null;
+  function saveXmas() { try { localStorage.setItem("round-qr-xmas", JSON.stringify({ on: xmas, prev: xmasPrev })); } catch (e) {} }
+
+  function setXmas(on, byUser) {
+    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!xmasPrev;
+    if (on && byUser) xmasPrev = snapshot();
+    xmas = on;
+    document.documentElement.classList.toggle("xmas", on);
+    $("xmas").checked = on;
+    PRESETS = on ? XMAS_SETS : PLAIN;
+    buildPresets();
+    if (on && byUser) {
+      setRadio("dot", "hearts"); setRadio("eye", "circle");
+      var p = XMAS_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
+      $("label").checked = true; $("labelText").value = T[lang].defaultLabelXmas;
+    } else if (!on) {
+      if (xmasPrev) applySnap(xmasPrev);
+      if (RQ.XMAS.concat("mix").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      xmasPrev = null;
+    }
+    applyLang(lang);
+    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
+    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
+    buildLights(); FX.toggle(on, byUser);
+    saveXmas();
+    if (typeof qrcode !== "undefined") render();
+  }
+
+  function buildLights() {
+    var g = $("garland");
+    if (!xmas) { g.innerHTML = ""; return; }
+    var W = document.documentElement.clientWidth, spans = Math.max(2, Math.round(W / 190)), sw = W / spans;
+    var cols = ["r", "g", "y", "u", "w"], k = 0, wire = "M0 4", bulbs = "";
+    for (var i = 0; i < spans; i++) {
+      var x0 = i * sw, x1 = x0 + sw, cx = x0 + sw / 2, n = Math.max(3, Math.round(sw / 32));
+      wire += " Q" + cx.toFixed(1) + " 58 " + x1.toFixed(1) + " 4";
+      for (var j = 1; j <= n; j++) {
+        var tt = j / (n + 1), u = 1 - tt;
+        var x = u * u * x0 + 2 * tt * u * cx + tt * tt * x1, y = u * u * 4 + 2 * tt * u * 58 + tt * tt * 4;
+        var ang = Math.atan2(108 * (1 - 2 * tt), sw) * 180 / Math.PI;
+        bulbs += '<g class="b ' + cols[k % 5] + '" style="--i:' + (k * 0.035).toFixed(3) + 's;--d:' + ((k * 7) % 11 * 0.23).toFixed(2) + 's" transform="translate(' +
+          x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + ang.toFixed(1) + ')"><rect x="-2.6" y="-1" width="5.2" height="5.5" rx="1"/>' +
+          '<path d="M0 4C4.6 4 6.2 9.6 5.8 13C5.4 16.6 3 19 0 19S-5.4 16.6-5.8 13C-6.2 9.6-4.6 4 0 4Z"/></g>';
+        k++;
+      }
+    }
+    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none"><path class="wire" d="' + wire + '"/>' + bulbs + "</svg>";
+  }
+  var lightsTimer;
+  window.addEventListener("resize", function () { clearTimeout(lightsTimer); lightsTimer = setTimeout(buildLights, 150); });
+
+  // Snow, falling decorations and a burst when the lights go on. Drawn on one canvas above the page, never over the QR code.
+  var FX = (function () {
+    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, flakes = [], bits = [], burst = [];
+    var COLORS = ["#ff3b4f", "#3ddc84", "#fdce3b", "#ffffff", "#c8102e"];
+    var PATHS = {};
+    function path(st) { return PATHS[st] || (PATHS[st] = new Path2D(RQ.mod(0, 0, st))); }
+    function setup() {
+      if (cv) return;
+      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
+      window.addEventListener("resize", size);
+    }
+    function size() {
+      if (!cv) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var target = Math.min(150, Math.round(W * H / 8000));
+      while (flakes.length < target) flakes.push(flake(true));
+      flakes.length = target;
+    }
+    function flake(anywhere) {
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -8, r: 0.8 + Math.random() * 2.4, vy: 18 + Math.random() * 42,
+        ph: Math.random() * 6.3, sway: 8 + Math.random() * 18, a: 0.45 + Math.random() * 0.5 };
+    }
+    function bit(anywhere) {
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -20, s: 9 + Math.random() * 8, vy: 14 + Math.random() * 22,
+        rot: Math.random() * 6.3, vr: (Math.random() - .5) * 1.2, ph: Math.random() * 6.3,
+        shape: RQ.XMAS[Math.floor(Math.random() * 4)], c: COLORS[Math.floor(Math.random() * 3)] };
+    }
+    function pop() {
+      var sw = $("xmas").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
+      for (var i = 0; i < 90; i++) {
+        var a = -Math.PI / 2 + (Math.random() - .5) * 2.4, v = 260 + Math.random() * 520;
+        burst.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, s: 7 + Math.random() * 10, rot: Math.random() * 6.3,
+          vr: (Math.random() - .5) * 9, life: 1.6 + Math.random() * 1.2, age: 0,
+          shape: Math.random() < .3 ? null : RQ.XMAS[Math.floor(Math.random() * 5)], c: COLORS[Math.floor(Math.random() * 5)] });
+      }
+    }
+    function drawShape(o, s) {
+      ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot); ctx.fillStyle = o.c;
+      if (!o.shape) { ctx.fillRect(-s / 2, -s / 5, s, s / 2.5); }
+      else { ctx.scale(s, s); ctx.translate(-.5, -.5); ctx.fill(path(o.shape)); }
+      ctx.restore();
+    }
+    function frame(now) {
+      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      var st = $("stage").getBoundingClientRect();
+      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
+      if (on) {
+        ctx.fillStyle = "#ffffff";
+        flakes.forEach(function (p) {
+          p.y += p.vy * dt; p.ph += dt * 1.3;
+          if (p.y > H + 6) { var n = flake(false); for (var k in n) p[k] = n[k]; }
+          ctx.globalAlpha = p.a; ctx.beginPath(); ctx.arc(p.x + Math.sin(p.ph) * p.sway, p.y, p.r, 0, 6.283); ctx.fill();
+        });
+        ctx.globalAlpha = 0.8;
+        bits.forEach(function (b) {
+          b.y += b.vy * dt; b.rot += b.vr * dt; b.ph += dt;
+          if (b.y > H + 20) { var n = bit(false); for (var k in n) b[k] = n[k]; }
+          drawShape({ x: b.x + Math.sin(b.ph) * 14, y: b.y, rot: b.rot, c: b.c, shape: b.shape }, b.s);
+        });
+      }
+      burst = burst.filter(function (b) { return b.age < b.life; });
+      burst.forEach(function (b) {
+        b.age += dt; b.vy += 620 * dt; b.vx *= 0.985; b.x += b.vx * dt; b.y += b.vy * dt; b.rot += b.vr * dt;
+        ctx.globalAlpha = Math.max(0, 1 - b.age / b.life); drawShape(b, b.s);
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      if (on || burst.length) raf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, W, H); raf = 0; }
+    }
+    function toggle(state, withBurst) {
+      on = state;
+      if (reduceMotion) return;
+      setup();
+      if (on && !bits.length) for (var i = 0; i < 9; i++) bits.push(bit(true));
+      if (on && withBurst) pop();
+      if (!raf && (on || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    return { toggle: toggle };
+  })();
+
+  $("xmas").addEventListener("change", function () { setXmas(this.checked, true); });
+
   restore();
+  try {
+    var xs = JSON.parse(localStorage.getItem("round-qr-xmas") || "null");
+    if (xs && xs.on) { xmasPrev = xs.prev || null; xmas = true; document.documentElement.classList.add("xmas"); PRESETS = XMAS_SETS; buildPresets(); }
+  } catch (e) {}
   var startLang = "da";
   try { startLang = localStorage.getItem("round-qr-lang") || "da"; } catch (e) {}
   applyLang(startLang);
+  if (xmas) { $("xmas").checked = true; buildLights(); FX.toggle(true, false); }
   fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
