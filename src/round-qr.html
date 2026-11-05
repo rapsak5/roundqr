@@ -179,6 +179,7 @@ header .lang span { display: inline-flex; align-items: center; gap: 9px; padding
 header .lang input:not(:checked) + span .flag { opacity: 0.7; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
+/* julelys:start */
 /* Julelys: the page ground turns to pine at night; panels keep their own light or dark surface. */
 :root {
   --page: var(--bg); --page-ink: var(--ink); --page-muted: var(--muted); --snow: #ffffff;
@@ -276,8 +277,10 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
 @media (prefers-reduced-motion: reduce) {
   .garland .b, .xmas .xhearts svg { animation: none; }
 }
+/* julelys:end */
 </style>
 
+<!-- julelys:start -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <pattern id="jh-weave" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(45 50 56)">
@@ -292,6 +295,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
   </defs>
 </svg>
 <div class="garland" id="garland" aria-hidden="true"></div>
+<!-- julelys:end -->
 
 <div class="wrap">
   <header>
@@ -363,6 +367,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
               <label><input type="radio" name="dot" id="dot-squares" value="squares"><span data-t="squaresPl">Firkanter</span></label>
             </div>
           </div>
+          <!-- julelys:start -->
           <div class="xgrid xmas-only" id="xgrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
             <label><input type="radio" name="dot" id="dot-hearts" value="hearts"><span><svg viewBox="0 0 1 1" data-shape="hearts"></svg><b data-t="hearts">Hjerter</b></span></label>
             <label><input type="radio" name="dot" id="dot-trees" value="trees"><span><svg viewBox="0 0 1 1" data-shape="trees"></svg><b data-t="trees">Træer</b></span></label>
@@ -371,6 +376,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
             <label><input type="radio" name="dot" id="dot-santas" value="santas"><span><svg viewBox="0 0 1 1" data-shape="santas"></svg><b data-t="santas">Nisser</b></span></label>
             <label><input type="radio" name="dot" id="dot-mix" value="mix"><span><svg viewBox="0 0 1 1" data-shape="mix"></svg><b data-t="mix">Blandet</b></span></label>
           </div>
+          <!-- julelys:end -->
           <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
@@ -490,6 +496,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
     </section>
   </div>
 
+  <!-- julelys:start -->
   <section class="xbar" id="xbar" data-t-aria="xmasAria" aria-label="Julelys">
     <label class="xbar-main" for="xmas">
       <span class="xswitch"><input type="checkbox" id="xmas" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><rect class="cap" x="5.6" y="1" width="4.8" height="3.6" rx="1"/><path class="glass" d="M8 4c4 0 5.2 4.2 4.8 6.4C12.4 13 10.4 15 8 15s-4.4-2-4.8-4.6C2.8 8.2 4 4 8 4z"/></svg></span></span></span>
@@ -501,6 +508,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
       <svg viewBox="0 0 100 170"><use href="#jh"/></svg>
     </div>
   </section>
+  <!-- julelys:end -->
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
@@ -1210,6 +1218,7 @@ var RQ = (function () {
     el.addEventListener("change", function () { fillSizes(); updateFormat(); save(); });
   });
 
+  /* julelys:start */
   // ---------- Julelys ----------
   var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll("#xgrid svg[data-shape]").forEach(function (svg) {
@@ -1368,16 +1377,19 @@ var RQ = (function () {
   })();
 
   $("xmas").addEventListener("change", function () { setXmas(this.checked, true); });
+  /* julelys:end */
 
   restore();
+  /* julelys:start */
   try {
     var xs = JSON.parse(localStorage.getItem("round-qr-xmas") || "null");
     if (xs && xs.on) { xmasPrev = xs.prev || null; xmas = true; document.documentElement.classList.add("xmas"); PRESETS = XMAS_SETS; buildPresets(); }
   } catch (e) {}
+  /* julelys:end */
   var startLang = "da";
   try { startLang = localStorage.getItem("round-qr-lang") || "da"; } catch (e) {}
   applyLang(startLang);
-  if (xmas) { $("xmas").checked = true; buildLights(); FX.toggle(true, false); }
+  /* julelys:start */ if (xmas) { $("xmas").checked = true; buildLights(); FX.toggle(true, false); } /* julelys:end */
   fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");

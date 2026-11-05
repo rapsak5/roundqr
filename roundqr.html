@@ -192,119 +192,8 @@ header .lang span { display: inline-flex; align-items: center; gap: 9px; padding
 header .lang input:not(:checked) + span .flag { opacity: 0.7; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
-/* Julelys: the page ground turns to pine at night; panels keep their own light or dark surface. */
-:root {
-  --page: var(--bg); --page-ink: var(--ink); --page-muted: var(--muted); --snow: #ffffff;
-  --x-red: #c8102e; --x-green: #1e5b3a; --x-yellow: #fdce3b; --x-wire: #0b1a12;
-}
-:root.xmas {
-  --page: #12352a; --page-ink: #f6efe4; --page-muted: #b9cdbf;
-  --bg: #f8f1ea; --surface: #ffffff; --stage: #f5e9e2; --ink: #1f1d18; --muted: #6b5f55; --line: #eadbd0;
-  --accent: #c8102e; --accent-strong: #a30d25; --accent-ink: #ffffff;
-}
-@media (prefers-color-scheme: dark) {
-  :root.xmas:not([data-theme="light"]) {
-    --page: #0a1d14; --page-ink: #f1eadf; --page-muted: #9fb4a5;
-    --bg: #0e2219; --surface: #11271c; --stage: #163024; --ink: #f1eadf; --muted: #a9bcad; --line: #24432f;
-    --accent: #e0314a; --accent-strong: #ff7f90; --accent-ink: #ffffff;
-  }
-}
-:root.xmas[data-theme="dark"] {
-  --page: #0a1d14; --page-ink: #f1eadf; --page-muted: #9fb4a5;
-  --bg: #0e2219; --surface: #11271c; --stage: #163024; --ink: #f1eadf; --muted: #a9bcad; --line: #24432f;
-  --accent: #e0314a; --accent-strong: #ff7f90; --accent-ink: #ffffff;
-}
-:root.xmas body {
-  background: radial-gradient(1100px 520px at 50% -120px, color-mix(in srgb, var(--x-green) 70%, transparent), transparent), var(--page);
-  color: var(--page-ink); padding-top: 74px;
-}
-.xmas .preview, .xmas .controls, .xmas .xbar, .xmas .sp-list, .xmas .download { color: var(--ink); }
-.xmas header p, .xmas .sp-intro p, .xmas .foot { color: var(--page-muted); }
-.xmas header .about .sig { color: var(--page-ink); }
-.xmas h1 .o { position: relative; border-color: var(--x-red);
-  background: radial-gradient(circle at 34% 32%, #ff9aa8 0 12%, var(--x-red) 46%, #6e0a1a 100%); }
-.xmas h1 .o::before { content: ""; position: absolute; left: 50%; top: -0.27em; width: 0.2em; height: 0.13em;
-  transform: translateX(-50%); border-radius: 2px; background: var(--x-yellow); }
-.xmas .stage {
-  background-image:
-    radial-gradient(circle, color-mix(in srgb, var(--x-red) 22%, transparent) 1.2px, transparent 1.6px),
-    radial-gradient(circle, color-mix(in srgb, var(--x-green) 22%, transparent) 1.2px, transparent 1.6px);
-  background-size: 22px 22px; background-position: 0 0, 11px 11px;
-}
-:root:not(.xmas) .xmas-only { display: none !important; }
-.xmas .plain-only { display: none !important; }
-
-/* Lyskæde */
-.garland { position: absolute; left: 0; right: 0; top: env(safe-area-inset-top, 0px); height: 62px; pointer-events: none; overflow: hidden; z-index: 2; }
-.garland svg { display: block; width: 100%; height: 62px; }
-.garland .wire { fill: none; stroke: var(--x-wire); stroke-width: 2; }
-.garland .b rect { fill: #2c2a24; }
-.garland .b path { fill: currentColor; filter: drop-shadow(0 0 5px currentColor); }
-.garland .b.r { color: #ff3b4f; } .garland .b.g { color: #3ddc84; } .garland .b.y { color: #fdce3b; }
-.garland .b.u { color: #6ec6ff; } .garland .b.w { color: #fff1c9; }
-.garland .b { animation: bulbOn .35s var(--i) both, twinkle 2.6s calc(var(--i) + var(--d)) infinite ease-in-out; }
-@keyframes bulbOn { from { opacity: 0.08; } to { opacity: 1; } }
-@keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.38; } }
-.xfx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 40; }
-
-/* Juleformer i QR-koden */
-.xgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-.xgrid label { position: relative; }
-.xgrid input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
-.xgrid span { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px 7px; border-radius: 9px;
-  border: 1px solid var(--line); background: var(--bg); color: var(--muted); font-size: 12.5px; cursor: pointer; }
-.xgrid b { font-weight: inherit; }
-.xgrid svg { width: 22px; height: 22px; fill: var(--accent); }
-.xgrid input:checked + span { background: var(--surface); color: var(--ink); border-color: var(--accent); font-weight: 500;
-  box-shadow: 0 0 0 1px var(--accent); }
-.xgrid input:focus-visible + span { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
-
-/* Julelys-kontakten */
-.xbar { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; }
-.xbar-main { display: flex; align-items: center; gap: 16px; cursor: pointer; flex: 1 1 280px; min-width: 0; }
-.xswitch { position: relative; flex: none; width: 66px; height: 36px; }
-.xswitch input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
-.xswitch .track { position: absolute; inset: 0; border-radius: 999px; background: var(--line); pointer-events: none;
-  transition: background .2s; box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.12); }
-.xswitch .knob { position: absolute; top: 3px; left: 3px; width: 30px; height: 30px; border-radius: 50%; background: var(--surface);
-  display: grid; place-items: center; box-shadow: 0 1px 3px rgb(0 0 0 / 0.25); transition: transform .25s cubic-bezier(.3,1.4,.5,1); }
-.xswitch .knob svg { width: 16px; height: 16px; }
-.xswitch .knob .glass { fill: var(--muted); opacity: 0.45; transition: fill .2s, opacity .2s; }
-.xswitch .knob .cap { fill: var(--muted); opacity: 0.6; }
-.xswitch input:checked + .track { background: repeating-linear-gradient(135deg, var(--x-red) 0 7px, #ffffff 7px 14px); }
-.xswitch input:checked + .track .knob { transform: translateX(30px); }
-.xswitch input:checked + .track .glass { fill: var(--x-yellow); opacity: 1; filter: drop-shadow(0 0 4px var(--x-yellow)); }
-.xswitch input:focus-visible + .track { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
-.xtext { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.xtitle { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.15; letter-spacing: -0.01em; }
-.xhearts { display: flex; gap: 14px; align-items: flex-start; height: 58px; flex: none; }
-.xhearts svg { width: 34px; height: 58px; overflow: visible; transform-origin: 50% 0; filter: grayscale(1); opacity: 0.4; transition: filter .3s, opacity .3s; }
-.xhearts svg:nth-child(2) { width: 28px; margin-top: -6px; }
-.xmas .xhearts svg { filter: none; opacity: 1; animation: swing 3.2s ease-in-out infinite; }
-.xmas .xhearts svg:nth-child(2) { animation-delay: -1.1s; }
-.xmas .xhearts svg:nth-child(3) { animation-delay: -2.2s; }
-@keyframes swing { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
-@media (max-width: 480px) { .xhearts { display: none; } .xbar { padding: 14px 16px; } }
-@media (prefers-reduced-motion: reduce) {
-  .garland .b, .xmas .xhearts svg { animation: none; }
-}
 </style>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <pattern id="jh-weave" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(45 50 56)">
-      <rect width="13" height="13" fill="#ffffff"/><rect width="6.5" height="6.5" fill="#c8102e"/><rect x="6.5" y="6.5" width="6.5" height="6.5" fill="#c8102e"/>
-    </pattern>
-    <symbol id="jh" viewBox="0 0 100 170">
-      <path d="M50 0V60" stroke="#c8102e" stroke-width="2.5" fill="none"/>
-      <circle cx="32" cy="76" r="25.5" fill="#c8102e"/>
-      <circle cx="68" cy="76" r="25.5" fill="#ffffff" stroke="#c8102e" stroke-width="2"/>
-      <path d="M50 58L86 94L50 130L14 94Z" fill="url(#jh-weave)" stroke="#c8102e" stroke-width="2"/>
-    </symbol>
-  </defs>
-</svg>
-<div class="garland" id="garland" aria-hidden="true"></div>
 
 <div class="wrap">
   <header>
@@ -376,15 +265,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
               <label><input type="radio" name="dot" id="dot-squares" value="squares"><span data-t="squaresPl">Firkanter</span></label>
             </div>
           </div>
-          <div class="xgrid xmas-only" id="xgrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
-            <label><input type="radio" name="dot" id="dot-hearts" value="hearts"><span><svg viewBox="0 0 1 1" data-shape="hearts"></svg><b data-t="hearts">Hjerter</b></span></label>
-            <label><input type="radio" name="dot" id="dot-trees" value="trees"><span><svg viewBox="0 0 1 1" data-shape="trees"></svg><b data-t="trees">Træer</b></span></label>
-            <label><input type="radio" name="dot" id="dot-gifts" value="gifts"><span><svg viewBox="0 0 1 1" data-shape="gifts"></svg><b data-t="gifts">Gaver</b></span></label>
-            <label><input type="radio" name="dot" id="dot-stars" value="stars"><span><svg viewBox="0 0 1 1" data-shape="stars"></svg><b data-t="stars">Stjerner</b></span></label>
-            <label><input type="radio" name="dot" id="dot-santas" value="santas"><span><svg viewBox="0 0 1 1" data-shape="santas"></svg><b data-t="santas">Nisser</b></span></label>
-            <label><input type="radio" name="dot" id="dot-mix" value="mix"><span><svg viewBox="0 0 1 1" data-shape="mix"></svg><b data-t="mix">Blandet</b></span></label>
-          </div>
-          <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
+                    <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
         <div class="field">
@@ -503,18 +384,7 @@ header .lang input:not(:checked) + span .flag { opacity: 0.7; }
     </section>
   </div>
 
-  <section class="xbar" id="xbar" data-t-aria="xmasAria" aria-label="Julelys">
-    <label class="xbar-main" for="xmas">
-      <span class="xswitch"><input type="checkbox" id="xmas" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><rect class="cap" x="5.6" y="1" width="4.8" height="3.6" rx="1"/><path class="glass" d="M8 4c4 0 5.2 4.2 4.8 6.4C12.4 13 10.4 15 8 15s-4.4-2-4.8-4.6C2.8 8.2 4 4 8 4z"/></svg></span></span></span>
-      <span class="xtext"><span class="xtitle" data-t="xmasLabel">Tænd julelyset</span><span class="hint" data-t="xmasHint">Hjerter, juletræer, gaver og nisser i stedet for prikker. Og en del sne.</span></span>
-    </label>
-    <div class="xhearts" aria-hidden="true">
-      <svg viewBox="0 0 100 170"><use href="#jh"/></svg>
-      <svg viewBox="0 0 100 170"><use href="#jh"/></svg>
-      <svg viewBox="0 0 100 170"><use href="#jh"/></svg>
-    </div>
-  </section>
-
+  
   <footer class="foot" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;font-size:13px;color:var(--muted);padding-top:18px;border-top:1px solid var(--line)">
     <span>Round QR · <a href="https://roundqr.dk" style="color:inherit">roundqr.dk</a></span>
     <span data-t="footNote"></span>
@@ -13632,175 +13502,12 @@ var RQ = (function () {
     el.addEventListener("change", function () { fillSizes(); updateFormat(); save(); });
   });
 
-  // ---------- Julelys ----------
-  var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  document.querySelectorAll("#xgrid svg[data-shape]").forEach(function (svg) {
-    var st = svg.getAttribute("data-shape");
-    var d = st === "mix" ? RQ.mod(0, 0, "hearts").replace(/[\d.]+ [\d.]+/g, function (m) { var p = m.split(" "); return (p[0] * .5) + " " + (p[1] * .5); }) +
-      RQ.mod(.5, 0, "trees").replace(/[\d.]+ [\d.]+/g, function (m) { var p = m.split(" "); return (p[0] * .5 + .25) + " " + (p[1] * .5); }) +
-      RQ.mod(0, .5, "gifts").replace(/[\d.]+ [\d.]+/g, function (m) { var p = m.split(" "); return (p[0] * .5) + " " + (p[1] * .5 + .25); }) +
-      RQ.mod(.5, .5, "stars").replace(/[\d.]+ [\d.]+/g, function (m) { var p = m.split(" "); return (p[0] * .5 + .25) + " " + (p[1] * .5 + .25); })
-      : RQ.mod(0, 0, st);
-    svg.innerHTML = '<path d="' + d + '"/>';
-  });
-
-  function snapshot() {
-    return { dot: radio("dot"), eye: radio("eye"), fg: $("fg").value, eyec: $("eyec").value, bg: $("bg").value, fg2: $("fg2").value,
-      grad: $("grad").checked, gdir: radio("gdir"), label: $("label").checked, labelText: $("labelText").value };
-  }
-  function applySnap(p) {
-    if (p.dot) setRadio("dot", p.dot); if (p.eye) setRadio("eye", p.eye);
-    ["fg", "eyec", "bg", "fg2"].forEach(function (k) { if (/^#[0-9a-f]{6}$/i.test(p[k] || "")) $(k).value = p[k]; });
-    if (typeof p.grad === "boolean") $("grad").checked = p.grad; if (p.gdir) setRadio("gdir", p.gdir);
-    if (typeof p.label === "boolean") $("label").checked = p.label; if (typeof p.labelText === "string") $("labelText").value = p.labelText;
-  }
-  var xmasPrev = null;
-  function saveXmas() { try { localStorage.setItem("round-qr-xmas", JSON.stringify({ on: xmas, prev: xmasPrev })); } catch (e) {} }
-
-  function setXmas(on, byUser) {
-    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!xmasPrev;
-    if (on && byUser) xmasPrev = snapshot();
-    xmas = on;
-    document.documentElement.classList.toggle("xmas", on);
-    $("xmas").checked = on;
-    PRESETS = on ? XMAS_SETS : PLAIN;
-    buildPresets();
-    if (on && byUser) {
-      setRadio("dot", "hearts"); setRadio("eye", "circle");
-      var p = XMAS_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
-      $("label").checked = true; $("labelText").value = T[lang].defaultLabelXmas;
-    } else if (!on) {
-      if (xmasPrev) applySnap(xmasPrev);
-      if (RQ.XMAS.concat("mix").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
-      xmasPrev = null;
-    }
-    applyLang(lang);
-    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
-    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
-    buildLights(); FX.toggle(on, byUser);
-    saveXmas();
-    if (typeof qrcode !== "undefined") render();
-  }
-
-  function buildLights() {
-    var g = $("garland");
-    if (!xmas) { g.innerHTML = ""; return; }
-    var W = document.documentElement.clientWidth, spans = Math.max(2, Math.round(W / 190)), sw = W / spans;
-    var cols = ["r", "g", "y", "u", "w"], k = 0, wire = "M0 4", bulbs = "";
-    for (var i = 0; i < spans; i++) {
-      var x0 = i * sw, x1 = x0 + sw, cx = x0 + sw / 2, n = Math.max(3, Math.round(sw / 32));
-      wire += " Q" + cx.toFixed(1) + " 58 " + x1.toFixed(1) + " 4";
-      for (var j = 1; j <= n; j++) {
-        var tt = j / (n + 1), u = 1 - tt;
-        var x = u * u * x0 + 2 * tt * u * cx + tt * tt * x1, y = u * u * 4 + 2 * tt * u * 58 + tt * tt * 4;
-        var ang = Math.atan2(108 * (1 - 2 * tt), sw) * 180 / Math.PI;
-        bulbs += '<g class="b ' + cols[k % 5] + '" style="--i:' + (k * 0.035).toFixed(3) + 's;--d:' + ((k * 7) % 11 * 0.23).toFixed(2) + 's" transform="translate(' +
-          x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + ang.toFixed(1) + ')"><rect x="-2.6" y="-1" width="5.2" height="5.5" rx="1"/>' +
-          '<path d="M0 4C4.6 4 6.2 9.6 5.8 13C5.4 16.6 3 19 0 19S-5.4 16.6-5.8 13C-6.2 9.6-4.6 4 0 4Z"/></g>';
-        k++;
-      }
-    }
-    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none"><path class="wire" d="' + wire + '"/>' + bulbs + "</svg>";
-  }
-  var lightsTimer;
-  window.addEventListener("resize", function () { clearTimeout(lightsTimer); lightsTimer = setTimeout(buildLights, 150); });
-
-  // Snow, falling decorations and a burst when the lights go on. Drawn on one canvas above the page, never over the QR code.
-  var FX = (function () {
-    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, flakes = [], bits = [], burst = [];
-    var COLORS = ["#ff3b4f", "#3ddc84", "#fdce3b", "#ffffff", "#c8102e"];
-    var PATHS = {};
-    function path(st) { return PATHS[st] || (PATHS[st] = new Path2D(RQ.mod(0, 0, st))); }
-    function setup() {
-      if (cv) return;
-      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
-      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
-      window.addEventListener("resize", size);
-    }
-    function size() {
-      if (!cv) return;
-      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
-      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-      var target = Math.min(150, Math.round(W * H / 8000));
-      while (flakes.length < target) flakes.push(flake(true));
-      flakes.length = target;
-    }
-    function flake(anywhere) {
-      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -8, r: 0.8 + Math.random() * 2.4, vy: 18 + Math.random() * 42,
-        ph: Math.random() * 6.3, sway: 8 + Math.random() * 18, a: 0.45 + Math.random() * 0.5 };
-    }
-    function bit(anywhere) {
-      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -20, s: 9 + Math.random() * 8, vy: 14 + Math.random() * 22,
-        rot: Math.random() * 6.3, vr: (Math.random() - .5) * 1.2, ph: Math.random() * 6.3,
-        shape: RQ.XMAS[Math.floor(Math.random() * 4)], c: COLORS[Math.floor(Math.random() * 3)] };
-    }
-    function pop() {
-      var sw = $("xmas").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
-      for (var i = 0; i < 90; i++) {
-        var a = -Math.PI / 2 + (Math.random() - .5) * 2.4, v = 260 + Math.random() * 520;
-        burst.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, s: 7 + Math.random() * 10, rot: Math.random() * 6.3,
-          vr: (Math.random() - .5) * 9, life: 1.6 + Math.random() * 1.2, age: 0,
-          shape: Math.random() < .3 ? null : RQ.XMAS[Math.floor(Math.random() * 5)], c: COLORS[Math.floor(Math.random() * 5)] });
-      }
-    }
-    function drawShape(o, s) {
-      ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot); ctx.fillStyle = o.c;
-      if (!o.shape) { ctx.fillRect(-s / 2, -s / 5, s, s / 2.5); }
-      else { ctx.scale(s, s); ctx.translate(-.5, -.5); ctx.fill(path(o.shape)); }
-      ctx.restore();
-    }
-    function frame(now) {
-      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
-      ctx.save();
-      var st = $("stage").getBoundingClientRect();
-      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
-      if (on) {
-        ctx.fillStyle = "#ffffff";
-        flakes.forEach(function (p) {
-          p.y += p.vy * dt; p.ph += dt * 1.3;
-          if (p.y > H + 6) { var n = flake(false); for (var k in n) p[k] = n[k]; }
-          ctx.globalAlpha = p.a; ctx.beginPath(); ctx.arc(p.x + Math.sin(p.ph) * p.sway, p.y, p.r, 0, 6.283); ctx.fill();
-        });
-        ctx.globalAlpha = 0.8;
-        bits.forEach(function (b) {
-          b.y += b.vy * dt; b.rot += b.vr * dt; b.ph += dt;
-          if (b.y > H + 20) { var n = bit(false); for (var k in n) b[k] = n[k]; }
-          drawShape({ x: b.x + Math.sin(b.ph) * 14, y: b.y, rot: b.rot, c: b.c, shape: b.shape }, b.s);
-        });
-      }
-      burst = burst.filter(function (b) { return b.age < b.life; });
-      burst.forEach(function (b) {
-        b.age += dt; b.vy += 620 * dt; b.vx *= 0.985; b.x += b.vx * dt; b.y += b.vy * dt; b.rot += b.vr * dt;
-        ctx.globalAlpha = Math.max(0, 1 - b.age / b.life); drawShape(b, b.s);
-      });
-      ctx.restore(); ctx.globalAlpha = 1;
-      if (on || burst.length) raf = requestAnimationFrame(frame);
-      else { ctx.clearRect(0, 0, W, H); raf = 0; }
-    }
-    function toggle(state, withBurst) {
-      on = state;
-      if (reduceMotion) return;
-      setup();
-      if (on && !bits.length) for (var i = 0; i < 9; i++) bits.push(bit(true));
-      if (on && withBurst) pop();
-      if (!raf && (on || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
-    }
-    return { toggle: toggle };
-  })();
-
-  $("xmas").addEventListener("change", function () { setXmas(this.checked, true); });
-
+  
   restore();
-  try {
-    var xs = JSON.parse(localStorage.getItem("round-qr-xmas") || "null");
-    if (xs && xs.on) { xmasPrev = xs.prev || null; xmas = true; document.documentElement.classList.add("xmas"); PRESETS = XMAS_SETS; buildPresets(); }
-  } catch (e) {}
-  var startLang = "da";
+    var startLang = "da";
   try { startLang = localStorage.getItem("round-qr-lang") || "da"; } catch (e) {}
   applyLang(startLang);
-  if (xmas) { $("xmas").checked = true; buildLights(); FX.toggle(true, false); }
-  fillSizes();
+    fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
     setScan(null, "notReady");

@@ -203,7 +203,11 @@ assert END_WRAP in body, 'wrap end'
 DESC = 'Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.'
 
 # ---------- offline single file ----------
-off = body.replace('<style>\n', '<style>\n' + fontface(True) + '\n', 1)
+# Julelys er kun til hjemmesiden. Download-filen får ikke juletilstanden.
+JUL = re.compile(r'(?:<!-- julelys:start -->|/\* julelys:start \*/).*?(?:<!-- julelys:end -->|/\* julelys:end \*/)\n?', re.S)
+off = JUL.sub('', body)
+assert 'julelys:' not in off and 'id="xbar"' not in off and 'setXmas' not in off
+off = off.replace('<style>\n', '<style>\n' + fontface(True) + '\n', 1)
 off = off.replace(END_WRAP, OFFLINE_FOOT + END_WRAP, 1).replace(CDN, libs(True), 1)
 off = add_strings(off, {'footNote': 'Virker uden internet. Ingen cookies og ingen sporing.'}, {'footNote': 'Works offline. No cookies and no tracking.'})
 OFF_DA = 'Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder. Den er gratis, uden abonnement, login og reklamer, og virker også uden internet.'
