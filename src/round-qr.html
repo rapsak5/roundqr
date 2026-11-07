@@ -758,6 +758,84 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
   .bgarland .bf, .bday .bcake .flames path { animation: none; }
 }
 /* foedselsdag:end */
+
+/* skovtur:start */
+/* Skovtur: a walk in a Nordic forest. A line of spruce along the top; panels keep their own light or dark surface. */
+:root { --s-spruce: #1d4b3b; --s-pine: #2f6b3a; --s-bark: #6b4423; }
+:root.skov {
+  --page: #edf2e8; --page-ink: #1f1d18; --page-muted: #55604f;
+  --bg: #f7f8f3; --surface: #ffffff; --stage: #eef1e6; --ink: #1f1d18; --muted: #5f6658; --line: #dde3d3;
+  --accent: #2f6b3a; --accent-strong: #24552d; --accent-ink: #ffffff; --s-tree1: #1d4b3b; --s-tree2: #2f6b3a; --s-tree3: #4f8a4a;
+}
+@media (prefers-color-scheme: dark) {
+  :root.skov:not([data-theme="light"]) {
+    --page: #0e1712; --page-ink: #e9efe6; --page-muted: #a3b3a0;
+    --bg: #111c16; --surface: #15221a; --stage: #1b2b21; --ink: #e9efe6; --muted: #a3b3a0; --line: #26392c;
+    --accent: #6fbf73; --accent-strong: #9bd99e; --accent-ink: #0d1a10; --s-tree1: #1f4a32; --s-tree2: #2c6a40; --s-tree3: #3f8a4f;
+  }
+}
+:root.skov[data-theme="dark"] {
+  --page: #0e1712; --page-ink: #e9efe6; --page-muted: #a3b3a0;
+  --bg: #111c16; --surface: #15221a; --stage: #1b2b21; --ink: #e9efe6; --muted: #a3b3a0; --line: #26392c;
+  --accent: #6fbf73; --accent-strong: #9bd99e; --accent-ink: #0d1a10; --s-tree1: #1f4a32; --s-tree2: #2c6a40; --s-tree3: #3f8a4f;
+}
+:root.skov body {
+  background:
+    radial-gradient(circle at 20% 30%, rgb(107 68 35 / 0.10) 0 2.5px, transparent 3.5px) 0 0 / 130px 130px,
+    radial-gradient(circle at 70% 60%, rgb(47 107 58 / 0.12) 0 3px, transparent 4px) 0 0 / 110px 110px,
+    linear-gradient(180deg, color-mix(in srgb, var(--s-tree3) 18%, var(--page)) 0, var(--page) 420px);
+  background-color: var(--page);
+  color: var(--page-ink); padding-top: 74px;
+}
+.skov .preview, .skov .controls, .skov .xbar, .skov .sp-list, .skov .download { color: var(--ink); }
+.skov header p, .skov .sp-intro p, .skov .foot { color: var(--page-muted); }
+.skov header .about .sig { color: var(--page-ink); }
+/* The O in Round becomes a slice of a tree trunk with year rings. */
+.skov h1 .o { border-color: var(--s-bark);
+  background: repeating-radial-gradient(circle at 46% 54%, #8a5a2b 0 0.035em, #e2bd86 0.035em 0.085em); }
+.skov .stage {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, #2f6b3a 26%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in srgb, #8a5a2b 24%, transparent) 1.2px, transparent 1.6px);
+  background-size: 22px 22px; background-position: 0 0, 11px 11px;
+}
+:root:not(.skov) .skov-only { display: none !important; }
+.skov .plain-only { display: none !important; }
+.sgarland .t1 { fill: var(--s-tree1, #1d4b3b); } .sgarland .t2 { fill: var(--s-tree2, #2f6b3a); } .sgarland .t3 { fill: var(--s-tree3, #4f8a4a); }
+.sgarland .trunk { fill: var(--s-bark); }
+.sgarland .st { animation: bulbOn .4s var(--i) both, sway 5s var(--d) infinite ease-in-out; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes sway { 0%, 100% { transform: rotate(-1.6deg); } 50% { transform: rotate(1.6deg); } }
+.sswitch .knob svg { width: 17px; height: 17px; }
+.sswitch .knob .gr { fill: var(--muted); opacity: 0.45; transition: fill .2s, opacity .2s; }
+.sswitch .knob .tr { fill: var(--muted); opacity: 0.6; }
+.sswitch input:checked + .track { background: repeating-linear-gradient(135deg, #2f6b3a 0 7px, #4f8a4a 7px 14px); }
+.sswitch input:checked + .track .gr { fill: #2f6b3a; opacity: 1; }
+.sswitch input:checked + .track .tr { fill: #6b4423; opacity: 1; }
+.sdecor { display: flex; align-items: flex-end; gap: 2px; height: 58px; flex: none; filter: grayscale(1); opacity: 0.45; transition: filter .3s, opacity .3s; }
+.sowl { width: 56px; height: 58px; overflow: visible; }
+.sowl .branch { fill: none; stroke: #6b4423; stroke-width: 4; stroke-linecap: round; }
+.sowl .leaf { fill: #4f8a4a; }
+.sowl .body { fill: #8a6a48; }
+.sowl .belly { fill: #d9c4a2; }
+.sowl .disc { fill: #e8dcc4; }
+.sowl .beak { fill: #e0a800; }
+.sowl .feet { fill: #e0a800; }
+.sowl .shut { fill: none; stroke: #3a2414; stroke-width: 1.6; stroke-linecap: round; transition: opacity .2s; }
+.sowl .open { opacity: 0; transition: opacity .2s; transform-box: fill-box; transform-origin: 50% 50%; }
+.sowl .iris { fill: #f2b01e; } .sowl .pupil { fill: #1f1d18; }
+.sspruce { width: 26px; height: 50px; }
+.sspruce .t2 { fill: #2f6b3a; } .sspruce .trunk { fill: #6b4423; }
+.skov .sdecor { filter: none; opacity: 1; }
+.skov .sowl .shut { opacity: 0; }
+.skov .sowl .open { opacity: 1; animation: blink 4.5s 1s infinite; }
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+.skov .sowl .head { animation: tilt 6s 1.5s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 90%; }
+@keyframes tilt { 0%, 60%, 100% { transform: rotate(0); } 70%, 82% { transform: rotate(-12deg); } }
+@media (max-width: 480px) { .sdecor { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .sgarland .st, .skov .sowl .open, .skov .sowl .head { animation: none; }
+}
+/* skovtur:end */
 </style>
 
 <!-- julelys:start -->
@@ -826,6 +904,10 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 <!-- foedselsdag:start -->
 <div class="garland bgarland" id="bgarland" aria-hidden="true"></div>
 <!-- foedselsdag:end -->
+
+<!-- skovtur:start -->
+<div class="garland sgarland" id="sgarland" aria-hidden="true"></div>
+<!-- skovtur:end -->
 
 <div class="wrap">
   <header>
@@ -958,6 +1040,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="shape" id="shape-bpresent" value="bpresent"><span><svg data-oshape="bpresent"></svg><b data-t="bPresent">Gave</b></span></label>
           </div>
           <!-- foedselsdag:end -->
+          <!-- skovtur:start -->
+          <div class="xgrid skov-only" id="sshapes" role="radiogroup" data-t-aria="form" aria-label="Form">
+            <label><input type="radio" name="shape" id="shape-elg" value="elg"><span><svg data-oshape="elg"></svg><b data-t="fElg">Elg</b></span></label>
+            <label><input type="radio" name="shape" id="shape-ulv" value="ulv"><span><svg data-oshape="ulv"></svg><b data-t="fUlv">Ulv</b></span></label>
+            <label><input type="radio" name="shape" id="shape-raev" value="raev"><span><svg data-oshape="raev"></svg><b data-t="fRaev">Ræv</b></span></label>
+            <label><input type="radio" name="shape" id="shape-bjorn" value="bjorn"><span><svg data-oshape="bjorn"></svg><b data-t="fBjorn">Bjørn</b></span></label>
+            <label><input type="radio" name="shape" id="shape-ugle" value="ugle"><span><svg data-oshape="ugle"></svg><b data-t="fUgle">Ugle</b></span></label>
+            <label><input type="radio" name="shape" id="shape-orn" value="orn"><span><svg data-oshape="orn"></svg><b data-t="fOrn">Ørn</b></span></label>
+          </div>
+          <!-- skovtur:end -->
           <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
@@ -1040,6 +1132,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="dot" id="dot-hurra" value="hurra"><span><svg viewBox="0 0 1 1" data-shape="hurra"></svg><b data-t="hurra">Blandet</b></span></label>
           </div>
           <!-- foedselsdag:end -->
+          <!-- skovtur:start -->
+          <div class="xgrid skov-only" id="sgrid" role="radiogroup" data-t-aria="modules" aria-label="Moduler">
+            <label><input type="radio" name="dot" id="dot-elge" value="elge"><span><svg viewBox="0 0 1 1" data-shape="elge"></svg><b data-t="elge">Elge</b></span></label>
+            <label><input type="radio" name="dot" id="dot-ulve" value="ulve"><span><svg viewBox="0 0 1 1" data-shape="ulve"></svg><b data-t="ulve">Ulve</b></span></label>
+            <label><input type="radio" name="dot" id="dot-raeve" value="raeve"><span><svg viewBox="0 0 1 1" data-shape="raeve"></svg><b data-t="raeve">Ræve</b></span></label>
+            <label><input type="radio" name="dot" id="dot-ugler" value="ugler"><span><svg viewBox="0 0 1 1" data-shape="ugler"></svg><b data-t="ugler">Ugler</b></span></label>
+            <label><input type="radio" name="dot" id="dot-bjorne" value="bjorne"><span><svg viewBox="0 0 1 1" data-shape="bjorne"></svg><b data-t="bjorne">Bjørne</b></span></label>
+            <label><input type="radio" name="dot" id="dot-skovmix" value="skovmix"><span><svg viewBox="0 0 1 1" data-shape="skovmix"></svg><b data-t="skovmix">Blandet</b></span></label>
+          </div>
+          <!-- skovtur:end -->
           <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
@@ -1256,6 +1358,29 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
   </section>
   <!-- foedselsdag:end -->
+  <!-- skovtur:start -->
+  <section class="xbar sbar" id="sbar" data-t-aria="skovAria" aria-label="Skovtur">
+    <label class="xbar-main" for="skov">
+      <span class="xswitch sswitch"><input type="checkbox" id="skov" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="tr" d="M7 12.6h2V15.4H7z"/><path class="gr" d="M8 .6l2.6 3.4H9.4l3 3.6h-1.6l3.4 4.4H1.8l3.4-4.4H3.6l3-3.6H5.4z"/></svg></span></span></span>
+      <span class="xtext"><span class="xtitle" data-t="skovLabel">Gå en tur i skoven</span><span class="hint" data-t="skovHint">Elge, ulve, ræve, ugler og bjørne i stedet for prikker. Og dyr, der går forbi nede i bunden.</span></span>
+    </label>
+    <div class="sdecor" aria-hidden="true">
+      <svg class="sspruce" viewBox="0 0 26 50"><path class="trunk" d="M11 42h4v8h-4z"/><path class="t2" d="M13 0l7 10h-3l7 11h-4l6 11h-4l5 10H0l5-10H1l6-11H3l7-11H6z"/></svg>
+      <svg class="sowl" viewBox="0 0 56 60">
+        <path class="branch" d="M2 52c14-2 32-1 52-5"/><path class="leaf" d="M44 48c4-6 9-6 11-4-3 4-7 5-11 4z"/>
+        <g class="head">
+          <path class="body" d="M14 14l4 6c3-2 7-3 10-3s7 1 10 3l4-6v14c3 4 4 9 3 14-1 7-7 11-17 11S12 49 11 42c-1-5 0-10 3-14z"/>
+          <path class="belly" d="M28 30c6 0 10 5 10 11s-4 9-10 9-10-3-10-9 4-11 10-11z"/>
+          <circle class="disc" cx="21.5" cy="25" r="6.5"/><circle class="disc" cx="34.5" cy="25" r="6.5"/>
+          <path class="shut" d="M17.5 25.5q4 2.6 8 0M30.5 25.5q4 2.6 8 0"/>
+          <g class="open"><circle class="iris" cx="21.5" cy="25" r="4"/><circle class="iris" cx="34.5" cy="25" r="4"/><circle class="pupil" cx="21.5" cy="25" r="2"/><circle class="pupil" cx="34.5" cy="25" r="2"/></g>
+          <path class="beak" d="M26 29h4l-2 4z"/>
+        </g>
+        <path class="feet" d="M22 51h3v3h-3zM31 51h3v3h-3z"/>
+      </svg>
+    </div>
+  </section>
+  <!-- skovtur:end -->
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
@@ -1355,6 +1480,16 @@ var RQ = (function () {
     "C", .78, .98, .66, 1, .62, .94, "L", .5, .7, "L", .38, .94, "C", .34, 1, .22, .98, .24, .9, "L", .32, .5, "L", .1, .52, "C", .03, .52, .03, .42, .1, .4, "L", .37, .33,
     "C", .33, .3, .3, .26, .3, .2, "C", .3, .1, .38, .02, .5, .02, "Z"];
   var HURRA = ["flags", "cakes", "bgifts", "balloons", "cakemen"];
+  // Skovtur: Nordic animals seen from the front. Every head covers the middle of the cell.
+  var ELG = ["M", .5, .3, "L", .6, .3, "L", .65, .22, "L", .69, .08, "L", .75, .19, "L", .81, .05, "L", .86, .18, "L", .94, .08, "L", .98, .27, "L", .9, .35,
+    "L", .7, .37, "L", .67, .42, "L", .84, .45, "L", .67, .52, "L", .65, .74, "C", .65, .9, .59, .97, .5, .97, "C", .41, .97, .35, .9, .35, .74, "L", .33, .52,
+    "L", .16, .45, "L", .33, .42, "L", .3, .37, "L", .1, .35, "L", .02, .27, "L", .06, .08, "L", .14, .18, "L", .19, .05, "L", .25, .19, "L", .31, .08, "L", .35, .22, "L", .4, .3, "Z"];
+  var ULV = ["M", .5, .28, "L", .63, .26, "L", .79, .03, "L", .85, .35, "C", .92, .44, .97, .55, .91, .62, "L", .78, .66, "L", .62, .87, "C", .58, .95, .42, .95, .38, .87,
+    "L", .22, .66, "L", .09, .62, "C", .03, .55, .08, .44, .15, .35, "L", .21, .03, "L", .37, .26, "Z"];
+  var RAEV = ["M", .5, .33, "L", .66, .29, "L", .87, .02, "L", .9, .35, "L", .99, .5, "L", .77, .62, "L", .5, .97, "L", .23, .62, "L", .01, .5, "L", .1, .35, "L", .13, .02, "L", .34, .29, "Z"];
+  var UGLE = ["M", .5, .19, "L", .69, .14, "L", .84, .02, "L", .85, .26, "C", .94, .4, .93, .7, .82, .84, "C", .74, .94, .62, .98, .5, .98,
+    "C", .38, .98, .26, .94, .18, .84, "C", .07, .7, .06, .4, .15, .26, "L", .16, .02, "L", .31, .14, "Z"];
+  var SKOV = ["elge", "ulve", "raeve", "ugler", "bjorne"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -1392,6 +1527,12 @@ var RQ = (function () {
     if (style === "bgifts") return sh(x, y, GIFT);
     if (style === "balloons") return sh(x, y, BALLOON);
     if (style === "cakemen") return sh(x, y, CAKEMAN);
+    if (style === "elge") return sh(x, y, ELG);
+    if (style === "ulve") return sh(x, y, ULV);
+    if (style === "raeve") return sh(x, y, RAEV);
+    // The owl's eyes are small holes up high, so the middle of the cell stays dark.
+    if (style === "ugler") return sh(x, y, UGLE) + hole(x, y, .35, .37, .07, .07) + hole(x, y, .65, .37, .07, .07);
+    if (style === "bjorne") return circ(x + .5, y + .57, .4) + circ(x + .19, y + .22, .14) + circ(x + .81, y + .22, .14);
     return null;
   }
 
@@ -1406,6 +1547,7 @@ var RQ = (function () {
     if (style === "pirates") style = PIRATE[cellPick(x, y, 5)];
     if (style === "wiesn") style = WIESN[cellPick(x, y, 5)];
     if (style === "hurra") style = HURRA[cellPick(x, y, 5)];
+    if (style === "skovmix") style = SKOV[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -1591,6 +1733,41 @@ var RQ = (function () {
     skip: function (X, Y, qx, qy, U, V) { return V > 0.6 && V < 0.63; } };
   SHAPES.bpresent = SHAPES.gift;
   var BSHAPES = ["dkflag", "cake", "cakeman", "balloon", "crown", "bpresent"];
+  // Skovtur: big round heads hold the code, antlers, ears, wings and tails are filled with pattern.
+  function mirror(p) { return p.map(function (q) { return [1 - q[0], q[1]]; }).reverse(); }
+  var ELG_PALM = [[0.64, 0.46], [0.68, 0.3], [0.76, 0.22], [0.75, 0.07], [0.8, 0.15], [0.84, 0.03], [0.87, 0.15], [0.92, 0.05], [0.94, 0.18], [0.99, 0.13], [1, 0.28], [0.94, 0.37], [0.8, 0.43]];
+  var ELG_EAR = [[0.72, 0.54], [0.98, 0.5], [0.92, 0.58], [0.76, 0.65]];
+  SHAPES.elg = { anchor: [0.5, 0.6], prims: [{ circle: [0.5, 0.6, 0.31] }, { poly: [[0.3, 0.64], [0.7, 0.64], [0.65, 0.98], [0.58, 1.06], [0.42, 1.06], [0.35, 0.98]] },
+    { poly: ELG_PALM }, { poly: mirror(ELG_PALM) }, { poly: ELG_EAR }, { poly: mirror(ELG_EAR) }],
+    // Nostrils at the end of the long muzzle.
+    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.44, V - 0.98) < 0.025 || Math.hypot(U - 0.56, V - 0.98) < 0.025; } };
+  var ULV_EAR = [[0.62, 0.24], [0.8, -0.05], [0.88, 0.36]];
+  var ULV_RUFF = [[0.8, 0.46], [0.98, 0.62], [0.82, 0.68], [0.86, 0.8], [0.68, 0.82]];
+  SHAPES.ulv = { anchor: [0.5, 0.54], prims: [{ circle: [0.5, 0.54, 0.36] }, { poly: ULV_EAR }, { poly: mirror(ULV_EAR) }, { poly: ULV_RUFF }, { poly: mirror(ULV_RUFF) },
+    { poly: [[0.34, 0.74], [0.66, 0.74], [0.58, 1.03], [0.42, 1.03]] }],
+    // A line inside each ear.
+    skip: function (X, Y, qx, qy, U, V) { var d = sdPoly([[0.68, 0.26], [0.83, 0.08], [0.85, 0.32]], Math.max(U, 1 - U), V); return d < 0 && d > -0.02; } };
+  var RAEV_EAR = [[0.64, 0.3], [0.88, 0], [0.92, 0.42]];
+  var RAEV_TUFT = [[0.84, 0.44], [1, 0.56], [0.74, 0.7]];
+  SHAPES.raev = { anchor: [0.5, 0.5], prims: [{ circle: [0.5, 0.5, 0.3] }, { poly: RAEV_EAR }, { poly: mirror(RAEV_EAR) }, { poly: RAEV_TUFT }, { poly: mirror(RAEV_TUFT) },
+    { poly: [[0.24, 0.62], [0.76, 0.62], [0.5, 1.02]] }],
+    // The pale inside of the ears.
+    skip: function (X, Y, qx, qy, U, V) { return sdPoly([[0.72, 0.3], [0.86, 0.12], [0.88, 0.36]], Math.max(U, 1 - U), V) < 0; } };
+  SHAPES.bjorn = { anchor: [0.5, 0.58], prims: [{ circle: [0.5, 0.58, 0.4] }, { circle: [0.18, 0.22, 0.14] }, { circle: [0.82, 0.22, 0.14] }],
+    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.18, V - 0.22) < 0.065 || Math.hypot(U - 0.82, V - 0.22) < 0.065; } };
+  var UGLE_TUFT = [[0.66, 0.2], [0.84, 0.02], [0.86, 0.3]];
+  SHAPES.ugle = { anchor: [0.5, 0.7], prims: [{ poly: ellPts(0.5, 0.56, 0.4, 0.46, 0, 44) }, { poly: UGLE_TUFT }, { poly: mirror(UGLE_TUFT) },
+    { poly: [[0.36, 0.98], [0.44, 0.98], [0.42, 1.06], [0.34, 1.06]] }, { poly: [[0.56, 0.98], [0.64, 0.98], [0.66, 1.06], [0.58, 1.06]] }],
+    // Two big eyes above the code, and wings folded along the sides.
+    skip: function (X, Y, qx, qy, U, V) { var e = Math.min(Math.hypot(U - 0.34, V - 0.25), Math.hypot(U - 0.66, V - 0.25));
+      return (e > 0.05 && e < 0.105) || (V > 0.27 && V < 0.36 && Math.abs(U - 0.5) < (0.36 - V) * 0.6) || (Math.abs(U - 0.5) > 0.3 && V > 0.5 && Math.abs(Math.hypot((U - 0.5) / 0.4, (V - 0.56) / 0.46) - 0.84) < 0.025); } };
+  var ORN_WING = [[0.6, 0.42], [0.72, 0.3], [0.86, 0.14], [1, 0.02], [0.99, 0.14], [0.95, 0.19], [0.99, 0.24], [0.94, 0.3], [0.97, 0.36], [0.9, 0.41], [0.92, 0.47], [0.82, 0.52], [0.7, 0.6]];
+  SHAPES.orn = { anchor: [0.5, 0.52], prims: [{ circle: [0.5, 0.52, 0.22] }, { circle: [0.5, 0.24, 0.085] }, { poly: [[0.54, 0.2], [0.64, 0.24], [0.6, 0.3], [0.54, 0.28]] },
+    { poly: ORN_WING }, { poly: mirror(ORN_WING) }, { poly: [[0.4, 0.68], [0.6, 0.68], [0.7, 0.96], [0.3, 0.96]] },
+    { poly: [[0.38, 0.7], [0.44, 0.7], [0.4, 0.82], [0.32, 0.82]] }, { poly: [[0.56, 0.7], [0.62, 0.7], [0.68, 0.82], [0.6, 0.82]] }],
+    // Feather lines in the tail.
+    skip: function (X, Y, qx, qy, U, V) { return V > 0.8 && V < 0.96 && Math.abs(U - 0.5) > 0.04 && Math.abs(((U - 0.5) * 12.5) % 1) < 0.18; } };
+  var SSHAPES = ["elg", "ulv", "raev", "bjorn", "ugle", "orn"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -1807,7 +1984,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES, WIESN: WIESN, OSHAPES: OSHAPES, HURRA: HURRA, BSHAPES: BSHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES, WIESN: WIESN, OSHAPES: OSHAPES, HURRA: HURRA, BSHAPES: BSHAPES, SKOV: SKOV, SSHAPES: SSHAPES };
 })();
 </script>
 
@@ -3465,9 +3642,204 @@ var RQ = (function () {
   };
   Object.keys(TB).forEach(function (l) { for (var k in TB[l]) T[l][k] = TB[l][k]; });
   /* foedselsdag:end */
-  var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false, okt = false, bday = false;
+  /* skovtur:start */
+  var TS = {
+   "da": {
+    "presetsSkov": [
+     "Granskov",
+     "Mos",
+     "Elg",
+     "Ulv",
+     "Ræv",
+     "Birk",
+     "Skovsø",
+     "Nordlys"
+    ],
+    "skovAria": "Skovtur",
+    "skovLabel": "Gå en tur i skoven",
+    "skovLabelSkov": "Velkommen i skoven",
+    "skovHint": "Elge, ulve, ræve, ugler og bjørne i stedet for prikker. Og dyr, der går forbi nede i bunden.",
+    "subtitleSkov": "Skovudgaven. Indsæt et link, pynt koden, og gem den som PNG, JPG eller SVG.",
+    "elge": "Elge",
+    "ulve": "Ulve",
+    "raeve": "Ræve",
+    "ugler": "Ugler",
+    "bjorne": "Bjørne",
+    "skovmix": "Blandet",
+    "defaultLabelSkov": "Ud i skoven",
+    "skovCheer": "Auuuuuu!",
+    "fElg": "Elg",
+    "fUlv": "Ulv",
+    "fRaev": "Ræv",
+    "fBjorn": "Bjørn",
+    "fUgle": "Ugle",
+    "fOrn": "Ørn",
+    "exEyesSkov": "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner ugleøjne.",
+    "fillSkov": "Fyld formen med mønster",
+    "exFillSkov": "Pyntprikker uden data, der fylder dyret ud omkring koden.",
+    "exRingSkov": "En tynd pyntering langs kanten af formen.",
+    "exFormSkov": "Cirkel og Firkant er de klassiske. Skovformerne lægger koden i midten og fylder resten af dyret med mønster.",
+    "exModulesSkov": "Dyrene dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
+    "skovHintSkov": "Slå det fra igen, så får du den almindelige Round QR og dine egne farver tilbage."
+   },
+   "en": {
+    "presetsSkov": [
+     "Spruce forest",
+     "Moss",
+     "Elk",
+     "Wolf",
+     "Fox",
+     "Birch",
+     "Forest lake",
+     "Northern lights"
+    ],
+    "skovAria": "Forest walk",
+    "skovLabel": "Take a walk in the woods",
+    "skovLabelSkov": "Welcome to the woods",
+    "skovHint": "Elk, wolves, foxes, owls and bears instead of dots. And animals strolling past along the bottom.",
+    "subtitleSkov": "The forest edition. Paste a link, decorate the code, save it as PNG, JPG or SVG.",
+    "elge": "Elk",
+    "ulve": "Wolves",
+    "raeve": "Foxes",
+    "ugler": "Owls",
+    "bjorne": "Bears",
+    "skovmix": "Mixed",
+    "defaultLabelSkov": "Into the woods",
+    "skovCheer": "Awoooooo!",
+    "fElg": "Elk",
+    "fUlv": "Wolf",
+    "fRaev": "Fox",
+    "fBjorn": "Bear",
+    "fUgle": "Owl",
+    "fOrn": "Eagle",
+    "exEyesSkov": "The three big squares the phone uses to find the code. Circle looks like owl eyes.",
+    "fillSkov": "Fill the shape with pattern",
+    "exFillSkov": "Decorative dots with no data that fill out the animal around the code.",
+    "exRingSkov": "A thin decorative ring along the edge of the shape.",
+    "exFormSkov": "Circle and Square are the classics. The forest shapes put the code in the middle and fill the rest of the animal with pattern.",
+    "exModulesSkov": "The animals cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
+    "skovHintSkov": "Turn it off again to get the regular Round QR and your own colours back."
+   },
+   "de": {
+    "presetsSkov": [
+     "Fichtenwald",
+     "Moos",
+     "Elch",
+     "Wolf",
+     "Fuchs",
+     "Birke",
+     "Waldsee",
+     "Nordlicht"
+    ],
+    "skovAria": "Waldspaziergang",
+    "skovLabel": "Mach einen Waldspaziergang",
+    "skovLabelSkov": "Willkommen im Wald",
+    "skovHint": "Elche, Wölfe, Füchse, Eulen und Bären statt Punkten. Und Tiere, die unten vorbeiziehen.",
+    "subtitleSkov": "Die Waldausgabe. Link einfügen, Code schmücken und als PNG, JPG oder SVG speichern.",
+    "elge": "Elche",
+    "ulve": "Wölfe",
+    "raeve": "Füchse",
+    "ugler": "Eulen",
+    "bjorne": "Bären",
+    "skovmix": "Gemischt",
+    "defaultLabelSkov": "Ab in den Wald",
+    "skovCheer": "Auuuuuu!",
+    "fElg": "Elch",
+    "fUlv": "Wolf",
+    "fRaev": "Fuchs",
+    "fBjorn": "Bär",
+    "fUgle": "Eule",
+    "fOrn": "Adler",
+    "exEyesSkov": "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie Eulenaugen.",
+    "fillSkov": "Form mit Muster füllen",
+    "exFillSkov": "Zierpunkte ohne Daten, die das Tier rund um den Code ausfüllen.",
+    "exRingSkov": "Ein dünner Zierring entlang der Kante der Form.",
+    "exFormSkov": "Kreis und Quadrat sind die Klassiker. Die Waldformen setzen den Code in die Mitte und füllen den Rest des Tiers mit Muster.",
+    "exModulesSkov": "Die Tiere decken die Mitte jedes Feldes ab, wo das Handy hinschaut. Behalte das Etikett unter dem Code im Blick.",
+    "skovHintSkov": "Schalte es wieder aus, dann bekommst du das normale Round QR und deine eigenen Farben zurück."
+   },
+   "no": {
+    "presetsSkov": [
+     "Granskog",
+     "Mose",
+     "Elg",
+     "Ulv",
+     "Rev",
+     "Bjørk",
+     "Skogstjern",
+     "Nordlys"
+    ],
+    "skovAria": "Skogstur",
+    "skovLabel": "Gå en tur i skogen",
+    "skovLabelSkov": "Velkommen til skogen",
+    "skovHint": "Elger, ulver, rever, ugler og bjørner i stedet for prikker. Og dyr som rusler forbi nederst.",
+    "subtitleSkov": "Skogsutgaven. Lim inn en lenke, pynt koden, og lagre den som PNG, JPG eller SVG.",
+    "elge": "Elger",
+    "ulve": "Ulver",
+    "raeve": "Rever",
+    "ugler": "Ugler",
+    "bjorne": "Bjørner",
+    "skovmix": "Blandet",
+    "defaultLabelSkov": "Ut i skogen",
+    "skovCheer": "Auuuuuu!",
+    "fElg": "Elg",
+    "fUlv": "Ulv",
+    "fRaev": "Rev",
+    "fBjorn": "Bjørn",
+    "fUgle": "Ugle",
+    "fOrn": "Ørn",
+    "exEyesSkov": "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner ugleøyne.",
+    "fillSkov": "Fyll formen med mønster",
+    "exFillSkov": "Pynteprikker uten data som fyller ut dyret rundt koden.",
+    "exRingSkov": "En tynn pyntering langs kanten av formen.",
+    "exFormSkov": "Sirkel og Firkant er de klassiske. Skogsformene legger koden i midten og fyller resten av dyret med mønster.",
+    "exModulesSkov": "Dyrene dekker midten av hvert felt, der telefonen ser. Følg med på merket under koden.",
+    "skovHintSkov": "Slå det av igjen, så får du vanlig Round QR og dine egne farger tilbake."
+   },
+   "sv": {
+    "presetsSkov": [
+     "Granskog",
+     "Mossa",
+     "Älg",
+     "Varg",
+     "Räv",
+     "Björk",
+     "Skogssjö",
+     "Norrsken"
+    ],
+    "skovAria": "Skogspromenad",
+    "skovLabel": "Ta en promenad i skogen",
+    "skovLabelSkov": "Välkommen till skogen",
+    "skovHint": "Älgar, vargar, rävar, ugglor och björnar i stället för prickar. Och djur som strövar förbi längst ner.",
+    "subtitleSkov": "Skogsutgåvan. Klistra in en länk, pynta koden och spara den som PNG, JPG eller SVG.",
+    "elge": "Älgar",
+    "ulve": "Vargar",
+    "raeve": "Rävar",
+    "ugler": "Ugglor",
+    "bjorne": "Björnar",
+    "skovmix": "Blandat",
+    "defaultLabelSkov": "Ut i skogen",
+    "skovCheer": "Auuuuuu!",
+    "fElg": "Älg",
+    "fUlv": "Varg",
+    "fRaev": "Räv",
+    "fBjorn": "Björn",
+    "fUgle": "Uggla",
+    "fOrn": "Örn",
+    "exEyesSkov": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som ugglögon.",
+    "fillSkov": "Fyll formen med mönster",
+    "exFillSkov": "Dekorprickar utan data som fyller ut djuret runt koden.",
+    "exRingSkov": "En tunn dekorring längs kanten av formen.",
+    "exFormSkov": "Cirkel och Fyrkant är de klassiska. Skogsformerna lägger koden i mitten och fyller resten av djuret med mönster.",
+    "exModulesSkov": "Djuren täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
+    "skovHintSkov": "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka."
+   }
+  };
+  Object.keys(TS).forEach(function (l) { for (var k in TS[l]) T[l][k] = TS[l][k]; });
+  /* skovtur:end */
+  var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false, okt = false, bday = false, skov = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : okt ? "Okt" : bday ? "Bday" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : okt ? "Okt" : bday ? "Bday" : skov ? "Skov" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -3536,7 +3908,7 @@ var RQ = (function () {
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v || T[k].defaultLabelSkov === v; }); }
 
   function opts() {
     return {
@@ -3878,6 +4250,7 @@ var RQ = (function () {
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
+    if (on && skov && typeof setSkov === "function") setSkov(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!xmasPrev;
     if (on && byUser) xmasPrev = snapshot();
     xmas = on;
@@ -4050,6 +4423,7 @@ var RQ = (function () {
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
+    if (on && skov && typeof setSkov === "function") setSkov(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!hallPrev;
     if (on && byUser) hallPrev = snapshot();
     hall = on;
@@ -4276,6 +4650,7 @@ var RQ = (function () {
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
+    if (on && skov && typeof setSkov === "function") setSkov(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!easterPrev;
     if (on && byUser) easterPrev = snapshot();
     easter = on;
@@ -4524,6 +4899,7 @@ var RQ = (function () {
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
+    if (on && skov && typeof setSkov === "function") setSkov(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!nytPrev;
     if (on && byUser) nytPrev = snapshot();
     nyt = on;
@@ -4751,6 +5127,7 @@ var RQ = (function () {
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
+    if (on && skov && typeof setSkov === "function") setSkov(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!piratPrev;
     if (on && byUser) piratPrev = snapshot();
     pirat = on;
@@ -5008,6 +5385,7 @@ var RQ = (function () {
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
+    if (on && skov && typeof setSkov === "function") setSkov(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!oktPrev;
     if (on && byUser) oktPrev = snapshot();
     okt = on;
@@ -5174,7 +5552,16 @@ var RQ = (function () {
   // ---------- Fødselsdag ----------
   // A Danish birthday: Dannebrog everywhere, layer cake, cake man and three cheers. Reuses snapshot() and applySnap().
   var reduceMotionB = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function cellAtB(d, k, dx, dy) { return d.replace(/-?[\d.]+ -?[\d.]+/g, function (m) { var p = m.split(" "); return (+p[0] * k + dx) + " " + (+p[1] * k + dy); }); }
+  // Scales a cell path into a corner of the icon. Arc flags and relative steps are scaled the right way.
+  function cellAtB(d, k, dx, dy) {
+    return d.replace(/([MLCQZmlhvacq])([^MLCQZmlhvacq]*)/g, function (_, c, args) {
+      var n = args.trim() ? args.trim().split(/[\s,]+/).map(Number) : [], i;
+      if (c === "a") { for (i = 0; i + 6 < n.length; i += 7) { n[i] *= k; n[i + 1] *= k; n[i + 5] *= k; n[i + 6] *= k; } }
+      else if (c === c.toLowerCase()) n = n.map(function (v) { return v * k; });
+      else for (i = 0; i + 1 < n.length; i += 2) { n[i] = n[i] * k + dx; n[i + 1] = n[i + 1] * k + dy; }
+      return c + n.map(function (v) { return +v.toFixed(4); }).join(" ");
+    });
+  }
   document.querySelectorAll("#bgrid svg[data-shape]").forEach(function (svg) {
     var st = svg.getAttribute("data-shape");
     var d = st === "hurra" ? cellAtB(RQ.mod(0, 0, "flags"), .5, 0, 0) + cellAtB(RQ.mod(0, 0, "cakes"), .5, .5, 0) +
@@ -5207,6 +5594,7 @@ var RQ = (function () {
     if (on && nyt && typeof setNyt === "function") setNyt(false, true);
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    if (on && skov && typeof setSkov === "function") setSkov(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!bdayPrev;
     if (on && byUser) bdayPrev = snapshot();
     bday = on;
@@ -5393,6 +5781,235 @@ var RQ = (function () {
   $("bday").addEventListener("change", function () { setBday(this.checked, true); });
   /* foedselsdag:end */
 
+  /* skovtur:start */
+  // ---------- Skovtur ----------
+  // A walk in a Nordic forest: elk, wolves, foxes, owls and bears. Reuses snapshot() and applySnap().
+  var reduceMotionS = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function cellAtS(d, k, dx, dy) {
+    return d.replace(/([MLCQZmlhvacq])([^MLCQZmlhvacq]*)/g, function (_, c, args) {
+      var n = args.trim() ? args.trim().split(/[\s,]+/).map(Number) : [], i;
+      if (c === "a") { for (i = 0; i + 6 < n.length; i += 7) { n[i] *= k; n[i + 1] *= k; n[i + 5] *= k; n[i + 6] *= k; } }
+      else if (c === c.toLowerCase()) n = n.map(function (v) { return v * k; });
+      else for (i = 0; i + 1 < n.length; i += 2) { n[i] = n[i] * k + dx; n[i + 1] = n[i + 1] * k + dy; }
+      return c + n.map(function (v) { return +v.toFixed(4); }).join(" ");
+    });
+  }
+  document.querySelectorAll("#sgrid svg[data-shape]").forEach(function (svg) {
+    var st = svg.getAttribute("data-shape");
+    var d = st === "skovmix" ? cellAtS(RQ.mod(0, 0, "elge"), .5, 0, 0) + cellAtS(RQ.mod(0, 0, "ulve"), .5, .5, 0) +
+      cellAtS(RQ.mod(0, 0, "ugler"), .5, 0, .5) + cellAtS(RQ.mod(0, 0, "bjorne"), .5, .5, .5) : RQ.mod(0, 0, st);
+    svg.innerHTML = '<path d="' + d + '"/>';
+  });
+  document.querySelectorAll("#sshapes svg[data-oshape]").forEach(function (svg) {
+    var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
+    svg.setAttribute("viewBox", ic.vb);
+    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+  });
+
+  var SKOV_SETS = [
+    { fg: "#1d4b3b", eyec: "#1d4b3b", bg: "#ffffff" },
+    { fg: "#3d6b2a", eyec: "#1d4b3b", bg: "#f7f8ef" },
+    { fg: "#5a3a22", eyec: "#2b190e", bg: "#fbf6ee" },
+    { fg: "#3d434a", eyec: "#1f2328", bg: "#ffffff" },
+    { fg: "#a8421a", eyec: "#3a2414", bg: "#fffaf3" },
+    { fg: "#2f3a2f", fg2: "#5c7a1f", grad: "vertical", eyec: "#1f1d18", bg: "#fbfaf3" },
+    { fg: "#1f5c6a", fg2: "#1d4b3b", grad: "radial", eyec: "#12343c", bg: "#ffffff" },
+    { fg: "#1d4b3b", fg2: "#3b2a7a", grad: "diagonal", eyec: "#1d4b3b", bg: "#ffffff" }
+  ];
+  var skovPrev = null;
+  function saveSkov() { try { localStorage.setItem("round-qr-skov", JSON.stringify({ on: skov, prev: skovPrev })); } catch (e) {} }
+
+  function setSkov(on, byUser) {
+    if (on && xmas && typeof setXmas === "function") setXmas(false, true);
+    if (on && hall && typeof setHall === "function") setHall(false, true);
+    if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    if (on && pirat && typeof setPirat === "function") setPirat(false, true);
+    if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    if (on && bday && typeof setBday === "function") setBday(false, true);
+    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!skovPrev;
+    if (on && byUser) skovPrev = snapshot();
+    skov = on;
+    document.documentElement.classList.toggle("skov", on);
+    $("skov").checked = on;
+    PRESETS = on ? SKOV_SETS : PLAIN;
+    buildPresets();
+    if (on && byUser) {
+      setRadio("shape", "elg"); setRadio("dot", "skovmix"); setRadio("eye", "circle");
+      var p = SKOV_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
+      $("label").checked = true; $("labelText").value = T[lang].defaultLabelSkov;
+    } else if (!on) {
+      if (skovPrev) applySnap(skovPrev);
+      if (RQ.SKOV.concat("skovmix").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      if (RQ.SSHAPES.indexOf(radio("shape")) >= 0) setRadio("shape", "circle");
+      skovPrev = null;
+    }
+    applyLang(lang);
+    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
+    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
+    buildTreeline(); SFX.toggle(on, byUser);
+    saveSkov();
+    if (typeof qrcode !== "undefined") render();
+  }
+
+  // A row of spruce trees along the top, in three greens and a few heights. Seeded, so it does not jump on resize.
+  function buildTreeline() {
+    var g = $("sgarland");
+    if (!skov) { g.innerHTML = ""; return; }
+    var W = document.documentElement.clientWidth, x = -6, k = 0, seed = 7, trees = "";
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    while (x < W + 10) {
+      var h = 30 + rnd() * 28, w = h * 0.52, cls = ["t1", "t2", "t3"][k % 3 === 1 ? 0 : Math.floor(rnd() * 3)];
+      var st = "--i:" + (k * 0.025).toFixed(3) + "s;--d:" + (-(rnd() * 5)).toFixed(2) + "s", b = 60, tw = w / 2;
+      var d = "M" + x.toFixed(1) + " " + (b - h).toFixed(1);
+      [[.32, .22], [.62, .42], [.88, .62], [1, .5]].forEach(function (tier, i) {
+        var yy = b - h + h * tier[0] - (i === 3 ? 4 : 0), xx = tw * (i === 3 ? 1 : tier[1] + .3);
+        d += "L" + (x + xx).toFixed(1) + " " + yy.toFixed(1) + (i < 3 ? "L" + (x + xx * .55).toFixed(1) + " " + yy.toFixed(1) : "");
+      });
+      d += "L" + (x + tw).toFixed(1) + " " + (b - 4) + "L" + (x - tw).toFixed(1) + " " + (b - 4);
+      [[.88, .62], [.62, .42], [.32, .22]].forEach(function (tier) {
+        var yy = b - h + h * tier[0], xx = tw * (tier[1] + .3);
+        d += "L" + (x - xx * .55).toFixed(1) + " " + yy.toFixed(1) + "L" + (x - xx).toFixed(1) + " " + yy.toFixed(1);
+      });
+      trees += '<g class="st" style="' + st + '"><rect class="trunk" x="' + (x - 2).toFixed(1) + '" y="' + (b - 5) + '" width="4" height="7"/><path class="' + cls + '" d="' + d + 'Z"/></g>';
+      x += 14 + rnd() * 16; k++;
+    }
+    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none">' + trees + "</svg>";
+  }
+  var treeTimer;
+  window.addEventListener("resize", function () { clearTimeout(treeTimer); treeTimer = setTimeout(buildTreeline, 150); });
+
+  // Leaves drift down, an eagle glides by now and then, and when you set off a wolf howls and the animals of the forest walk past along the bottom. Never over the QR code.
+  var SFX = (function () {
+    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, clock = 0, nextBird = 0, nextWalker = 0, howl = null;
+    var leaves = [], burst = [], walkers = [], birds = [];
+    var LEAF = new Path2D("M0 -7C5 -5 6 2 0 8C-6 2 -5 -5 0 -7Z"), VEIN = new Path2D("M0 -6V7");
+    var LCOL = ["#c8561e", "#e0a800", "#8a4a14", "#6f8f3a", "#b3122e", "#d98a1c"];
+    // Side views, facing right, feet on y = 0.
+    var BEASTS = {
+      elg: { c: "#5a3a22", w: 100, h: 64, d: "M10 -34C16 -42 34 -44 50 -44C56 -50 64 -52 70 -48L76 -42L80 -48L80 -58L85 -52L88 -60L91 -53L95 -58L96 -46L89 -43L93 -40L99 -30C100 -26 98 -24 95 -24L88 -26L84 -20L80 -24L74 -24L71 -18L71 0L67 0L65 -16L62 -16L63 0L59 0L58 -20L30 -22L28 0L24 0L22 -18L19 -18L18 0L14 0L12 -22C8 -26 6 -30 10 -34Z" },
+      ulv: { c: "#5d6268", w: 98, h: 50, d: "M14 -30C24 -34 50 -34 62 -32L70 -38L73 -46L76 -40L79 -46L81 -37L94 -32L97 -29L95 -26L84 -24L76 -20L72 -16L71 0L68 0L66 -14L62 -14L63 0L60 0L57 -16L30 -16L28 0L25 0L23 -14L20 -14L19 0L16 0L14 -16C11 -14 6 -10 2 -6L1 -9C5 -16 9 -24 14 -30Z" },
+      raev: { c: "#c8561e", w: 90, h: 36, d: "M26 -22C38 -24 52 -24 60 -22L65 -28L67 -36L70 -29L73 -35L74 -27L86 -22L89 -20L86 -18L76 -16L71 -12L70 0L67 0L65 -10L61 -10L62 0L59 0L56 -12L40 -12L38 0L35 0L33 -10L30 -10L29 0L26 0L25 -12C18 -10 8 -12 1 -18C8 -24 18 -26 26 -22Z" },
+      bjorn: { c: "#4a2e1c", w: 96, h: 56, d: "M10 -32C14 -44 30 -50 46 -48C54 -54 64 -52 68 -46L72 -46L74 -50L77 -49L78 -45L88 -40L93 -35L91 -31L80 -29L76 -24L74 0L68 0L66 -14L62 -14L62 0L56 0L54 -16L32 -16L30 0L24 0L22 -16L18 -16L18 0L12 0L10 -18C7 -22 7 -28 10 -32Z" }
+    };
+    var ORDER = ["ulv", "raev", "elg", "bjorn"];
+    var PATHS = {};
+    function beast(name) { return PATHS[name] || (PATHS[name] = new Path2D(BEASTS[name].d)); }
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function setup() {
+      if (cv) return;
+      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
+      window.addEventListener("resize", size);
+    }
+    function size() {
+      if (!cv) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var nl = Math.max(8, Math.min(22, Math.round(W * H / 42000)));
+      while (leaves.length < nl) leaves.push(leaf(true)); leaves.length = nl;
+    }
+    function leaf(anywhere) {
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -14, s: 0.9 + Math.random() * 0.8, vy: 22 + Math.random() * 26, ph: Math.random() * 6.3,
+        sway: 14 + Math.random() * 26, rot: Math.random() * 6.3, vr: (Math.random() - .5) * 2.4, c: pick(LCOL) };
+    }
+    function walker(name, delay, dir) {
+      var sc = Math.max(0.55, Math.min(1, W / 900)) * (name === "elg" ? 1.05 : name === "bjorn" ? 0.95 : name === "raev" ? 0.8 : 0.85);
+      var w = BEASTS[name].w * sc;
+      walkers.push({ name: name, sc: sc, dir: dir, x: dir > 0 ? -w - delay : W + w + delay, v: (name === "raev" ? 120 : name === "ulv" ? 110 : name === "elg" ? 80 : 70) * Math.max(0.7, W / 1100), ph: Math.random() * 6.3 });
+    }
+    function bird() { birds.push({ x: -40, y: H * (0.12 + Math.random() * 0.2), v: 70 + Math.random() * 40, ph: 0, s: 0.8 + Math.random() * 0.5 }); }
+    function pop() {
+      var sw = $("skov").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
+      for (var i = 0; i < 70; i++) {
+        var a = -Math.PI / 2 + (Math.random() - .5) * 2.4, v = 220 + Math.random() * 480;
+        burst.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, s: 1 + Math.random() * 0.9, rot: Math.random() * 6.3, vr: (Math.random() - .5) * 8,
+          life: 1.8 + Math.random() * 1.2, age: 0, c: pick(LCOL) });
+      }
+      var gap = 0;
+      ORDER.forEach(function (n) { walker(n, gap, 1); gap += 70 + Math.random() * 60; });
+      howl = { t: 0, text: t("skovCheer") };
+      nextWalker = clock + 22; nextBird = clock + 3;
+    }
+    function drawLeaf(o) {
+      ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.rot); ctx.scale(o.s * Math.cos(o.ph * 1.7), o.s);
+      ctx.fillStyle = o.c; ctx.fill(LEAF); ctx.strokeStyle = "rgba(0,0,0,0.18)"; ctx.lineWidth = 0.8; ctx.stroke(VEIN);
+      ctx.restore();
+    }
+    function drawWalker(o) {
+      var b = BEASTS[o.name], step = Math.sin(o.ph), bob = Math.abs(step) * 2.2;
+      ctx.save(); ctx.translate(o.x, H - 2 - bob); ctx.scale(o.sc * o.dir, o.sc);
+      if (o.dir < 0) ctx.translate(-b.w, 0);
+      ctx.rotate(step * 0.015);
+      ctx.fillStyle = b.c; ctx.strokeStyle = "rgba(255,255,255,0.55)"; ctx.lineWidth = 2 / o.sc; ctx.lineJoin = "round";
+      ctx.stroke(beast(o.name)); ctx.fill(beast(o.name));
+      ctx.restore();
+    }
+    function drawBird(o) {
+      var f = Math.sin(o.ph * 5) * 0.5 + 0.5;
+      ctx.save(); ctx.translate(o.x, o.y + Math.sin(o.ph) * 6); ctx.scale(o.s, o.s);
+      ctx.fillStyle = "#3b2a1e";
+      ctx.beginPath(); ctx.moveTo(-26, -2 - 8 * f); ctx.quadraticCurveTo(-12, -10 * f - 2, 0, 1); ctx.quadraticCurveTo(12, -10 * f - 2, 26, -2 - 8 * f);
+      ctx.quadraticCurveTo(12, -2 * f + 2, 2, 5); ctx.lineTo(6, 6); ctx.lineTo(0, 8); ctx.lineTo(-6, 6); ctx.lineTo(-2, 5); ctx.quadraticCurveTo(-12, -2 * f + 2, -26, -2 - 8 * f); ctx.fill();
+      ctx.fillStyle = "#f4efe4"; ctx.beginPath(); ctx.arc(4, 1, 2.4, 0, 6.283); ctx.fill();
+      ctx.restore();
+    }
+    function drawHowl() {
+      if (!howl) return;
+      var a = howl.t < 0.25 ? howl.t / 0.25 : Math.max(0, 1 - (howl.t - 2.2) / 0.8), big = Math.min(W * 0.1, 80) * (1 + Math.min(1, howl.t / 2.6) * 0.18);
+      ctx.save(); ctx.globalAlpha = Math.max(0, Math.min(1, a));
+      ctx.font = "700 " + Math.round(big) + "px 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
+      ctx.lineWidth = Math.max(5, big * 0.1); ctx.strokeStyle = "#ffffff";
+      ctx.strokeText(howl.text, W / 2, H * 0.4); ctx.fillStyle = "#1d4b3b"; ctx.fillText(howl.text, W / 2, H * 0.4);
+      ctx.restore();
+    }
+    function frame(now) {
+      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now; clock += dt;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      var st = $("stage").getBoundingClientRect();
+      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
+      if (on) {
+        ctx.globalAlpha = 0.85;
+        leaves.forEach(function (l) {
+          l.y += l.vy * dt; l.ph += dt; l.rot += l.vr * dt;
+          if (l.y > H + 14) { var n = leaf(false); for (var k in n) l[k] = n[k]; }
+          drawLeaf({ x: l.x + Math.sin(l.ph) * l.sway, y: l.y, rot: l.rot, s: l.s, ph: l.ph, c: l.c });
+        });
+        if (clock > nextBird && birds.length < 1) { bird(); nextBird = clock + 14 + Math.random() * 12; }
+        if (clock > nextWalker && walkers.length < 1) { walker(pick(ORDER), 0, Math.random() < .5 ? 1 : -1); nextWalker = clock + 20 + Math.random() * 16; }
+      }
+      ctx.globalAlpha = 1;
+      birds = birds.filter(function (b) { return b.x < W + 60; });
+      birds.forEach(function (b) { b.x += b.v * dt; b.ph += dt; drawBird(b); });
+      walkers = walkers.filter(function (w) { return w.dir > 0 ? w.x < W + 20 : w.x > -BEASTS[w.name].w * w.sc - 20; });
+      walkers.forEach(function (w) { w.x += w.v * w.dir * dt; w.ph += dt * w.v / 9; drawWalker(w); });
+      burst = burst.filter(function (b) { return b.age < b.life; });
+      burst.forEach(function (b) {
+        b.age += dt; b.vy += 520 * dt; b.vx *= 0.98; b.x += b.vx * dt; b.y += b.vy * dt; b.rot += b.vr * dt;
+        ctx.globalAlpha = Math.max(0, 1 - b.age / b.life); drawLeaf({ x: b.x, y: b.y, rot: b.rot, s: b.s, ph: b.age * 3, c: b.c });
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      if (howl) { howl.t += dt; drawHowl(); if (howl.t > 3) howl = null; }
+      if (on || birds.length || walkers.length || burst.length || howl) raf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, W, H); raf = 0; }
+    }
+    function toggle(state, withBurst) {
+      on = state;
+      if (reduceMotionS) return;
+      setup();
+      if (on && withBurst) pop();
+      else if (on) { nextBird = clock + 4; nextWalker = clock + 8; }
+      if (!on) { howl = null; walkers = []; birds = []; }
+      if (!raf && (on || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    return { toggle: toggle };
+  })();
+
+  $("skov").addEventListener("change", function () { setSkov(this.checked, true); });
+  /* skovtur:end */
+
   restore();
   /* julelys:start */
   try {
@@ -5436,6 +6053,12 @@ var RQ = (function () {
     if (bs && bs.on && !xmas && !hall && !easter && !nyt && !pirat && !okt) { bdayPrev = bs.prev || null; bday = true; document.documentElement.classList.add("bday"); PRESETS = BDAY_SETS; buildPresets(); }
   } catch (e) {}
   /* foedselsdag:end */
+  /* skovtur:start */
+  try {
+    var ss = JSON.parse(localStorage.getItem("round-qr-skov") || "null");
+    if (ss && ss.on && !xmas && !hall && !easter && !nyt && !pirat && !okt && !bday) { skovPrev = ss.prev || null; skov = true; document.documentElement.classList.add("skov"); PRESETS = SKOV_SETS; buildPresets(); }
+  } catch (e) {}
+  /* skovtur:end */
   var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (!startLang) {
@@ -5452,6 +6075,7 @@ var RQ = (function () {
   /* pirat:start */ if (pirat) { $("pirat").checked = true; buildRope(); PFX.toggle(true, false); placeChests(); } /* pirat:end */
   /* oktober:start */ if (okt) { $("okt").checked = true; buildWiesn(); OFX.toggle(true, false); } /* oktober:end */
   /* foedselsdag:start */ if (bday) { $("bday").checked = true; buildFlagline(); BFX.toggle(true, false); } /* foedselsdag:end */
+  /* skovtur:start */ if (skov) { $("skov").checked = true; buildTreeline(); SFX.toggle(true, false); } /* skovtur:end */
   fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");

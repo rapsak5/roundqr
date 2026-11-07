@@ -255,8 +255,8 @@ assert END_WRAP in body, 'wrap end'
 DESC = 'Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.'
 
 # ---------- offline single file ----------
-# Højtiderne og temaerne (jul, Halloween, påske, nytår, pirat, Oktoberfest, fødselsdag) er kun til hjemmesiden. Download-filen får ingen af tilstandene.
-FEST = re.compile(r'(?:<!-- (julelys|halloween|paaske|nytaar|pirat|oktober|foedselsdag):start -->|/\* (julelys|halloween|paaske|nytaar|pirat|oktober|foedselsdag):start \*/).*?(?:<!-- (?:\1|\2):end -->|/\* (?:\1|\2):end \*/)\n?', re.S)
+# Højtiderne og temaerne (jul, Halloween, påske, nytår, pirat, Oktoberfest, fødselsdag, skovtur) er kun til hjemmesiden. Download-filen får ingen af tilstandene.
+FEST = re.compile(r'(?:<!-- (julelys|halloween|paaske|nytaar|pirat|oktober|foedselsdag|skovtur):start -->|/\* (julelys|halloween|paaske|nytaar|pirat|oktober|foedselsdag|skovtur):start \*/).*?(?:<!-- (?:\1|\2):end -->|/\* (?:\1|\2):end \*/)\n?', re.S)
 off = FEST.sub('', body)
 assert 'julelys:' not in off and 'id="xbar"' not in off and 'setXmas' not in off
 assert 'halloween:' not in off and 'id="hbar"' not in off and 'setHall' not in off and 'HFX' not in off
@@ -265,6 +265,7 @@ assert 'nytaar:' not in off and 'id="nbar"' not in off and 'setNyt' not in off a
 assert 'pirat:' not in off and 'id="pbar"' not in off and 'setPirat' not in off and 'PFX' not in off
 assert 'oktober:' not in off and 'id="obar"' not in off and 'setOkt' not in off and 'OFX' not in off
 assert 'foedselsdag:' not in off and 'id="bbar"' not in off and 'setBday' not in off and 'BFX' not in off
+assert 'skovtur:' not in off and 'id="sbar"' not in off and 'setSkov' not in off and 'SFX' not in off
 off = off.replace('<style>\n', '<style>\n' + fontface(True) + '\n', 1)
 off = off.replace(END_WRAP, OFFLINE_FOOT + END_WRAP, 1).replace(CDN, libs(True), 1)
 off = add_strings(off, {'da': {'footNote': 'Virker uden internet. Ingen cookies og ingen sporing.'}, 'en': {'footNote': 'Works offline. No cookies and no tracking.'},
