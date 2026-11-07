@@ -4,14 +4,14 @@ Kildekoden til [roundqr.dk](https://roundqr.dk): et gratis værktøj til runde o
 
 ## Sådan retter du siden
 
-1. Ret i `src/round-qr.html`. Det er selve værktøjet med alle tekster på dansk og engelsk (objektet `T`).
+1. Ret i `src/round-qr.html`. Det er selve værktøjet med alle tekster på dansk, engelsk, tysk, norsk, svensk, spansk og fransk (objektet `T` og højtidstabellerne). En ny tekst skal findes på alle syv sprog.
 2. Sponsorer, download-boksen og hjemmesidens ekstra tekster ligger i `tools/build.py`.
-3. Byg: `python3 tools/build.py`. Det laver `index.html` (hjemmesiden) og `roundqr.html` (offline-filen).
+3. Byg: `python3 tools/build.py`. Det laver hjemmesiden på syv sprog (`index.html` på dansk og `en/`, `de/`, `no/`, `sv/`, `es/`, `fr/`), `roundqr.html` (offline-filen) og `sitemap.xml`.
 4. Commit og push til `main`. GitHub Pages udgiver automatisk på roundqr.dk.
 
 ## Filer
 
-- `index.html` er hjemmesiden med værktøj, sponsorer og download.
+- `index.html` er den danske hjemmeside med værktøj, sponsorer, download og spørgsmål og svar. Mapperne `en/`, `de/`, `no/`, `sv/`, `es/` og `fr/` er de samme sider på de andre sprog, med teksten skrevet ind på forhånd og hreflang mellem dem. Byg dem altid med build.py, ret dem aldrig i hånden.
 - `roundqr.html` er hele programmet i én fil, der virker uden internet.
 - `logos/` er sponsorlogoerne.
 - `assets/` indeholder skrifttyper (IBM Plex, Bricolage Grotesque) og bibliotekerne [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) (MIT) og [jsQR](https://github.com/cozmo/jsQR) (Apache 2.0).

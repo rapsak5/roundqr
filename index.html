@@ -1,11 +1,19 @@
 <!doctype html>
-<html lang="da">
+<html lang="da" data-page-lang="da">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Round QR · Gratis QR-kode generator til runde og firkantede koder</title>
 <meta name="description" content="Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.">
 <link rel="canonical" href="https://roundqr.dk/">
+<link rel="alternate" hreflang="da" href="https://roundqr.dk/">
+<link rel="alternate" hreflang="en" href="https://roundqr.dk/en/">
+<link rel="alternate" hreflang="de" href="https://roundqr.dk/de/">
+<link rel="alternate" hreflang="nb" href="https://roundqr.dk/no/">
+<link rel="alternate" hreflang="sv" href="https://roundqr.dk/sv/">
+<link rel="alternate" hreflang="es" href="https://roundqr.dk/es/">
+<link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/">
+<link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,11 +23,17 @@
 <meta property="og:url" content="https://roundqr.dk/">
 <meta property="og:site_name" content="Round QR">
 <meta property="og:title" content="Round QR">
-<meta property="og:description" content="Gratis runde og firkantede QR-koder. Uden login og uden reklamer.">
+<meta property="og:description" content="Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.">
 <meta property="og:image" content="https://roundqr.dk/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="da_DK">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -34,7 +48,15 @@
     "roundqr.dk",
     "RoundQR"
    ],
-   "inLanguage": "da"
+   "inLanguage": [
+    "da",
+    "en",
+    "de",
+    "nb",
+    "sv",
+    "es",
+    "fr"
+   ]
   },
   {
    "@type": "Person",
@@ -49,21 +71,15 @@
    "url": "https://roundqr.dk/",
    "description": "Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.",
    "applicationCategory": "DesignApplication",
-   "operatingSystem": "Alle med en moderne browser",
-   "browserRequirements": "Kræver JavaScript",
+   "operatingSystem": "Any",
+   "browserRequirements": "Requires JavaScript",
    "isAccessibleForFree": true,
-   "inLanguage": [
-    "da",
-    "en",
-    "de",
-    "nb",
-    "sv"
-   ],
+   "inLanguage": "da",
    "image": "https://roundqr.dk/og-image.png",
    "offers": {
     "@type": "Offer",
     "price": "0",
-    "priceCurrency": "DKK"
+    "priceCurrency": "EUR"
    },
    "featureList": [
     "Runde og firkantede QR-koder",
@@ -1121,6 +1137,8 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
       <label><input type="radio" name="lang" id="lang-de" value="de"><span><svg class="flag" viewBox="0 0 5 3" preserveAspectRatio="none" aria-hidden="true"><rect width="5" height="3" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg><span class="ln">Deutsch</span></span></label>
       <label><input type="radio" name="lang" id="lang-no" value="no"><span><svg class="flag" viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg><span class="ln">Norsk</span></span></label>
       <label><input type="radio" name="lang" id="lang-sv" value="sv"><span><svg class="flag" viewBox="0 0 16 10" aria-hidden="true"><rect width="16" height="10" fill="#006AA7"/><rect x="5" width="2" height="10" fill="#FECC00"/><rect y="4" width="16" height="2" fill="#FECC00"/></svg><span class="ln">Svenska</span></span></label>
+      <label><input type="radio" name="lang" id="lang-es" value="es"><span><svg class="flag" viewBox="0 0 3 2" preserveAspectRatio="none" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg><span class="ln">Español</span></span></label>
+      <label><input type="radio" name="lang" id="lang-fr" value="fr"><span><svg class="flag" viewBox="0 0 3 2" preserveAspectRatio="none" aria-hidden="true"><rect width="3" height="2" fill="#CE1126"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002654"/></svg><span class="ln">Français</span></span></label>
     </div>
     <p class="about"><span data-t="about">Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder, og nu deler jeg det med alle. Der kommer aldrig abonnement, login eller reklamer. Det eneste er et par glade sponsorer nederst på siden.</span><br><span class="sig" data-t="aboutSig">Med venlig hilsen Kasper Bergstrøm</span></p>
   </header>
@@ -1252,7 +1270,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="shape" id="shape-orn" value="orn"><span><svg data-oshape="orn"></svg><b data-t="fOrn">Ørn</b></span></label>
           </div>
           <!-- skovtur:end -->
-          <p class="explain" id="ex-form" data-t="exForm" hidden></p>
+          <p class="explain" id="ex-form" data-t="exForm" hidden>Cirkel giver en rund kode med pynt, Firkant er den klassiske QR-kode.</p>
         </div>
 
         <div class="field">
@@ -1344,7 +1362,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="dot" id="dot-skovmix" value="skovmix"><span><svg viewBox="0 0 1 1" data-shape="skovmix"></svg><b data-t="skovmix">Blandet</b></span></label>
           </div>
           <!-- skovtur:end -->
-          <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
+          <p class="explain" id="ex-modules" data-t="exModules" hidden>De små felter, som selve koden er bygget af.</p>
         </div>
 
         <div class="field">
@@ -1356,7 +1374,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="eye" id="eye-square" value="square"><span data-t="square">Firkant</span></label>
             </div>
           </div>
-          <p class="explain" id="ex-eyes" data-t="exEyes" hidden></p>
+          <p class="explain" id="ex-eyes" data-t="exEyes" hidden>De tre store firkanter, telefonen bruger til at finde koden.</p>
         </div>
 
         <div class="field circle-only">
@@ -1364,7 +1382,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <span class="lbl"><span data-t="fill">Fyld cirklen med mønster</span><button type="button" class="info" aria-controls="ex-fill" aria-expanded="false">i</button></span>
             <label class="switch"><input type="checkbox" id="fill" checked data-t-aria="fill" aria-label="Fyld cirklen med mønster"><span></span></label>
           </div>
-          <p class="explain" id="ex-fill" data-t="exFill" hidden></p>
+          <p class="explain" id="ex-fill" data-t="exFill" hidden>Pyntprikker uden data, der får koden til at se rund ud.</p>
         </div>
 
         <div class="field circle-only">
@@ -1372,7 +1390,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <span class="lbl"><span data-t="ring">Ydre ring</span><button type="button" class="info" aria-controls="ex-ring" aria-expanded="false">i</button></span>
             <label class="switch"><input type="checkbox" id="ring" checked data-t-aria="ring" aria-label="Ydre ring"><span></span></label>
           </div>
-          <p class="explain" id="ex-ring" data-t="exRing" hidden></p>
+          <p class="explain" id="ex-ring" data-t="exRing" hidden>En tynd pyntering rundt om cirklen.</p>
         </div>
 
         <div class="field circle-only bg-field">
@@ -1383,7 +1401,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="bgshape" id="bg-square" value="square"><span data-t="square">Firkant</span></label>
             </div>
           </div>
-          <p class="explain" id="ex-bg" data-t="exBg" hidden></p>
+          <p class="explain" id="ex-bg" data-t="exBg" hidden>Cirkel giver gennemsigtige hjørner, Firkant giver en fyldt baggrund.</p>
         </div>
       </div>
 
@@ -1414,7 +1432,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <span class="lbl"><span data-t="gradient">Farveforløb</span><button type="button" class="info" aria-controls="ex-grad" aria-expanded="false">i</button></span>
             <label class="switch"><input type="checkbox" id="grad" data-t-aria="gradient" aria-label="Farveforløb"><span></span></label>
           </div>
-          <p class="explain" id="ex-grad" data-t="exGrad" hidden></p>
+          <p class="explain" id="ex-grad" data-t="exGrad" hidden>Koden glider fra Kode til Slutfarve, så hold begge farver mørke.</p>
         </div>
         <div class="grad-opts" id="gradOpts" hidden>
           <label class="c2"><span data-t="cCode2">Slutfarve</span><input type="color" id="fg2" value="#2a6f8f"></label>
@@ -1431,7 +1449,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
       <div class="group">
         <div class="field">
           <span class="lbl"><span class="label" data-t="logo">Logo i midten</span><button type="button" class="info" aria-controls="ex-logo" aria-expanded="false">i</button></span>
-          <p class="explain" id="ex-logo" data-t="exLogo" hidden></p>
+          <p class="explain" id="ex-logo" data-t="exLogo" hidden>Logoet dækker midten, så fejlkorrektion skifter automatisk til H.</p>
         </div>
         <div class="logo-row">
           <img class="logo-thumb" id="logoThumb" alt="" hidden>
@@ -1450,7 +1468,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <span class="lbl"><span class="label" data-t="ec">Fejlkorrektion</span><button type="button" class="info" aria-controls="ex-ec" aria-expanded="false">i</button></span>
             <span class="spec" id="ecVal"></span>
           </div>
-          <p class="explain" id="ex-ec" data-t="exEc" hidden></p>
+          <p class="explain" id="ex-ec" data-t="exEc" hidden>Hvor stor en del af koden der må være beskadiget, før den ikke kan læses.</p>
         </div>
         <div class="seg" role="radiogroup" data-t-aria="ec" aria-label="Fejlkorrektion">
           <label><input type="radio" name="ec" id="ec-L" value="L"><span>L</span></label>
@@ -1635,7 +1653,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
     <div class="dl-action">
       <a class="btn primary big" href="roundqr.html" download="roundqr.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span data-t="dlBtn">Hent roundqr.html</span></a>
-      <span class="spec">HTML · 628 KB</span>
+      <span class="spec">HTML · 646 KB</span>
     </div>
   </section>
 
@@ -2316,6 +2334,8 @@ var RQ = (function () {
       faq5a: "Nej. Alt sker i din egen browser, og intet sendes til en server. Der er ingen cookies og ingen sporing.",
       faq6q: "Er Round QR åben?",
       faq6a: "Ja. Hele kildekoden ligger offentligt på GitHub, og du kan hente programmet som én HTML-fil og bruge det uden internet.",
+      pageTitle: "Round QR · Gratis QR-kode generator til runde og firkantede koder",
+      pageDesc: "Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.",
       subtitle: "Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.",
       about: "Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder, og nu deler jeg det med alle. Der kommer aldrig abonnement, login eller reklamer. Det eneste er et par glade sponsorer nederst på siden.",
       aboutSig: "Med venlig hilsen Kasper Bergstrøm",
@@ -2405,6 +2425,8 @@ var RQ = (function () {
       faq5a: "No. Everything happens in your own browser and nothing is sent to a server. No cookies and no tracking.",
       faq6q: "Is Round QR open?",
       faq6a: "Yes. All the source code is public on GitHub, and you can download the whole program as one HTML file and use it offline.",
+      pageTitle: "Round QR · Free QR code generator for round and square codes",
+      pageDesc: "Make round or regular QR codes from a link. Pick shape, colours and logo, and save as PNG, JPG or SVG. Free, no sign-up and no ads.",
       subtitle: "Paste a link, shape the code, save it as PNG, JPG or SVG.",
       about: "I built Round QR together with AI because I needed a good QR code tool myself, and now I'm sharing it with everyone. There will never be subscriptions, logins or ads. The only thing is a few happy sponsors at the bottom of the page.",
       aboutSig: "Kind regards, Kasper Bergstrøm",
@@ -2494,6 +2516,8 @@ var RQ = (function () {
       faq5a: "Nein. Alles passiert in deinem eigenen Browser, und nichts wird an einen Server geschickt. Keine Cookies und kein Tracking.",
       faq6q: "Ist Round QR offen?",
       faq6a: "Ja. Der gesamte Quellcode liegt öffentlich auf GitHub, und du kannst das ganze Programm als eine HTML-Datei herunterladen und ohne Internet nutzen.",
+      pageTitle: "Round QR · Kostenloser QR-Code-Generator für runde und eckige Codes",
+      pageDesc: "Erstelle runde oder normale QR-Codes aus einem Link. Wähle Form, Farben und Logo und speichere als PNG, JPG oder SVG. Kostenlos, ohne Anmeldung und ohne Werbung.",
       subtitle: "Link einfügen, Code gestalten und als PNG, JPG oder SVG speichern.",
       about: "Ich habe Round QR zusammen mit KI entwickelt, weil mir selbst ein gutes Werkzeug für QR-Codes fehlte, und jetzt teile ich es mit allen. Es wird nie Abos, Logins oder Werbung geben. Das Einzige sind ein paar fröhliche Sponsoren unten auf der Seite.",
       aboutSig: "Viele Grüße, Kasper Bergstrøm",
@@ -2639,6 +2663,8 @@ var RQ = (function () {
       faq5a: "Nei. Alt skjer i din egen nettleser, og ingenting sendes til en server. Ingen informasjonskapsler og ingen sporing.",
       faq6q: "Er Round QR åpen?",
       faq6a: "Ja. All kildekoden ligger offentlig på GitHub, og du kan laste ned hele programmet som én HTML-fil og bruke det uten internett.",
+      pageTitle: "Round QR · Gratis QR-kodegenerator for runde og firkantede koder",
+      pageDesc: "Lag runde eller vanlige QR-koder fra en lenke. Velg form, farger og logo, og lagre som PNG, JPG eller SVG. Gratis, uten innlogging og uten reklame.",
       subtitle: "Lim inn en lenke, gi koden form, og lagre den som PNG, JPG eller SVG.",
       about: "Jeg har utviklet Round QR sammen med KI fordi jeg selv manglet et godt verktøy for QR-koder, og nå deler jeg det med alle. Det kommer aldri abonnement, innlogging eller reklame. Det eneste er noen glade sponsorer nederst på siden.",
       aboutSig: "Med vennlig hilsen Kasper Bergstrøm",
@@ -2784,6 +2810,8 @@ var RQ = (function () {
       faq5a: "Nej. Allt sker i din egen webbläsare och ingenting skickas till en server. Inga kakor och ingen spårning.",
       faq6q: "Är Round QR öppen?",
       faq6a: "Ja. All källkod ligger öppet på GitHub, och du kan ladda ner hela programmet som en HTML-fil och använda det utan internet.",
+      pageTitle: "Round QR · Gratis QR-kodgenerator för runda och fyrkantiga koder",
+      pageDesc: "Skapa runda eller vanliga QR-koder från en länk. Välj form, färger och logga och spara som PNG, JPG eller SVG. Gratis, utan inloggning och utan reklam.",
       subtitle: "Klistra in en länk, ge koden form och spara den som PNG, JPG eller SVG.",
       about: "Jag har utvecklat Round QR tillsammans med AI eftersom jag själv saknade ett bra verktyg för QR-koder, och nu delar jag det med alla. Det kommer aldrig att bli prenumerationer, inloggning eller reklam. Det enda är några glada sponsorer längst ner på sidan.",
       aboutSig: "Med vänliga hälsningar Kasper Bergstrøm",
@@ -2900,6 +2928,300 @@ var RQ = (function () {
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred i tryck · 300 DPI · " + px + " × " + hpx + " px"; },
       sizeCmSvg: function (cm, hcm) { return "SVG i " + fmtCm(cm, ",") + " × " + fmtCm(hcm, ",") + " cm. Skarp i alla storlekar."; },
       sizePx: function (px, hpx) { return px + " × " + hpx + " px"; }
+    },
+    es: {
+      spTitle: "Patrocinadores",
+      spIntro: "Round QR es gratis y sin anuncios. Gracias a quienes apoyan la página.",
+      sp1: "Talleres y cursos prácticos de IA para empleados, directivos y docentes. Del primer prompt a rutinas fijas en el día a día.",
+      sp2: "Vídeo, pódcast y retransmisión en directo de eventos. Bonos de horas, paquetes fijos o un taller para aprender a producir por vuestra cuenta.",
+      sp3: "Control horario con NFC. Una pegatina junto a la puerta registra tu entrada y salida, y la app gratuita lleva la cuenta de horas y saldo.",
+      sp4: "Una nueva editorial danesa con libros sobre la naturaleza y las buenas experiencias que ofrece, para niños y adultos.",
+      sp5: "Sidra de Inglaterra, Irlanda, Francia, Dinamarca y Estados Unidos. Con y sin alcohol, y varias son ecológicas.",
+      sp6: "Una conferencia sobre IA en el trabajo para la persona, el equipo y la organización. 11 de febrero de 2027 en el Dansk Arkitektur Center.",
+      sp7: "Ayuda a empresas farmacéuticas a adoptar la IA de forma responsable y con las personas en el centro. Consultoría, coaching y talleres.",
+      dlTitle: "Descarga Round QR",
+      dlText: "Todo el programa en un solo archivo HTML. Ábrelo en tu navegador y crea códigos QR, también sin internet. No hay nada que instalar.",
+      dlBtn: "Descargar roundqr.html",
+      footNote: "Sin cookies y sin rastreo. Tus ajustes solo se guardan en tu propio navegador.",
+      faqTitle: "Preguntas y respuestas",
+      faqIntro: "Lo que más se pregunta.",
+      faq1q: "¿Puedo usar los códigos QR con fines comerciales?",
+      faq1a: "Sí. Úsalos en envases, carteles, cartas de restaurante, tarjetas de visita, pósteres y todo lo demás. No tienes que pagar, pedir permiso ni mencionar Round QR.",
+      faq2q: "¿Caducan los códigos QR?",
+      faq2a: "No. Son códigos estáticos, en los que el enlace va directamente en el propio patrón. No hay intermediarios, redirecciones ni cuentas que puedan cerrarse. El código funciona mientras exista la página a la que apunta.",
+      faq3q: "¿Se puede escanear un código QR redondo?",
+      faq3a: "Sí. La forma redonda es decoración alrededor de un código QR normal que cualquier móvil puede leer. Round QR escanea el código por sí mismo y muestra \"Se puede escanear\" cuando está bien. Aun así, pruébalo con tu móvil antes de mandar algo a imprimir.",
+      faq4q: "¿Cuánto cuesta?",
+      faq4a: "Nada. Nunca habrá suscripciones, registros ni anuncios. La página la pagan los patrocinadores de arriba.",
+      faq5q: "¿Guardáis mis enlaces o imágenes?",
+      faq5a: "No. Todo ocurre en tu propio navegador y no se envía nada a ningún servidor. Sin cookies y sin rastreo.",
+      faq6q: "¿Round QR es abierto?",
+      faq6a: "Sí. Todo el código fuente es público en GitHub, y puedes descargar el programa completo como un único archivo HTML y usarlo sin internet.",
+      pageTitle: "Round QR · Generador de códigos QR gratis, redondos y cuadrados",
+      pageDesc: "Crea códigos QR redondos o normales a partir de un enlace. Elige forma, colores y logo, y guárdalo como PNG, JPG o SVG. Gratis, sin registro y sin anuncios.",
+      subtitle: "Pega un enlace, dale forma al código y guárdalo como PNG, JPG o SVG.",
+      about: "He creado Round QR junto con la IA porque yo mismo echaba en falta una buena herramienta para códigos QR, y ahora la comparto con todo el mundo. Nunca habrá suscripciones, registros ni anuncios. Lo único son unos cuantos patrocinadores contentos al final de la página.",
+      aboutSig: "Un saludo, Kasper Bergstrøm",
+      aPreview: "Vista previa",
+      aSettings: "Ajustes",
+      aOut: "Código QR",
+      aFormat: "Formato de archivo",
+      aSize: "Ancho de imagen",
+      link: "Enlace",
+      shape: "Aspecto",
+      form: "Forma",
+      modules: "Módulos",
+      eyes: "Ojos de esquina",
+      fill: "Rellenar el círculo con patrón",
+      ring: "Anillo exterior",
+      background: "Fondo",
+      circle: "Círculo",
+      square: "Cuadrado",
+      dots: "Puntos",
+      roundedPl: "Redondeados",
+      squaresPl: "Cuadrados",
+      rounded: "Redondeado",
+      textBelow: "Texto debajo",
+      showText: "Mostrar texto debajo del código",
+      defaultLabel: "Escanéame",
+      colours: "Colores",
+      cCode: "Código",
+      cEyes: "Ojos",
+      logo: "Logo en el centro",
+      addLogo: "Añadir logo",
+      replace: "Cambiar",
+      remove: "Quitar",
+      size: "Tamaño",
+      logoSize: function (n) { return n + " % del ancho del código"; },
+      ec: "Corrección de errores",
+      ecHint: "Un nivel más alto aguanta suciedad, desgaste y logos, pero da un código más denso. Con logo se fija en H.",
+      ecVal: {"L":"aprox. 7 % recuperable","M":"aprox. 15 % recuperable","Q":"aprox. 25 % recuperable","H":"aprox. 30 % recuperable"},
+      explain: "Explicación",
+      exForm: "Círculo da un código redondo decorado, Cuadrado es el código QR clásico.",
+      exModules: "Las celdas pequeñas con las que está hecho el código.",
+      exEyes: "Los tres cuadrados grandes que usa el móvil para encontrar el código.",
+      exFill: "Puntos decorativos sin datos que hacen que el código parezca redondo.",
+      exRing: "Un anillo decorativo fino alrededor del círculo.",
+      exBg: "Círculo deja las esquinas transparentes, Cuadrado da un fondo relleno.",
+      exLogo: "El logo tapa el centro, así que la corrección de errores pasa automáticamente a H.",
+      exEc: "Qué parte del código puede estar dañada antes de que deje de leerse.",
+      checking: "Comprobando…",
+      scanOk: "Se puede escanear",
+      scanOther: "Se lee como otra cosa",
+      scanFail: "No se pudo escanear",
+      noLink: "Aún no hay enlace",
+      tooLong: "Demasiado largo",
+      scanNA: "Comprobación no disponible",
+      notReady: "No está listo",
+      scanNote: "El escáner integrado no pudo leer el código. Prueba con más contraste, un logo más pequeño, ojos cuadrados o desactiva el relleno con patrón. Pruébalo siempre con tu móvil antes de imprimir.",
+      encodedAs: "Se codifica como ",
+      empty: "Escribe un enlace en el campo Enlace para crear un código.",
+      tooLongMsg: "El texto es demasiado largo para un código QR. Prueba con un enlace más corto.",
+      libFail: "No se cargó la librería de QR. Comprueba la conexión y recarga la página.",
+      inverted: "Código claro sobre fondo oscuro. Algunos móviles no leen códigos invertidos.",
+      lowContrast: "Poco contraste entre el código y el fondo. Oscurece el código o aclara el fondo.",
+      spec: function (g) { return ({ square: "Cuadrado", heart: "Corazón", tree: "Árbol de Navidad", gift: "Regalo", star: "Estrella", santa: "Papá Noel", bauble: "Bola de Navidad", pumpkin: "Calabaza", ghost: "Fantasma", bat: "Murciélago", cat: "Gato", hat: "Sombrero de bruja", candy: "Caramelo", egg: "Huevo de Pascua", bunny: "Conejo de Pascua", chick: "Pollito", flower: "Flor", basket: "Cesta", tulip: "Tulipán", rocket: "Cohete", glass: "Copa de champán", bottle: "Botella", clock: "Reloj", sparkle: "Destello", partyhat: "Gorro de fiesta", chest: "Cofre del tesoro", ship: "Barco", map: "Mapa del tesoro", flag: "Bandera pirata", wheel: "Timón", skull: "Calavera", stein: "Jarra de cerveza", pretzel: "Pretzel", lheart: "Corazón de jengibre", rhomb: "Rombo", alphat: "Sombrero tirolés", barrel: "Barril", dkflag: "Bandera danesa", cake: "Tarta", cakeman: "Muñeco de tarta", balloon: "Globo", crown: "Corona", bpresent: "Regalo" }[g.shape] || "Círculo") + " · Versión " + g.version + " · " + g.N + "×" + g.N + " módulos · Nivel " + g.ec; },
+      save: "Guardar ",
+      aUnit: "Unidad",
+      uPx: "Píxeles",
+      uCm: "Centímetros",
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm de ancho impreso · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG de " + fmtCm(cm, ",") + " × " + fmtCm(hcm, ",") + " cm. Nítido a cualquier tamaño."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; },
+      fmtPng: "PNG mantiene las esquinas transparentes alrededor de un código redondo.",
+      fmtPngSq: "PNG es nítido y funciona en todas partes, en pantalla y en documentos.",
+      fmtJpg: "JPG no admite transparencia, así que las esquinas toman el color de fondo.",
+      fmtSvg: "SVG se puede escalar a cualquier tamaño y va bien para imprimir. El texto usa una fuente alternativa si la tipografía no está instalada.",
+      noSave: "No se puede guardar en esta vista. Haz clic derecho o mantén pulsada la imagen para guardarla.",
+      saved: function (f) { return "Guardado: " + f; },
+      sent: "Enviado.",
+      busy: "Ya hay una ventana de guardado abierta. Ciérrala primero.",
+      saveFail: "No se pudo guardar el archivo aquí. Haz clic derecho o mantén pulsada la imagen para guardarla.",
+      gradient: "Degradado",
+      cCode2: "Color final",
+      direction: "Dirección",
+      dDiagonal: "Diagonal",
+      dVertical: "Vertical",
+      dRadial: "Radial",
+      exGrad: "El código pasa de Código a Color final, así que mantén los dos colores oscuros.",
+      presetsLbl: "Combinaciones",
+      custom: "Colores propios",
+      prev: "Anterior",
+      next: "Siguiente",
+      presets: ["Tinta","Negro","Oro","Marino y oro","Bosque","Océano","Burdeos","Berenjena","Grafito","Terracota","Café","Atardecer","Aurora boreal","Mar profundo","Ciruela","Musgo","Noche"],
+      presetsXmas: ["Rojo navideño","Abeto","Gorro de Papá Noel","Árbol de Navidad","Vino caliente","Rojo y verde","Pan de jengibre","Nochebuena"],
+      xmasAria: "Luces de Navidad",
+      xmasLabel: "Enciende las luces de Navidad",
+      xmasLabelXmas: "Las luces de Navidad están encendidas",
+      xmasHint: "Corazones, árboles, regalos y Papá Noel en lugar de puntos. Y bastante nieve.",
+      xmasHintXmas: "Apágalo otra vez para recuperar el Round QR normal y tus propios colores.",
+      subtitleXmas: "La edición de Navidad. Pega un enlace, decora el código y guárdalo como PNG, JPG o SVG.",
+      hearts: "Corazones",
+      trees: "Árboles",
+      gifts: "Regalos",
+      stars: "Estrellas",
+      santas: "Papá Noel",
+      mix: "Mezcla",
+      defaultLabelXmas: "Feliz Navidad",
+      sHeart: "Corazón",
+      sTree: "Árbol de Navidad",
+      sGift: "Regalo",
+      sStar: "Estrella",
+      sSanta: "Papá Noel",
+      sBauble: "Bola de Navidad",
+      fillXmas: "Rellenar la forma con patrón",
+      exFillXmas: "Puntos decorativos sin datos que rellenan la forma alrededor del código.",
+      exRingXmas: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormXmas: "Círculo y Cuadrado son los clásicos. Las formas navideñas ponen el código en el centro y rellenan el resto de la forma con patrón.",
+      exModulesXmas: "Las formas navideñas cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      exEyesXmas: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece bolas de Navidad."
+    },
+    fr: {
+      spTitle: "Sponsors",
+      spIntro: "Round QR est gratuit et sans publicité. Merci à ceux qui soutiennent le site.",
+      sp1: "Ateliers et formations pratiques sur l'IA pour les salariés, les managers et les enseignants. Du premier prompt aux habitudes de travail au quotidien.",
+      sp2: "Vidéo, podcast et diffusion en direct d'événements. Forfaits d'heures, offres fixes ou un atelier pour apprendre à produire vous-mêmes.",
+      sp3: "Pointage avec NFC. Un autocollant près de la porte enregistre vos arrivées et départs, et l'application gratuite suit vos heures et votre solde.",
+      sp4: "Une nouvelle maison d'édition danoise avec des livres sur la nature et les beaux moments qu'elle offre, pour les enfants et les adultes.",
+      sp5: "Du cidre d'Angleterre, d'Irlande, de France, du Danemark et des États-Unis. Avec et sans alcool, et plusieurs sont bio.",
+      sp6: "Une conférence sur l'IA au travail pour l'individu, l'équipe et l'organisation. Le 11 février 2027 au Dansk Arkitektur Center.",
+      sp7: "Aide les entreprises pharmaceutiques à adopter l'IA de façon responsable, en plaçant l'humain au centre. Conseil, coaching et ateliers.",
+      dlTitle: "Télécharger Round QR",
+      dlText: "Tout le programme dans un seul fichier HTML. Ouvrez-le dans votre navigateur et créez des codes QR, même sans internet. Rien à installer.",
+      dlBtn: "Télécharger roundqr.html",
+      footNote: "Pas de cookies et pas de suivi. Vos réglages sont enregistrés uniquement dans votre propre navigateur.",
+      faqTitle: "Questions et réponses",
+      faqIntro: "Ce que l'on nous demande le plus souvent.",
+      faq1q: "Puis-je utiliser les codes QR à des fins commerciales ?",
+      faq1a: "Oui. Utilisez-les sur des emballages, des panneaux, des menus, des cartes de visite, des affiches et tout le reste. Vous n'avez rien à payer, aucune autorisation à demander et pas besoin de citer Round QR.",
+      faq2q: "Les codes QR expirent-ils ?",
+      faq2a: "Non. Ce sont des codes statiques : le lien est inscrit directement dans le motif. Il n'y a ni intermédiaire, ni redirection, ni compte qui puisse fermer. Le code fonctionne tant que la page vers laquelle il pointe existe.",
+      faq3q: "Un code QR rond peut-il être scanné ?",
+      faq3a: "Oui. La forme ronde est une décoration autour d'un code QR tout à fait normal que tous les téléphones savent lire. Round QR scanne lui-même le code et affiche \"Se scanne bien\" quand tout est en ordre. Testez-le quand même avec votre téléphone avant d'imprimer.",
+      faq4q: "Combien ça coûte ?",
+      faq4a: "Rien. Il n'y aura jamais d'abonnement, de compte ni de publicité. Le site est financé par les sponsors ci-dessus.",
+      faq5q: "Conservez-vous mes liens ou mes images ?",
+      faq5a: "Non. Tout se passe dans votre propre navigateur et rien n'est envoyé à un serveur. Pas de cookies et pas de suivi.",
+      faq6q: "Round QR est-il ouvert ?",
+      faq6a: "Oui. Tout le code source est public sur GitHub, et vous pouvez télécharger tout le programme sous forme d'un seul fichier HTML et l'utiliser sans internet.",
+      pageTitle: "Round QR · Générateur de codes QR gratuit, ronds et carrés",
+      pageDesc: "Créez des codes QR ronds ou classiques à partir d'un lien. Choisissez la forme, les couleurs et le logo, puis enregistrez en PNG, JPG ou SVG. Gratuit, sans compte et sans publicité.",
+      subtitle: "Collez un lien, donnez une forme au code et enregistrez-le en PNG, JPG ou SVG.",
+      about: "J'ai créé Round QR avec l'aide de l'IA parce qu'il me manquait un bon outil pour les codes QR, et maintenant je le partage avec tout le monde. Il n'y aura jamais d'abonnement, de compte ni de publicité. La seule chose, ce sont quelques sponsors ravis en bas de la page.",
+      aboutSig: "Bien cordialement, Kasper Bergstrøm",
+      aPreview: "Aperçu",
+      aSettings: "Réglages",
+      aOut: "Code QR",
+      aFormat: "Format de fichier",
+      aSize: "Largeur de l'image",
+      link: "Lien",
+      shape: "Apparence",
+      form: "Forme",
+      modules: "Modules",
+      eyes: "Yeux d'angle",
+      fill: "Remplir le cercle de motifs",
+      ring: "Anneau extérieur",
+      background: "Fond",
+      circle: "Cercle",
+      square: "Carré",
+      dots: "Points",
+      roundedPl: "Arrondis",
+      squaresPl: "Carrés",
+      rounded: "Arrondi",
+      textBelow: "Texte dessous",
+      showText: "Afficher un texte sous le code",
+      defaultLabel: "Scannez-moi",
+      colours: "Couleurs",
+      cCode: "Code",
+      cEyes: "Yeux",
+      logo: "Logo au centre",
+      addLogo: "Ajouter un logo",
+      replace: "Remplacer",
+      remove: "Retirer",
+      size: "Taille",
+      logoSize: function (n) { return n + " % de la largeur du code"; },
+      ec: "Correction d'erreurs",
+      ecHint: "Un niveau plus élevé résiste à la saleté, à l'usure et aux logos, mais donne un code plus dense. Avec un logo, il est bloqué sur H.",
+      ecVal: {"L":"env. 7 % récupérable","M":"env. 15 % récupérable","Q":"env. 25 % récupérable","H":"env. 30 % récupérable"},
+      explain: "Explication",
+      exForm: "Cercle donne un code rond décoré, Carré est le code QR classique.",
+      exModules: "Les petites cases qui composent le code.",
+      exEyes: "Les trois grands carrés que le téléphone utilise pour trouver le code.",
+      exFill: "Des points décoratifs sans données qui donnent au code un aspect rond.",
+      exRing: "Un fin anneau décoratif autour du cercle.",
+      exBg: "Cercle laisse les coins transparents, Carré donne un fond plein.",
+      exLogo: "Le logo couvre le centre, la correction d'erreurs passe donc automatiquement à H.",
+      exEc: "La part du code qui peut être abîmée avant qu'il ne soit plus lisible.",
+      checking: "Vérification…",
+      scanOk: "Se scanne bien",
+      scanOther: "Se lit comme autre chose",
+      scanFail: "Impossible à scanner",
+      noLink: "Pas encore de lien",
+      tooLong: "Trop long",
+      scanNA: "Vérification indisponible",
+      notReady: "Pas prêt",
+      scanNote: "Le scanner intégré n'a pas pu lire le code. Essayez plus de contraste, un logo plus petit, des yeux carrés ou désactivez le remplissage à motifs. Testez toujours avec votre téléphone avant d'imprimer.",
+      encodedAs: "Encodé comme ",
+      empty: "Saisissez un lien dans le champ Lien pour créer un code.",
+      tooLongMsg: "Le texte est trop long pour un code QR. Essayez un lien plus court.",
+      libFail: "La bibliothèque QR ne s'est pas chargée. Vérifiez la connexion et rechargez la page.",
+      inverted: "Code clair sur fond sombre. Certains téléphones ne lisent pas les codes inversés.",
+      lowContrast: "Peu de contraste entre le code et le fond. Foncez le code ou éclaircissez le fond.",
+      spec: function (g) { return ({ square: "Carré", heart: "Cœur", tree: "Sapin", gift: "Cadeau", star: "Étoile", santa: "Père Noël", bauble: "Boule de Noël", pumpkin: "Citrouille", ghost: "Fantôme", bat: "Chauve-souris", cat: "Chat", hat: "Chapeau de sorcière", candy: "Bonbon", egg: "Œuf de Pâques", bunny: "Lapin de Pâques", chick: "Poussin", flower: "Fleur", basket: "Panier", tulip: "Tulipe", rocket: "Fusée", glass: "Coupe de champagne", bottle: "Bouteille", clock: "Horloge", sparkle: "Étincelle", partyhat: "Chapeau de fête", chest: "Coffre au trésor", ship: "Navire", map: "Carte au trésor", flag: "Drapeau pirate", wheel: "Gouvernail", skull: "Tête de mort", stein: "Chope", pretzel: "Bretzel", lheart: "Cœur en pain d'épices", rhomb: "Losange", alphat: "Chapeau tyrolien", barrel: "Tonneau", dkflag: "Drapeau danois", cake: "Gâteau", cakeman: "Bonhomme gâteau", balloon: "Ballon", crown: "Couronne", bpresent: "Cadeau" }[g.shape] || "Cercle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · Niveau " + g.ec; },
+      save: "Enregistrer en ",
+      aUnit: "Unité",
+      uPx: "Pixels",
+      uCm: "Centimètres",
+      sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm de large à l'impression · 300 DPI · " + px + " × " + hpx + " px"; },
+      sizeCmSvg: function (cm, hcm) { return "SVG de " + fmtCm(cm, ",") + " × " + fmtCm(hcm, ",") + " cm. Net à toutes les tailles."; },
+      sizePx: function (px, hpx) { return px + " × " + hpx + " px"; },
+      fmtPng: "PNG garde les coins transparents autour d'un code rond.",
+      fmtPngSq: "PNG est net et fonctionne partout, à l'écran comme dans les documents.",
+      fmtJpg: "JPG ne gère pas la transparence, les coins prennent donc la couleur du fond.",
+      fmtSvg: "SVG s'adapte à toutes les tailles et convient à l'impression. Le texte utilise une police de secours si la police n'est pas installée.",
+      noSave: "L'enregistrement n'est pas possible dans cet affichage. Faites un clic droit ou un appui long sur l'image pour l'enregistrer.",
+      saved: function (f) { return "Enregistré : " + f; },
+      sent: "Envoyé.",
+      busy: "Une fenêtre d'enregistrement est déjà ouverte. Terminez-la d'abord.",
+      saveFail: "Impossible d'enregistrer le fichier ici. Faites un clic droit ou un appui long sur l'image pour l'enregistrer.",
+      gradient: "Dégradé",
+      cCode2: "Couleur finale",
+      direction: "Direction",
+      dDiagonal: "Diagonale",
+      dVertical: "Vertical",
+      dRadial: "Radial",
+      exGrad: "Le code passe de Code à Couleur finale, gardez donc les deux couleurs foncées.",
+      presetsLbl: "Palettes",
+      custom: "Couleurs perso",
+      prev: "Précédent",
+      next: "Suivant",
+      presets: ["Encre","Noir","Or","Marine et or","Forêt","Océan","Bordeaux","Aubergine","Graphite","Terre cuite","Café","Coucher de soleil","Aurore boréale","Grand fond","Prune","Mousse","Nuit"],
+      presetsXmas: ["Rouge de Noël","Épicéa","Bonnet de Noël","Sapin","Vin chaud","Rouge et vert","Pain d'épices","Réveillon"],
+      xmasAria: "Lumières de Noël",
+      xmasLabel: "Allumez les lumières de Noël",
+      xmasLabelXmas: "Les lumières de Noël sont allumées",
+      xmasHint: "Des cœurs, des sapins, des cadeaux et des pères Noël à la place des points. Et pas mal de neige.",
+      xmasHintXmas: "Désactivez-le pour retrouver le Round QR normal et vos propres couleurs.",
+      subtitleXmas: "L'édition de Noël. Collez un lien, décorez le code et enregistrez-le en PNG, JPG ou SVG.",
+      hearts: "Cœurs",
+      trees: "Sapins",
+      gifts: "Cadeaux",
+      stars: "Étoiles",
+      santas: "Pères Noël",
+      mix: "Mélange",
+      defaultLabelXmas: "Joyeux Noël",
+      sHeart: "Cœur",
+      sTree: "Sapin",
+      sGift: "Cadeau",
+      sStar: "Étoile",
+      sSanta: "Père Noël",
+      sBauble: "Boule de Noël",
+      fillXmas: "Remplir la forme de motifs",
+      exFillXmas: "Des points décoratifs sans données qui remplissent la forme autour du code.",
+      exRingXmas: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormXmas: "Cercle et Carré sont les classiques. Les formes de Noël placent le code au centre et remplissent le reste de la forme de motifs.",
+      exModulesXmas: "Les formes de Noël couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      exEyesXmas: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à des boules de Noël."
     }
   };
   /* halloween:start */
@@ -3088,7 +3410,63 @@ var RQ = (function () {
     "exFormHall": "Cirkel och Fyrkant är de klassiska. Halloweenformerna lägger koden i mitten och fyller resten av formen med mönster.",
     "exModulesHall": "Halloweenformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
     "exEyesHall": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små fullmånar."
-   }
+   },
+    es: {
+      presetsHall: ["Calabaza","Medianoche","Pócima","Murciélago","Farol","Fantasma","Luna de sangre","Araña"],
+      hallAria: "Halloween",
+      hallLabel: "Enciende la calabaza",
+      hallLabelHall: "La calabaza está encendida",
+      hallHint: "Calabazas, fantasmas, murciélagos y gatos en lugar de puntos. Y unos cuantos fuegos artificiales.",
+      hallHintHall: "Apágalo otra vez para recuperar el Round QR normal y tus propios colores.",
+      subtitleHall: "La edición de Halloween. Pega un enlace, dale miedo al código y guárdalo como PNG, JPG o SVG.",
+      pumpkins: "Calabazas",
+      ghosts: "Fantasmas",
+      bats: "Murciélagos",
+      cats: "Gatos",
+      hats: "Sombreros de bruja",
+      spooky: "Mezcla",
+      defaultLabelHall: "Truco o trato",
+      hPumpkin: "Calabaza",
+      hGhost: "Fantasma",
+      hBat: "Murciélago",
+      hCat: "Gato",
+      hHat: "Sombrero de bruja",
+      hCandy: "Caramelo",
+      fillHall: "Rellenar la forma con patrón",
+      exFillHall: "Puntos decorativos sin datos que rellenan la forma alrededor del código.",
+      exRingHall: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormHall: "Círculo y Cuadrado son los clásicos. Las formas de Halloween ponen el código en el centro y rellenan el resto de la forma con patrón.",
+      exModulesHall: "Las formas de Halloween cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      exEyesHall: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece pequeñas lunas llenas."
+    },
+    fr: {
+      presetsHall: ["Citrouille","Minuit","Potion","Chauve-souris","Lanterne","Fantôme","Lune de sang","Araignée"],
+      hallAria: "Halloween",
+      hallLabel: "Allumez la citrouille",
+      hallLabelHall: "La citrouille est allumée",
+      hallHint: "Des citrouilles, des fantômes, des chauves-souris et des chats à la place des points. Et pas mal de feux d'artifice.",
+      hallHintHall: "Désactivez-le pour retrouver le Round QR normal et vos propres couleurs.",
+      subtitleHall: "L'édition Halloween. Collez un lien, rendez le code effrayant et enregistrez-le en PNG, JPG ou SVG.",
+      pumpkins: "Citrouilles",
+      ghosts: "Fantômes",
+      bats: "Chauves-souris",
+      cats: "Chats",
+      hats: "Chapeaux de sorcière",
+      spooky: "Mélange",
+      defaultLabelHall: "Un bonbon ou un sort",
+      hPumpkin: "Citrouille",
+      hGhost: "Fantôme",
+      hBat: "Chauve-souris",
+      hCat: "Chat",
+      hHat: "Chapeau de sorcière",
+      hCandy: "Bonbon",
+      fillHall: "Remplir la forme de motifs",
+      exFillHall: "Des points décoratifs sans données qui remplissent la forme autour du code.",
+      exRingHall: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormHall: "Cercle et Carré sont les classiques. Les formes d'Halloween placent le code au centre et remplissent le reste de la forme de motifs.",
+      exModulesHall: "Les formes d'Halloween couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      exEyesHall: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à de petites pleines lunes."
+    }
   };
   Object.keys(TH).forEach(function (l) { for (var k in TH[l]) T[l][k] = TH[l][k]; });
   /* halloween:end */
@@ -3278,7 +3656,63 @@ var RQ = (function () {
     "exFormEaster": "Cirkel och Fyrkant är de klassiska. Påskformerna lägger koden i mitten och fyller resten av formen med mönster.",
     "exModulesEaster": "Påskformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
     "exEyesEaster": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små äggulor."
-   }
+   },
+    es: {
+      presetsEaster: ["Huevo de Pascua","Primavera","Narciso","Pollito","Lavanda","Tulipán","Cielo","Hierba"],
+      eastAria: "Pascua",
+      eastLabel: "Suelta al conejo de Pascua",
+      eastLabelEaster: "El conejo de Pascua anda suelto",
+      eastHint: "Huevos, conejos, pollitos y flores en lugar de puntos. Y un conejo que salta por ahí poniendo huevos.",
+      eastHintEaster: "Apágalo otra vez para recuperar el Round QR normal y tus propios colores.",
+      subtitleEaster: "La edición de Pascua. Pega un enlace, decora el código y guárdalo como PNG, JPG o SVG.",
+      eggs: "Huevos",
+      bunnies: "Conejos",
+      chicks: "Pollitos",
+      flowers: "Flores",
+      tulips: "Tulipanes",
+      spring: "Mezcla",
+      defaultLabelEaster: "Felices Pascuas",
+      eEgg: "Huevo",
+      eBunny: "Conejo de Pascua",
+      eChick: "Pollito",
+      eFlower: "Flor",
+      eBasket: "Cesta",
+      eTulip: "Tulipán",
+      fillEaster: "Rellenar la forma con patrón",
+      exFillEaster: "Puntos decorativos sin datos que rellenan la forma alrededor del código.",
+      exRingEaster: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormEaster: "Círculo y Cuadrado son los clásicos. Las formas de Pascua ponen el código en el centro y rellenan el resto de la forma con patrón.",
+      exModulesEaster: "Las formas de Pascua cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      exEyesEaster: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece pequeñas yemas de huevo."
+    },
+    fr: {
+      presetsEaster: ["Œuf de Pâques","Printemps","Jonquille","Poussin","Lavande","Tulipe","Ciel","Herbe"],
+      eastAria: "Pâques",
+      eastLabel: "Lâchez le lapin de Pâques",
+      eastLabelEaster: "Le lapin de Pâques est en liberté",
+      eastHint: "Des œufs, des lapins, des poussins et des fleurs à la place des points. Et un lapin qui sautille en pondant des œufs.",
+      eastHintEaster: "Désactivez-le pour retrouver le Round QR normal et vos propres couleurs.",
+      subtitleEaster: "L'édition de Pâques. Collez un lien, décorez le code et enregistrez-le en PNG, JPG ou SVG.",
+      eggs: "Œufs",
+      bunnies: "Lapins",
+      chicks: "Poussins",
+      flowers: "Fleurs",
+      tulips: "Tulipes",
+      spring: "Mélange",
+      defaultLabelEaster: "Joyeuses Pâques",
+      eEgg: "Œuf",
+      eBunny: "Lapin de Pâques",
+      eChick: "Poussin",
+      eFlower: "Fleur",
+      eBasket: "Panier",
+      eTulip: "Tulipe",
+      fillEaster: "Remplir la forme de motifs",
+      exFillEaster: "Des points décoratifs sans données qui remplissent la forme autour du code.",
+      exRingEaster: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormEaster: "Cercle et Carré sont les classiques. Les formes de Pâques placent le code au centre et remplissent le reste de la forme de motifs.",
+      exModulesEaster: "Les formes de Pâques couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      exEyesEaster: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à de petits jaunes d'œuf."
+    }
   };
   Object.keys(TE).forEach(function (l) { for (var k in TE[l]) T[l][k] = TE[l][k]; });
   /* paaske:end */
@@ -3473,7 +3907,65 @@ var RQ = (function () {
     "exFormNyt": "Cirkel och Fyrkant är de klassiska. Nyårsformerna lägger koden i mitten och fyller resten av formen med mönster.",
     "exModulesNyt": "Nyårsformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
     "exEyesNyt": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små champagnebubblor."
-   }
+   },
+    es: {
+      presetsNyt: ["Medianoche","Champán","Plata","Confeti","Cohete","Noche estrellada","Burbujas","Nochevieja"],
+      nyAria: "Año Nuevo",
+      nyLabel: "Recibe el Año Nuevo",
+      nyLabelNyt: "Ha llegado el Año Nuevo",
+      nyHint: "Cohetes, copas de champán, botellas y relojes en lugar de puntos. Y una cuenta atrás con fuegos artificiales a medianoche.",
+      nyHintNyt: "Apágalo otra vez para recuperar el Round QR normal y tus propios colores.",
+      subtitleNyt: "La edición de Año Nuevo. Pega un enlace, decora el código y guárdalo como PNG, JPG o SVG.",
+      rockets: "Cohetes",
+      glasses: "Copas",
+      bottles: "Botellas",
+      clocks: "Relojes",
+      sparkles: "Destellos",
+      party: "Mezcla",
+      defaultLabelNyt: "Feliz Año Nuevo",
+      cheer: "¡Feliz Año Nuevo!",
+      nRocket: "Cohete",
+      nGlass: "Copa de champán",
+      nBottle: "Botella",
+      nClock: "Reloj",
+      nSparkle: "Destello",
+      nHat: "Gorro de fiesta",
+      fillNyt: "Rellenar la forma con patrón",
+      exFillNyt: "Puntos decorativos sin datos que rellenan la forma alrededor del código.",
+      exRingNyt: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormNyt: "Círculo y Cuadrado son los clásicos. Las formas de Año Nuevo ponen el código en el centro y rellenan el resto de la forma con patrón.",
+      exModulesNyt: "Las formas de Año Nuevo cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      exEyesNyt: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece pequeñas burbujas de champán."
+    },
+    fr: {
+      presetsNyt: ["Minuit","Champagne","Argent","Confettis","Fusée","Nuit étoilée","Bulles","Saint-Sylvestre"],
+      nyAria: "Nouvel An",
+      nyLabel: "Fêtez le Nouvel An",
+      nyLabelNyt: "Le Nouvel An est arrivé",
+      nyHint: "Des fusées, des coupes de champagne, des bouteilles et des horloges à la place des points. Et un compte à rebours avec feux d'artifice à minuit.",
+      nyHintNyt: "Désactivez-le pour retrouver le Round QR normal et vos propres couleurs.",
+      subtitleNyt: "L'édition du Nouvel An. Collez un lien, décorez le code et enregistrez-le en PNG, JPG ou SVG.",
+      rockets: "Fusées",
+      glasses: "Coupes",
+      bottles: "Bouteilles",
+      clocks: "Horloges",
+      sparkles: "Étincelles",
+      party: "Mélange",
+      defaultLabelNyt: "Bonne année",
+      cheer: "Bonne année !",
+      nRocket: "Fusée",
+      nGlass: "Coupe de champagne",
+      nBottle: "Bouteille",
+      nClock: "Horloge",
+      nSparkle: "Étincelle",
+      nHat: "Chapeau de fête",
+      fillNyt: "Remplir la forme de motifs",
+      exFillNyt: "Des points décoratifs sans données qui remplissent la forme autour du code.",
+      exRingNyt: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormNyt: "Cercle et Carré sont les classiques. Les formes du Nouvel An placent le code au centre et remplissent le reste de la forme de motifs.",
+      exModulesNyt: "Les formes du Nouvel An couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      exEyesNyt: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à de petites bulles de champagne."
+    }
   };
   Object.keys(TN).forEach(function (l) { for (var k in TN[l]) T[l][k] = TN[l][k]; });
   /* nytaar:end */
@@ -3678,7 +4170,69 @@ var RQ = (function () {
     "exFormPirat": "Cirkel och Fyrkant är de klassiska. Piratformerna lägger koden i mitten och fyller resten av formen med mönster.",
     "exModulesPirat": "Piratformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
     "exEyesPirat": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som små kanonkulor."
-   }
+   },
+    es: {
+      presetsPirat: ["Bucanero","Mar","Mapa del tesoro","Ron","Cañón","Laguna","Rojo sangre","Mar de noche"],
+      piratAria: "Pirata",
+      piratLabel: "Iza la bandera pirata",
+      piratLabelPirat: "La bandera pirata está izada",
+      piratHint: "Cofres, barcos, anclas y monedas en lugar de puntos. Y tres cofres del tesoro escondidos por la página.",
+      piratHintPirat: "Encuentra los tres cofres del tesoro escondidos en la página. Apágalo otra vez para recuperar el Round QR normal.",
+      subtitlePirat: "La edición pirata. Pega un enlace, pon el código a punto y guárdalo como PNG, JPG o SVG.",
+      chests: "Cofres",
+      ships: "Barcos",
+      anchors: "Anclas",
+      skulls: "Calaveras",
+      coins: "Monedas",
+      pirates: "Mezcla",
+      defaultLabelPirat: "La X marca el sitio",
+      huntFound: "Tesoro encontrado: {n} de {t}",
+      huntDone: "¡Has encontrado todo el tesoro!",
+      chestAria: "Cofre del tesoro",
+      pChest: "Cofre del tesoro",
+      pShip: "Barco",
+      pMap: "Mapa del tesoro",
+      pFlag: "Bandera pirata",
+      pWheel: "Timón",
+      pSkull: "Calavera",
+      fillPirat: "Rellenar la forma con patrón",
+      exFillPirat: "Puntos decorativos sin datos que rellenan la forma alrededor del código.",
+      exRingPirat: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormPirat: "Círculo y Cuadrado son los clásicos. Las formas piratas ponen el código en el centro y rellenan el resto de la forma con patrón.",
+      exModulesPirat: "Las formas piratas cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      exEyesPirat: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece pequeñas balas de cañón."
+    },
+    fr: {
+      presetsPirat: ["Boucanier","Mer","Carte au trésor","Rhum","Canon","Lagon","Rouge sang","Mer de nuit"],
+      piratAria: "Pirate",
+      piratLabel: "Hissez le drapeau pirate",
+      piratLabelPirat: "Le drapeau pirate est hissé",
+      piratHint: "Des coffres, des navires, des ancres et des pièces à la place des points. Et trois coffres au trésor cachés sur la page.",
+      piratHintPirat: "Trouvez les trois coffres au trésor cachés sur la page. Désactivez-le pour retrouver le Round QR normal.",
+      subtitlePirat: "L'édition pirate. Collez un lien, mettez le code en ordre de bataille et enregistrez-le en PNG, JPG ou SVG.",
+      chests: "Coffres",
+      ships: "Navires",
+      anchors: "Ancres",
+      skulls: "Têtes de mort",
+      coins: "Pièces",
+      pirates: "Mélange",
+      defaultLabelPirat: "Le trésor est ici",
+      huntFound: "Trésor trouvé : {n} sur {t}",
+      huntDone: "Vous avez trouvé tout le trésor !",
+      chestAria: "Coffre au trésor",
+      pChest: "Coffre au trésor",
+      pShip: "Navire",
+      pMap: "Carte au trésor",
+      pFlag: "Drapeau pirate",
+      pWheel: "Gouvernail",
+      pSkull: "Tête de mort",
+      fillPirat: "Remplir la forme de motifs",
+      exFillPirat: "Des points décoratifs sans données qui remplissent la forme autour du code.",
+      exRingPirat: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormPirat: "Cercle et Carré sont les classiques. Les formes pirates placent le code au centre et remplissent le reste de la forme de motifs.",
+      exModulesPirat: "Les formes pirates couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      exEyesPirat: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à de petits boulets de canon."
+    }
   };
   Object.keys(TP).forEach(function (l) { for (var k in TP[l]) T[l][k] = TP[l][k]; });
   /* pirat:end */
@@ -3873,7 +4427,65 @@ var RQ = (function () {
     "exFormOkt": "Cirkel och Fyrkant är de klassiska. Oktoberfestformerna lägger koden i mitten och fyller resten av formen med mönster.",
     "exModulesOkt": "Oktoberfestformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
     "oktHintOkt": "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka."
-   }
+   },
+    es: {
+      presetsOkt: ["Baviera","Cerveza de trigo","Lederhosen","Pretzel","Dirndl","Cerveza negra","Genciana","Wiesn"],
+      oktAria: "Oktoberfest",
+      oktLabel: "Abre el barril",
+      oktLabelOkt: "O'zapft is!",
+      oktHint: "Jarras, pretzels, corazones y rombos azules y blancos en lugar de puntos. Y espuma que sube burbujeando.",
+      subtitleOkt: "La edición de Oktoberfest. Pega un enlace, decora el código y guárdalo como PNG, JPG o SVG.",
+      steins: "Jarras",
+      pretzels: "Pretzels",
+      lhearts: "Corazones",
+      rhombs: "Rombos",
+      alphats: "Sombreros tiroleses",
+      wiesn: "Mezcla",
+      defaultLabelOkt: "¡Salud!",
+      oktCheer: "O'zapft is!",
+      oStein: "Jarra de cerveza",
+      oPretzel: "Pretzel",
+      oHeart: "Corazón de jengibre",
+      oRhomb: "Rombo",
+      oHat: "Sombrero tirolés",
+      oBarrel: "Barril",
+      exEyesOkt: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece pequeños posavasos.",
+      fillOkt: "Rellenar la forma con patrón",
+      exFillOkt: "Puntos decorativos sin datos que rellenan la forma alrededor del código.",
+      exRingOkt: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormOkt: "Círculo y Cuadrado son los clásicos. Las formas de Oktoberfest ponen el código en el centro y rellenan el resto de la forma con patrón.",
+      exModulesOkt: "Las formas de Oktoberfest cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      oktHintOkt: "Apágalo otra vez para recuperar el Round QR normal y tus propios colores."
+    },
+    fr: {
+      presetsOkt: ["Bavière","Bière blanche","Lederhosen","Bretzel","Dirndl","Bière brune","Gentiane","Wiesn"],
+      oktAria: "Oktoberfest",
+      oktLabel: "Mettez le fût en perce",
+      oktLabelOkt: "O'zapft is!",
+      oktHint: "Des chopes, des bretzels, des cœurs et des losanges bleus et blancs à la place des points. Et de la mousse qui monte.",
+      subtitleOkt: "L'édition Oktoberfest. Collez un lien, décorez le code et enregistrez-le en PNG, JPG ou SVG.",
+      steins: "Chopes",
+      pretzels: "Bretzels",
+      lhearts: "Cœurs",
+      rhombs: "Losanges",
+      alphats: "Chapeaux tyroliens",
+      wiesn: "Mélange",
+      defaultLabelOkt: "Santé !",
+      oktCheer: "O'zapft is!",
+      oStein: "Chope",
+      oPretzel: "Bretzel",
+      oHeart: "Cœur en pain d'épices",
+      oRhomb: "Losange",
+      oHat: "Chapeau tyrolien",
+      oBarrel: "Tonneau",
+      exEyesOkt: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à de petits sous-bocks.",
+      fillOkt: "Remplir la forme de motifs",
+      exFillOkt: "Des points décoratifs sans données qui remplissent la forme autour du code.",
+      exRingOkt: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormOkt: "Cercle et Carré sont les classiques. Les formes de l'Oktoberfest placent le code au centre et remplissent le reste de la forme de motifs.",
+      exModulesOkt: "Les formes de l'Oktoberfest couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      oktHintOkt: "Désactivez-le pour retrouver le Round QR normal et vos propres couleurs."
+    }
   };
   Object.keys(TO).forEach(function (l) { for (var k in TO[l]) T[l][k] = TO[l][k]; });
   /* oktober:end */
@@ -4068,7 +4680,65 @@ var RQ = (function () {
     "exFormBday": "Cirkel och Fyrkant är de klassiska. Födelsedagsformerna lägger koden i mitten och fyller resten av formen med mönster.",
     "exModulesBday": "Födelsedagsformerna täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
     "bdayHintBday": "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka."
-   }
+   },
+    es: {
+      presetsBday: ["Dannebrog","Tarta","Muñeco de tarta","Banderines","Globo","Lazo","Chocolate","Hurra"],
+      bdayAria: "Cumpleaños",
+      bdayLabel: "Iza la bandera, es un cumpleaños",
+      bdayLabelBday: "¡Feliz cumpleaños!",
+      bdayHint: "Banderas, tartas, regalos y globos en lugar de puntos. Y una fila de banderas danesas que aparece de golpe.",
+      subtitleBday: "La edición de cumpleaños. Pega un enlace, decora el código y guárdalo como PNG, JPG o SVG.",
+      flags: "Banderas",
+      cakes: "Tartas",
+      bgifts: "Regalos",
+      balloons: "Globos",
+      cakemen: "Muñecos de tarta",
+      hurra: "Mezcla",
+      defaultLabelBday: "Feliz cumpleaños",
+      bdayCheer: "¡Hip, hip, hurra!",
+      bFlag: "Bandera danesa",
+      bCake: "Tarta",
+      bCakeman: "Muñeco de tarta",
+      bBalloon: "Globo",
+      bCrown: "Corona",
+      bPresent: "Regalo",
+      exEyesBday: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece pequeños globos.",
+      fillBday: "Rellenar la forma con patrón",
+      exFillBday: "Puntos decorativos sin datos que rellenan la forma alrededor del código.",
+      exRingBday: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormBday: "Círculo y Cuadrado son los clásicos. Las formas de cumpleaños ponen el código en el centro y rellenan el resto de la forma con patrón.",
+      exModulesBday: "Las formas de cumpleaños cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      bdayHintBday: "Apágalo otra vez para recuperar el Round QR normal y tus propios colores."
+    },
+    fr: {
+      presetsBday: ["Dannebrog","Gâteau","Bonhomme gâteau","Fanions","Ballon","Ruban","Chocolat","Hourra"],
+      bdayAria: "Anniversaire",
+      bdayLabel: "Hissez le drapeau, c'est un anniversaire",
+      bdayLabelBday: "Joyeux anniversaire !",
+      bdayHint: "Des drapeaux, des gâteaux, des cadeaux et des ballons à la place des points. Et une rangée de drapeaux danois qui surgit.",
+      subtitleBday: "L'édition anniversaire. Collez un lien, décorez le code et enregistrez-le en PNG, JPG ou SVG.",
+      flags: "Drapeaux",
+      cakes: "Gâteaux",
+      bgifts: "Cadeaux",
+      balloons: "Ballons",
+      cakemen: "Bonshommes gâteau",
+      hurra: "Mélange",
+      defaultLabelBday: "Joyeux anniversaire",
+      bdayCheer: "Hip hip hip, hourra !",
+      bFlag: "Drapeau danois",
+      bCake: "Gâteau",
+      bCakeman: "Bonhomme gâteau",
+      bBalloon: "Ballon",
+      bCrown: "Couronne",
+      bPresent: "Cadeau",
+      exEyesBday: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à de petits ballons.",
+      fillBday: "Remplir la forme de motifs",
+      exFillBday: "Des points décoratifs sans données qui remplissent la forme autour du code.",
+      exRingBday: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormBday: "Cercle et Carré sont les classiques. Les formes d'anniversaire placent le code au centre et remplissent le reste de la forme de motifs.",
+      exModulesBday: "Les formes d'anniversaire couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      bdayHintBday: "Désactivez-le pour retrouver le Round QR normal et vos propres couleurs."
+    }
   };
   Object.keys(TB).forEach(function (l) { for (var k in TB[l]) T[l][k] = TB[l][k]; });
   /* foedselsdag:end */
@@ -4263,7 +4933,65 @@ var RQ = (function () {
     "exFormSkov": "Cirkel och Fyrkant är de klassiska. Skogsformerna lägger koden i mitten och fyller resten av djuret med mönster.",
     "exModulesSkov": "Djuren täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
     "skovHintSkov": "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka."
-   }
+   },
+    es: {
+      presetsSkov: ["Pinar","Musgo","Alce","Lobo","Zorro","Abedul","Lago del bosque","Aurora boreal"],
+      skovAria: "Paseo por el bosque",
+      skovLabel: "Da un paseo por el bosque",
+      skovLabelSkov: "Bienvenido al bosque",
+      skovHint: "Alces, lobos, zorros, búhos y osos en lugar de puntos. Y animales que pasean por la parte de abajo.",
+      subtitleSkov: "La edición del bosque. Pega un enlace, decora el código y guárdalo como PNG, JPG o SVG.",
+      elge: "Alces",
+      ulve: "Lobos",
+      raeve: "Zorros",
+      ugler: "Búhos",
+      bjorne: "Osos",
+      skovmix: "Mezcla",
+      defaultLabelSkov: "Al bosque",
+      skovCheer: "¡Auuuuuu!",
+      fElg: "Alce",
+      fUlv: "Lobo",
+      fRaev: "Zorro",
+      fBjorn: "Oso",
+      fUgle: "Búho",
+      fOrn: "Águila",
+      exEyesSkov: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece ojos de búho.",
+      fillSkov: "Rellenar la forma con patrón",
+      exFillSkov: "Puntos decorativos sin datos que rellenan el animal alrededor del código.",
+      exRingSkov: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormSkov: "Círculo y Cuadrado son los clásicos. Las formas del bosque ponen el código en el centro y rellenan el resto del animal con patrón.",
+      exModulesSkov: "Los animales cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      skovHintSkov: "Apágalo otra vez para recuperar el Round QR normal y tus propios colores."
+    },
+    fr: {
+      presetsSkov: ["Pinède","Mousse","Élan","Loup","Renard","Bouleau","Lac en forêt","Aurore boréale"],
+      skovAria: "Balade en forêt",
+      skovLabel: "Allez vous promener en forêt",
+      skovLabelSkov: "Bienvenue dans la forêt",
+      skovHint: "Des élans, des loups, des renards, des hiboux et des ours à la place des points. Et des animaux qui passent en bas de la page.",
+      subtitleSkov: "L'édition forêt. Collez un lien, décorez le code et enregistrez-le en PNG, JPG ou SVG.",
+      elge: "Élans",
+      ulve: "Loups",
+      raeve: "Renards",
+      ugler: "Hiboux",
+      bjorne: "Ours",
+      skovmix: "Mélange",
+      defaultLabelSkov: "En forêt",
+      skovCheer: "Aouhouuuuu !",
+      fElg: "Élan",
+      fUlv: "Loup",
+      fRaev: "Renard",
+      fBjorn: "Ours",
+      fUgle: "Hibou",
+      fOrn: "Aigle",
+      exEyesSkov: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à des yeux de hibou.",
+      fillSkov: "Remplir la forme de motifs",
+      exFillSkov: "Des points décoratifs sans données qui remplissent l'animal autour du code.",
+      exRingSkov: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormSkov: "Cercle et Carré sont les classiques. Les formes de la forêt placent le code au centre et remplissent le reste de l'animal de motifs.",
+      exModulesSkov: "Les animaux couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      skovHintSkov: "Désactivez-le pour retrouver le Round QR normal et vos propres couleurs."
+    }
   };
   Object.keys(TS).forEach(function (l) { for (var k in TS[l]) T[l][k] = TS[l][k]; });
   /* skovtur:end */
@@ -4336,6 +5064,22 @@ var RQ = (function () {
     if ($("labelText").value === prevDefault || isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
     $("logoBtn").textContent = logo ? t("replace") : t("addLogo");
     try { localStorage.setItem("round-qr-lang", lang); } catch (e) {}
+    syncPage();
+  }
+
+  // On roundqr.dk every language has its own address (/, /en/, /de/ ...). The build sets data-page-lang on those pages.
+  // Switching language keeps working without a reload; only the address, title and description follow along.
+  var PAGE_LANG = document.documentElement.getAttribute("data-page-lang");
+  function syncPage() {
+    if (!PAGE_LANG) return;
+    var d = T[lang];
+    if (d.pageTitle) document.title = d.pageTitle;
+    var md = document.querySelector('meta[name="description"]'); if (md && d.pageDesc) md.setAttribute("content", d.pageDesc);
+    var path = lang === "da" ? "/" : "/" + lang + "/";
+    var cl = document.querySelector('link[rel="canonical"]'); if (cl) cl.setAttribute("href", "https://roundqr.dk" + path);
+    if (/^https?:$/.test(location.protocol) && location.pathname !== path && history.replaceState) {
+      try { history.replaceState(null, "", path + location.search + location.hash); } catch (e) {}
+    }
   }
 
   function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v || T[k].defaultLabelSkov === v; }); }
@@ -6491,9 +7235,12 @@ var RQ = (function () {
   /* skovtur:end */
   var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
-  if (!startLang) {
-    // First visit: follow the browser's language when we have it, otherwise Danish.
-    var BROWSER = { da: "da", en: "en", de: "de", nb: "no", nn: "no", no: "no", sv: "sv" };
+  if (PAGE_LANG) {
+    // The website: the address decides the language, so a shared link always opens in the same language.
+    startLang = PAGE_LANG;
+  } else if (!startLang) {
+    // Offline file and artifact: follow the browser's language when we have it, otherwise Danish.
+    var BROWSER = { da: "da", en: "en", de: "de", nb: "no", nn: "no", no: "no", sv: "sv", es: "es", fr: "fr" };
     (navigator.languages || [navigator.language || ""]).some(function (l) { var k = BROWSER[String(l).slice(0, 2).toLowerCase()]; if (k) startLang = k; return !!k; });
     startLang = startLang || "da";
   }

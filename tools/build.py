@@ -99,6 +99,36 @@ SITE_LANGS = {
   "dlBtn": "Last ned roundqr.html",
   "footNote": "Ingen informasjonskapsler og ingen sporing. Innstillingene dine lagres bare i din egen nettleser."
  },
+ "es": {
+  "spTitle": "Patrocinadores",
+  "spIntro": "Round QR es gratis y sin anuncios. Gracias a quienes apoyan la página.",
+  "sp1": "Talleres y cursos prácticos de IA para empleados, directivos y docentes. Del primer prompt a rutinas fijas en el día a día.",
+  "sp2": "Vídeo, pódcast y retransmisión en directo de eventos. Bonos de horas, paquetes fijos o un taller para aprender a producir por vuestra cuenta.",
+  "sp3": "Control horario con NFC. Una pegatina junto a la puerta registra tu entrada y salida, y la app gratuita lleva la cuenta de horas y saldo.",
+  "sp4": "Una nueva editorial danesa con libros sobre la naturaleza y las buenas experiencias que ofrece, para niños y adultos.",
+  "sp5": "Sidra de Inglaterra, Irlanda, Francia, Dinamarca y Estados Unidos. Con y sin alcohol, y varias son ecológicas.",
+  "sp6": "Una conferencia sobre IA en el trabajo para la persona, el equipo y la organización. 11 de febrero de 2027 en el Dansk Arkitektur Center.",
+  "sp7": "Ayuda a empresas farmacéuticas a adoptar la IA de forma responsable y con las personas en el centro. Consultoría, coaching y talleres.",
+  "dlTitle": "Descarga Round QR",
+  "dlText": "Todo el programa en un solo archivo HTML. Ábrelo en tu navegador y crea códigos QR, también sin internet. No hay nada que instalar.",
+  "dlBtn": "Descargar roundqr.html",
+  "footNote": "Sin cookies y sin rastreo. Tus ajustes solo se guardan en tu propio navegador."
+ },
+ "fr": {
+  "spTitle": "Sponsors",
+  "spIntro": "Round QR est gratuit et sans publicité. Merci à ceux qui soutiennent le site.",
+  "sp1": "Ateliers et formations pratiques sur l'IA pour les salariés, les managers et les enseignants. Du premier prompt aux habitudes de travail au quotidien.",
+  "sp2": "Vidéo, podcast et diffusion en direct d'événements. Forfaits d'heures, offres fixes ou un atelier pour apprendre à produire vous-mêmes.",
+  "sp3": "Pointage avec NFC. Un autocollant près de la porte enregistre vos arrivées et départs, et l'application gratuite suit vos heures et votre solde.",
+  "sp4": "Une nouvelle maison d'édition danoise avec des livres sur la nature et les beaux moments qu'elle offre, pour les enfants et les adultes.",
+  "sp5": "Du cidre d'Angleterre, d'Irlande, de France, du Danemark et des États-Unis. Avec et sans alcool, et plusieurs sont bio.",
+  "sp6": "Une conférence sur l'IA au travail pour l'individu, l'équipe et l'organisation. Le 11 février 2027 au Dansk Arkitektur Center.",
+  "sp7": "Aide les entreprises pharmaceutiques à adopter l'IA de façon responsable, en plaçant l'humain au centre. Conseil, coaching et ateliers.",
+  "dlTitle": "Télécharger Round QR",
+  "dlText": "Tout le programme dans un seul fichier HTML. Ouvrez-le dans votre navigateur et créez des codes QR, même sans internet. Rien à installer.",
+  "dlBtn": "Télécharger roundqr.html",
+  "footNote": "Pas de cookies et pas de suivi. Vos réglages sont enregistrés uniquement dans votre propre navigateur."
+ },
  "sv": {
   "spTitle": "Sponsorer",
   "spIntro": "Round QR är gratis och utan reklam. Tack till dem som stöttar sidan.",
@@ -184,6 +214,38 @@ FAQ = {
   'faq6q': 'Er Round QR åpen?',
   'faq6a': 'Ja. All kildekoden ligger offentlig på GitHub, og du kan laste ned hele programmet som én HTML-fil og bruke det uten internett.',
  },
+ 'es': {
+  'faqTitle': 'Preguntas y respuestas',
+  'faqIntro': 'Lo que más se pregunta.',
+  'faq1q': '¿Puedo usar los códigos QR con fines comerciales?',
+  'faq1a': 'Sí. Úsalos en envases, carteles, cartas de restaurante, tarjetas de visita, pósteres y todo lo demás. No tienes que pagar, pedir permiso ni mencionar Round QR.',
+  'faq2q': '¿Caducan los códigos QR?',
+  'faq2a': 'No. Son códigos estáticos, en los que el enlace va directamente en el propio patrón. No hay intermediarios, redirecciones ni cuentas que puedan cerrarse. El código funciona mientras exista la página a la que apunta.',
+  'faq3q': '¿Se puede escanear un código QR redondo?',
+  'faq3a': 'Sí. La forma redonda es decoración alrededor de un código QR normal que cualquier móvil puede leer. Round QR escanea el código por sí mismo y muestra "Se puede escanear" cuando está bien. Aun así, pruébalo con tu móvil antes de mandar algo a imprimir.',
+  'faq4q': '¿Cuánto cuesta?',
+  'faq4a': 'Nada. Nunca habrá suscripciones, registros ni anuncios. La página la pagan los patrocinadores de arriba.',
+  'faq5q': '¿Guardáis mis enlaces o imágenes?',
+  'faq5a': 'No. Todo ocurre en tu propio navegador y no se envía nada a ningún servidor. Sin cookies y sin rastreo.',
+  'faq6q': '¿Round QR es abierto?',
+  'faq6a': 'Sí. Todo el código fuente es público en GitHub, y puedes descargar el programa completo como un único archivo HTML y usarlo sin internet.',
+ },
+ 'fr': {
+  'faqTitle': 'Questions et réponses',
+  'faqIntro': 'Ce que l\'on nous demande le plus souvent.',
+  'faq1q': 'Puis-je utiliser les codes QR à des fins commerciales ?',
+  'faq1a': 'Oui. Utilisez-les sur des emballages, des panneaux, des menus, des cartes de visite, des affiches et tout le reste. Vous n\'avez rien à payer, aucune autorisation à demander et pas besoin de citer Round QR.',
+  'faq2q': 'Les codes QR expirent-ils ?',
+  'faq2a': 'Non. Ce sont des codes statiques : le lien est inscrit directement dans le motif. Il n\'y a ni intermédiaire, ni redirection, ni compte qui puisse fermer. Le code fonctionne tant que la page vers laquelle il pointe existe.',
+  'faq3q': 'Un code QR rond peut-il être scanné ?',
+  'faq3a': 'Oui. La forme ronde est une décoration autour d\'un code QR tout à fait normal que tous les téléphones savent lire. Round QR scanne lui-même le code et affiche "Se scanne bien" quand tout est en ordre. Testez-le quand même avec votre téléphone avant d\'imprimer.',
+  'faq4q': 'Combien ça coûte ?',
+  'faq4a': 'Rien. Il n\'y aura jamais d\'abonnement, de compte ni de publicité. Le site est financé par les sponsors ci-dessus.',
+  'faq5q': 'Conservez-vous mes liens ou mes images ?',
+  'faq5a': 'Non. Tout se passe dans votre propre navigateur et rien n\'est envoyé à un serveur. Pas de cookies et pas de suivi.',
+  'faq6q': 'Round QR est-il ouvert ?',
+  'faq6a': 'Oui. Tout le code source est public sur GitHub, et vous pouvez télécharger tout le programme sous forme d\'un seul fichier HTML et l\'utiliser sans internet.',
+ },
  'sv': {
   'faqTitle': 'Frågor och svar',
   'faqIntro': 'Det folk oftast frågar om.',
@@ -202,7 +264,7 @@ FAQ = {
  },
 }
 DA.update(FAQ['da']); EN.update(FAQ['en'])
-for _lg in ('de', 'no', 'sv'): SITE_LANGS[_lg].update(FAQ[_lg])
+for _lg in ('de', 'no', 'sv', 'es', 'fr'): SITE_LANGS[_lg].update(FAQ[_lg])
 GITHUB = 'https://github.com/rapsak5/roundqr'
 
 def faq_html():
@@ -344,16 +406,17 @@ OFFLINE_FOOT = '''
 '''
 
 ANCHORS = {'da': '      subtitle: "Indsæt et link', 'en': '      subtitle: "Paste a link', 'de': '      subtitle: "Link einfügen',
-           'no': '      subtitle: "Lim inn en lenke', 'sv': '      subtitle: "Klistra in en länk'}
+           'no': '      subtitle: "Lim inn en lenke', 'sv': '      subtitle: "Klistra in en länk',
+           'es': '      subtitle: "Pega un enlace', 'fr': '      subtitle: "Collez un lien'}
 def add_strings(html, per_lang):
     for lg, d in per_lang.items():
         assert html.count(ANCHORS[lg]) == 1, lg
         html = html.replace(ANCHORS[lg], js_obj(d) + ANCHORS[lg], 1)
     return html
 
-def head(title, desc, extra=''):
+def head(title, desc, extra='', html_attrs='lang="da"'):
     return f'''<!doctype html>
-<html lang="da">
+<html {html_attrs}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -395,7 +458,8 @@ off = off.replace('<style>\n', '<style>\n' + fontface(True) + '\n', 1)
 off = off.replace(END_WRAP, OFFLINE_FOOT + END_WRAP, 1).replace(CDN, libs(True), 1)
 off = add_strings(off, {'da': {'footNote': 'Virker uden internet. Ingen cookies og ingen sporing.'}, 'en': {'footNote': 'Works offline. No cookies and no tracking.'},
   'de': {'footNote': 'Funktioniert ohne Internet. Keine Cookies und kein Tracking.'}, 'no': {'footNote': 'Virker uten internett. Ingen informasjonskapsler og ingen sporing.'},
-  'sv': {'footNote': 'Fungerar utan internet. Inga kakor och ingen spårning.'}})
+  'sv': {'footNote': 'Fungerar utan internet. Inga kakor och ingen spårning.'},
+  'es': {'footNote': 'Funciona sin internet. Sin cookies y sin rastreo.'}, 'fr': {'footNote': 'Fonctionne sans internet. Pas de cookies et pas de suivi.'}})
 OFF_DA = 'Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder. Den er gratis, uden abonnement, login og reklamer, og virker også uden internet.'
 OFF_EN = "I built Round QR together with AI because I needed a good QR code tool myself. It's free, with no subscriptions, logins or ads, and it works offline too."
 off = re.sub(r'(      about: )"Jeg har udviklet[^"]*"', lambda m: m.group(1) + '"' + OFF_DA + '"', off)
@@ -404,6 +468,8 @@ OFF_ABOUT = {
   'Ich habe Round QR': 'Ich habe Round QR zusammen mit KI entwickelt, weil mir selbst ein gutes Werkzeug für QR-Codes fehlte. Es ist kostenlos, ohne Abo, Login und Werbung, und funktioniert auch ohne Internet.',
   'Jeg har utviklet': 'Jeg har utviklet Round QR sammen med KI fordi jeg selv manglet et godt verktøy for QR-koder. Det er gratis, uten abonnement, innlogging og reklame, og virker også uten internett.',
   'Jag har utvecklat': 'Jag har utvecklat Round QR tillsammans med AI eftersom jag själv saknade ett bra verktyg för QR-koder. Det är gratis, utan prenumeration, inloggning och reklam, och fungerar även utan internet.',
+  'He creado Round QR': 'He creado Round QR junto con la IA porque yo mismo echaba en falta una buena herramienta para códigos QR. Es gratis, sin suscripciones, registros ni anuncios, y también funciona sin internet.',
+  "J'ai créé Round QR": "J'ai créé Round QR avec l'aide de l'IA parce qu'il me manquait un bon outil pour les codes QR. C'est gratuit, sans abonnement, compte ni publicité, et ça fonctionne aussi sans internet.",
 }
 for start, text in OFF_ABOUT.items():
     off, n = re.subn(r'(      about: )"' + start + r'[^"]*"', lambda m, text=text: m.group(1) + json.dumps(text, ensure_ascii=False), off)
@@ -415,59 +481,141 @@ open(OUT + '/roundqr.html', 'w', encoding='utf-8').write(off)
 size = os.path.getsize(OUT + '/roundqr.html')
 dl_size = f'{round(size/1024)} KB'
 
-# ---------- website ----------
+# ---------- website: én side pr. sprog ----------
+# / er dansk, de andre sprog ligger i /en/, /de/ osv. Teksten skrives ind i HTML'en på forhånd,
+# så Google og AI-søgemaskiner læser siden på det rigtige sprog uden at køre JavaScript.
+LANGS = ['da', 'en', 'de', 'no', 'sv', 'es', 'fr']
+HTML_LANG = {'da': 'da', 'en': 'en', 'de': 'de', 'no': 'nb', 'sv': 'sv', 'es': 'es', 'fr': 'fr'}
+OG_LOCALE = {'da': 'da_DK', 'en': 'en_GB', 'de': 'de_DE', 'no': 'nb_NO', 'sv': 'sv_SE', 'es': 'es_ES', 'fr': 'fr_FR'}
+BASE = 'https://roundqr.dk'
+def url_of(lg): return BASE + ('/' if lg == 'da' else f'/{lg}/')
+
+PAGE = {
+ 'da': ('Round QR · Gratis QR-kode generator til runde og firkantede koder', DESC),
+ 'en': ('Round QR · Free QR code generator for round and square codes',
+        'Make round or regular QR codes from a link. Pick shape, colours and logo, and save as PNG, JPG or SVG. Free, no sign-up and no ads.'),
+ 'de': ('Round QR · Kostenloser QR-Code-Generator für runde und eckige Codes',
+        'Erstelle runde oder normale QR-Codes aus einem Link. Wähle Form, Farben und Logo und speichere als PNG, JPG oder SVG. Kostenlos, ohne Anmeldung und ohne Werbung.'),
+ 'no': ('Round QR · Gratis QR-kodegenerator for runde og firkantede koder',
+        'Lag runde eller vanlige QR-koder fra en lenke. Velg form, farger og logo, og lagre som PNG, JPG eller SVG. Gratis, uten innlogging og uten reklame.'),
+ 'sv': ('Round QR · Gratis QR-kodgenerator för runda och fyrkantiga koder',
+        'Skapa runda eller vanliga QR-koder från en länk. Välj form, färger och logga och spara som PNG, JPG eller SVG. Gratis, utan inloggning och utan reklam.'),
+ 'es': ('Round QR · Generador de códigos QR gratis, redondos y cuadrados',
+        'Crea códigos QR redondos o normales a partir de un enlace. Elige forma, colores y logo, y guárdalo como PNG, JPG o SVG. Gratis, sin registro y sin anuncios.'),
+ 'fr': ('Round QR · Générateur de codes QR gratuit, ronds et carrés',
+        "Créez des codes QR ronds ou classiques à partir d'un lien. Choisissez la forme, les couleurs et le logo, puis enregistrez en PNG, JPG ou SVG. Gratuit, sans compte et sans publicité."),
+}
+FEATURES = {
+ 'da': ['Runde og firkantede QR-koder', 'Statiske koder der aldrig udløber', 'Egne farver, farveforløb og logo', 'Gem som PNG, JPG eller SVG', 'Virker uden internet', 'Ingen login, cookies eller sporing'],
+ 'en': ['Round and square QR codes', 'Static codes that never expire', 'Your own colours, gradients and logo', 'Save as PNG, JPG or SVG', 'Works offline', 'No login, cookies or tracking'],
+ 'de': ['Runde und eckige QR-Codes', 'Statische Codes, die nie ablaufen', 'Eigene Farben, Farbverläufe und Logo', 'Als PNG, JPG oder SVG speichern', 'Funktioniert ohne Internet', 'Kein Login, keine Cookies, kein Tracking'],
+ 'no': ['Runde og firkantede QR-koder', 'Statiske koder som aldri utløper', 'Egne farger, fargeforløp og logo', 'Lagre som PNG, JPG eller SVG', 'Virker uten internett', 'Ingen innlogging, informasjonskapsler eller sporing'],
+ 'sv': ['Runda och fyrkantiga QR-koder', 'Statiska koder som aldrig slutar fungera', 'Egna färger, färgövergångar och logga', 'Spara som PNG, JPG eller SVG', 'Fungerar utan internet', 'Ingen inloggning, kakor eller spårning'],
+ 'es': ['Códigos QR redondos y cuadrados', 'Códigos estáticos que nunca caducan', 'Colores, degradados y logo propios', 'Guardar como PNG, JPG o SVG', 'Funciona sin internet', 'Sin registro, cookies ni rastreo'],
+ 'fr': ['Codes QR ronds et carrés', 'Codes statiques qui n\'expirent jamais', 'Vos couleurs, dégradés et logo', 'Enregistrer en PNG, JPG ou SVG', 'Fonctionne sans internet', 'Sans compte, cookies ni suivi'],
+}
+PER_LANG = {'da': DA, 'en': EN}
+PER_LANG.update(SITE_LANGS)
+for lg in LANGS:
+    PER_LANG[lg] = dict(PER_LANG[lg], pageTitle=PAGE[lg][0], pageDesc=PAGE[lg][1])
+
+def tool_strings(html):
+    # Læser de enkle tekster (key: "tekst") for hvert sprog ud af værktøjets JavaScript.
+    a = html.index('  var T = {'); b = html.index('  var lang = "da", xmas')
+    out = {lg: {} for lg in LANGS}; cur = None
+    for line in html[a:b].split('\n'):
+        m = re.match(r'^\s{3,4}"?(da|en|de|no|sv|es|fr)"?: \{\s*$', line)
+        if m: cur = m.group(1); continue
+        if cur is None or 'function' in line: continue
+        for k, v in re.findall(r'(?:^|[\s{,])"?(\w+)"?: ("(?:[^"\\]|\\.)*")', line):
+            out[cur][k] = json.loads(v)
+    return out
+
+def esc(t): return t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+def prerender(html, d):
+    html = re.sub(r'(<(\w+)[^>]*\sdata-t="(\w+)"[^>]*>)[^<]*(</\2>)', lambda m: (m.group(1) + esc(d[m.group(3)]) + m.group(4)) if isinstance(d.get(m.group(3)), str) else m.group(0), html)
+    def aria(m):
+        tag = m.group(0); k = re.search(r'data-t-aria="(\w+)"', tag).group(1)
+        v = d.get(k)
+        return re.sub(r'aria-label="[^"]*"', 'aria-label="' + esc(v).replace('"', '&quot;') + '"', tag) if isinstance(v, str) else tag
+    html = re.sub(r'<[^>]*\sdata-t-aria="\w+"[^>]*>', aria, html)
+    return html
+
+PREFIX = ['src="assets/', 'src="logos/', 'href="roundqr.html"', 'url(assets/']
+
 site = body.replace('<style>\n', '<style>\n' + fontface(False) + '\n', 1)
 site = site.replace('</style>', SECTION_CSS + '</style>', 1)
 site = site.replace(END_WRAP, site_sections(dl_size) + END_WRAP, 1).replace(CDN, libs(False), 1)
-site = add_strings(site, dict({'da': DA, 'en': EN}, **SITE_LANGS))
-SITE_META = '''<link rel="canonical" href="https://roundqr.dk/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+site = add_strings(site, PER_LANG)
+TOOL = tool_strings(site)
+
+def meta(lg):
+    title, desc = PAGE[lg]
+    alt = ''.join(f'<link rel="alternate" hreflang="{HTML_LANG[x]}" href="{url_of(x)}">\n' for x in LANGS)
+    alt += f'<link rel="alternate" hreflang="x-default" href="{url_of("en")}">\n'
+    ogalt = ''.join(f'<meta property="og:locale:alternate" content="{OG_LOCALE[x]}">\n' for x in LANGS if x != lg)
+    d = PER_LANG[lg]
+    ld = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {'@type': 'WebSite', '@id': BASE + '/#website', 'url': BASE + '/', 'name': 'Round QR',
+         'alternateName': ['roundqr.dk', 'RoundQR'], 'inLanguage': [HTML_LANG[x] for x in LANGS]},
+        {'@type': 'Person', '@id': BASE + '/#kasper', 'name': 'Kasper Bergstrøm', 'url': 'https://ai-workshop.dk'},
+        {'@type': 'WebApplication', '@id': url_of(lg) + '#app', 'name': 'Round QR', 'url': url_of(lg),
+         'description': desc, 'applicationCategory': 'DesignApplication', 'operatingSystem': 'Any',
+         'browserRequirements': 'Requires JavaScript', 'isAccessibleForFree': True, 'inLanguage': HTML_LANG[lg],
+         'image': BASE + '/og-image.png', 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'EUR'},
+         'featureList': FEATURES[lg], 'author': {'@id': BASE + '/#kasper'}, 'sameAs': [GITHUB],
+         'isPartOf': {'@id': BASE + '/#website'}},
+        {'@type': 'FAQPage', '@id': url_of(lg) + '#faq', 'inLanguage': HTML_LANG[lg],
+         'mainEntity': [{'@type': 'Question', 'name': d[f'faq{i}q'],
+                         'acceptedAnswer': {'@type': 'Answer', 'text': d[f'faq{i}a']}} for i in range(1, FAQ_N + 1)]},
+      ],
+    }
+    pre = '' if lg == 'da' else '../'
+    a = lambda t: t.replace('"', '&quot;')
+    return (f'<link rel="canonical" href="{url_of(lg)}">\n' + alt +
+f'''<link rel="icon" href="{pre}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{pre}favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{pre}apple-touch-icon.png">
 <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141310" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://roundqr.dk/">
+<meta property="og:url" content="{url_of(lg)}">
 <meta property="og:site_name" content="Round QR">
 <meta property="og:title" content="Round QR">
-<meta property="og:description" content="Gratis runde og firkantede QR-koder. Uden login og uden reklamer.">
-<meta property="og:image" content="https://roundqr.dk/og-image.png">
+<meta property="og:description" content="{a(desc)}">
+<meta property="og:image" content="{BASE}/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="da_DK">
-<meta name="twitter:card" content="summary_large_image">
-'''
-# Strukturerede data til Google og AI-søgning
-LD = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {'@type': 'WebSite', '@id': 'https://roundqr.dk/#website', 'url': 'https://roundqr.dk/', 'name': 'Round QR',
-     'alternateName': ['roundqr.dk', 'RoundQR'], 'inLanguage': 'da'},
-    {'@type': 'Person', '@id': 'https://roundqr.dk/#kasper', 'name': 'Kasper Bergstrøm', 'url': 'https://ai-workshop.dk'},
-    {'@type': 'WebApplication', '@id': 'https://roundqr.dk/#app', 'name': 'Round QR', 'url': 'https://roundqr.dk/',
-     'description': DESC, 'applicationCategory': 'DesignApplication', 'operatingSystem': 'Alle med en moderne browser',
-     'browserRequirements': 'Kræver JavaScript', 'isAccessibleForFree': True,
-     'inLanguage': ['da', 'en', 'de', 'nb', 'sv'], 'image': 'https://roundqr.dk/og-image.png',
-     'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'DKK'},
-     'featureList': ['Runde og firkantede QR-koder', 'Statiske koder der aldrig udløber', 'Egne farver, farveforløb og logo',
-                     'Gem som PNG, JPG eller SVG', 'Virker uden internet', 'Ingen login, cookies eller sporing'],
-     'author': {'@id': 'https://roundqr.dk/#kasper'}, 'sameAs': [GITHUB], 'isPartOf': {'@id': 'https://roundqr.dk/#website'}},
-    {'@type': 'FAQPage', '@id': 'https://roundqr.dk/#faq', 'inLanguage': 'da',
-     'mainEntity': [{'@type': 'Question', 'name': DA[f'faq{i}q'],
-                     'acceptedAnswer': {'@type': 'Answer', 'text': DA[f'faq{i}a']}} for i in range(1, FAQ_N + 1)]},
-  ],
-}
-SITE_META += '<script type="application/ld+json">\n' + json.dumps(LD, ensure_ascii=False, indent=1).replace('</', '<\\/') + '\n</script>\n'
-site = head('Round QR · Gratis QR-kode generator til runde og firkantede koder', DESC, SITE_META) + site + '\n</body>\n</html>\n'
-assert 'cdn.jsdelivr' not in site and 'googleapis' not in site
-open(OUT + '/index.html', 'w', encoding='utf-8').write(site)
+<meta property="og:locale" content="{OG_LOCALE[lg]}">
+''' + ogalt + '<meta name="twitter:card" content="summary_large_image">\n' +
+      '<script type="application/ld+json">\n' + json.dumps(ld, ensure_ascii=False, indent=1).replace('</', '<\\/') + '\n</script>\n')
 
-# Sitemap med dagens dato
+for lg in LANGS:
+    cut = site.index('<script')
+    page = prerender(site[:cut], dict(TOOL[lg], **PER_LANG[lg])) + site[cut:]
+    page = page.replace('id="lang-da" value="da" checked', 'id="lang-da" value="da"', 1)
+    page = page.replace(f'id="lang-{lg}" value="{lg}"', f'id="lang-{lg}" value="{lg}" checked', 1)
+    if lg != 'da':
+        for p in PREFIX:
+            assert p in page, p
+            page = page.replace(p, p.replace('"', '"../', 1) if '"' in p else 'url(../' + p[4:])
+    title, desc = PAGE[lg]
+    page = head(esc(title), desc.replace('"', '&quot;'), meta(lg), f'lang="{HTML_LANG[lg]}" data-page-lang="{lg}"') + page + '\n</body>\n</html>\n'
+    assert 'cdn.jsdelivr' not in page and 'googleapis' not in page
+    path = OUT + '/index.html' if lg == 'da' else OUT + f'/{lg}/index.html'
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, 'w', encoding='utf-8').write(page)
+
+# Sitemap med alle sprog og dagens dato
 import datetime
-open(OUT + '/sitemap.xml', 'w', encoding='utf-8').write('''<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://roundqr.dk/</loc><lastmod>%s</lastmod></url>
-</urlset>
-''' % datetime.date.today().isoformat())
+today = datetime.date.today().isoformat()
+alts = ''.join(f'    <xhtml:link rel="alternate" hreflang="{HTML_LANG[x]}" href="{url_of(x)}"/>\n' for x in LANGS)
+alts += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url_of("en")}"/>\n'
+urls = ''.join(f'  <url>\n    <loc>{url_of(lg)}</loc>\n    <lastmod>{today}</lastmod>\n{alts}  </url>\n' for lg in LANGS)
+open(OUT + '/sitemap.xml', 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n'
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + '</urlset>\n')
 
 print('roundqr.html', dl_size, '| index.html', round(os.path.getsize(OUT + '/index.html')/1024), 'KB')

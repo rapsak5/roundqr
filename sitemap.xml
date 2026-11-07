@@ -1,4 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://roundqr.dk/</loc><lastmod>2026-11-07</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://roundqr.dk/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://roundqr.dk/no/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roundqr.dk/sv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://roundqr.dk/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/"/>
+  </url>
+  <url>
+    <loc>https://roundqr.dk/en/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://roundqr.dk/no/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roundqr.dk/sv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://roundqr.dk/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/"/>
+  </url>
+  <url>
+    <loc>https://roundqr.dk/de/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://roundqr.dk/no/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roundqr.dk/sv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://roundqr.dk/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/"/>
+  </url>
+  <url>
+    <loc>https://roundqr.dk/no/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://roundqr.dk/no/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roundqr.dk/sv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://roundqr.dk/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/"/>
+  </url>
+  <url>
+    <loc>https://roundqr.dk/sv/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://roundqr.dk/no/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roundqr.dk/sv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://roundqr.dk/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/"/>
+  </url>
+  <url>
+    <loc>https://roundqr.dk/es/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://roundqr.dk/no/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roundqr.dk/sv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://roundqr.dk/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/"/>
+  </url>
+  <url>
+    <loc>https://roundqr.dk/fr/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://roundqr.dk/no/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roundqr.dk/sv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://roundqr.dk/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/"/>
+  </url>
 </urlset>
