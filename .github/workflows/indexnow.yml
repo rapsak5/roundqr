@@ -1,0 +1,24 @@
+# Giver Bing og de andre IndexNow-søgemaskiner besked om alle sider i sitemap.xml,
+# hver gang hjemmesiden ændres på main. Nøglen ligger som a7678b95be7b3ad67a6c82958860e9ab.txt i roden.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths: ['index.html', '*/index.html', 'sitemap.xml']
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vent på at GitHub Pages har udgivet
+        run: sleep 90
+      - name: Send alle sider til IndexNow
+        run: |
+          KEY=a7678b95be7b3ad67a6c82958860e9ab
+          URLS=$(python3 -c "import re,json;print(json.dumps(re.findall(r'<loc>([^<]+)</loc>', open('sitemap.xml').read())))")
+          echo "$URLS"
+          BODY="{\"host\":\"roundqr.dk\",\"key\":\"$KEY\",\"keyLocation\":\"https://roundqr.dk/$KEY.txt\",\"urlList\":$URLS}"
+          CODE=$(curl -sS -o /dev/null -w "%{http_code}" -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$BODY")
+          echo "IndexNow svarede $CODE"
+          test "$CODE" = "200" -o "$CODE" = "202"

@@ -27,4 +27,8 @@ roundqr.dk er tilføjet i Google Search Console (webadressepræfiks) og Bing Web
 
 - `googled9e12389f2280261.html` bekræfter ejerskabet over for Google.
 - Meta-tagget `msvalidate.01` i build.py bekræfter ejerskabet over for Bing.
-- `a7678b95be7b3ad67a6c82958860e9ab.txt` er nøglen til IndexNow, så Bing kan få besked om nye sider med det samme.
+- `a7678b95be7b3ad67a6c82958860e9ab.txt` er nøglen til IndexNow. `.github/workflows/indexnow.yml` bruger den til at give Bing besked om alle sider, hver gang hjemmesiden ændres på main.
+
+## Licens
+
+Koden er under MIT-licensen (se `LICENSE`). Bibliotekerne og skrifttyperne i `assets/` har deres egne licenser, og sponsorlogoerne tilhører sponsorerne.
