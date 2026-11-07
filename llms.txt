@@ -1,0 +1,23 @@
+# Round QR
+
+> Round QR er en gratis QR-kode-generator til runde og almindelige firkantede QR-koder. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Uden login, abonnement og reklamer.
+
+Lavet af Kasper Bergstrøm. Kildekoden er åben på [GitHub](https://github.com/rapsak5/roundqr), og hele værktøjet kan hentes som én HTML-fil. Senest opdateret 2026-11-07.
+
+## Sprog
+- [Dansk](https://roundqr.dk/)
+- [English](https://roundqr.dk/en/)
+- [Deutsch](https://roundqr.dk/de/)
+- [Svenska](https://roundqr.dk/sv/)
+- [Norsk](https://roundqr.dk/no/)
+- [Français](https://roundqr.dk/fr/)
+- [Español](https://roundqr.dk/es/)
+
+## Sponsorer
+- [ai-workshop.dk](https://ai-workshop.dk/): Workshops og webinarer om AI i arbejdsdagen.
+- [berg-streaming.dk](https://berg-streaming.dk/): Video, podcast og streaming.
+- [stemplerind.dk](https://stemplerind.dk/): NFC-mærker til tidsregistrering.
+- [forlagetuldahl.dk](https://forlagetuldahl.dk/): Bøger om naturen og gode oplevelser i den.
+- [ciderkompagniet.dk](https://ciderkompagniet.dk/): Cider.
+- [arbejdsliv.ai](https://arbejdsliv.ai/): Konference om AI i arbejdslivet.
+- [pharmaconsulting.ai](https://pharmaconsulting.ai/): Generativ AI i pharma og life science.
