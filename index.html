@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Round QR · Gratis runde og firkantede QR-koder</title>
+<title>Round QR · Gratis QR-kode generator til runde og firkantede koder</title>
 <meta name="description" content="Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.">
 <link rel="canonical" href="https://roundqr.dk/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -21,6 +21,126 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="da_DK">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://roundqr.dk/#website",
+   "url": "https://roundqr.dk/",
+   "name": "Round QR",
+   "alternateName": [
+    "roundqr.dk",
+    "RoundQR"
+   ],
+   "inLanguage": "da"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://roundqr.dk/#kasper",
+   "name": "Kasper Bergstrøm",
+   "url": "https://ai-workshop.dk"
+  },
+  {
+   "@type": "WebApplication",
+   "@id": "https://roundqr.dk/#app",
+   "name": "Round QR",
+   "url": "https://roundqr.dk/",
+   "description": "Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.",
+   "applicationCategory": "DesignApplication",
+   "operatingSystem": "Alle med en moderne browser",
+   "browserRequirements": "Kræver JavaScript",
+   "isAccessibleForFree": true,
+   "inLanguage": [
+    "da",
+    "en",
+    "de",
+    "nb",
+    "sv"
+   ],
+   "image": "https://roundqr.dk/og-image.png",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "DKK"
+   },
+   "featureList": [
+    "Runde og firkantede QR-koder",
+    "Statiske koder der aldrig udløber",
+    "Egne farver, farveforløb og logo",
+    "Gem som PNG, JPG eller SVG",
+    "Virker uden internet",
+    "Ingen login, cookies eller sporing"
+   ],
+   "author": {
+    "@id": "https://roundqr.dk/#kasper"
+   },
+   "sameAs": [
+    "https://github.com/rapsak5/roundqr"
+   ],
+   "isPartOf": {
+    "@id": "https://roundqr.dk/#website"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://roundqr.dk/#faq",
+   "inLanguage": "da",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Må jeg bruge QR-koderne kommercielt?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ja. Brug dem på emballage, skilte, menukort, visitkort, plakater og alt det andet. Du skal ikke betale, spørge om lov eller nævne Round QR."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Udløber QR-koderne?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nej. Det er statiske koder, hvor linket står direkte i selve mønsteret. Der er ingen mellemled, viderestilling eller konto, der kan lukke ned. Koden virker, så længe siden, den peger på, findes."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Kan en rund QR-kode scannes?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ja. Den runde form er pynt rundt om en helt almindelig QR-kode, som alle telefoner kan læse. Round QR scanner selv koden og viser \"Kan scannes\", når den er i orden. Prøv den alligevel med din egen telefon, før du sender noget til tryk."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Hvad koster det?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ingenting. Der kommer aldrig abonnement, login eller reklamer. Siden betales af sponsorerne ovenfor."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Gemmer I mine links eller billeder?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nej. Alt sker i din egen browser, og intet sendes til en server. Der er ingen cookies og ingen sporing."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Er Round QR åben?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ja. Hele kildekoden ligger offentligt på GitHub, og du kan hente programmet som én HTML-fil og bruge det uden internet."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -82,6 +202,7 @@ h1 {
 h1 .o { display: inline-block; width: 0.62em; height: 0.62em; border-radius: 50%;
   border: 0.14em solid var(--accent); vertical-align: 0.02em; margin: 0 0.02em; }
 header p { margin: 0; color: var(--muted); }
+.vh { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 .grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
 @media (min-width: 680px) {
@@ -898,6 +1019,21 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 .dl-action { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
 .btn.big { font-size: 15.5px; padding: 12px 20px 12px 16px; border-radius: 10px; text-decoration: none; gap: 9px; }
 .btn.big svg { width: 19px; height: 19px; flex: none; }
+.faq { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 20px 48px; align-items: start; }
+@media (max-width: 760px) { .faq { grid-template-columns: minmax(0, 1fr); } }
+.faq-intro p { margin: 0; color: var(--muted); max-width: 48ch; }
+.fq-list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-width: 0; }
+.fq-list li + li { border-top: 1px solid var(--line); }
+.fq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 15px 18px; font-weight: 600; font-size: 15.5px; }
+.fq summary::-webkit-details-marker { display: none; }
+.fq summary::after { content: "+"; flex: none; font-family: var(--font-mono); font-weight: 500; font-size: 18px; line-height: 1; color: var(--muted); }
+.fq[open] summary::after { content: "\2212"; }
+.fq summary:hover { background: var(--bg); }
+.fq summary:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: -3px; border-radius: 12px; }
+.fq p { margin: 0; padding: 0 18px 16px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+.fq p a { color: var(--accent-strong); overflow-wrap: anywhere; }
+@media (max-width: 480px) { .fq summary { padding: 14px; } .fq p { padding: 0 14px 14px; } }
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; font-size: 13px; color: var(--muted);
   padding-top: 18px; border-top: 1px solid var(--line); }
 .foot a { color: inherit; }
@@ -977,7 +1113,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 
 <div class="wrap">
   <header>
-    <h1>R<span class="o"></span>und QR</h1>
+    <h1>R<span class="o"><span class="vh">o</span></span>und QR</h1>
     <p data-t="subtitle">Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.</p>
     <div class="seg lang" role="radiogroup" aria-label="Sprog / Language / Sprache / Språk">
       <label><input type="radio" name="lang" id="lang-da" value="da" checked><span><svg class="flag" viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg><span class="ln">Dansk</span></span></label>
@@ -1501,6 +1637,39 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
       <a class="btn primary big" href="roundqr.html" download="roundqr.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span data-t="dlBtn">Hent roundqr.html</span></a>
       <span class="spec">HTML · 628 KB</span>
     </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="faq-intro">
+      <h2 class="site-h2" id="faq-h" data-t="faqTitle">Spørgsmål og svar</h2>
+      <p data-t="faqIntro">Det, folk oftest spørger om.</p>
+    </div>
+    <ul class="fq-list">
+      <li><details class="fq">
+        <summary data-t="faq1q">Må jeg bruge QR-koderne kommercielt?</summary>
+        <p><span data-t="faq1a">Ja. Brug dem på emballage, skilte, menukort, visitkort, plakater og alt det andet. Du skal ikke betale, spørge om lov eller nævne Round QR.</span></p>
+      </details></li>
+      <li><details class="fq">
+        <summary data-t="faq2q">Udløber QR-koderne?</summary>
+        <p><span data-t="faq2a">Nej. Det er statiske koder, hvor linket står direkte i selve mønsteret. Der er ingen mellemled, viderestilling eller konto, der kan lukke ned. Koden virker, så længe siden, den peger på, findes.</span></p>
+      </details></li>
+      <li><details class="fq">
+        <summary data-t="faq3q">Kan en rund QR-kode scannes?</summary>
+        <p><span data-t="faq3a">Ja. Den runde form er pynt rundt om en helt almindelig QR-kode, som alle telefoner kan læse. Round QR scanner selv koden og viser "Kan scannes", når den er i orden. Prøv den alligevel med din egen telefon, før du sender noget til tryk.</span></p>
+      </details></li>
+      <li><details class="fq">
+        <summary data-t="faq4q">Hvad koster det?</summary>
+        <p><span data-t="faq4a">Ingenting. Der kommer aldrig abonnement, login eller reklamer. Siden betales af sponsorerne ovenfor.</span></p>
+      </details></li>
+      <li><details class="fq">
+        <summary data-t="faq5q">Gemmer I mine links eller billeder?</summary>
+        <p><span data-t="faq5a">Nej. Alt sker i din egen browser, og intet sendes til en server. Der er ingen cookies og ingen sporing.</span></p>
+      </details></li>
+      <li><details class="fq">
+        <summary data-t="faq6q">Er Round QR åben?</summary>
+        <p><span data-t="faq6a">Ja. Hele kildekoden ligger offentligt på GitHub, og du kan hente programmet som én HTML-fil og bruge det uden internet.</span> <a href="https://github.com/rapsak5/roundqr">github.com/rapsak5/roundqr</a></p>
+      </details></li>
+    </ul>
   </section>
 
   <footer class="foot">
@@ -2133,6 +2302,20 @@ var RQ = (function () {
       dlText: "Hele programmet i én HTML-fil. Åbn den i din browser og lav QR-koder, også uden internet. Der er intet at installere.",
       dlBtn: "Hent roundqr.html",
       footNote: "Ingen cookies og ingen sporing. Dine indstillinger gemmes kun i din egen browser.",
+      faqTitle: "Spørgsmål og svar",
+      faqIntro: "Det, folk oftest spørger om.",
+      faq1q: "Må jeg bruge QR-koderne kommercielt?",
+      faq1a: "Ja. Brug dem på emballage, skilte, menukort, visitkort, plakater og alt det andet. Du skal ikke betale, spørge om lov eller nævne Round QR.",
+      faq2q: "Udløber QR-koderne?",
+      faq2a: "Nej. Det er statiske koder, hvor linket står direkte i selve mønsteret. Der er ingen mellemled, viderestilling eller konto, der kan lukke ned. Koden virker, så længe siden, den peger på, findes.",
+      faq3q: "Kan en rund QR-kode scannes?",
+      faq3a: "Ja. Den runde form er pynt rundt om en helt almindelig QR-kode, som alle telefoner kan læse. Round QR scanner selv koden og viser \"Kan scannes\", når den er i orden. Prøv den alligevel med din egen telefon, før du sender noget til tryk.",
+      faq4q: "Hvad koster det?",
+      faq4a: "Ingenting. Der kommer aldrig abonnement, login eller reklamer. Siden betales af sponsorerne ovenfor.",
+      faq5q: "Gemmer I mine links eller billeder?",
+      faq5a: "Nej. Alt sker i din egen browser, og intet sendes til en server. Der er ingen cookies og ingen sporing.",
+      faq6q: "Er Round QR åben?",
+      faq6a: "Ja. Hele kildekoden ligger offentligt på GitHub, og du kan hente programmet som én HTML-fil og bruge det uden internet.",
       subtitle: "Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.",
       about: "Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder, og nu deler jeg det med alle. Der kommer aldrig abonnement, login eller reklamer. Det eneste er et par glade sponsorer nederst på siden.",
       aboutSig: "Med venlig hilsen Kasper Bergstrøm",
@@ -2208,6 +2391,20 @@ var RQ = (function () {
       dlText: "The whole program in one HTML file. Open it in your browser and make QR codes, even offline. Nothing to install.",
       dlBtn: "Download roundqr.html",
       footNote: "No cookies and no tracking. Your settings are only stored in your own browser.",
+      faqTitle: "Questions and answers",
+      faqIntro: "The things people ask most.",
+      faq1q: "Can I use the QR codes commercially?",
+      faq1a: "Yes. Use them on packaging, signs, menus, business cards, posters and anything else. You don't need to pay, ask permission or mention Round QR.",
+      faq2q: "Do the QR codes expire?",
+      faq2a: "No. They are static codes, so the link is stored directly in the pattern itself. There's no redirect service or account in between that can shut down. The code works as long as the page it points to exists.",
+      faq3q: "Can a round QR code be scanned?",
+      faq3a: "Yes. The round shape is decoration around a completely normal QR code that every phone can read. Round QR scans the code itself and shows \"Scans correctly\" when it is fine. Still, test it with your own phone before you send anything to print.",
+      faq4q: "What does it cost?",
+      faq4a: "Nothing. There will never be subscriptions, logins or ads. The site is paid for by the sponsors above.",
+      faq5q: "Do you store my links or images?",
+      faq5a: "No. Everything happens in your own browser and nothing is sent to a server. No cookies and no tracking.",
+      faq6q: "Is Round QR open?",
+      faq6a: "Yes. All the source code is public on GitHub, and you can download the whole program as one HTML file and use it offline.",
       subtitle: "Paste a link, shape the code, save it as PNG, JPG or SVG.",
       about: "I built Round QR together with AI because I needed a good QR code tool myself, and now I'm sharing it with everyone. There will never be subscriptions, logins or ads. The only thing is a few happy sponsors at the bottom of the page.",
       aboutSig: "Kind regards, Kasper Bergstrøm",
@@ -2283,6 +2480,20 @@ var RQ = (function () {
       dlText: "Das ganze Programm in einer HTML-Datei. Öffne sie im Browser und erstelle QR-Codes, auch ohne Internet. Es muss nichts installiert werden.",
       dlBtn: "roundqr.html herunterladen",
       footNote: "Keine Cookies und kein Tracking. Deine Einstellungen werden nur in deinem eigenen Browser gespeichert.",
+      faqTitle: "Fragen und Antworten",
+      faqIntro: "Was am häufigsten gefragt wird.",
+      faq1q: "Darf ich die QR-Codes kommerziell nutzen?",
+      faq1a: "Ja. Auf Verpackungen, Schildern, Speisekarten, Visitenkarten, Plakaten und überall sonst. Du musst nichts bezahlen, nicht um Erlaubnis fragen und Round QR nicht nennen.",
+      faq2q: "Laufen die QR-Codes ab?",
+      faq2a: "Nein. Es sind statische Codes, der Link steht direkt im Muster selbst. Es gibt keinen Weiterleitungsdienst und kein Konto dazwischen, das abgeschaltet werden kann. Der Code funktioniert, solange die Seite existiert, auf die er zeigt.",
+      faq3q: "Lässt sich ein runder QR-Code scannen?",
+      faq3a: "Ja. Die runde Form ist Schmuck um einen ganz normalen QR-Code, den jedes Handy lesen kann. Round QR scannt den Code selbst und zeigt \"Lässt sich scannen\", wenn alles passt. Teste ihn trotzdem mit deinem eigenen Handy, bevor du etwas drucken lässt.",
+      faq4q: "Was kostet es?",
+      faq4a: "Nichts. Es wird nie ein Abo, einen Login oder Werbung geben. Die Seite wird von den Sponsoren oben bezahlt.",
+      faq5q: "Speichert ihr meine Links oder Bilder?",
+      faq5a: "Nein. Alles passiert in deinem eigenen Browser, und nichts wird an einen Server geschickt. Keine Cookies und kein Tracking.",
+      faq6q: "Ist Round QR offen?",
+      faq6a: "Ja. Der gesamte Quellcode liegt öffentlich auf GitHub, und du kannst das ganze Programm als eine HTML-Datei herunterladen und ohne Internet nutzen.",
       subtitle: "Link einfügen, Code gestalten und als PNG, JPG oder SVG speichern.",
       about: "Ich habe Round QR zusammen mit KI entwickelt, weil mir selbst ein gutes Werkzeug für QR-Codes fehlte, und jetzt teile ich es mit allen. Es wird nie Abos, Logins oder Werbung geben. Das Einzige sind ein paar fröhliche Sponsoren unten auf der Seite.",
       aboutSig: "Viele Grüße, Kasper Bergstrøm",
@@ -2414,6 +2625,20 @@ var RQ = (function () {
       dlText: "Hele programmet i én HTML-fil. Åpne den i nettleseren og lag QR-koder, også uten internett. Det er ingenting å installere.",
       dlBtn: "Last ned roundqr.html",
       footNote: "Ingen informasjonskapsler og ingen sporing. Innstillingene dine lagres bare i din egen nettleser.",
+      faqTitle: "Spørsmål og svar",
+      faqIntro: "Det folk spør oftest om.",
+      faq1q: "Kan jeg bruke QR-kodene kommersielt?",
+      faq1a: "Ja. Bruk dem på emballasje, skilt, menyer, visittkort, plakater og alt annet. Du trenger ikke betale, spørre om lov eller nevne Round QR.",
+      faq2q: "Utløper QR-kodene?",
+      faq2a: "Nei. Det er statiske koder der lenken står direkte i selve mønsteret. Det finnes ingen mellomledd, videresending eller konto som kan legges ned. Koden virker så lenge siden den peker til, finnes.",
+      faq3q: "Kan en rund QR-kode skannes?",
+      faq3a: "Ja. Den runde formen er pynt rundt en helt vanlig QR-kode som alle telefoner kan lese. Round QR skanner koden selv og viser \"Kan skannes\" når den er i orden. Test den likevel med din egen telefon før du sender noe til trykk.",
+      faq4q: "Hva koster det?",
+      faq4a: "Ingenting. Det kommer aldri abonnement, innlogging eller reklame. Siden betales av sponsorene over.",
+      faq5q: "Lagrer dere lenkene eller bildene mine?",
+      faq5a: "Nei. Alt skjer i din egen nettleser, og ingenting sendes til en server. Ingen informasjonskapsler og ingen sporing.",
+      faq6q: "Er Round QR åpen?",
+      faq6a: "Ja. All kildekoden ligger offentlig på GitHub, og du kan laste ned hele programmet som én HTML-fil og bruke det uten internett.",
       subtitle: "Lim inn en lenke, gi koden form, og lagre den som PNG, JPG eller SVG.",
       about: "Jeg har utviklet Round QR sammen med KI fordi jeg selv manglet et godt verktøy for QR-koder, og nå deler jeg det med alle. Det kommer aldri abonnement, innlogging eller reklame. Det eneste er noen glade sponsorer nederst på siden.",
       aboutSig: "Med vennlig hilsen Kasper Bergstrøm",
@@ -2545,6 +2770,20 @@ var RQ = (function () {
       dlText: "Hela programmet i en HTML-fil. Öppna den i webbläsaren och skapa QR-koder, även utan internet. Inget att installera.",
       dlBtn: "Ladda ner roundqr.html",
       footNote: "Inga kakor och ingen spårning. Dina inställningar sparas bara i din egen webbläsare.",
+      faqTitle: "Frågor och svar",
+      faqIntro: "Det folk oftast frågar om.",
+      faq1q: "Får jag använda QR-koderna kommersiellt?",
+      faq1a: "Ja. Använd dem på förpackningar, skyltar, menyer, visitkort, affischer och allt annat. Du behöver inte betala, be om lov eller nämna Round QR.",
+      faq2q: "Slutar QR-koderna att fungera?",
+      faq2a: "Nej. Det är statiska koder där länken står direkt i själva mönstret. Det finns ingen mellanhand, vidarebefordran eller konto som kan stängas ner. Koden fungerar så länge sidan den pekar på finns.",
+      faq3q: "Går en rund QR-kod att skanna?",
+      faq3a: "Ja. Den runda formen är dekoration runt en helt vanlig QR-kod som alla telefoner kan läsa. Round QR skannar koden själv och visar \"Kan skannas\" när den är i ordning. Testa den ändå med din egen telefon innan du skickar något till tryck.",
+      faq4q: "Vad kostar det?",
+      faq4a: "Ingenting. Det kommer aldrig någon prenumeration, inloggning eller reklam. Sidan betalas av sponsorerna ovan.",
+      faq5q: "Sparar ni mina länkar eller bilder?",
+      faq5a: "Nej. Allt sker i din egen webbläsare och ingenting skickas till en server. Inga kakor och ingen spårning.",
+      faq6q: "Är Round QR öppen?",
+      faq6a: "Ja. All källkod ligger öppet på GitHub, och du kan ladda ner hela programmet som en HTML-fil och använda det utan internet.",
       subtitle: "Klistra in en länk, ge koden form och spara den som PNG, JPG eller SVG.",
       about: "Jag har utvecklat Round QR tillsammans med AI eftersom jag själv saknade ett bra verktyg för QR-koder, och nu delar jag det med alla. Det kommer aldrig att bli prenumerationer, inloggning eller reklam. Det enda är några glada sponsorer längst ner på sidan.",
       aboutSig: "Med vänliga hälsningar Kasper Bergstrøm",

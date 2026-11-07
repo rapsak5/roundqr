@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Round QR</title>
 <meta name="description" content="Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.">
+<link rel="canonical" href="https://roundqr.dk/">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzEiIGZpbGw9IiNmZGNlM2IiLz48cmVjdCB4PSIxNyIgeT0iMTciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjkiIGZpbGw9IiMxZjFkMTgiLz48cmVjdCB4PSIyMyIgeT0iMjMiIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgcng9IjUiIGZpbGw9IiNmZGNlM2IiLz48cmVjdCB4PSIyNy41IiB5PSIyNy41IiB3aWR0aD0iOSIgaGVpZ2h0PSI5IiByeD0iMi41IiBmaWxsPSIjMWYxZDE4Ii8+PC9zdmc+Cg==">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -67,6 +68,7 @@ h1 {
 h1 .o { display: inline-block; width: 0.62em; height: 0.62em; border-radius: 50%;
   border: 0.14em solid var(--accent); vertical-align: 0.02em; margin: 0 0.02em; }
 header p { margin: 0; color: var(--muted); }
+.vh { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 .grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
 @media (min-width: 680px) {
@@ -217,7 +219,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 
 <div class="wrap">
   <header>
-    <h1>R<span class="o"></span>und QR</h1>
+    <h1>R<span class="o"><span class="vh">o</span></span>und QR</h1>
     <p data-t="subtitle">Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.</p>
     <div class="seg lang" role="radiogroup" aria-label="Sprog / Language / Sprache / Språk">
       <label><input type="radio" name="lang" id="lang-da" value="da" checked><span><svg class="flag" viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg><span class="ln">Dansk</span></span></label>

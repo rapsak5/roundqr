@@ -54,6 +54,7 @@ h1 {
 h1 .o { display: inline-block; width: 0.62em; height: 0.62em; border-radius: 50%;
   border: 0.14em solid var(--accent); vertical-align: 0.02em; margin: 0 0.02em; }
 header p { margin: 0; color: var(--muted); }
+.vh { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 .grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
 @media (min-width: 680px) {
@@ -911,7 +912,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 
 <div class="wrap">
   <header>
-    <h1>R<span class="o"></span>und QR</h1>
+    <h1>R<span class="o"><span class="vh">o</span></span>und QR</h1>
     <p data-t="subtitle">Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.</p>
     <div class="seg lang" role="radiogroup" aria-label="Sprog / Language / Sprache / Språk">
       <label><input type="radio" name="lang" id="lang-da" value="da" checked><span><svg class="flag" viewBox="0 0 37 28" aria-hidden="true"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></svg><span class="ln">Dansk</span></span></label>

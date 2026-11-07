@@ -116,6 +116,106 @@ SITE_LANGS = {
  }
 }
 
+
+# ---------- FAQ (spørgsmål og svar nederst på hjemmesiden) ----------
+FAQ_N = 6
+FAQ = {
+ 'da': {
+  'faqTitle': 'Spørgsmål og svar',
+  'faqIntro': 'Det, folk oftest spørger om.',
+  'faq1q': 'Må jeg bruge QR-koderne kommercielt?',
+  'faq1a': 'Ja. Brug dem på emballage, skilte, menukort, visitkort, plakater og alt det andet. Du skal ikke betale, spørge om lov eller nævne Round QR.',
+  'faq2q': 'Udløber QR-koderne?',
+  'faq2a': 'Nej. Det er statiske koder, hvor linket står direkte i selve mønsteret. Der er ingen mellemled, viderestilling eller konto, der kan lukke ned. Koden virker, så længe siden, den peger på, findes.',
+  'faq3q': 'Kan en rund QR-kode scannes?',
+  'faq3a': 'Ja. Den runde form er pynt rundt om en helt almindelig QR-kode, som alle telefoner kan læse. Round QR scanner selv koden og viser "Kan scannes", når den er i orden. Prøv den alligevel med din egen telefon, før du sender noget til tryk.',
+  'faq4q': 'Hvad koster det?',
+  'faq4a': 'Ingenting. Der kommer aldrig abonnement, login eller reklamer. Siden betales af sponsorerne ovenfor.',
+  'faq5q': 'Gemmer I mine links eller billeder?',
+  'faq5a': 'Nej. Alt sker i din egen browser, og intet sendes til en server. Der er ingen cookies og ingen sporing.',
+  'faq6q': 'Er Round QR åben?',
+  'faq6a': 'Ja. Hele kildekoden ligger offentligt på GitHub, og du kan hente programmet som én HTML-fil og bruge det uden internet.',
+ },
+ 'en': {
+  'faqTitle': 'Questions and answers',
+  'faqIntro': 'The things people ask most.',
+  'faq1q': 'Can I use the QR codes commercially?',
+  'faq1a': "Yes. Use them on packaging, signs, menus, business cards, posters and anything else. You don't need to pay, ask permission or mention Round QR.",
+  'faq2q': 'Do the QR codes expire?',
+  'faq2a': "No. They are static codes, so the link is stored directly in the pattern itself. There's no redirect service or account in between that can shut down. The code works as long as the page it points to exists.",
+  'faq3q': 'Can a round QR code be scanned?',
+  'faq3a': 'Yes. The round shape is decoration around a completely normal QR code that every phone can read. Round QR scans the code itself and shows "Scans correctly" when it is fine. Still, test it with your own phone before you send anything to print.',
+  'faq4q': 'What does it cost?',
+  'faq4a': 'Nothing. There will never be subscriptions, logins or ads. The site is paid for by the sponsors above.',
+  'faq5q': 'Do you store my links or images?',
+  'faq5a': 'No. Everything happens in your own browser and nothing is sent to a server. No cookies and no tracking.',
+  'faq6q': 'Is Round QR open?',
+  'faq6a': 'Yes. All the source code is public on GitHub, and you can download the whole program as one HTML file and use it offline.',
+ },
+ 'de': {
+  'faqTitle': 'Fragen und Antworten',
+  'faqIntro': 'Was am häufigsten gefragt wird.',
+  'faq1q': 'Darf ich die QR-Codes kommerziell nutzen?',
+  'faq1a': 'Ja. Auf Verpackungen, Schildern, Speisekarten, Visitenkarten, Plakaten und überall sonst. Du musst nichts bezahlen, nicht um Erlaubnis fragen und Round QR nicht nennen.',
+  'faq2q': 'Laufen die QR-Codes ab?',
+  'faq2a': 'Nein. Es sind statische Codes, der Link steht direkt im Muster selbst. Es gibt keinen Weiterleitungsdienst und kein Konto dazwischen, das abgeschaltet werden kann. Der Code funktioniert, solange die Seite existiert, auf die er zeigt.',
+  'faq3q': 'Lässt sich ein runder QR-Code scannen?',
+  'faq3a': 'Ja. Die runde Form ist Schmuck um einen ganz normalen QR-Code, den jedes Handy lesen kann. Round QR scannt den Code selbst und zeigt "Lässt sich scannen", wenn alles passt. Teste ihn trotzdem mit deinem eigenen Handy, bevor du etwas drucken lässt.',
+  'faq4q': 'Was kostet es?',
+  'faq4a': 'Nichts. Es wird nie ein Abo, einen Login oder Werbung geben. Die Seite wird von den Sponsoren oben bezahlt.',
+  'faq5q': 'Speichert ihr meine Links oder Bilder?',
+  'faq5a': 'Nein. Alles passiert in deinem eigenen Browser, und nichts wird an einen Server geschickt. Keine Cookies und kein Tracking.',
+  'faq6q': 'Ist Round QR offen?',
+  'faq6a': 'Ja. Der gesamte Quellcode liegt öffentlich auf GitHub, und du kannst das ganze Programm als eine HTML-Datei herunterladen und ohne Internet nutzen.',
+ },
+ 'no': {
+  'faqTitle': 'Spørsmål og svar',
+  'faqIntro': 'Det folk spør oftest om.',
+  'faq1q': 'Kan jeg bruke QR-kodene kommersielt?',
+  'faq1a': 'Ja. Bruk dem på emballasje, skilt, menyer, visittkort, plakater og alt annet. Du trenger ikke betale, spørre om lov eller nevne Round QR.',
+  'faq2q': 'Utløper QR-kodene?',
+  'faq2a': 'Nei. Det er statiske koder der lenken står direkte i selve mønsteret. Det finnes ingen mellomledd, videresending eller konto som kan legges ned. Koden virker så lenge siden den peker til, finnes.',
+  'faq3q': 'Kan en rund QR-kode skannes?',
+  'faq3a': 'Ja. Den runde formen er pynt rundt en helt vanlig QR-kode som alle telefoner kan lese. Round QR skanner koden selv og viser "Kan skannes" når den er i orden. Test den likevel med din egen telefon før du sender noe til trykk.',
+  'faq4q': 'Hva koster det?',
+  'faq4a': 'Ingenting. Det kommer aldri abonnement, innlogging eller reklame. Siden betales av sponsorene over.',
+  'faq5q': 'Lagrer dere lenkene eller bildene mine?',
+  'faq5a': 'Nei. Alt skjer i din egen nettleser, og ingenting sendes til en server. Ingen informasjonskapsler og ingen sporing.',
+  'faq6q': 'Er Round QR åpen?',
+  'faq6a': 'Ja. All kildekoden ligger offentlig på GitHub, og du kan laste ned hele programmet som én HTML-fil og bruke det uten internett.',
+ },
+ 'sv': {
+  'faqTitle': 'Frågor och svar',
+  'faqIntro': 'Det folk oftast frågar om.',
+  'faq1q': 'Får jag använda QR-koderna kommersiellt?',
+  'faq1a': 'Ja. Använd dem på förpackningar, skyltar, menyer, visitkort, affischer och allt annat. Du behöver inte betala, be om lov eller nämna Round QR.',
+  'faq2q': 'Slutar QR-koderna att fungera?',
+  'faq2a': 'Nej. Det är statiska koder där länken står direkt i själva mönstret. Det finns ingen mellanhand, vidarebefordran eller konto som kan stängas ner. Koden fungerar så länge sidan den pekar på finns.',
+  'faq3q': 'Går en rund QR-kod att skanna?',
+  'faq3a': 'Ja. Den runda formen är dekoration runt en helt vanlig QR-kod som alla telefoner kan läsa. Round QR skannar koden själv och visar "Kan skannas" när den är i ordning. Testa den ändå med din egen telefon innan du skickar något till tryck.',
+  'faq4q': 'Vad kostar det?',
+  'faq4a': 'Ingenting. Det kommer aldrig någon prenumeration, inloggning eller reklam. Sidan betalas av sponsorerna ovan.',
+  'faq5q': 'Sparar ni mina länkar eller bilder?',
+  'faq5a': 'Nej. Allt sker i din egen webbläsare och ingenting skickas till en server. Inga kakor och ingen spårning.',
+  'faq6q': 'Är Round QR öppen?',
+  'faq6a': 'Ja. All källkod ligger öppet på GitHub, och du kan ladda ner hela programmet som en HTML-fil och använda det utan internet.',
+ },
+}
+DA.update(FAQ['da']); EN.update(FAQ['en'])
+for _lg in ('de', 'no', 'sv'): SITE_LANGS[_lg].update(FAQ[_lg])
+GITHUB = 'https://github.com/rapsak5/roundqr'
+
+def faq_html():
+    rows = []
+    for i in range(1, FAQ_N + 1):
+        link = f' <a href="{GITHUB}">github.com/rapsak5/roundqr</a>' if i == FAQ_N else ''
+        q, a = DA[f'faq{i}q'], DA[f'faq{i}a']
+        rows.append(f'''      <li><details class="fq">
+        <summary data-t="faq{i}q">{q}</summary>
+        <p><span data-t="faq{i}a">{a}</span>{link}</p>
+      </details></li>''')
+    return '\n'.join(rows)
+
 def js_obj(d):
     import json
     return ''.join('      %s: %s,\n' % (k, json.dumps(v, ensure_ascii=False)) for k, v in d.items())
@@ -164,6 +264,21 @@ SECTION_CSS = '''
 .dl-action { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
 .btn.big { font-size: 15.5px; padding: 12px 20px 12px 16px; border-radius: 10px; text-decoration: none; gap: 9px; }
 .btn.big svg { width: 19px; height: 19px; flex: none; }
+.faq { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 20px 48px; align-items: start; }
+@media (max-width: 760px) { .faq { grid-template-columns: minmax(0, 1fr); } }
+.faq-intro p { margin: 0; color: var(--muted); max-width: 48ch; }
+.fq-list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-width: 0; }
+.fq-list li + li { border-top: 1px solid var(--line); }
+.fq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 15px 18px; font-weight: 600; font-size: 15.5px; }
+.fq summary::-webkit-details-marker { display: none; }
+.fq summary::after { content: "+"; flex: none; font-family: var(--font-mono); font-weight: 500; font-size: 18px; line-height: 1; color: var(--muted); }
+.fq[open] summary::after { content: "\\2212"; }
+.fq summary:hover { background: var(--bg); }
+.fq summary:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: -3px; border-radius: 12px; }
+.fq p { margin: 0; padding: 0 18px 16px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+.fq p a { color: var(--accent-strong); overflow-wrap: anywhere; }
+@media (max-width: 480px) { .fq summary { padding: 14px; } .fq p { padding: 0 14px 14px; } }
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; font-size: 13px; color: var(--muted);
   padding-top: 18px; border-top: 1px solid var(--line); }
 .foot a { color: inherit; }
@@ -203,6 +318,16 @@ def site_sections(dl_size):
       <a class="btn primary big" href="roundqr.html" download="roundqr.html">{DL_ICON}<span data-t="dlBtn">{DA['dlBtn']}</span></a>
       <span class="spec">HTML · {dl_size}</span>
     </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="faq-intro">
+      <h2 class="site-h2" id="faq-h" data-t="faqTitle">{DA['faqTitle']}</h2>
+      <p data-t="faqIntro">{DA['faqIntro']}</p>
+    </div>
+    <ul class="fq-list">
+{faq_html()}
+    </ul>
   </section>
 
   <footer class="foot">
@@ -284,7 +409,7 @@ for start, text in OFF_ABOUT.items():
     off, n = re.subn(r'(      about: )"' + start + r'[^"]*"', lambda m, text=text: m.group(1) + json.dumps(text, ensure_ascii=False), off)
     assert n == 1, start
 off = re.sub(r'<span data-t="about">[^<]*</span>', '<span data-t="about">' + OFF_DA + '</span>', off)
-off = head('Round QR', DESC, '<link rel="icon" href="data:image/svg+xml;base64,' + base64.b64encode(open(OUT + '/favicon.svg','rb').read()).decode() + '">\n') + off + '\n</body>\n</html>\n'
+off = head('Round QR', DESC, '<link rel="canonical" href="https://roundqr.dk/">\n<link rel="icon" href="data:image/svg+xml;base64,' + base64.b64encode(open(OUT + '/favicon.svg','rb').read()).decode() + '">\n') + off + '\n</body>\n</html>\n'
 assert 'cdn.jsdelivr' not in off and 'googleapis' not in off
 open(OUT + '/roundqr.html', 'w', encoding='utf-8').write(off)
 size = os.path.getsize(OUT + '/roundqr.html')
@@ -312,8 +437,37 @@ SITE_META = '''<link rel="canonical" href="https://roundqr.dk/">
 <meta property="og:locale" content="da_DK">
 <meta name="twitter:card" content="summary_large_image">
 '''
-site = head('Round QR · Gratis runde og firkantede QR-koder', DESC, SITE_META) + site + '\n</body>\n</html>\n'
+# Strukturerede data til Google og AI-søgning
+LD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {'@type': 'WebSite', '@id': 'https://roundqr.dk/#website', 'url': 'https://roundqr.dk/', 'name': 'Round QR',
+     'alternateName': ['roundqr.dk', 'RoundQR'], 'inLanguage': 'da'},
+    {'@type': 'Person', '@id': 'https://roundqr.dk/#kasper', 'name': 'Kasper Bergstrøm', 'url': 'https://ai-workshop.dk'},
+    {'@type': 'WebApplication', '@id': 'https://roundqr.dk/#app', 'name': 'Round QR', 'url': 'https://roundqr.dk/',
+     'description': DESC, 'applicationCategory': 'DesignApplication', 'operatingSystem': 'Alle med en moderne browser',
+     'browserRequirements': 'Kræver JavaScript', 'isAccessibleForFree': True,
+     'inLanguage': ['da', 'en', 'de', 'nb', 'sv'], 'image': 'https://roundqr.dk/og-image.png',
+     'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'DKK'},
+     'featureList': ['Runde og firkantede QR-koder', 'Statiske koder der aldrig udløber', 'Egne farver, farveforløb og logo',
+                     'Gem som PNG, JPG eller SVG', 'Virker uden internet', 'Ingen login, cookies eller sporing'],
+     'author': {'@id': 'https://roundqr.dk/#kasper'}, 'sameAs': [GITHUB], 'isPartOf': {'@id': 'https://roundqr.dk/#website'}},
+    {'@type': 'FAQPage', '@id': 'https://roundqr.dk/#faq', 'inLanguage': 'da',
+     'mainEntity': [{'@type': 'Question', 'name': DA[f'faq{i}q'],
+                     'acceptedAnswer': {'@type': 'Answer', 'text': DA[f'faq{i}a']}} for i in range(1, FAQ_N + 1)]},
+  ],
+}
+SITE_META += '<script type="application/ld+json">\n' + json.dumps(LD, ensure_ascii=False, indent=1).replace('</', '<\\/') + '\n</script>\n'
+site = head('Round QR · Gratis QR-kode generator til runde og firkantede koder', DESC, SITE_META) + site + '\n</body>\n</html>\n'
 assert 'cdn.jsdelivr' not in site and 'googleapis' not in site
 open(OUT + '/index.html', 'w', encoding='utf-8').write(site)
+
+# Sitemap med dagens dato
+import datetime
+open(OUT + '/sitemap.xml', 'w', encoding='utf-8').write('''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://roundqr.dk/</loc><lastmod>%s</lastmod></url>
+</urlset>
+''' % datetime.date.today().isoformat())
 
 print('roundqr.html', dl_size, '| index.html', round(os.path.getsize(OUT + '/index.html')/1024), 'KB')
