@@ -550,6 +550,11 @@ site = site.replace(END_WRAP, site_sections(dl_size) + END_WRAP, 1).replace(CDN,
 site = add_strings(site, PER_LANG)
 TOOL = tool_strings(site)
 
+# Ejerskab i Bing Webmaster Tools. Google bruger filen googled9e12389f2280261.html i roden,
+# og IndexNow-nøglen ligger som a7678b95be7b3ad67a6c82958860e9ab.txt i roden. Slet ingen af dem.
+VERIFY = '<meta name="msvalidate.01" content="6FF3944E70AC36E640FBBDFD5BC174A5">\n'
+INDEXNOW_KEY = 'a7678b95be7b3ad67a6c82958860e9ab'
+
 def meta(lg):
     title, desc = PAGE[lg]
     alt = ''.join(f'<link rel="alternate" hreflang="{HTML_LANG[x]}" href="{url_of(x)}">\n' for x in LANGS)
@@ -575,7 +580,7 @@ def meta(lg):
     }
     pre = '' if lg == 'da' else '../'
     a = lambda t: t.replace('"', '&quot;')
-    return (f'<link rel="canonical" href="{url_of(lg)}">\n' + alt +
+    return (f'<link rel="canonical" href="{url_of(lg)}">\n' + alt + VERIFY +
 f'''<link rel="icon" href="{pre}favicon.svg" type="image/svg+xml">
 <link rel="icon" href="{pre}favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{pre}apple-touch-icon.png">

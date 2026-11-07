@@ -20,3 +20,11 @@ Kildekoden til [roundqr.dk](https://roundqr.dk): et gratis værktøj til runde o
 ## Hosting
 
 GitHub Pages fra `main`, mappen `/`. Domænet ligger hos Simply.com (DNS Service) med fire A-records til GitHub (185.199.108.153 til 185.199.111.153) og `www` som CNAME til `rapsak5.github.io`. HTTPS er slået til.
+
+## Søgemaskiner
+
+roundqr.dk er tilføjet i Google Search Console (webadressepræfiks) og Bing Webmaster Tools. Bevar derfor disse filer og tags:
+
+- `googled9e12389f2280261.html` bekræfter ejerskabet over for Google.
+- Meta-tagget `msvalidate.01` i build.py bekræfter ejerskabet over for Bing.
+- `a7678b95be7b3ad67a6c82958860e9ab.txt` er nøglen til IndexNow, så Bing kan få besked om nye sider med det samme.
