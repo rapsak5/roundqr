@@ -1268,7 +1268,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="shape" id="shape-raev" value="raev"><span><svg data-oshape="raev"></svg><b data-t="fRaev">Renard</b></span></label>
             <label><input type="radio" name="shape" id="shape-bjorn" value="bjorn"><span><svg data-oshape="bjorn"></svg><b data-t="fBjorn">Ours</b></span></label>
             <label><input type="radio" name="shape" id="shape-ugle" value="ugle"><span><svg data-oshape="ugle"></svg><b data-t="fUgle">Hibou</b></span></label>
-            <label><input type="radio" name="shape" id="shape-orn" value="orn"><span><svg data-oshape="orn"></svg><b data-t="fOrn">Aigle</b></span></label>
+            <label><input type="radio" name="shape" id="shape-orn" value="orn"><span><svg data-oshape="orn"></svg><b data-t="fOrn">Hérisson</b></span></label>
           </div>
           <!-- skovtur:end -->
           <p class="explain" id="ex-form" data-t="exForm" hidden>Cercle donne un code rond décoré, Carré est le code QR classique.</p>
@@ -1329,7 +1329,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="dot" id="dot-ships" value="ships"><span><svg viewBox="0 0 1 1" data-shape="ships"></svg><b data-t="ships">Navires</b></span></label>
             <label><input type="radio" name="dot" id="dot-anchors" value="anchors"><span><svg viewBox="0 0 1 1" data-shape="anchors"></svg><b data-t="anchors">Ancres</b></span></label>
             <label><input type="radio" name="dot" id="dot-skulls" value="skulls"><span><svg viewBox="0 0 1 1" data-shape="skulls"></svg><b data-t="skulls">Têtes de mort</b></span></label>
-            <label><input type="radio" name="dot" id="dot-coins" value="coins"><span><svg viewBox="0 0 1 1" data-shape="coins"></svg><b data-t="coins">Pièces</b></span></label>
+            <label><input type="radio" name="dot" id="dot-coins" value="coins"><span><svg viewBox="0 0 1 1" data-shape="coins"></svg><b data-t="coins">Sabres</b></span></label>
             <label><input type="radio" name="dot" id="dot-pirates" value="pirates"><span><svg viewBox="0 0 1 1" data-shape="pirates"></svg><b data-t="pirates">Mélange</b></span></label>
           </div>
           <!-- pirat:end -->
@@ -1538,7 +1538,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
   <section class="xbar pbar" id="pbar" data-t-aria="piratAria" aria-label="Pirate">
     <label class="xbar-main" for="pirat">
       <span class="xswitch pswitch"><input type="checkbox" id="pirat" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="sk" d="M8 1.6c3.3 0 5.2 2.2 5.2 4.9 0 1.8-1 2.9-2 3.4v2.4H4.8V9.9c-1-.5-2-1.6-2-3.4C2.8 3.8 4.7 1.6 8 1.6z"/><circle class="se" cx="5.9" cy="6.9" r="1.3"/><circle class="se" cx="10.1" cy="6.9" r="1.3"/><path class="se" d="M8 8.6l.9 1.5H7.1zM6.4 12.3v1.8M8 12.3v1.8M9.6 12.3v1.8"/></svg></span></span></span>
-      <span class="xtext"><span class="xtitle" data-t="piratLabel">Hissez le drapeau pirate</span><span class="hint" data-t="piratHint">Des coffres, des navires, des ancres et des pièces à la place des points. Et trois coffres au trésor cachés sur la page.</span><span class="hunt" id="huntCount" hidden></span></span>
+      <span class="xtext"><span class="xtitle" data-t="piratLabel">Hissez le drapeau pirate</span><span class="hint" data-t="piratHint">Des coffres, des navires, des ancres et des sabres à la place des points. Et trois coffres au trésor cachés sur la page.</span><span class="hunt" id="huntCount" hidden></span></span>
     </label>
     <div class="pdecor" aria-hidden="true">
       <svg class="pwheel" viewBox="0 0 60 60"><g class="spokes"><path d="M30 2v56M2 30h56M10.2 10.2l39.6 39.6M49.8 10.2L10.2 49.8"/></g><circle cx="30" cy="30" r="19" class="rim"/><circle cx="30" cy="30" r="5" class="hub"/></svg>
@@ -1654,7 +1654,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
     <div class="dl-action">
       <a class="btn primary big" href="../roundqr.html" download="roundqr.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span data-t="dlBtn">Télécharger roundqr.html</span></a>
-      <span class="spec">HTML · 646 KB</span>
+      <span class="spec">HTML · 657 KB</span>
     </div>
   </section>
 
@@ -1734,8 +1734,14 @@ var RQ = (function () {
     "M", .5, .25, "C", .4, .0, .14, .03, .25, .25, "Z", "M", .5, .25, "C", .6, .0, .86, .03, .75, .25, "Z"];
   var STAR = (function () { var a = ["M"]; for (var i = 0; i < 10; i++) { var r = i % 2 ? .24 : .54, t = -Math.PI / 2 + i * Math.PI / 5;
     if (i) a.push("L"); a.push(.5 + r * Math.cos(t), .55 + r * Math.sin(t)); } a.push("Z"); return a; })();
-  var SANTA_HAT = ["M", .17, .41, "C", .26, .2, .48, .1, .7, .14, "L", .84, .41, "Z"];
-  var SANTA_BEARD = ["M", .17, .58, "L", .83, .58, "C", .86, .8, .7, .97, .5, .97, "C", .3, .97, .14, .8, .17, .58, "Z"];
+  // Nisse: pointed hat, bobble, brim, nose and a big beard.
+  var NISSE = ["M", .12, .44, "L", .36, .14, "L", .56, .04, "L", .76, .06, "L", .9, .2, "L", .94, .32, "L", .84, .24, "L", .72, .2, "L", .88, .44, "Z", "M", .995, .3,
+    "L", .989, .329, "L", .973, .353, "L", .949, .369, "L", .92, .375, "L", .891, .369, "L", .867, .353, "L", .851, .329, "L", .845, .3, "L", .851, .271,
+    "L", .867, .247, "L", .891, .231, "L", .92, .225, "L", .949, .231, "L", .973, .247, "L", .989, .271, "Z", "M", .1, .38, "L", .9, .38, "L", .95, .44,
+    "L", .9, .5, "L", .1, .5, "L", .05, .44, "Z", "M", .16, .48, "L", .84, .48, "L", .87, .66, "L", .78, .8, "L", .68, .78, "L", .61, .95, "L", .5, .85,
+    "L", .39, .95, "L", .32, .78, "L", .22, .8, "L", .13, .66, "Z", "M", .6, .53, "L", .592, .568, "L", .571, .601, "L", .538, .622, "L", .5, .63, "L",
+    .462, .622, "L", .429, .601, "L", .408, .568, "L", .4, .53, "L", .408, .492, "L", .429, .459, "L", .462, .438, "L", .5, .43, "L", .538, .438, "L",
+    .571, .459, "L", .592, .492, "Z"];
   var XMAS = ["hearts", "trees", "gifts", "stars", "santas"];
   // Halloween: one closed outline per shape, so overlapping parts never cut holes. All of them cover the middle of the cell.
   var PUMPKIN = ["M", .45, .2, "L", .43, .06, "L", .57, .02, "L", .56, .2, "C", .66, .13, .82, .16, .9, .3, "C", 1, .46, .99, .74, .87, .86,
@@ -1768,21 +1774,78 @@ var RQ = (function () {
     "L", .43, .66, "C", .26, .62, .14, .38, .16, .03, "Z"];
   var BOTTLE = ["M", .42, .02, "L", .58, .02, "L", .58, .26, "C", .58, .34, .76, .38, .76, .5, "L", .76, .96, "L", .24, .96, "L", .24, .5, "C", .24, .38, .42, .34, .42, .26, "Z"];
   var SPARKLE = ["M", .5, 0, "C", .56, .4, .6, .44, 1, .5, "C", .6, .56, .56, .6, .5, 1, "C", .44, .6, .4, .56, 0, .5, "C", .4, .44, .44, .4, .5, 0, "Z"];
+  // Alarm clock with hands, two bells and legs. The minute hand covers the middle of the cell.
+  var CLOCK = ["M", .87, .57, "L", .863, .642, "L", .842, .712, "L", .808, .776, "L", .762, .832, "L", .706, .878, "L", .642, .912, "L", .572, .933, "L", .5, .94,
+    "L", .428, .933, "L", .358, .912, "L", .294, .878, "L", .238, .832, "L", .192, .776, "L", .158, .712, "L", .137, .642, "L", .13, .57, "L", .137, .498,
+    "L", .158, .428, "L", .192, .364, "L", .238, .308, "L", .294, .262, "L", .358, .228, "L", .428, .207, "L", .5, .2, "L", .572, .207, "L", .642, .228,
+    "L", .706, .262, "L", .762, .308, "L", .808, .364, "L", .842, .428, "L", .863, .498, "Z", "M", .45, .6, "L", .45, .33, "L", .55, .33, "L", .55, .6,
+    "Z", "M", .519, .529, "L", .709, .619, "L", .671, .701, "L", .481, .611, "Z", "M", .57, .57, "L", .565, .597, "L", .549, .619, "L", .527, .635, "L",
+    .5, .64, "L", .473, .635, "L", .451, .619, "L", .435, .597, "L", .43, .57, "L", .435, .543, "L", .451, .521, "L", .473, .505, "L", .5, .5, "L", .527,
+    .505, "L", .549, .521, "L", .565, .543, "Z", "M", .087, .333, "L", .061, .3, "L", .045, .261, "L", .04, .22, "L", .045, .179, "L", .061, .14, "L",
+    .087, .107, "L", .12, .081, "L", .159, .065, "L", .2, .06, "L", .241, .065, "L", .28, .081, "L", .313, .107, "Z", "M", .687, .107, "L", .72, .081, "L",
+    .759, .065, "L", .8, .06, "L", .841, .065, "L", .88, .081, "L", .913, .107, "L", .939, .14, "L", .955, .179, "L", .96, .22, "L", .955, .261, "L", .939,
+    .3, "L", .913, .333, "Z", "M", .22, .84, "L", .32, .9, "L", .18, .99, "L", .12, .96, "Z", "M", .88, .96, "L", .82, .99, "L", .68, .9, "L", .78, .84,
+    "Z", "M", .775, .515, "L", .759, .463, "L", .733, .414, "L", .698, .372, "L", .656, .337, "L", .607, .311, "L", .555, .295, "L", .5, .29, "L", .445,
+    .295, "L", .393, .311, "L", .344, .337, "L", .302, .372, "L", .267, .414, "L", .241, .463, "L", .225, .515, "L", .22, .57, "L", .225, .625, "L", .241,
+    .677, "L", .267, .726, "L", .302, .768, "L", .344, .803, "L", .393, .829, "L", .445, .845, "L", .5, .85, "L", .555, .845, "L", .607, .829, "L", .656,
+    .803, "L", .698, .768, "L", .733, .726, "L", .759, .677, "L", .775, .625, "L", .78, .57, "Z"];
   var PARTY = ["rockets", "glasses", "bottles", "clocks", "sparkles"];
   // Pirat
-  var CHEST = ["M", .06, .44, "C", .06, .12, .94, .12, .94, .44, "L", .94, .92, "L", .06, .92, "Z"];
+  // Closed chest: domed lid, a gap under it, a lock over the gap and a keyhole.
+  var CHEST = ["M", .06, .44, "L", .068, .381, "L", .093, .325, "L", .134, .273, "L", .189, .228, "L", .256, .191, "L", .332, .163, "L", .414, .146, "L", .5, .14,
+    "L", .586, .146, "L", .668, .163, "L", .744, .191, "L", .811, .228, "L", .866, .273, "L", .907, .325, "L", .932, .381, "L", .94, .44, "Z", "M", .06,
+    .5, "L", .94, .5, "L", .94, .94, "L", .06, .94, "Z", "M", .4, .34, "L", .6, .34, "L", .6, .5, "L", .4, .5, "Z", "M", .47, .72, "L", .53, .72, "L", .53,
+    .58, "L", .47, .58, "Z"];
   var SHIP = ["M", .5, .03, "L", .86, .56, "L", .97, .62, "L", .8, .92, "L", .2, .92, "L", .03, .62, "L", .2, .58, "L", .4, .58, "L", .4, .14, "Z"];
   var ANCHOR = ["M", .38, .12, "L", .5, .01, "L", .62, .12, "L", .62, .26, "L", .8, .26, "L", .8, .36, "L", .62, .36, "L", .62, .8, "L", .78, .7, "L", .74, .62, "L", .95, .58,
     "L", .88, .8, "L", .68, .9, "L", .5, .98, "L", .32, .9, "L", .12, .8, "L", .05, .58, "L", .26, .62, "L", .22, .7, "L", .38, .8, "L", .38, .36, "L", .2, .36, "L", .2, .26, "L", .38, .26, "Z"];
-  var SKULL = ["M", .5, .04, "C", .8, .04, .94, .24, .94, .46, "C", .94, .62, .84, .7, .76, .74, "L", .76, .94, "L", .24, .94, "L", .24, .74,
-    "C", .16, .7, .06, .62, .06, .46, "C", .06, .24, .2, .04, .5, .04, "Z"];
-  var COIN = (function () { var a = ["M"]; for (var i = 0; i < 48; i++) { var t = i / 48 * 2 * Math.PI, r = .44 + .03 * Math.cos(12 * t);
-    if (i) a.push("L"); a.push(.5 + r * Math.cos(t), .5 + r * Math.sin(t)); } a.push("Z"); return a; })();
+  // Skull with eye holes, nose and teeth. The middle of the cell stays dark between the eyes.
+  var SKULL = ["M", .5, .04, "L", .605, .049, "L", .695, .075, "L", .771, .115, "L", .833, .168, "L", .88, .23, "L", .913, .302, "L", .933, .379, "L", .94, .46, "L",
+    .936, .516, "L", .923, .566, "L", .904, .608, "L", .88, .645, "L", .852, .676, "L", .822, .702, "L", .791, .723, "L", .76, .74, "L", .76, .94, "L",
+    .24, .94, "L", .24, .74, "L", .209, .723, "L", .178, .702, "L", .148, .676, "L", .12, .645, "L", .096, .608, "L", .077, .566, "L", .064, .516, "L",
+    .06, .46, "L", .067, .379, "L", .087, .302, "L", .12, .23, "L", .168, .167, "L", .229, .115, "L", .305, .075, "L", .395, .049, "Z", "M", .434, .403,
+    "L", .417, .369, "L", .391, .343, "L", .357, .326, "L", .32, .32, "L", .283, .326, "L", .249, .343, "L", .223, .369, "L", .206, .403, "L", .2, .44,
+    "L", .206, .477, "L", .223, .511, "L", .249, .537, "L", .283, .554, "L", .32, .56, "L", .357, .554, "L", .391, .537, "L", .417, .511, "L", .434, .477,
+    "L", .44, .44, "Z", "M", .794, .403, "L", .777, .369, "L", .751, .343, "L", .717, .326, "L", .68, .32, "L", .643, .326, "L", .609, .343, "L", .583,
+    .369, "L", .566, .403, "L", .56, .44, "L", .566, .477, "L", .583, .511, "L", .609, .537, "L", .643, .554, "L", .68, .56, "L", .717, .554, "L", .751,
+    .537, "L", .777, .511, "L", .794, .477, "L", .8, .44, "Z", "M", .44, .68, "L", .56, .68, "L", .5, .57, "Z", "M", .38, .94, "L", .44, .94, "L", .44, .8,
+    "L", .38, .8, "Z", "M", .56, .94, "L", .62, .94, "L", .62, .8, "L", .56, .8, "Z"];
+  // Two crossed sabres; they cross in the middle of the cell.
+  var SABRE = ["M", .146, .107, "L", .231, .174, "L", .32, .252, "L", .409, .337, "L", .498, .428, "L", .586, .521, "L", .672, .615, "L", .754, .706, "L", .832, .791,
+    "L", .768, .849, "L", .691, .763, "L", .609, .672, "L", .524, .579, "L", .437, .487, "L", .349, .398, "L", .262, .314, "L", .177, .239, "L", .094,
+    .173, "Z", "M", .906, .173, "L", .823, .239, "L", .738, .314, "L", .651, .398, "L", .563, .487, "L", .476, .579, "L", .391, .672, "L", .309, .763, "L",
+    .232, .849, "L", .168, .791, "L", .246, .706, "L", .328, .615, "L", .414, .521, "L", .502, .428, "L", .591, .337, "L", .68, .252, "L", .769, .174, "L",
+    .854, .107, "Z", "M", .616, .831, "L", .876, .611, "L", .924, .669, "L", .664, .889, "Z", "M", .336, .889, "L", .076, .669, "L", .124, .611, "L", .384,
+    .831, "Z", "M", .828, .74, "L", .928, .88, "L", .872, .92, "L", .772, .78, "Z", "M", .228, .78, "L", .128, .92, "L", .072, .88, "L", .172, .74, "Z",
+    "M", .965, .92, "L", .958, .948, "L", .938, .968, "L", .91, .975, "L", .883, .968, "L", .862, .948, "L", .855, .92, "L", .862, .893, "L", .883, .872,
+    "L", .91, .865, "L", .938, .872, "L", .958, .893, "Z", "M", .145, .92, "L", .138, .948, "L", .118, .968, "L", .09, .975, "L", .063, .968, "L", .042,
+    .948, "L", .035, .92, "L", .042, .893, "L", .062, .872, "L", .09, .865, "L", .118, .872, "L", .138, .893, "Z"];
   var PIRATE = ["chests", "ships", "anchors", "skulls", "coins"];
   // Oktoberfest. A hole is a loop drawn the other way round, so the nonzero fill leaves it empty.
   function hole(x, y, cx, cy, rx, ry) { var s = "M", n = 20; for (var i = 0; i <= n; i++) { var t = -i / n * 2 * Math.PI; s += (i ? "L" : "") + f(x + cx + rx * Math.cos(t)) + " " + f(y + cy + ry * Math.sin(t)) + " "; } return s + "Z"; }
-  var STEIN = ["M", .12, .16, "L", .7, .16, "L", .7, .3, "L", .84, .3, "C", .96, .3, .98, .42, .98, .52, "C", .98, .64, .94, .74, .84, .74, "L", .7, .74, "L", .7, .94, "L", .12, .94, "Z"];
-  var PRETZEL = ["M", .5, .3, "C", .62, .08, .98, .12, .96, .48, "C", .95, .72, .78, .9, .6, .92, "L", .5, .82, "L", .4, .92, "C", .22, .9, .05, .72, .04, .48, "C", .02, .12, .38, .08, .5, .3, "Z"];
+  // Foam over the rim and a hole in the handle.
+  var STEIN = ["M", .1, .28, "L", .68, .28, "L", .68, .34, "L", .8, .34, "L", .851, .345, "L", .891, .36, "L", .923, .383, "L", .946, .413, "L", .963, .446, "L",
+    .973, .483, "L", .978, .522, "L", .98, .56, "L", .978, .605, "L", .972, .648, "L", .96, .689, "L", .943, .725, "L", .918, .756, "L", .887, .779, "L",
+    .848, .795, "L", .8, .8, "L", .68, .8, "L", .68, .96, "L", .1, .96, "Z", "M", .27, .24, "L", .262, .278, "L", .241, .311, "L", .208, .332, "L", .17,
+    .34, "L", .132, .332, "L", .099, .311, "L", .078, .278, "L", .07, .24, "L", .078, .202, "L", .099, .169, "L", .132, .148, "L", .17, .14, "L", .208,
+    .148, "L", .241, .169, "L", .262, .202, "Z", "M", .45, .17, "L", .441, .216, "L", .415, .255, "L", .376, .281, "L", .33, .29, "L", .284, .281, "L",
+    .245, .255, "L", .219, .216, "L", .21, .17, "L", .219, .124, "L", .245, .085, "L", .284, .059, "L", .33, .05, "L", .376, .059, "L", .415, .085, "L",
+    .441, .124, "Z", "M", .61, .17, "L", .602, .212, "L", .578, .248, "L", .542, .272, "L", .5, .28, "L", .458, .272, "L", .422, .248, "L", .398, .212,
+    "L", .39, .17, "L", .398, .128, "L", .422, .092, "L", .458, .068, "L", .5, .06, "L", .542, .068, "L", .578, .092, "L", .602, .128, "Z", "M", .72, .24,
+    "L", .713, .274, "L", .694, .304, "L", .664, .323, "L", .63, .33, "L", .596, .323, "L", .566, .304, "L", .547, .274, "L", .54, .24, "L", .547, .206,
+    "L", .566, .176, "L", .596, .157, "L", .63, .15, "L", .664, .157, "L", .694, .176, "L", .713, .206, "Z", "M", .68, .68, "L", .8, .68, "L", .86, .62,
+    "L", .86, .52, "L", .8, .46, "L", .68, .46, "Z"];
+  // Pretzel: the arms cross in the middle of the cell, three holes around them.
+  var PRETZEL = ["M", .5, .26, "L", .549, .189, "L", .616, .142, "L", .693, .119, "L", .772, .122, "L", .848, .153, "L", .911, .212, "L", .954, .301, "L", .97, .42,
+    "L", .96, .529, "L", .933, .631, "L", .89, .723, "L", .833, .802, "L", .763, .868, "L", .683, .918, "L", .595, .949, "L", .5, .96, "L", .405, .949,
+    "L", .317, .918, "L", .237, .868, "L", .168, .802, "L", .11, .723, "L", .067, .631, "L", .04, .529, "L", .03, .42, "L", .046, .301, "L", .089, .212,
+    "L", .152, .153, "L", .228, .122, "L", .307, .119, "L", .384, .142, "L", .451, .189, "Z", "M", .44, .46, "L", .418, .414, "L", .397, .369, "L", .377,
+    .325, "L", .355, .285, "L", .331, .251, "L", .305, .224, "L", .275, .206, "L", .24, .2, "L", .206, .206, "L", .179, .223, "L", .159, .25, "L", .145,
+    .283, "L", .136, .32, "L", .133, .36, "L", .134, .401, "L", .14, .44, "L", .15, .477, "L", .165, .511, "L", .185, .543, "L", .207, .573, "L", .233,
+    .599, "L", .261, .623, "L", .29, .643, "L", .32, .66, "Z", "M", .68, .66, "L", .71, .643, "L", .739, .623, "L", .767, .599, "L", .792, .573, "L", .815,
+    .543, "L", .835, .511, "L", .85, .477, "L", .86, .44, "L", .866, .401, "L", .867, .36, "L", .864, .32, "L", .855, .283, "L", .841, .25, "L", .821,
+    .223, "L", .794, .206, "L", .76, .2, "L", .725, .206, "L", .695, .224, "L", .669, .251, "L", .645, .285, "L", .623, .325, "L", .603, .369, "L", .582,
+    .414, "L", .56, .46, "Z", "M", .32, .78, "L", .38, .84, "L", .5, .86, "L", .62, .84, "L", .68, .78, "L", .5, .64, "Z"];
   var RHOMB = ["M", .5, .02, "L", .98, .5, "L", .5, .98, "L", .02, .5, "Z"];
   var ALPHAT = ["M", .26, .62, "L", .32, .22, "C", .4, .14, .6, .14, .68, .22, "L", .74, .62, "L", .96, .66, "C", .98, .76, .9, .8, .8, .8, "L", .2, .8, "C", .1, .8, .02, .76, .04, .66, "Z"];
   var ALPFEATHER = ["M", .72, .34, "L", .9, .02, "L", .96, .06, "L", .78, .4, "Z"];
@@ -1798,8 +1861,11 @@ var RQ = (function () {
   var ELG = ["M", .5, .3, "L", .6, .3, "L", .65, .22, "L", .69, .08, "L", .75, .19, "L", .81, .05, "L", .86, .18, "L", .94, .08, "L", .98, .27, "L", .9, .35,
     "L", .7, .37, "L", .67, .42, "L", .84, .45, "L", .67, .52, "L", .65, .74, "C", .65, .9, .59, .97, .5, .97, "C", .41, .97, .35, .9, .35, .74, "L", .33, .52,
     "L", .16, .45, "L", .33, .42, "L", .3, .37, "L", .1, .35, "L", .02, .27, "L", .06, .08, "L", .14, .18, "L", .19, .05, "L", .25, .19, "L", .31, .08, "L", .35, .22, "L", .4, .3, "Z"];
-  var ULV = ["M", .5, .28, "L", .63, .26, "L", .79, .03, "L", .85, .35, "C", .92, .44, .97, .55, .91, .62, "L", .78, .66, "L", .62, .87, "C", .58, .95, .42, .95, .38, .87,
-    "L", .22, .66, "L", .09, .62, "C", .03, .55, .08, .44, .15, .35, "L", .21, .03, "L", .37, .26, "Z"];
+  // A howling wolf in profile, so it does not look like the fox.
+  var ULV = ["M", .4, .98, "L", .36, .74, "L", .38, .64, "L", .32, .6, "L", .38, .52, "L", .3, .48, "L", .38, .4, "L", .4, .32, "L", .2, .2, "L", .38, .24, "L",
+    .14, .08, "L", .16, .02, "L", .48, .12, "L", .57, .14, "L", .7, .04, "L", .64, .2, "L", .66, .32, "L", .674, .351, "L", .687, .383, "L", .7, .417, "L",
+    .713, .453, "L", .726, .489, "L", .742, .525, "L", .759, .563, "L", .78, .6, "L", .809, .645, "L", .835, .69, "L", .858, .736, "L", .878, .782, "L",
+    .892, .83, "L", .901, .878, "L", .904, .928, "L", .9, .98, "Z"];
   var RAEV = ["M", .5, .33, "L", .66, .29, "L", .87, .02, "L", .9, .35, "L", .99, .5, "L", .77, .62, "L", .5, .97, "L", .23, .62, "L", .01, .5, "L", .1, .35, "L", .13, .02, "L", .34, .29, "Z"];
   var UGLE = ["M", .5, .19, "L", .69, .14, "L", .84, .02, "L", .85, .26, "C", .94, .4, .93, .7, .82, .84, "C", .74, .94, .62, .98, .5, .98,
     "C", .38, .98, .26, .94, .18, .84, "C", .07, .7, .06, .4, .15, .26, "L", .16, .02, "L", .31, .14, "Z"];
@@ -1809,7 +1875,7 @@ var RQ = (function () {
     if (style === "trees") return sh(x, y, TREE);
     if (style === "gifts") return sh(x, y, GIFT);
     if (style === "stars") return sh(x, y, STAR);
-    if (style === "santas") return sh(x, y, SANTA_HAT) + circ(x + .72, y + .13, .11) + rrect(x + .1, y + .38, .8, .16, .08) + sh(x, y, SANTA_BEARD);
+    if (style === "santas") return sh(x, y, NISSE);
     if (style === "pumpkins") return sh(x, y, PUMPKIN);
     if (style === "ghosts") return sh(x, y, GHOST);
     if (style === "bats") return sh(x, y, BAT);
@@ -1824,14 +1890,14 @@ var RQ = (function () {
     if (style === "glasses") return sh(x, y, FLUTE);
     if (style === "bottles") return sh(x, y, BOTTLE);
     if (style === "sparkles") return sh(x, y, SPARKLE);
-    if (style === "clocks") return circ(x + .5, y + .56, .4) + circ(x + .26, y + .14, .1) + circ(x + .74, y + .14, .1);
+    if (style === "clocks") return sh(x, y, CLOCK);
     if (style === "chests") return sh(x, y, CHEST);
     if (style === "ships") return sh(x, y, SHIP);
     if (style === "anchors") return sh(x, y, ANCHOR);
     if (style === "skulls") return sh(x, y, SKULL);
-    if (style === "coins") return sh(x, y, COIN);
+    if (style === "coins") return sh(x, y, SABRE);
     if (style === "steins") return sh(x, y, STEIN);
-    if (style === "pretzels") return sh(x, y, PRETZEL) + hole(x, y, .29, .44, .1, .12) + hole(x, y, .71, .44, .1, .12);
+    if (style === "pretzels") return sh(x, y, PRETZEL);
     if (style === "lhearts") return rect(x + .47, y + .02, .06, .14) + sh(x + .075, y + .15, HEART, .85);
     if (style === "rhombs") return sh(x, y, RHOMB);
     if (style === "alphats") return sh(x, y, ALPHAT) + sh(x, y, ALPFEATHER);
@@ -1901,13 +1967,15 @@ var RQ = (function () {
       { poly: [[0.5, 0.1], [0.7, 0.32], [0.62, 0.32], [0.84, 0.58], [0.74, 0.58], [1, 0.88], [0.6, 0.88], [0.6, 1.04], [0.4, 1.04], [0.4, 0.88],
         [0, 0.88], [0.26, 0.58], [0.16, 0.58], [0.38, 0.32], [0.3, 0.32]] },
       { poly: starPts(0.5, 0.08, 0.08, 0.035, 5) }] },
-    gift: { anchor: [0.5, 0.66], prims: [
-      { poly: [[0.04, 0.3], [0.96, 0.3], [0.96, 1.02], [0.04, 1.02]] },
-      { circle: [0.37, 0.2, 0.12] }, { circle: [0.63, 0.2, 0.12] }],
-      skip: function (X, Y, qx, qy) { return Math.abs(X - qx) < 1.1 || Math.abs(Y - qy) < 1.1; } },
+    // A lid that sticks out a little, and a bow with two loops and a knot.
+    gift: { anchor: [0.5, 0.7], prims: [
+      { poly: [[0.05, 0.42], [0.95, 0.42], [0.95, 1.02], [0.05, 1.02]] }, { poly: [[0, 0.3], [1, 0.3], [1, 0.43], [0, 0.43]] },
+      { poly: ellPts(0.33, 0.17, 0.18, 0.08, 0.45, 28) }, { poly: ellPts(0.67, 0.17, 0.18, 0.08, -0.45, 28) }, { circle: [0.5, 0.26, 0.07] }],
+      skip: function (X, Y, qx, qy, U, V) { return Math.abs(X - qx) < 1.1 || Math.abs(Y - qy) < 1.1 || (V > 0.425 && V < 0.445); } },
     star: { anchor: [0.5, 0.53], prims: [{ poly: starPts(0.5, 0.53, 0.5, 0.31, 5) }] },
-    santa: { anchor: [0.5, 0.7], prims: [
-      { circle: [0.5, 0.7, 0.34] },
+    // Nisse: the code sits in a big beard with a zigzag edge, under the hat.
+    santa: { anchor: [0.5, 0.72], prims: [
+      { poly: [[0.1, 0.5], [0.9, 0.5], [0.93, 0.78], [0.83, 0.94], [0.71, 0.9], [0.62, 1.06], [0.5, 0.96], [0.38, 1.06], [0.29, 0.9], [0.17, 0.94], [0.07, 0.78]] },
       { poly: [[0.12, 0.5], [0.3, 0.2], [0.52, 0.08], [0.76, 0.08], [0.88, 0.5]] },
       { circle: [0.8, 0.1, 0.075] },
       { poly: [[0.08, 0.42], [0.92, 0.42], [0.92, 0.55], [0.08, 0.55]] }],
@@ -1926,11 +1994,8 @@ var RQ = (function () {
     ghost: { anchor: [0.5, 0.56], prims: [
       { circle: [0.5, 0.42, 0.38] }, { poly: [[0.12, 0.42], [0.88, 0.42], [0.88, 0.9], [0.12, 0.9]] },
       { circle: [0.247, 0.9, 0.127] }, { circle: [0.5, 0.9, 0.127] }, { circle: [0.753, 0.9, 0.127] }] },
-    bat: { anchor: [0.5, 0.55], prims: [
-      { circle: [0.5, 0.55, 0.28] },
-      { poly: [[0.38, 0.34], [0.4, 0.2], [0.47, 0.29]] }, { poly: [[0.62, 0.34], [0.6, 0.2], [0.53, 0.29]] },
-      { poly: [[0.5, 0.42], [0.22, 0.3], [0, 0.32], [0.06, 0.5], [0.03, 0.74], [0.15, 0.65], [0.26, 0.76], [0.36, 0.67], [0.5, 0.8]] },
-      { poly: [[0.5, 0.42], [0.78, 0.3], [1, 0.32], [0.94, 0.5], [0.97, 0.74], [0.85, 0.65], [0.74, 0.76], [0.64, 0.67], [0.5, 0.8]] }] },
+    // The same scalloped wings as the bat module, with a round body that holds the code.
+    bat: { anchor: [0.5, 0.52], prims: [{ circle: [0.5, 0.52, 0.2] }, { poly: [[0.42, 0.3], [0.43, 0.16], [0.48, 0.26], [0.52, 0.26], [0.57, 0.16], [0.58, 0.3], [0.643, 0.257], [0.711, 0.227], [0.782, 0.213], [0.856, 0.213], [0.929, 0.228], [1, 0.26], [0.974, 0.32], [0.957, 0.381], [0.947, 0.443], [0.947, 0.506], [0.954, 0.572], [0.97, 0.64], [0.926, 0.608], [0.884, 0.592], [0.846, 0.591], [0.812, 0.604], [0.783, 0.631], [0.76, 0.67], [0.729, 0.643], [0.696, 0.63], [0.665, 0.633], [0.637, 0.65], [0.615, 0.682], [0.6, 0.73], [0.581, 0.726], [0.563, 0.735], [0.546, 0.754], [0.53, 0.782], [0.515, 0.818], [0.5, 0.86], [0.485, 0.818], [0.47, 0.782], [0.454, 0.754], [0.437, 0.735], [0.419, 0.726], [0.4, 0.73], [0.385, 0.682], [0.363, 0.65], [0.335, 0.632], [0.304, 0.63], [0.271, 0.643], [0.24, 0.67], [0.217, 0.631], [0.188, 0.604], [0.154, 0.591], [0.116, 0.592], [0.074, 0.608], [0.03, 0.64], [0.046, 0.572], [0.053, 0.506], [0.053, 0.443], [0.043, 0.381], [0.026, 0.32], [0, 0.26], [0.071, 0.228], [0.144, 0.213], [0.217, 0.213], [0.289, 0.227], [0.357, 0.257]] }] },
     cat: { anchor: [0.5, 0.6], prims: [
       { circle: [0.5, 0.6, 0.4] }, { poly: [[0.13, 0.44], [0.12, 0.02], [0.46, 0.24]] }, { poly: [[0.87, 0.44], [0.88, 0.02], [0.54, 0.24]] }] },
     hat: { anchor: [0.5, 0.56], prims: [
@@ -1984,9 +2049,11 @@ var RQ = (function () {
   function arcPts(cx, cy, rx, ry, a0, a1, n) { var a = []; for (var i = 0; i <= n; i++) { var t = a0 + (a1 - a0) * i / n; a.push([cx + rx * Math.cos(t), cy + ry * Math.sin(t)]); } return a; }
   function barPts(x0, y0, x1, y1, w) { var dx = x1 - x0, dy = y1 - y0, l = Math.hypot(dx, dy), nx = -dy / l * w / 2, ny = dx / l * w / 2;
     return [[x0 + nx, y0 + ny], [x1 + nx, y1 + ny], [x1 - nx, y1 - ny], [x0 - nx, y0 - ny]]; }
-  SHAPES.chest = { anchor: [0.5, 0.66], prims: [{ poly: [[0.04, 0.44], [0.96, 0.44], [0.96, 0.98], [0.04, 0.98]] }, { poly: arcPts(0.5, 0.45, 0.46, 0.3, Math.PI, 2 * Math.PI, 24) }],
-    // Lid seam and two iron straps.
-    skip: function (X, Y, qx, qy, U, V) { return (V > 0.43 && V < 0.46) || (U > 0.17 && U < 0.2) || (U > 0.8 && U < 0.83); } };
+  // A domed lid, a gap and the box under it, held together by the lock.
+  SHAPES.chest = { anchor: [0.5, 0.75], prims: [{ poly: [[0.05, 0.52], [0.95, 0.52], [0.95, 0.98], [0.05, 0.98]] }, { poly: arcPts(0.5, 0.46, 0.45, 0.34, Math.PI, 2 * Math.PI, 28) },
+    { poly: [[0.41, 0.36], [0.59, 0.36], [0.59, 0.56], [0.41, 0.56]] }],
+    // Two iron straps.
+    skip: function (X, Y, qx, qy, U, V) { return (U > 0.17 && U < 0.2) || (U > 0.8 && U < 0.83); } };
   SHAPES.ship = { anchor: [0.5, 0.42], prims: [{ poly: [[0.2, 0.14], [0.8, 0.14], [0.88, 0.68], [0.12, 0.68]] }, { poly: [[0, 0.7], [1, 0.7], [0.84, 0.98], [0.16, 0.98]] },
     { poly: [[0.47, 0], [0.53, 0], [0.53, 0.16], [0.47, 0.16]] }, { poly: [[0.53, 0], [0.72, 0.04], [0.53, 0.09]] }],
     skip: function (X, Y, qx, qy, U, V) { return V > 0.68 && V < 0.705; } };
@@ -2012,11 +2079,10 @@ var RQ = (function () {
     { poly: arcPts(0.7, 0.58, 0.26, 0.26, -Math.PI / 2, Math.PI / 2, 16).concat(arcPts(0.7, 0.58, 0.14, 0.14, Math.PI / 2, -Math.PI / 2, 16)) },
     { circle: [0.16, 0.18, 0.09] }, { circle: [0.32, 0.14, 0.11] }, { circle: [0.5, 0.15, 0.1] }, { circle: [0.64, 0.18, 0.08] }],
     skip: function (X, Y, qx, qy, U, V) { return V > 0.3 && U < 0.7 && ((U > 0.24 && U < 0.26) || (U > 0.54 && U < 0.56)); } };
-  SHAPES.pretzel = { anchor: [0.5, 0.48], prims: [{ circle: [0.3, 0.42, 0.28] }, { circle: [0.7, 0.42, 0.28] },
-    { poly: [[0.08, 0.54], [0.5, 1], [0.92, 0.54]] }],
-    // Three holes like a real pretzel: two big loops and a small one where the arms cross.
-    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.24, V - 0.46) < 0.12 || Math.hypot(U - 0.76, V - 0.46) < 0.12 ||
-      (V > 0.72 && V < 0.84 && Math.abs(U - 0.5) < (0.84 - V) * 0.9); } };
+  // Bavarian pretzel: the code sits in the thick belly at the bottom, the thin arms loop over it and cross in the middle.
+  // The holes are simply the space between the arms.
+  var PRETZEL_ARM = [[0.225, 0.597], [0.261, 0.569], [0.294, 0.543], [0.326, 0.519], [0.356, 0.498], [0.385, 0.478], [0.412, 0.458], [0.438, 0.44], [0.463, 0.421], [0.488, 0.401], [0.509, 0.384], [0.529, 0.354], [0.547, 0.318], [0.562, 0.279], [0.576, 0.237], [0.591, 0.195], [0.61, 0.152], [0.636, 0.112], [0.673, 0.077], [0.722, 0.053], [0.78, 0.045], [0.836, 0.054], [0.886, 0.079], [0.926, 0.12], [0.954, 0.17], [0.974, 0.229], [0.986, 0.296], [0.992, 0.372], [0.99, 0.456], [0.983, 0.548], [0.969, 0.647], [0.861, 0.633], [0.874, 0.536], [0.881, 0.451], [0.882, 0.375], [0.877, 0.31], [0.867, 0.256], [0.853, 0.214], [0.837, 0.185], [0.82, 0.168], [0.802, 0.158], [0.78, 0.155], [0.753, 0.159], [0.736, 0.167], [0.721, 0.181], [0.707, 0.204], [0.694, 0.235], [0.68, 0.274], [0.665, 0.317], [0.647, 0.363], [0.624, 0.41], [0.591, 0.456], [0.558, 0.485], [0.53, 0.507], [0.503, 0.528], [0.476, 0.548], [0.448, 0.567], [0.42, 0.587], [0.391, 0.608], [0.361, 0.63], [0.329, 0.655], [0.295, 0.683]];
+  SHAPES.pretzel = { anchor: [0.5, 0.79], prims: [{ poly: [[0.97, 0.5], [0.966, 0.56], [0.954, 0.619], [0.934, 0.676], [0.907, 0.73], [0.873, 0.78], [0.832, 0.825], [0.786, 0.865], [0.735, 0.898], [0.68, 0.925], [0.622, 0.944], [0.561, 0.956], [0.5, 0.96], [0.439, 0.956], [0.378, 0.944], [0.32, 0.925], [0.265, 0.898], [0.214, 0.865], [0.168, 0.825], [0.127, 0.78], [0.093, 0.73], [0.066, 0.676], [0.046, 0.619], [0.034, 0.56], [0.03, 0.5], [0.1, 0.55], [0.25, 0.62], [0.4, 0.645], [0.6, 0.645], [0.75, 0.62], [0.9, 0.55], [0.97, 0.5]] }, { poly: PRETZEL_ARM }, { poly: mirror(PRETZEL_ARM) }] };
   SHAPES.lheart = { anchor: [0.5, 0.42], prims: [{ poly: HEART_PTS }],
     // A thin line of icing just inside the edge.
     skip: function (X, Y, qx, qy, U, V) { var d = sdPoly(HEART_PTS, U, V); return d > -0.06 && d < -0.042; } };
@@ -2069,23 +2135,25 @@ var RQ = (function () {
     skip: function (X, Y, qx, qy, U, V) { return sdPoly([[0.72, 0.3], [0.86, 0.12], [0.88, 0.36]], Math.max(U, 1 - U), V) < 0; } };
   SHAPES.bjorn = { anchor: [0.5, 0.58], prims: [{ circle: [0.5, 0.58, 0.4] }, { circle: [0.18, 0.22, 0.14] }, { circle: [0.82, 0.22, 0.14] }],
     skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.18, V - 0.22) < 0.065 || Math.hypot(U - 0.82, V - 0.22) < 0.065; } };
-  var UGLE_TUFT = [[0.66, 0.2], [0.84, 0.02], [0.86, 0.3]];
-  SHAPES.ugle = { anchor: [0.5, 0.7], prims: [{ poly: ellPts(0.5, 0.56, 0.4, 0.46, 0, 44) }, { poly: UGLE_TUFT }, { poly: mirror(UGLE_TUFT) },
-    { poly: [[0.36, 0.98], [0.44, 0.98], [0.42, 1.06], [0.34, 1.06]] }, { poly: [[0.56, 0.98], [0.64, 0.98], [0.66, 1.06], [0.58, 1.06]] }],
+  var UGLE_TUFT = [[0.74, 0.16], [0.96, -0.04], [0.92, 0.26]];
+  // Owl: two big eye discs make the top edge, ear tufts at the corners, a round body below and feet on a branch.
+  SHAPES.ugle = { anchor: [0.5, 0.68], prims: [{ poly: ellPts(0.5, 0.66, 0.42, 0.36, 0, 44) }, { circle: [0.31, 0.33, 0.21] }, { circle: [0.69, 0.33, 0.21] },
+    { poly: UGLE_TUFT }, { poly: mirror(UGLE_TUFT) }, { poly: [[0.44, 0.44], [0.56, 0.44], [0.5, 0.58]] },
+    { poly: [[0.34, 0.96], [0.46, 0.96], [0.46, 1.04], [0.32, 1.04]] }, { poly: [[0.54, 0.96], [0.66, 0.96], [0.68, 1.04], [0.54, 1.04]] },
+    { poly: [[-0.12, 1.03], [1.12, 1.03], [1.1, 1.1], [-0.1, 1.1]] }],
     // Two big eyes above the code, and wings folded along the sides.
-    skip: function (X, Y, qx, qy, U, V) { var e = Math.min(Math.hypot(U - 0.34, V - 0.25), Math.hypot(U - 0.66, V - 0.25));
-      return (e > 0.05 && e < 0.105) || (V > 0.27 && V < 0.36 && Math.abs(U - 0.5) < (0.36 - V) * 0.6) || (Math.abs(U - 0.5) > 0.3 && V > 0.5 && Math.abs(Math.hypot((U - 0.5) / 0.4, (V - 0.56) / 0.46) - 0.84) < 0.025); } };
-  var ORN_WING = [[0.6, 0.42], [0.72, 0.3], [0.86, 0.14], [1, 0.02], [0.99, 0.14], [0.95, 0.19], [0.99, 0.24], [0.94, 0.3], [0.97, 0.36], [0.9, 0.41], [0.92, 0.47], [0.82, 0.52], [0.7, 0.6]];
-  SHAPES.orn = { anchor: [0.5, 0.52], prims: [{ circle: [0.5, 0.52, 0.22] }, { circle: [0.5, 0.24, 0.085] }, { poly: [[0.54, 0.2], [0.64, 0.24], [0.6, 0.3], [0.54, 0.28]] },
-    { poly: ORN_WING }, { poly: mirror(ORN_WING) }, { poly: [[0.4, 0.68], [0.6, 0.68], [0.7, 0.96], [0.3, 0.96]] },
-    { poly: [[0.38, 0.7], [0.44, 0.7], [0.4, 0.82], [0.32, 0.82]] }, { poly: [[0.56, 0.7], [0.62, 0.7], [0.68, 0.82], [0.6, 0.82]] }],
-    // Feather lines in the tail.
-    skip: function (X, Y, qx, qy, U, V) { return V > 0.8 && V < 0.96 && Math.abs(U - 0.5) > 0.04 && Math.abs(((U - 0.5) * 12.5) % 1) < 0.18; } };
+    skip: function (X, Y, qx, qy, U, V) { var e = Math.min(Math.hypot(U - 0.31, V - 0.33), Math.hypot(U - 0.69, V - 0.33));
+      return (e > 0.085 && e < 0.115) || (V > 0.27 && V < 0.36 && Math.abs(U - 0.5) < (0.36 - V) * 0.6) || (Math.abs(U - 0.5) > 0.3 && V > 0.5 && Math.abs(Math.hypot((U - 0.5) / 0.4, (V - 0.56) / 0.46) - 0.84) < 0.025); } };
+  // Hedgehog seen from the side, nose to the right. It replaces the eagle but keeps the key "orn", so saved settings still work.
+  SHAPES.orn = { anchor: [0.42, 0.66], prims: [{ poly: [[0.022, 0.651], [-0.064, 0.602], [0.026, 0.559], [-0.041, 0.492], [0.058, 0.47], [0.013, 0.391], [0.116, 0.391], [0.095, 0.305], [0.195, 0.328], [0.201, 0.24], [0.29, 0.284], [0.322, 0.2], [0.395, 0.262], [0.452, 0.188], [0.504, 0.264], [0.58, 0.205], [0.608, 0.29], [0.699, 0.25], [0.701, 0.338], [0.801, 0.319], [0.776, 0.404], [0.879, 0.408], [0.829, 0.485], [0.98, 0.74], [1, 0.78], [0.94, 0.82], [0.78, 0.86], [0.74, 0.98], [0.64, 0.98], [0.62, 0.9], [0.3, 0.92], [0.28, 1], [0.18, 1], [0.16, 0.9], [0.06, 0.84], [0.02, 0.72]] }, { circle: [0.995, 0.775, 0.035] }],
+    // A line between the spines and the face.
+    skip: function (X, Y, qx, qy, U, V) { return U > 0.7 && U < 0.84 && Math.abs(V - (0.47 + (0.84 - U) * 2.4)) < 0.03 && V < 0.82; } };
   var SSHAPES = ["elg", "ulv", "raev", "bjorn", "ugle", "orn"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
       var ax = p[j][0], ay = p[j][1], bx = p[i][0], by = p[i][1], ex = bx - ax, ey = by - ay;
+      if (!ex && !ey) continue;
       var k = Math.max(0, Math.min(1, ((u - ax) * ex + (v - ay) * ey) / (ex * ex + ey * ey))), dx = u - ax - ex * k, dy = v - ay - ey * k;
       d = Math.min(d, dx * dx + dy * dy);
       if ((ay > v) !== (by > v) && u < ax + (v - ay) * ex / ey) inside = !inside;
@@ -2135,7 +2203,9 @@ var RQ = (function () {
   }
   function shapeIcon(name) {
     var def = SHAPES[name], b = shapeBox(def), pad = 0.04;
-    return { vb: [b[0] - pad, b[1] - pad, b[2] - b[0] + 2 * pad, b[3] - b[1] + 2 * pad].map(f).join(" "), paths: primPaths(def, 1, 0, 0) };
+    var paths = primPaths(def, 1, 0, 0);
+    return { vb: [b[0] - pad, b[1] - pad, b[2] - b[0] + 2 * pad, b[3] - b[1] + 2 * pad].map(f).join(" "), paths: paths,
+      html: paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("") };
   }
 
   function geometry(text, o) {
@@ -3986,14 +4056,14 @@ var RQ = (function () {
     "piratAria": "Pirat",
     "piratLabel": "Hejs piratflaget",
     "piratLabelPirat": "Piratflaget er hejst",
-    "piratHint": "Skattekister, skibe, ankre og mønter i stedet for prikker. Og tre skattekister gemt rundt på siden.",
+    "piratHint": "Skattekister, skibe, ankre og sabler i stedet for prikker. Og tre skattekister gemt rundt på siden.",
     "piratHintPirat": "Find de tre skattekister, der er gemt på siden. Slå det fra igen for at få den almindelige Round QR tilbage.",
     "subtitlePirat": "Piratudgaven. Indsæt et link, gør koden sørøveragtig, og gem den som PNG, JPG eller SVG.",
     "chests": "Kister",
     "ships": "Skibe",
     "anchors": "Ankre",
     "skulls": "Kranier",
-    "coins": "Mønter",
+    "coins": "Sabler",
     "pirates": "Blandet",
     "defaultLabelPirat": "Her er skatten",
     "huntFound": "Skatte fundet: {n} af {t}",
@@ -4026,14 +4096,14 @@ var RQ = (function () {
     "piratAria": "Pirate",
     "piratLabel": "Hoist the pirate flag",
     "piratLabelPirat": "The pirate flag is up",
-    "piratHint": "Treasure chests, ships, anchors and coins instead of dots. And three treasure chests hidden around the page.",
+    "piratHint": "Treasure chests, ships, anchors and sabres instead of dots. And three treasure chests hidden around the page.",
     "piratHintPirat": "Find the three treasure chests hidden on the page. Turn it off again to get the regular Round QR back.",
     "subtitlePirat": "The pirate edition. Paste a link, make the code shipshape, save it as PNG, JPG or SVG.",
     "chests": "Chests",
     "ships": "Ships",
     "anchors": "Anchors",
     "skulls": "Skulls",
-    "coins": "Coins",
+    "coins": "Sabres",
     "pirates": "Mixed",
     "defaultLabelPirat": "X marks the spot",
     "huntFound": "Treasure found: {n} of {t}",
@@ -4066,14 +4136,14 @@ var RQ = (function () {
     "piratAria": "Piraten",
     "piratLabel": "Die Piratenflagge hissen",
     "piratLabelPirat": "Die Piratenflagge weht",
-    "piratHint": "Schatztruhen, Schiffe, Anker und Münzen statt Punkten. Und drei Schatztruhen, die auf der Seite versteckt sind.",
+    "piratHint": "Schatztruhen, Schiffe, Anker und Säbel statt Punkten. Und drei Schatztruhen, die auf der Seite versteckt sind.",
     "piratHintPirat": "Finde die drei Schatztruhen, die auf der Seite versteckt sind. Schalte es wieder aus, dann bekommst du das normale Round QR zurück.",
     "subtitlePirat": "Die Piratenausgabe. Link einfügen, Code entern und als PNG, JPG oder SVG speichern.",
     "chests": "Truhen",
     "ships": "Schiffe",
     "anchors": "Anker",
     "skulls": "Totenköpfe",
-    "coins": "Münzen",
+    "coins": "Säbel",
     "pirates": "Gemischt",
     "defaultLabelPirat": "Hier liegt der Schatz",
     "huntFound": "Schätze gefunden: {n} von {t}",
@@ -4106,14 +4176,14 @@ var RQ = (function () {
     "piratAria": "Pirat",
     "piratLabel": "Heis piratflagget",
     "piratLabelPirat": "Piratflagget er heist",
-    "piratHint": "Skattekister, skip, ankre og mynter i stedet for prikker. Og tre skattekister gjemt rundt på siden.",
+    "piratHint": "Skattekister, skip, ankre og sabler i stedet for prikker. Og tre skattekister gjemt rundt på siden.",
     "piratHintPirat": "Finn de tre skattekistene som er gjemt på siden. Slå det av igjen for å få vanlig Round QR tilbake.",
     "subtitlePirat": "Piratutgaven. Lim inn en lenke, gjør koden sjørøveraktig, og lagre den som PNG, JPG eller SVG.",
     "chests": "Kister",
     "ships": "Skip",
     "anchors": "Ankre",
     "skulls": "Hodeskaller",
-    "coins": "Mynter",
+    "coins": "Sabler",
     "pirates": "Blandet",
     "defaultLabelPirat": "Her er skatten",
     "huntFound": "Skatter funnet: {n} av {t}",
@@ -4146,14 +4216,14 @@ var RQ = (function () {
     "piratAria": "Pirat",
     "piratLabel": "Hissa piratflaggan",
     "piratLabelPirat": "Piratflaggan är hissad",
-    "piratHint": "Skattkistor, skepp, ankare och mynt i stället för prickar. Och tre skattkistor gömda runt om på sidan.",
+    "piratHint": "Skattkistor, skepp, ankare och sablar i stället för prickar. Och tre skattkistor gömda runt om på sidan.",
     "piratHintPirat": "Hitta de tre skattkistorna som är gömda på sidan. Stäng av det igen för att få tillbaka vanliga Round QR.",
     "subtitlePirat": "Piratutgåvan. Klistra in en länk, gör koden sjörövaraktig och spara den som PNG, JPG eller SVG.",
     "chests": "Kistor",
     "ships": "Skepp",
     "anchors": "Ankare",
     "skulls": "Dödskallar",
-    "coins": "Mynt",
+    "coins": "Sablar",
     "pirates": "Blandat",
     "defaultLabelPirat": "Här är skatten",
     "huntFound": "Skatter hittade: {n} av {t}",
@@ -4177,14 +4247,14 @@ var RQ = (function () {
       piratAria: "Pirata",
       piratLabel: "Iza la bandera pirata",
       piratLabelPirat: "La bandera pirata está izada",
-      piratHint: "Cofres, barcos, anclas y monedas en lugar de puntos. Y tres cofres del tesoro escondidos por la página.",
+      piratHint: "Cofres, barcos, anclas y sables en lugar de puntos. Y tres cofres del tesoro escondidos por la página.",
       piratHintPirat: "Encuentra los tres cofres del tesoro escondidos en la página. Apágalo otra vez para recuperar el Round QR normal.",
       subtitlePirat: "La edición pirata. Pega un enlace, pon el código a punto y guárdalo como PNG, JPG o SVG.",
       chests: "Cofres",
       ships: "Barcos",
       anchors: "Anclas",
       skulls: "Calaveras",
-      coins: "Monedas",
+      coins: "Sables",
       pirates: "Mezcla",
       defaultLabelPirat: "La X marca el sitio",
       huntFound: "Tesoro encontrado: {n} de {t}",
@@ -4208,14 +4278,14 @@ var RQ = (function () {
       piratAria: "Pirate",
       piratLabel: "Hissez le drapeau pirate",
       piratLabelPirat: "Le drapeau pirate est hissé",
-      piratHint: "Des coffres, des navires, des ancres et des pièces à la place des points. Et trois coffres au trésor cachés sur la page.",
+      piratHint: "Des coffres, des navires, des ancres et des sabres à la place des points. Et trois coffres au trésor cachés sur la page.",
       piratHintPirat: "Trouvez les trois coffres au trésor cachés sur la page. Désactivez-le pour retrouver le Round QR normal.",
       subtitlePirat: "L'édition pirate. Collez un lien, mettez le code en ordre de bataille et enregistrez-le en PNG, JPG ou SVG.",
       chests: "Coffres",
       ships: "Navires",
       anchors: "Ancres",
       skulls: "Têtes de mort",
-      coins: "Pièces",
+      coins: "Sabres",
       pirates: "Mélange",
       defaultLabelPirat: "Le trésor est ici",
       huntFound: "Trésor trouvé : {n} sur {t}",
@@ -4774,7 +4844,7 @@ var RQ = (function () {
     "fRaev": "Ræv",
     "fBjorn": "Bjørn",
     "fUgle": "Ugle",
-    "fOrn": "Ørn",
+    "fOrn": "Pindsvin",
     "exEyesSkov": "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner ugleøjne.",
     "fillSkov": "Fyld formen med mønster",
     "exFillSkov": "Pyntprikker uden data, der fylder dyret ud omkring koden.",
@@ -4812,7 +4882,7 @@ var RQ = (function () {
     "fRaev": "Fox",
     "fBjorn": "Bear",
     "fUgle": "Owl",
-    "fOrn": "Eagle",
+    "fOrn": "Hedgehog",
     "exEyesSkov": "The three big squares the phone uses to find the code. Circle looks like owl eyes.",
     "fillSkov": "Fill the shape with pattern",
     "exFillSkov": "Decorative dots with no data that fill out the animal around the code.",
@@ -4850,7 +4920,7 @@ var RQ = (function () {
     "fRaev": "Fuchs",
     "fBjorn": "Bär",
     "fUgle": "Eule",
-    "fOrn": "Adler",
+    "fOrn": "Igel",
     "exEyesSkov": "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie Eulenaugen.",
     "fillSkov": "Form mit Muster füllen",
     "exFillSkov": "Zierpunkte ohne Daten, die das Tier rund um den Code ausfüllen.",
@@ -4888,7 +4958,7 @@ var RQ = (function () {
     "fRaev": "Rev",
     "fBjorn": "Bjørn",
     "fUgle": "Ugle",
-    "fOrn": "Ørn",
+    "fOrn": "Pinnsvin",
     "exEyesSkov": "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner ugleøyne.",
     "fillSkov": "Fyll formen med mønster",
     "exFillSkov": "Pynteprikker uten data som fyller ut dyret rundt koden.",
@@ -4926,7 +4996,7 @@ var RQ = (function () {
     "fRaev": "Räv",
     "fBjorn": "Björn",
     "fUgle": "Uggla",
-    "fOrn": "Örn",
+    "fOrn": "Igelkott",
     "exEyesSkov": "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som ugglögon.",
     "fillSkov": "Fyll formen med mönster",
     "exFillSkov": "Dekorprickar utan data som fyller ut djuret runt koden.",
@@ -4955,7 +5025,7 @@ var RQ = (function () {
       fRaev: "Zorro",
       fBjorn: "Oso",
       fUgle: "Búho",
-      fOrn: "Águila",
+      fOrn: "Erizo",
       exEyesSkov: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece ojos de búho.",
       fillSkov: "Rellenar la forma con patrón",
       exFillSkov: "Puntos decorativos sin datos que rellenan el animal alrededor del código.",
@@ -4984,7 +5054,7 @@ var RQ = (function () {
       fRaev: "Renard",
       fBjorn: "Ours",
       fUgle: "Hibou",
-      fOrn: "Aigle",
+      fOrn: "Hérisson",
       exEyesSkov: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à des yeux de hibou.",
       fillSkov: "Remplir la forme de motifs",
       exFillSkov: "Des points décoratifs sans données qui remplissent l'animal autour du code.",
@@ -5402,7 +5472,7 @@ var RQ = (function () {
   document.querySelectorAll("#xshapes svg[data-oshape]").forEach(function (svg) {
     var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
     svg.setAttribute("viewBox", ic.vb);
-    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    svg.innerHTML = ic.html;
   });
 
   function snapshot() {
@@ -5575,7 +5645,7 @@ var RQ = (function () {
   document.querySelectorAll("#hshapes svg[data-oshape]").forEach(function (svg) {
     var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
     svg.setAttribute("viewBox", ic.vb);
-    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    svg.innerHTML = ic.html;
   });
 
   var HALL_SETS = [
@@ -5802,7 +5872,7 @@ var RQ = (function () {
   document.querySelectorAll("#eshapes svg[data-oshape]").forEach(function (svg) {
     var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
     svg.setAttribute("viewBox", ic.vb);
-    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    svg.innerHTML = ic.html;
   });
 
   var EASTER_SETS = [
@@ -6051,7 +6121,7 @@ var RQ = (function () {
   document.querySelectorAll("#nshapes svg[data-oshape]").forEach(function (svg) {
     var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
     svg.setAttribute("viewBox", ic.vb);
-    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    svg.innerHTML = ic.html;
   });
 
   var NYT_SETS = [
@@ -6279,7 +6349,7 @@ var RQ = (function () {
   document.querySelectorAll("#pshapes svg[data-oshape]").forEach(function (svg) {
     var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
     svg.setAttribute("viewBox", ic.vb);
-    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    svg.innerHTML = ic.html;
   });
 
   var PIRAT_SETS = [
@@ -6537,7 +6607,7 @@ var RQ = (function () {
   document.querySelectorAll("#oshapes svg[data-oshape]").forEach(function (svg) {
     var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
     svg.setAttribute("viewBox", ic.vb);
-    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    svg.innerHTML = ic.html;
   });
 
   var OKT_SETS = [
@@ -6746,7 +6816,7 @@ var RQ = (function () {
   document.querySelectorAll("#bshapes svg[data-oshape]").forEach(function (svg) {
     var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
     svg.setAttribute("viewBox", ic.vb);
-    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    svg.innerHTML = ic.html;
   });
 
   var BDAY_SETS = [
@@ -6978,7 +7048,7 @@ var RQ = (function () {
   document.querySelectorAll("#sshapes svg[data-oshape]").forEach(function (svg) {
     var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
     svg.setAttribute("viewBox", ic.vb);
-    svg.innerHTML = ic.paths.map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    svg.innerHTML = ic.html;
   });
 
   var SKOV_SETS = [
