@@ -1087,5 +1087,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/horsens.png"
+ },
+ {
+  "id": "ikastbrande",
+  "name": "Ikast-Brande Kommune",
+  "short": "Ikast-Brande Kommune",
+  "genitive": "Ikast-Brande Kommunes",
+  "website": "https://ikast-brande.dk",
+  "colors": {
+   "primary": "#b70128",
+   "secondary": "#231f20",
+   "accent": "#ffdc60",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/ikastbrande.png"
  }
 ]
