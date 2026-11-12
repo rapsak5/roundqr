@@ -877,5 +877,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/langeland.png"
+ },
+ {
+  "id": "middelfart",
+  "name": "Middelfart Kommune",
+  "short": "Middelfart Kommune",
+  "genitive": "Middelfart Kommunes",
+  "website": "https://middelfart.dk",
+  "colors": {
+   "primary": "#015487",
+   "secondary": "#028242",
+   "accent": "#0b253a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/middelfart.png"
  }
 ]
