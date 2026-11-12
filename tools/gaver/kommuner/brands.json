@@ -714,5 +714,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/soroe.png"
+ },
+ {
+  "id": "stevns",
+  "name": "Stevns Kommune",
+  "short": "Stevns Kommune",
+  "genitive": "Stevns Kommunes",
+  "website": "https://www.stevns.dk",
+  "colors": {
+   "primary": "#3373a3",
+   "secondary": "#1d1d1b",
+   "accent": "#5a6351",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/stevns.png"
  }
 ]
