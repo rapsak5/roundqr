@@ -803,5 +803,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/fredericia.png"
+ },
+ {
+  "id": "faaborgmidtfyn",
+  "name": "Faaborg-Midtfyn Kommune",
+  "short": "Faaborg-Midtfyn Kommune",
+  "genitive": "Faaborg-Midtfyn Kommunes",
+  "website": "https://www.fmk.dk",
+  "colors": {
+   "primary": "#032d44",
+   "secondary": "#2d5864",
+   "accent": "#c4d2da",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/faaborgmidtfyn.png"
  }
 ]
