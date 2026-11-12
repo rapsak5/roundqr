@@ -729,5 +729,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/stevns.png"
+ },
+ {
+  "id": "vordingborg",
+  "name": "Vordingborg Kommune",
+  "short": "Vordingborg Kommune",
+  "genitive": "Vordingborg Kommunes",
+  "website": "https://www.vordingborg.dk",
+  "colors": {
+   "primary": "#0561a2",
+   "secondary": "#0e7e42",
+   "accent": "#878787",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/vordingborg.png"
  }
 ]
