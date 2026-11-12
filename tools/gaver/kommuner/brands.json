@@ -182,5 +182,49 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/aalborg.png"
+ },
+ {
+  "id": "albertslund",
+  "name": "Albertslund Kommune",
+  "short": "Albertslund Kommune",
+  "genitive": "Albertslund Kommunes",
+  "website": "https://www.albertslund.dk",
+  "colors": {
+   "primary": "#034ea2",
+   "secondary": "#072335",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/albertslund.png"
+ },
+ {
+  "id": "ballerup",
+  "name": "Ballerup Kommune",
+  "short": "Ballerup Kommune",
+  "genitive": "Ballerup Kommunes",
+  "website": "https://ballerup.dk",
+  "colors": {
+   "primary": "#273583",
+   "secondary": "#b4412e",
+   "accent": "#467c0d",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/ballerup.png"
+ },
+ {
+  "id": "broendby",
+  "name": "Brøndby Kommune",
+  "short": "Brøndby Kommune",
+  "genitive": "Brøndby Kommunes",
+  "website": "https://www.brondby.dk",
+  "colors": {
+   "primary": "#1b264f",
+   "secondary": "#306ac9",
+   "accent": "#fdc154",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/broendby.png"
  }
 ]
