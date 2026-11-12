@@ -1207,5 +1207,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/skanderborg.png"
+ },
+ {
+  "id": "skive",
+  "name": "Skive Kommune",
+  "short": "Skive Kommune",
+  "genitive": "Skive Kommunes",
+  "website": "https://skive.dk",
+  "colors": {
+   "primary": "#0c2951",
+   "secondary": "#4a8311",
+   "accent": "#e6e4da",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/skive.png"
  }
 ]
