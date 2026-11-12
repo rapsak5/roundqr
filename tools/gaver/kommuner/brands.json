@@ -1312,5 +1312,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/hjoerring.png"
+ },
+ {
+  "id": "jammerbugt",
+  "name": "Jammerbugt Kommune",
+  "short": "Jammerbugt Kommune",
+  "genitive": "Jammerbugt Kommunes",
+  "website": "https://www.jammerbugt.dk",
+  "colors": {
+   "primary": "#244a65",
+   "secondary": "#142a3d",
+   "accent": "#e9530e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/jammerbugt.png"
  }
 ]
