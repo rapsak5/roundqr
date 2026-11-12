@@ -506,5 +506,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/roedovre.png"
+ },
+ {
+  "id": "vallensbaek",
+  "name": "Vallensbæk Kommune",
+  "short": "Vallensbæk Kommune",
+  "genitive": "Vallensbæk Kommunes",
+  "website": "https://www.vallensbaek.dk",
+  "colors": {
+   "primary": "#3b5390",
+   "secondary": "#ad5114",
+   "accent": "#215664",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/vallensbaek.png"
  }
 ]
