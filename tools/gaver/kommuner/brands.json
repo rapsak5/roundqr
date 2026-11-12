@@ -773,5 +773,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/billund.png"
+ },
+ {
+  "id": "esbjerg",
+  "name": "Esbjerg Kommune",
+  "short": "Esbjerg Kommune",
+  "genitive": "Esbjerg Kommunes",
+  "website": "https://www.esbjerg.dk",
+  "colors": {
+   "primary": "#007ab8",
+   "secondary": "#004069",
+   "accent": "#d53f53",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/esbjerg.png"
  }
 ]
