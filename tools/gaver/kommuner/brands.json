@@ -1297,5 +1297,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/frederikshavn.png"
+ },
+ {
+  "id": "hjoerring",
+  "name": "Hjørring Kommune",
+  "short": "Hjørring Kommune",
+  "genitive": "Hjørring Kommunes",
+  "website": "https://hjoerring.dk",
+  "colors": {
+   "primary": "#2d3f43",
+   "secondary": "#3d3b3b",
+   "accent": "#a8b6ac",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/hjoerring.png"
  }
 ]
