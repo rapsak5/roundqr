@@ -491,5 +491,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/rudersdal.png"
+ },
+ {
+  "id": "roedovre",
+  "name": "Rødovre Kommune",
+  "short": "Rødovre Kommune",
+  "genitive": "Rødovre Kommunes",
+  "website": "https://rk.dk",
+  "colors": {
+   "primary": "#aa4221",
+   "secondary": "#411b10",
+   "accent": "#576647",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/roedovre.png"
  }
 ]
