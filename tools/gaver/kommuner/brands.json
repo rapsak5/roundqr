@@ -226,5 +226,50 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/broendby.png"
+ },
+ {
+  "id": "egedal",
+  "name": "Egedal Kommune",
+  "short": "Egedal Kommune",
+  "genitive": "Egedal Kommunes",
+  "website": "https://egedalkommune.dk",
+  "colors": {
+   "primary": "#006c4f",
+   "secondary": "#003625",
+   "accent": "#bdd5c9",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/egedal.png"
+ },
+ {
+  "id": "fredensborg",
+  "name": "Fredensborg Kommune",
+  "short": "Fredensborg Kommune",
+  "genitive": "Fredensborg Kommunes",
+  "website": "https://www.fredensborg.dk",
+  "colors": {
+   "primary": "#293952",
+   "secondary": "#2f6c3f",
+   "accent": "#83b38d",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/fredensborg.png"
+ },
+ {
+  "id": "frederikssund",
+  "name": "Frederikssund Kommune",
+  "short": "Frederikssund Kommune",
+  "genitive": "Frederikssund Kommunes",
+  "website": "https://www.frederikssund.dk",
+  "colors": {
+   "primary": "#21314d",
+   "secondary": "#007aa1",
+   "accent": "#065e6f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/frederikssund.png"
  }
 ]
