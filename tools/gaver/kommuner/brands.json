@@ -744,5 +744,19 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/vordingborg.png"
+ },
+ {
+  "id": "assens",
+  "name": "Assens Kommune",
+  "short": "Assens Kommune",
+  "genitive": "Assens Kommunes",
+  "website": "https://www.assens.dk",
+  "colors": {
+   "primary": "#00457a",
+   "secondary": "#293952",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/assens.png"
  }
 ]
