@@ -388,5 +388,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/koege.png"
+ },
+ {
+  "id": "alleroed",
+  "name": "Allerød Kommune",
+  "short": "Allerød Kommune",
+  "genitive": "Allerød Kommunes",
+  "website": "https://alleroed.dk",
+  "colors": {
+   "primary": "#1d4c59",
+   "secondary": "#9e3c18",
+   "accent": "#ffd89e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/alleroed.png"
  }
 ]
