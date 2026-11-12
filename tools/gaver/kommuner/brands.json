@@ -1147,5 +1147,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/odder.png"
+ },
+ {
+  "id": "randers",
+  "name": "Randers Kommune",
+  "short": "Randers Kommune",
+  "genitive": "Randers Kommunes",
+  "website": "https://www.randers.dk",
+  "colors": {
+   "primary": "#13518b",
+   "secondary": "#1e7666",
+   "accent": "#e8f0e0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/randers.png"
  }
 ]
