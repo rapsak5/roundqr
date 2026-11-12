@@ -29,4 +29,4 @@ Hjælpescripts i tools/gaver/hjaelp (kør fra repo-roden):
 - whitefix.py ind.png ud.png HEX: hvidt logo vist på sort bund; hvid tekst farves HEX, farvede dele beholdes.
 Tip: læs mailadresser med javascript_tool (mailto-links og main.textContent) og fjern ?, & og = fra output,
 ellers blokerer Chrome-værktøjet svaret. Logo: vis billedet i et hvidt overlay og tag zoom med save_to_disk uden scale.
-Status 12. nov. 2026: Hovedstaden og Sjælland er færdige. Næste: Region Syddanmark.
+Status 12. nov. 2026: Hovedstaden, Sjælland og Syddanmark er færdige. Næste: Region Midtjylland (Favrskov først).
