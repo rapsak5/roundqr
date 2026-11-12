@@ -907,5 +907,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/nordfyn.png"
+ },
+ {
+  "id": "nyborg",
+  "name": "Nyborg Kommune",
+  "short": "Nyborg Kommune",
+  "genitive": "Nyborg Kommunes",
+  "website": "https://www.nyborg.dk",
+  "colors": {
+   "primary": "#304030",
+   "secondary": "#3c4b3a",
+   "accent": "#f5c000",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/nyborg.png"
  }
 ]
