@@ -922,5 +922,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/nyborg.png"
+ },
+ {
+  "id": "svendborg",
+  "name": "Svendborg Kommune",
+  "short": "Svendborg Kommune",
+  "genitive": "Svendborg Kommunes",
+  "website": "https://www.svendborg.dk",
+  "colors": {
+   "primary": "#00404f",
+   "secondary": "#006280",
+   "accent": "#d8ab4f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/svendborg.png"
  }
 ]
