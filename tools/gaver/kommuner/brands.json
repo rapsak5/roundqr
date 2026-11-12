@@ -447,5 +447,19 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/hoejetaastrup.png"
+ },
+ {
+  "id": "hoersholm",
+  "name": "Hørsholm Kommune",
+  "short": "Hørsholm Kommune",
+  "genitive": "Hørsholm Kommunes",
+  "website": "https://www.horsholm.dk",
+  "colors": {
+   "primary": "#8a1531",
+   "secondary": "#37424a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/hoersholm.png"
  }
 ]
