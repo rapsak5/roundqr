@@ -1387,5 +1387,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/thisted.png"
+ },
+ {
+  "id": "vesthimmerland",
+  "name": "Vesthimmerlands Kommune",
+  "short": "Vesthimmerlands Kommune",
+  "genitive": "Vesthimmerlands Kommunes",
+  "website": "https://vesthimmerland.dk",
+  "colors": {
+   "primary": "#233f91",
+   "secondary": "#3d3b3b",
+   "accent": "#fadaa0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/vesthimmerland.png"
  }
 ]
