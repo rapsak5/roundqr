@@ -1132,5 +1132,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/norddjurs.png"
+ },
+ {
+  "id": "odder",
+  "name": "Odder Kommune",
+  "short": "Odder Kommune",
+  "genitive": "Odder Kommunes",
+  "website": "https://odder.dk",
+  "colors": {
+   "primary": "#1d414a",
+   "secondary": "#252525",
+   "accent": "#fdf8e1",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/odder.png"
  }
 ]
