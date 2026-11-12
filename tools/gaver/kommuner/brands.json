@@ -1,0 +1,186 @@
+[
+ {
+  "id": "taarnby",
+  "name": "Tårnby Kommune",
+  "short": "Tårnby Kommune",
+  "genitive": "Tårnby Kommunes",
+  "website": "https://www.taarnby.dk",
+  "colors": {
+   "primary": "#51115f",
+   "secondary": "#2144f4",
+   "accent": "#00224b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/taarnby.png"
+ },
+ {
+  "id": "frederiksberg",
+  "name": "Frederiksberg Kommune",
+  "short": "Frederiksberg Kommune",
+  "genitive": "Frederiksberg Kommunes",
+  "website": "https://www.frederiksberg.dk",
+  "colors": {
+   "primary": "#11724f",
+   "secondary": "#282a2b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/frederiksberg.png"
+ },
+ {
+  "id": "gentofte",
+  "name": "Gentofte Kommune",
+  "short": "Gentofte Kommune",
+  "genitive": "Gentofte Kommunes",
+  "website": "https://gentofte.dk",
+  "colors": {
+   "primary": "#127259",
+   "secondary": "#002364",
+   "accent": "#af191e",
+   "text": "#222222",
+   "extra": [
+    "#2f3234"
+   ]
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/gentofte.png"
+ },
+ {
+  "id": "glostrup",
+  "name": "Glostrup Kommune",
+  "short": "Glostrup Kommune",
+  "genitive": "Glostrup Kommunes",
+  "website": "https://www.glostrup.dk",
+  "colors": {
+   "primary": "#cd3625",
+   "secondary": "#437d9a",
+   "accent": "#23343f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/glostrup.png"
+ },
+ {
+  "id": "koebenhavn",
+  "name": "Københavns Kommune",
+  "short": "Københavns Kommune",
+  "genitive": "Københavns Kommunes",
+  "website": "https://www.kk.dk",
+  "colors": {
+   "primary": "#000c2e",
+   "secondary": "#363f59",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/koebenhavn.png"
+ },
+ {
+  "id": "roskilde",
+  "name": "Roskilde Kommune",
+  "short": "Roskilde Kommune",
+  "genitive": "Roskilde Kommunes",
+  "website": "https://www.roskilde.dk",
+  "colors": {
+   "primary": "#407465",
+   "secondary": "#2d5248",
+   "accent": "#ffaa95",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/roskilde.png"
+ },
+ {
+  "id": "odense",
+  "name": "Odense Kommune",
+  "short": "Odense Kommune",
+  "genitive": "Odense Kommunes",
+  "website": "https://www.odense.dk",
+  "colors": {
+   "primary": "#062d62",
+   "secondary": "#009ce2",
+   "accent": "#36864a",
+   "extra": [
+    "#ffdf00"
+   ],
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/odense.png"
+ },
+ {
+  "id": "aarhus",
+  "name": "Aarhus Kommune",
+  "short": "Aarhus Kommune",
+  "genitive": "Aarhus Kommunes",
+  "website": "https://aarhus.dk",
+  "colors": {
+   "primary": "#333333",
+   "secondary": "#3661d8",
+   "accent": "#ee0043",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/aarhus.png"
+ },
+ {
+  "id": "vejle",
+  "name": "Vejle Kommune",
+  "short": "Vejle Kommune",
+  "genitive": "Vejle Kommunes",
+  "website": "https://www.vejle.dk",
+  "colors": {
+   "primary": "#004d52",
+   "secondary": "#07373c",
+   "accent": "#9d3732",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/vejle.png"
+ },
+ {
+  "id": "bornholm",
+  "name": "Bornholms Regionskommune",
+  "short": "Bornholms Regionskommune",
+  "genitive": "Bornholms Regionskommunes",
+  "website": "https://bornholm.dk",
+  "colors": {
+   "primary": "#0d2b67",
+   "secondary": "#2c6647",
+   "accent": "#ffdf8f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/bornholm.png"
+ },
+ {
+  "id": "samsoe",
+  "name": "Samsø Kommune",
+  "short": "Samsø Kommune",
+  "genitive": "Samsø Kommunes",
+  "website": "https://www.samsoe.dk",
+  "colors": {
+   "primary": "#293952",
+   "secondary": "#009fe2",
+   "accent": "#000033",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/samsoe.png"
+ },
+ {
+  "id": "aalborg",
+  "name": "Aalborg Kommune",
+  "short": "Aalborg Kommune",
+  "genitive": "Aalborg Kommunes",
+  "website": "https://www.aalborg.dk",
+  "colors": {
+   "primary": "#141969",
+   "secondary": "#2f2e85",
+   "accent": "#f7d2e0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/aalborg.png"
+ }
+]
