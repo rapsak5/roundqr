@@ -1162,5 +1162,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/randers.png"
+ },
+ {
+  "id": "ringkoebingskjern",
+  "name": "Ringkøbing-Skjern Kommune",
+  "short": "Ringkøbing-Skjern Kommune",
+  "genitive": "Ringkøbing-Skjern Kommunes",
+  "website": "https://www.rksk.dk",
+  "colors": {
+   "primary": "#1b3d2d",
+   "secondary": "#2b634a",
+   "accent": "#d8eae2",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/ringkoebingskjern.png"
  }
 ]
