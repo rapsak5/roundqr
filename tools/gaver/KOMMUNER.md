@@ -21,3 +21,12 @@ Rækkenummer pr. kommune står i kommuner/kommuner.json.
    Hovedfarven skal kunne bære hvid tekst (kontrast mindst 4,5). Ellers brug den mørke farve som primary.
 4. Test: python3 tools/gaver/check.py /fuld/sti/*.html (390 px uden vandret scroll, "Kan scannes").
 5. Hent først fra main (git fetch og rebase), commit og push til main. Kasper har godkendt, at kommunesiderne udgives på roundqr.dk. Siderne har noindex og kommer ikke i Google.
+
+Hjælpescripts i tools/gaver/hjaelp (kør fra repo-roden):
+- add.py slug "Navn Kommune" hjemmeside primary secondary [accent]: lægger kommunen i brands.json.
+- build.sh slug: bygger, kopierer til slug/index.html og tester (scrollW 390, Kan scannes, noindex).
+- dom.py billede.png: de mest brugte farver i et logo.
+- whitefix.py ind.png ud.png HEX: hvidt logo vist på sort bund; hvid tekst farves HEX, farvede dele beholdes.
+Tip: læs mailadresser med javascript_tool (mailto-links og main.textContent) og fjern ?, & og = fra output,
+ellers blokerer Chrome-værktøjet svaret. Logo: vis billedet i et hvidt overlay og tag zoom med save_to_disk uden scale.
+Status 12. nov. 2026: Hovedstaden og Sjælland er færdige. Næste: Region Syddanmark.
