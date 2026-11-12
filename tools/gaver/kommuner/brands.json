@@ -433,5 +433,19 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/hvidovre.png"
+ },
+ {
+  "id": "hoejetaastrup",
+  "name": "Høje-Taastrup Kommune",
+  "short": "Høje-Taastrup Kommune",
+  "genitive": "Høje-Taastrup Kommunes",
+  "website": "https://www.htk.dk",
+  "colors": {
+   "primary": "#00664e",
+   "secondary": "#222222",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/hoejetaastrup.png"
  }
 ]
