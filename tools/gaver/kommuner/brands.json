@@ -1042,5 +1042,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/hedensted.png"
+ },
+ {
+  "id": "herning",
+  "name": "Herning Kommune",
+  "short": "Herning Kommune",
+  "genitive": "Herning Kommunes",
+  "website": "https://www.herning.dk",
+  "colors": {
+   "primary": "#1a2d51",
+   "secondary": "#252525",
+   "accent": "#ede9cf",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/herning.png"
  }
 ]
