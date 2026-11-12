@@ -1177,5 +1177,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/ringkoebingskjern.png"
+ },
+ {
+  "id": "silkeborg",
+  "name": "Silkeborg Kommune",
+  "short": "Silkeborg Kommune",
+  "genitive": "Silkeborg Kommunes",
+  "website": "https://silkeborg.dk",
+  "colors": {
+   "primary": "#1b4949",
+   "secondary": "#222222",
+   "accent": "#00833e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/silkeborg.png"
  }
 ]
