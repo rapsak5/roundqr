@@ -655,5 +655,19 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/odsherred.png"
+ },
+ {
+  "id": "ringsted",
+  "name": "Ringsted Kommune",
+  "short": "Ringsted Kommune",
+  "genitive": "Ringsted Kommunes",
+  "website": "https://ringsted.dk",
+  "colors": {
+   "primary": "#c30a32",
+   "secondary": "#333333",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/ringsted.png"
  }
 ]
