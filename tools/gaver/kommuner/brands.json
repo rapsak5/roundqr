@@ -550,5 +550,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/greve.png"
+ },
+ {
+  "id": "guldborgsund",
+  "name": "Guldborgsund Kommune",
+  "short": "Guldborgsund Kommune",
+  "genitive": "Guldborgsund Kommunes",
+  "website": "https://www.guldborgsund.dk",
+  "colors": {
+   "primary": "#c4262d",
+   "secondary": "#303030",
+   "accent": "#dabb68",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/guldborgsund.png"
  }
 ]
