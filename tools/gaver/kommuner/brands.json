@@ -1237,5 +1237,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/struer.png"
+ },
+ {
+  "id": "syddjurs",
+  "name": "Syddjurs Kommune",
+  "short": "Syddjurs Kommune",
+  "genitive": "Syddjurs Kommunes",
+  "website": "https://www.syddjurs.dk",
+  "colors": {
+   "primary": "#8e1157",
+   "secondary": "#76064b",
+   "accent": "#f3e7ee",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/syddjurs.png"
  }
 ]
