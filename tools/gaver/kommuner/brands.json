@@ -1267,5 +1267,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/viborg.png"
+ },
+ {
+  "id": "broenderslev",
+  "name": "Brønderslev Kommune",
+  "short": "Brønderslev Kommune",
+  "genitive": "Brønderslev Kommunes",
+  "website": "https://www.bronderslev.dk",
+  "colors": {
+   "primary": "#008139",
+   "secondary": "#14331c",
+   "accent": "#f5faf6",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/broenderslev.png"
  }
 ]
