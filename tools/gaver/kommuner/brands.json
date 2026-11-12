@@ -610,5 +610,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/lejre.png"
+ },
+ {
+  "id": "lolland",
+  "name": "Lolland Kommune",
+  "short": "Lolland Kommune",
+  "genitive": "Lolland Kommunes",
+  "website": "https://www.lolland.dk",
+  "colors": {
+   "primary": "#00447c",
+   "secondary": "#336997",
+   "accent": "#45ac34",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/lolland.png"
  }
 ]
