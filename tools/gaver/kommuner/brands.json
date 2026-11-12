@@ -937,5 +937,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/svendborg.png"
+ },
+ {
+  "id": "soenderborg",
+  "name": "Sønderborg Kommune",
+  "short": "Sønderborg Kommune",
+  "genitive": "Sønderborg Kommunes",
+  "website": "https://sonderborgkommune.dk",
+  "colors": {
+   "primary": "#245e7e",
+   "secondary": "#343a40",
+   "accent": "#7fc241",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/soenderborg.png"
  }
 ]
