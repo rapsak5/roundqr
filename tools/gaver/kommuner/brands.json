@@ -1357,5 +1357,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/morsoe.png"
+ },
+ {
+  "id": "rebild",
+  "name": "Rebild Kommune",
+  "short": "Rebild Kommune",
+  "genitive": "Rebild Kommunes",
+  "website": "https://rebild.dk",
+  "colors": {
+   "primary": "#006632",
+   "secondary": "#0a487e",
+   "accent": "#eae3c0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/rebild.png"
  }
 ]
