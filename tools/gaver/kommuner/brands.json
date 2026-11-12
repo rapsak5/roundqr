@@ -997,5 +997,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/vejen.png"
+ },
+ {
+  "id": "aabenraa",
+  "name": "Aabenraa Kommune",
+  "short": "Aabenraa Kommune",
+  "genitive": "Aabenraa Kommunes",
+  "website": "https://aabenraa.dk",
+  "colors": {
+   "primary": "#0070ba",
+   "secondary": "#1c5e69",
+   "accent": "#fef1d4",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/aabenraa.png"
  }
 ]
