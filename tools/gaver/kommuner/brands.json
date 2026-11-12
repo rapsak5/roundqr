@@ -625,5 +625,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/lolland.png"
+ },
+ {
+  "id": "naestved",
+  "name": "Næstved Kommune",
+  "short": "Næstved Kommune",
+  "genitive": "Næstved Kommunes",
+  "website": "https://www.naestved.dk",
+  "colors": {
+   "primary": "#003764",
+   "secondary": "#43484f",
+   "accent": "#c63e3e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/naestved.png"
  }
 ]
