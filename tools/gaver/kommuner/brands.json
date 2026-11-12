@@ -833,5 +833,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/haderslev.png"
+ },
+ {
+  "id": "kerteminde",
+  "name": "Kerteminde Kommune",
+  "short": "Kerteminde Kommune",
+  "genitive": "Kerteminde Kommunes",
+  "website": "https://www.kerteminde.dk",
+  "colors": {
+   "primary": "#a60f18",
+   "secondary": "#1b688b",
+   "accent": "#e8b500",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/kerteminde.png"
  }
 ]
