@@ -952,5 +952,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/soenderborg.png"
+ },
+ {
+  "id": "toender",
+  "name": "Tønder Kommune",
+  "short": "Tønder Kommune",
+  "genitive": "Tønder Kommunes",
+  "website": "https://www.toender.dk",
+  "colors": {
+   "primary": "#002d4f",
+   "secondary": "#00548e",
+   "accent": "#e4e9ed",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/toender.png"
  }
 ]
