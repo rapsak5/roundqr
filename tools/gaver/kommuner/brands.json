@@ -1327,5 +1327,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/jammerbugt.png"
+ },
+ {
+  "id": "mariagerfjord",
+  "name": "Mariagerfjord Kommune",
+  "short": "Mariagerfjord Kommune",
+  "genitive": "Mariagerfjord Kommunes",
+  "website": "https://www.mariagerfjord.dk",
+  "colors": {
+   "primary": "#27628e",
+   "secondary": "#356067",
+   "accent": "#3bbac9",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/mariagerfjord.png"
  }
 ]
