@@ -271,5 +271,48 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/frederikssund.png"
+ },
+ {
+  "id": "furesoe",
+  "name": "Furesø Kommune",
+  "short": "Furesø Kommune",
+  "genitive": "Furesø Kommunes",
+  "website": "https://www.furesoe.dk",
+  "colors": {
+   "primary": "#196980",
+   "secondary": "#002f3c",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/furesoe.png"
+ },
+ {
+  "id": "gladsaxe",
+  "name": "Gladsaxe Kommune",
+  "short": "Gladsaxe Kommune",
+  "genitive": "Gladsaxe Kommunes",
+  "website": "https://gladsaxe.dk",
+  "colors": {
+   "primary": "#0075a5",
+   "secondary": "#1d1d1b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/gladsaxe.png"
+ },
+ {
+  "id": "gribskov",
+  "name": "Gribskov Kommune",
+  "short": "Gribskov Kommune",
+  "genitive": "Gribskov Kommunes",
+  "website": "https://gribskov.dk",
+  "colors": {
+   "primary": "#105176",
+   "secondary": "#303030",
+   "accent": "#8fb135",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/gribskov.png"
  }
 ]
