@@ -476,5 +476,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/ishoej.png"
+ },
+ {
+  "id": "rudersdal",
+  "name": "Rudersdal Kommune",
+  "short": "Rudersdal Kommune",
+  "genitive": "Rudersdal Kommunes",
+  "website": "https://rudersdal.dk",
+  "colors": {
+   "primary": "#181f4b",
+   "secondary": "#0e61a8",
+   "accent": "#5379a0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/rudersdal.png"
  }
 ]
