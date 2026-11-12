@@ -684,5 +684,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/slagelse.png"
+ },
+ {
+  "id": "solroed",
+  "name": "Solrød Kommune",
+  "short": "Solrød Kommune",
+  "genitive": "Solrød Kommunes",
+  "website": "https://solrod.dk",
+  "colors": {
+   "primary": "#00415e",
+   "secondary": "#c32c2b",
+   "accent": "#fae5d6",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/solroed.png"
  }
 ]
