@@ -580,5 +580,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/holbaek.png"
+ },
+ {
+  "id": "kalundborg",
+  "name": "Kalundborg Kommune",
+  "short": "Kalundborg Kommune",
+  "genitive": "Kalundborg Kommunes",
+  "website": "https://www.kalundborg.dk",
+  "colors": {
+   "primary": "#bc4d30",
+   "secondary": "#252525",
+   "accent": "#d9e9ea",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/kalundborg.png"
  }
 ]
