@@ -892,5 +892,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/middelfart.png"
+ },
+ {
+  "id": "nordfyn",
+  "name": "Nordfyns Kommune",
+  "short": "Nordfyns Kommune",
+  "genitive": "Nordfyns Kommunes",
+  "website": "https://www.nordfynskommune.dk",
+  "colors": {
+   "primary": "#073b5f",
+   "secondary": "#0d7ab5",
+   "accent": "#1a2f3d",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/nordfyn.png"
  }
 ]
