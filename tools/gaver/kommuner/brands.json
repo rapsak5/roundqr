@@ -699,5 +699,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/solroed.png"
+ },
+ {
+  "id": "soroe",
+  "name": "Sorø Kommune",
+  "short": "Sorø Kommune",
+  "genitive": "Sorø Kommunes",
+  "website": "https://soroe.dk",
+  "colors": {
+   "primary": "#27509b",
+   "secondary": "#af4431",
+   "accent": "#ffead3",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/soroe.png"
  }
 ]
