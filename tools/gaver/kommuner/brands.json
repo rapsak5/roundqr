@@ -359,5 +359,34 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/hilleroed.png"
+ },
+ {
+  "id": "lyngbytaarbaek",
+  "name": "Lyngby-Taarbæk Kommune",
+  "short": "Lyngby-Taarbæk Kommune",
+  "genitive": "Lyngby-Taarbæk Kommunes",
+  "website": "https://www.ltk.dk",
+  "colors": {
+   "primary": "#005500",
+   "secondary": "#383a3d",
+   "accent": "#d41c2b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/lyngbytaarbaek.png"
+ },
+ {
+  "id": "koege",
+  "name": "Køge Kommune",
+  "short": "Køge Kommune",
+  "genitive": "Køge Kommunes",
+  "website": "https://www.koege.dk",
+  "colors": {
+   "primary": "#293952",
+   "secondary": "#235c8b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/koege.png"
  }
 ]
