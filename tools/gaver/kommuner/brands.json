@@ -314,5 +314,50 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/gribskov.png"
+ },
+ {
+  "id": "halsnaes",
+  "name": "Halsnæs Kommune",
+  "short": "Halsnæs Kommune",
+  "genitive": "Halsnæs Kommunes",
+  "website": "https://halsnaes.dk",
+  "colors": {
+   "primary": "#265b4d",
+   "secondary": "#1e493e",
+   "accent": "#cfe2dd",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/halsnaes.png"
+ },
+ {
+  "id": "helsingoer",
+  "name": "Helsingør Kommune",
+  "short": "Helsingør Kommune",
+  "genitive": "Helsingør Kommunes",
+  "website": "https://www.helsingor.dk",
+  "colors": {
+   "primary": "#1b315d",
+   "secondary": "#014397",
+   "accent": "#ffeacf",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/helsingoer.png"
+ },
+ {
+  "id": "hilleroed",
+  "name": "Hillerød Kommune",
+  "short": "Hillerød Kommune",
+  "genitive": "Hillerød Kommunes",
+  "website": "https://www.hillerod.dk",
+  "colors": {
+   "primary": "#aa002f",
+   "secondary": "#041a47",
+   "accent": "#ed8700",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/hilleroed.png"
  }
 ]
