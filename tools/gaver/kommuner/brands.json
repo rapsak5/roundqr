@@ -1057,5 +1057,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/herning.png"
+ },
+ {
+  "id": "holstebro",
+  "name": "Holstebro Kommune",
+  "short": "Holstebro Kommune",
+  "genitive": "Holstebro Kommunes",
+  "website": "https://www.holstebro.dk",
+  "colors": {
+   "primary": "#00577d",
+   "secondary": "#00838f",
+   "accent": "#e7e7e7",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/holstebro.png"
  }
 ]
