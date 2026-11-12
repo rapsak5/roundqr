@@ -1342,5 +1342,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/mariagerfjord.png"
+ },
+ {
+  "id": "morsoe",
+  "name": "Morsø Kommune",
+  "short": "Morsø Kommune",
+  "genitive": "Morsø Kommunes",
+  "website": "https://mors.dk",
+  "colors": {
+   "primary": "#312783",
+   "secondary": "#3d7399",
+   "accent": "#f39200",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/morsoe.png"
  }
 ]
