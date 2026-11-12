@@ -23,5 +23,5 @@ header.brandbar .bb-text p { color: inherit; margin: 0; font-size: 16px; line-he
 .dlbox h2 { font-family: var(--font-display); font-size: 20px; margin: 0 0 4px; }
 .dlbox p { margin: 0; color: var(--muted); max-width: 62ch; }
 .dlbox .btn { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; font-weight: 600; }
-.devby { font-size: 13.5px; color: var(--ink); }
-.devby a { color: var(--accent-strong); font-weight: 600; }
+
+

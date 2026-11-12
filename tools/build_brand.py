@@ -220,9 +220,10 @@ h1 .for { font-weight: 600; color: var(--accent-strong); white-space: nowrap; }
     html, n = re.subn(r'  <footer class="foot".*?</footer>\n', lambda m: '''  <footer class="foot" style="display:grid;gap:10px;font-size:13px;color:var(--muted);padding-top:18px;border-top:1px solid var(--line)">
     <div class="gift"><span data-t="giftPitch">%s</span><span><a href="https://ai-workshop.dk">ai-workshop.dk</a> · <a href="mailto:kasper@ai-workshop.dk">kasper@ai-workshop.dk</a></span></div>
     <span data-t="giftNote">%s</span>
-    <span style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px"><span>Round QR · <a href="https://roundqr.dk">roundqr.dk</a></span><span data-t="footNote">%s</span></span>
+    <span style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px">__DEVBY__<span data-t="footNote">%s</span></span>
   </footer>
 ''' % (da['giftPitch'], da['giftNote'], da['footNote']), html, count=1, flags=re.S)
+    html = html.replace('__DEVBY__', devby(), 1).replace('<div class="wrap">', '<style>\n' + DEVBY_CSS + '</style>\n<div class="wrap">', 1)
     assert n == 1
 
     # skabeloner: kvadrat, bred og banner
@@ -317,13 +318,25 @@ def site_mode(html, b, short, gen, L):
     fanc = '  <footer class="foot"'
     assert html.count(fanc) == 1
     html = html.replace(fanc, dl + fanc, 1)
-    old_mw = '<span>Round QR · <a href="https://roundqr.dk">roundqr.dk</a></span>'
-    assert old_mw in html
-    html = html.replace(old_mw, '<span class="devby">Udviklet af <a href="https://ai-workshop.dk">ai-workshop.dk</a> og <a href="https://roundqr.dk">Round QR</a></span>', 1)
     html = re.sub(r'<title>[^<]*</title>', '<title>QR-koder til %s</title>' % short, html, count=1)
     # ikke i Google, før organisationen har sagt god for siden
     html = html.replace('</title>', '</title>\n<meta name="robots" content="noindex">', 1)
     return html
+
+def devby():
+    import base64
+    aw = base64.b64encode(open(os.path.join(ROOT, 'logos', 'ai-workshop.png'), 'rb').read()).decode()
+    rq = base64.b64encode(open(os.path.join(ROOT, 'favicon.svg'), 'rb').read()).decode()
+    return ('<span class="devby"><span>Udviklet af</span>'
+            '<a class="devlogo" href="https://ai-workshop.dk"><img src="data:image/png;base64,%s" alt="" width="28" height="28">ai-workshop.dk</a>'
+            '<span>og</span>'
+            '<a class="devlogo" href="https://roundqr.dk"><img src="data:image/svg+xml;base64,%s" alt="" width="28" height="28">Round QR</a></span>') % (aw, rq)
+
+DEVBY_CSS = """.devby { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; font-size: 13.5px; color: var(--ink); }
+.devby .devlogo { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); font-weight: 600; text-decoration: none; padding: 4px 12px 4px 4px; border: 1px solid var(--line); border-radius: 999px; background: #fff; }
+.devby .devlogo:hover, .devby .devlogo:focus-visible { border-color: var(--accent-strong); text-decoration: underline; }
+.devby .devlogo img { width: 28px; height: 28px; display: block; }
+"""
 
 def main():
     src, out = sys.argv[1], sys.argv[2]
