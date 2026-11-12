@@ -848,5 +848,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/kerteminde.png"
+ },
+ {
+  "id": "kolding",
+  "name": "Kolding Kommune",
+  "short": "Kolding Kommune",
+  "genitive": "Kolding Kommunes",
+  "website": "https://www.kolding.dk",
+  "colors": {
+   "primary": "#42767e",
+   "secondary": "#222222",
+   "accent": "#00833e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/kolding.png"
  }
 ]
