@@ -640,5 +640,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/naestved.png"
+ },
+ {
+  "id": "odsherred",
+  "name": "Odsherred Kommune",
+  "short": "Odsherred Kommune",
+  "genitive": "Odsherred Kommunes",
+  "website": "https://www.odsherred.dk",
+  "colors": {
+   "primary": "#232323",
+   "secondary": "#525151",
+   "accent": "#8ee3c5",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/odsherred.png"
  }
 ]
