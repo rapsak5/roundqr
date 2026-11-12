@@ -461,5 +461,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/hoersholm.png"
+ },
+ {
+  "id": "ishoej",
+  "name": "Ishøj Kommune",
+  "short": "Ishøj Kommune",
+  "genitive": "Ishøj Kommunes",
+  "website": "https://ishoj.dk",
+  "colors": {
+   "primary": "#174273",
+   "secondary": "#212529",
+   "accent": "#dd9a00",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/ishoej.png"
  }
 ]
