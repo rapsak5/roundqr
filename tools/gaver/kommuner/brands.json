@@ -1192,5 +1192,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/silkeborg.png"
+ },
+ {
+  "id": "skanderborg",
+  "name": "Skanderborg Kommune",
+  "short": "Skanderborg Kommune",
+  "genitive": "Skanderborg Kommunes",
+  "website": "https://www.skanderborg.dk",
+  "colors": {
+   "primary": "#212121",
+   "secondary": "#4b79a9",
+   "accent": "#e9b92e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/skanderborg.png"
  }
 ]
