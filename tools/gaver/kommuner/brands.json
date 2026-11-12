@@ -863,5 +863,19 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/kolding.png"
+ },
+ {
+  "id": "langeland",
+  "name": "Langeland Kommune",
+  "short": "Langeland Kommune",
+  "genitive": "Langeland Kommunes",
+  "website": "https://langelandkommune.dk",
+  "colors": {
+   "primary": "#31572c",
+   "secondary": "#157bca",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/langeland.png"
  }
 ]
