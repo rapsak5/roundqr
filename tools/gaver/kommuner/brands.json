@@ -982,5 +982,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/varde.png"
+ },
+ {
+  "id": "vejen",
+  "name": "Vejen Kommune",
+  "short": "Vejen Kommune",
+  "genitive": "Vejen Kommunes",
+  "website": "https://www.vejen.dk",
+  "colors": {
+   "primary": "#141969",
+   "secondary": "#6e8fbf",
+   "accent": "#dddfde",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/vejen.png"
  }
 ]
