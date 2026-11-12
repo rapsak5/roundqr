@@ -521,5 +521,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/vallensbaek.png"
+ },
+ {
+  "id": "faxe",
+  "name": "Faxe Kommune",
+  "short": "Faxe Kommune",
+  "genitive": "Faxe Kommunes",
+  "website": "https://www.faxekommune.dk",
+  "colors": {
+   "primary": "#035e7a",
+   "secondary": "#10629e",
+   "accent": "#e5e3e1",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/faxe.png"
  }
 ]
