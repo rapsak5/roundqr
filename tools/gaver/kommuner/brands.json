@@ -1072,5 +1072,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/holstebro.png"
+ },
+ {
+  "id": "horsens",
+  "name": "Horsens Kommune",
+  "short": "Horsens Kommune",
+  "genitive": "Horsens Kommunes",
+  "website": "https://horsens.dk",
+  "colors": {
+   "primary": "#0c2d57",
+   "secondary": "#2a2b57",
+   "accent": "#ed2941",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/horsens.png"
  }
 ]
