@@ -403,5 +403,35 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/alleroed.png"
+ },
+ {
+  "id": "herlev",
+  "name": "Herlev Kommune",
+  "short": "Herlev Kommune",
+  "genitive": "Herlev Kommunes",
+  "website": "https://herlev.dk",
+  "colors": {
+   "primary": "#9e0621",
+   "secondary": "#020c69",
+   "accent": "#d5e9cd",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/herlev.png"
+ },
+ {
+  "id": "hvidovre",
+  "name": "Hvidovre Kommune",
+  "short": "Hvidovre Kommune",
+  "genitive": "Hvidovre Kommunes",
+  "website": "https://www.hvidovre.dk",
+  "colors": {
+   "primary": "#1a6135",
+   "secondary": "#1c1938",
+   "accent": "#ace5f6",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/hvidovre.png"
  }
 ]
