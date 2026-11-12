@@ -1,0 +1,688 @@
+[
+{
+"name": "Albertslund Kommune",
+"slug": "albertslund",
+"site": "https://www.albertslund.dk",
+"region": "Hovedstaden",
+"row": 2
+},
+{
+"name": "Allerød Kommune",
+"slug": "alleroed",
+"site": "https://www.alleroed.dk",
+"region": "Hovedstaden",
+"row": 3
+},
+{
+"name": "Ballerup Kommune",
+"slug": "ballerup",
+"site": "https://www.balk.dk",
+"region": "Hovedstaden",
+"row": 4
+},
+{
+"name": "Bornholms Regionskommune",
+"slug": "bornholm",
+"site": "https://www.brk.dk",
+"region": "Hovedstaden",
+"row": 5
+},
+{
+"name": "Brøndby Kommune",
+"slug": "broendby",
+"site": "https://www.brondby.dk",
+"region": "Hovedstaden",
+"row": 6
+},
+{
+"name": "Dragør Kommune",
+"slug": "dragoer",
+"site": "https://www.dragoer.dk",
+"region": "Hovedstaden",
+"row": 7
+},
+{
+"name": "Egedal Kommune",
+"slug": "egedal",
+"site": "https://www.egedalkommune.dk",
+"region": "Hovedstaden",
+"row": 8
+},
+{
+"name": "Fredensborg Kommune",
+"slug": "fredensborg",
+"site": "https://www.fredensborg.dk",
+"region": "Hovedstaden",
+"row": 9
+},
+{
+"name": "Frederiksberg Kommune",
+"slug": "frederiksberg",
+"site": "https://www.frederiksberg.dk",
+"region": "Hovedstaden",
+"row": 10
+},
+{
+"name": "Frederikssund Kommune",
+"slug": "frederikssund",
+"site": "https://www.frederikssund.dk",
+"region": "Hovedstaden",
+"row": 11
+},
+{
+"name": "Furesø Kommune",
+"slug": "furesoe",
+"site": "https://www.furesoe.dk",
+"region": "Hovedstaden",
+"row": 12
+},
+{
+"name": "Gentofte Kommune",
+"slug": "gentofte",
+"site": "https://www.gentofte.dk",
+"region": "Hovedstaden",
+"row": 13
+},
+{
+"name": "Gladsaxe Kommune",
+"slug": "gladsaxe",
+"site": "https://www.gladsaxe.dk",
+"region": "Hovedstaden",
+"row": 14
+},
+{
+"name": "Glostrup Kommune",
+"slug": "glostrup",
+"site": "https://www.glostrup.dk",
+"region": "Hovedstaden",
+"row": 15
+},
+{
+"name": "Gribskov Kommune",
+"slug": "gribskov",
+"site": "https://www.gribskov.dk",
+"region": "Hovedstaden",
+"row": 16
+},
+{
+"name": "Halsnæs Kommune",
+"slug": "halsnaes",
+"site": "https://www.halsnaes.dk",
+"region": "Hovedstaden",
+"row": 17
+},
+{
+"name": "Helsingør Kommune",
+"slug": "helsingoer",
+"site": "https://www.helsingor.dk",
+"region": "Hovedstaden",
+"row": 18
+},
+{
+"name": "Herlev Kommune",
+"slug": "herlev",
+"site": "https://www.herlev.dk",
+"region": "Hovedstaden",
+"row": 19
+},
+{
+"name": "Hillerød Kommune",
+"slug": "hilleroed",
+"site": "https://www.hillerod.dk",
+"region": "Hovedstaden",
+"row": 20
+},
+{
+"name": "Hvidovre Kommune",
+"slug": "hvidovre",
+"site": "https://www.hvidovre.dk",
+"region": "Hovedstaden",
+"row": 21
+},
+{
+"name": "Høje-Taastrup Kommune",
+"slug": "hoejetaastrup",
+"site": "https://www.htk.dk",
+"region": "Hovedstaden",
+"row": 22
+},
+{
+"name": "Hørsholm Kommune",
+"slug": "hoersholm",
+"site": "https://www.horsholm.dk",
+"region": "Hovedstaden",
+"row": 23
+},
+{
+"name": "Ishøj Kommune",
+"slug": "ishoej",
+"site": "https://www.ishoj.dk",
+"region": "Hovedstaden",
+"row": 24
+},
+{
+"name": "Københavns Kommune",
+"slug": "koebenhavn",
+"site": "https://www.kk.dk",
+"region": "Hovedstaden",
+"row": 25
+},
+{
+"name": "Lyngby-Taarbæk Kommune",
+"slug": "lyngbytaarbaek",
+"site": "https://www.ltk.dk",
+"region": "Hovedstaden",
+"row": 26
+},
+{
+"name": "Rudersdal Kommune",
+"slug": "rudersdal",
+"site": "https://www.rudersdal.dk",
+"region": "Hovedstaden",
+"row": 27
+},
+{
+"name": "Rødovre Kommune",
+"slug": "roedovre",
+"site": "https://www.rk.dk",
+"region": "Hovedstaden",
+"row": 28
+},
+{
+"name": "Tårnby Kommune",
+"slug": "taarnby",
+"site": "https://www.taarnby.dk",
+"region": "Hovedstaden",
+"row": 29
+},
+{
+"name": "Vallensbæk Kommune",
+"slug": "vallensbaek",
+"site": "https://www.vallensbaek.dk",
+"region": "Hovedstaden",
+"row": 30
+},
+{
+"name": "Faxe Kommune",
+"slug": "faxe",
+"site": "https://www.faxekommune.dk",
+"region": "Sjælland",
+"row": 31
+},
+{
+"name": "Greve Kommune",
+"slug": "greve",
+"site": "https://www.greve.dk",
+"region": "Sjælland",
+"row": 32
+},
+{
+"name": "Guldborgsund Kommune",
+"slug": "guldborgsund",
+"site": "https://www.guldborgsund.dk",
+"region": "Sjælland",
+"row": 33
+},
+{
+"name": "Holbæk Kommune",
+"slug": "holbaek",
+"site": "https://www.holbaek.dk",
+"region": "Sjælland",
+"row": 34
+},
+{
+"name": "Kalundborg Kommune",
+"slug": "kalundborg",
+"site": "https://www.kalundborg.dk",
+"region": "Sjælland",
+"row": 35
+},
+{
+"name": "Køge Kommune",
+"slug": "koege",
+"site": "https://www.koege.dk",
+"region": "Sjælland",
+"row": 36
+},
+{
+"name": "Lejre Kommune",
+"slug": "lejre",
+"site": "https://www.lejre.dk",
+"region": "Sjælland",
+"row": 37
+},
+{
+"name": "Lolland Kommune",
+"slug": "lolland",
+"site": "https://www.lolland.dk",
+"region": "Sjælland",
+"row": 38
+},
+{
+"name": "Næstved Kommune",
+"slug": "naestved",
+"site": "https://www.naestved.dk",
+"region": "Sjælland",
+"row": 39
+},
+{
+"name": "Odsherred Kommune",
+"slug": "odsherred",
+"site": "https://www.odsherred.dk",
+"region": "Sjælland",
+"row": 40
+},
+{
+"name": "Ringsted Kommune",
+"slug": "ringsted",
+"site": "https://www.ringsted.dk",
+"region": "Sjælland",
+"row": 41
+},
+{
+"name": "Roskilde Kommune",
+"slug": "roskilde",
+"site": "https://www.roskilde.dk",
+"region": "Sjælland",
+"row": 42
+},
+{
+"name": "Slagelse Kommune",
+"slug": "slagelse",
+"site": "https://www.slagelse.dk",
+"region": "Sjælland",
+"row": 43
+},
+{
+"name": "Solrød Kommune",
+"slug": "solroed",
+"site": "https://www.solrod.dk",
+"region": "Sjælland",
+"row": 44
+},
+{
+"name": "Sorø Kommune",
+"slug": "soroe",
+"site": "https://www.soroe.dk",
+"region": "Sjælland",
+"row": 45
+},
+{
+"name": "Stevns Kommune",
+"slug": "stevns",
+"site": "https://www.stevns.dk",
+"region": "Sjælland",
+"row": 46
+},
+{
+"name": "Vordingborg Kommune",
+"slug": "vordingborg",
+"site": "https://www.vordingborg.dk",
+"region": "Sjælland",
+"row": 47
+},
+{
+"name": "Assens Kommune",
+"slug": "assens",
+"site": "https://www.assens.dk",
+"region": "Syddanmark",
+"row": 48
+},
+{
+"name": "Billund Kommune",
+"slug": "billund",
+"site": "https://www.billund.dk",
+"region": "Syddanmark",
+"row": 49
+},
+{
+"name": "Esbjerg Kommune",
+"slug": "esbjerg",
+"site": "https://www.esbjerg.dk",
+"region": "Syddanmark",
+"row": 50
+},
+{
+"name": "Fanø Kommune",
+"slug": "fanoe",
+"site": "https://www.fanoe.dk",
+"region": "Syddanmark",
+"row": 51
+},
+{
+"name": "Fredericia Kommune",
+"slug": "fredericia",
+"site": "https://www.fredericia.dk",
+"region": "Syddanmark",
+"row": 52
+},
+{
+"name": "Faaborg-Midtfyn Kommune",
+"slug": "faaborgmidtfyn",
+"site": "https://www.fmk.dk",
+"region": "Syddanmark",
+"row": 53
+},
+{
+"name": "Haderslev Kommune",
+"slug": "haderslev",
+"site": "https://www.haderslev.dk",
+"region": "Syddanmark",
+"row": 54
+},
+{
+"name": "Kerteminde Kommune",
+"slug": "kerteminde",
+"site": "https://www.kerteminde.dk",
+"region": "Syddanmark",
+"row": 55
+},
+{
+"name": "Kolding Kommune",
+"slug": "kolding",
+"site": "https://www.kolding.dk",
+"region": "Syddanmark",
+"row": 56
+},
+{
+"name": "Langeland Kommune",
+"slug": "langeland",
+"site": "https://www.langelandkommune.dk",
+"region": "Syddanmark",
+"row": 57
+},
+{
+"name": "Middelfart Kommune",
+"slug": "middelfart",
+"site": "https://www.middelfart.dk",
+"region": "Syddanmark",
+"row": 58
+},
+{
+"name": "Nordfyns Kommune",
+"slug": "nordfyn",
+"site": "https://www.nordfynskommune.dk",
+"region": "Syddanmark",
+"row": 59
+},
+{
+"name": "Nyborg Kommune",
+"slug": "nyborg",
+"site": "https://www.nyborg.dk",
+"region": "Syddanmark",
+"row": 60
+},
+{
+"name": "Odense Kommune",
+"slug": "odense",
+"site": "https://www.odense.dk",
+"region": "Syddanmark",
+"row": 61
+},
+{
+"name": "Svendborg Kommune",
+"slug": "svendborg",
+"site": "https://www.svendborg.dk",
+"region": "Syddanmark",
+"row": 62
+},
+{
+"name": "Sønderborg Kommune",
+"slug": "soenderborg",
+"site": "https://www.sonderborgkommune.dk",
+"region": "Syddanmark",
+"row": 63
+},
+{
+"name": "Tønder Kommune",
+"slug": "toender",
+"site": "https://www.toender.dk",
+"region": "Syddanmark",
+"row": 64
+},
+{
+"name": "Varde Kommune",
+"slug": "varde",
+"site": "https://www.vardekommune.dk",
+"region": "Syddanmark",
+"row": 65
+},
+{
+"name": "Vejen Kommune",
+"slug": "vejen",
+"site": "https://www.vejen.dk",
+"region": "Syddanmark",
+"row": 66
+},
+{
+"name": "Vejle Kommune",
+"slug": "vejle",
+"site": "https://www.vejle.dk",
+"region": "Syddanmark",
+"row": 67
+},
+{
+"name": "Ærø Kommune",
+"slug": "aeroe",
+"site": "https://www.aeroekommune.dk",
+"region": "Syddanmark",
+"row": 68
+},
+{
+"name": "Aabenraa Kommune",
+"slug": "aabenraa",
+"site": "https://www.aabenraa.dk",
+"region": "Syddanmark",
+"row": 69
+},
+{
+"name": "Favrskov Kommune",
+"slug": "favrskov",
+"site": "https://www.favrskov.dk",
+"region": "Midtjylland",
+"row": 70
+},
+{
+"name": "Hedensted Kommune",
+"slug": "hedensted",
+"site": "https://www.hedensted.dk",
+"region": "Midtjylland",
+"row": 71
+},
+{
+"name": "Herning Kommune",
+"slug": "herning",
+"site": "https://www.herning.dk",
+"region": "Midtjylland",
+"row": 72
+},
+{
+"name": "Holstebro Kommune",
+"slug": "holstebro",
+"site": "https://www.holstebro.dk",
+"region": "Midtjylland",
+"row": 73
+},
+{
+"name": "Horsens Kommune",
+"slug": "horsens",
+"site": "https://www.horsens.dk",
+"region": "Midtjylland",
+"row": 74
+},
+{
+"name": "Ikast-Brande Kommune",
+"slug": "ikastbrande",
+"site": "https://www.ikast-brande.dk",
+"region": "Midtjylland",
+"row": 75
+},
+{
+"name": "Lemvig Kommune",
+"slug": "lemvig",
+"site": "https://www.lemvig.dk",
+"region": "Midtjylland",
+"row": 76
+},
+{
+"name": "Norddjurs Kommune",
+"slug": "norddjurs",
+"site": "https://www.norddjurs.dk",
+"region": "Midtjylland",
+"row": 77
+},
+{
+"name": "Odder Kommune",
+"slug": "odder",
+"site": "https://www.odder.dk",
+"region": "Midtjylland",
+"row": 78
+},
+{
+"name": "Randers Kommune",
+"slug": "randers",
+"site": "https://www.randers.dk",
+"region": "Midtjylland",
+"row": 79
+},
+{
+"name": "Ringkøbing-Skjern Kommune",
+"slug": "ringkoebingskjern",
+"site": "https://www.rksk.dk",
+"region": "Midtjylland",
+"row": 80
+},
+{
+"name": "Samsø Kommune",
+"slug": "samsoe",
+"site": "https://www.samsoe.dk",
+"region": "Midtjylland",
+"row": 81
+},
+{
+"name": "Silkeborg Kommune",
+"slug": "silkeborg",
+"site": "https://www.silkeborg.dk",
+"region": "Midtjylland",
+"row": 82
+},
+{
+"name": "Skanderborg Kommune",
+"slug": "skanderborg",
+"site": "https://www.skanderborg.dk",
+"region": "Midtjylland",
+"row": 83
+},
+{
+"name": "Skive Kommune",
+"slug": "skive",
+"site": "https://www.skive.dk",
+"region": "Midtjylland",
+"row": 84
+},
+{
+"name": "Struer Kommune",
+"slug": "struer",
+"site": "https://www.struer.dk",
+"region": "Midtjylland",
+"row": 85
+},
+{
+"name": "Syddjurs Kommune",
+"slug": "syddjurs",
+"site": "https://www.syddjurs.dk",
+"region": "Midtjylland",
+"row": 86
+},
+{
+"name": "Viborg Kommune",
+"slug": "viborg",
+"site": "https://www.viborg.dk",
+"region": "Midtjylland",
+"row": 87
+},
+{
+"name": "Aarhus Kommune",
+"slug": "aarhus",
+"site": "https://www.aarhus.dk",
+"region": "Midtjylland",
+"row": 88
+},
+{
+"name": "Brønderslev Kommune",
+"slug": "broenderslev",
+"site": "https://www.bronderslev.dk",
+"region": "Nordjylland",
+"row": 89
+},
+{
+"name": "Frederikshavn Kommune",
+"slug": "frederikshavn",
+"site": "https://www.frederikshavn.dk",
+"region": "Nordjylland",
+"row": 90
+},
+{
+"name": "Hjørring Kommune",
+"slug": "hjoerring",
+"site": "https://www.hjoerring.dk",
+"region": "Nordjylland",
+"row": 91
+},
+{
+"name": "Jammerbugt Kommune",
+"slug": "jammerbugt",
+"site": "https://www.jammerbugt.dk",
+"region": "Nordjylland",
+"row": 92
+},
+{
+"name": "Læsø Kommune",
+"slug": "laesoe",
+"site": "https://www.laesoe.dk",
+"region": "Nordjylland",
+"row": 93
+},
+{
+"name": "Mariagerfjord Kommune",
+"slug": "mariagerfjord",
+"site": "https://www.mariagerfjord.dk",
+"region": "Nordjylland",
+"row": 94
+},
+{
+"name": "Morsø Kommune",
+"slug": "morsoe",
+"site": "https://www.morsoe.dk",
+"region": "Nordjylland",
+"row": 95
+},
+{
+"name": "Rebild Kommune",
+"slug": "rebild",
+"site": "https://www.rebild.dk",
+"region": "Nordjylland",
+"row": 96
+},
+{
+"name": "Thisted Kommune",
+"slug": "thisted",
+"site": "https://www.thisted.dk",
+"region": "Nordjylland",
+"row": 97
+},
+{
+"name": "Vesthimmerlands Kommune",
+"slug": "vesthimmerland",
+"site": "https://www.vesthimmerland.dk",
+"region": "Nordjylland",
+"row": 98
+},
+{
+"name": "Aalborg Kommune",
+"slug": "aalborg",
+"site": "https://www.aalborg.dk",
+"region": "Nordjylland",
+"row": 99
+}
+]
