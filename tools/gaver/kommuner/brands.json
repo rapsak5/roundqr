@@ -1252,5 +1252,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/syddjurs.png"
+ },
+ {
+  "id": "viborg",
+  "name": "Viborg Kommune",
+  "short": "Viborg Kommune",
+  "genitive": "Viborg Kommunes",
+  "website": "https://viborg.dk",
+  "colors": {
+   "primary": "#004536",
+   "secondary": "#266154",
+   "accent": "#f7a600",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/viborg.png"
  }
 ]
