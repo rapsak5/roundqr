@@ -1282,5 +1282,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/broenderslev.png"
+ },
+ {
+  "id": "frederikshavn",
+  "name": "Frederikshavn Kommune",
+  "short": "Frederikshavn Kommune",
+  "genitive": "Frederikshavn Kommunes",
+  "website": "https://frederikshavn.dk",
+  "colors": {
+   "primary": "#00415f",
+   "secondary": "#d14245",
+   "accent": "#cde9f0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/frederikshavn.png"
  }
 ]
