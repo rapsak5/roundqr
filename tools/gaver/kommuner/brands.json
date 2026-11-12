@@ -1102,5 +1102,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/ikastbrande.png"
+ },
+ {
+  "id": "lemvig",
+  "name": "Lemvig Kommune",
+  "short": "Lemvig Kommune",
+  "genitive": "Lemvig Kommunes",
+  "website": "https://lemvig.dk",
+  "colors": {
+   "primary": "#003273",
+   "secondary": "#9d2d2d",
+   "accent": "#e4d2b7",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/lemvig.png"
  }
 ]
