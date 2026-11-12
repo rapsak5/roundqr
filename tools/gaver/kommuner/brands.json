@@ -818,5 +818,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/faaborgmidtfyn.png"
+ },
+ {
+  "id": "haderslev",
+  "name": "Haderslev Kommune",
+  "short": "Haderslev Kommune",
+  "genitive": "Haderslev Kommunes",
+  "website": "https://www.haderslev.dk",
+  "colors": {
+   "primary": "#002a66",
+   "secondary": "#002f26",
+   "accent": "#b21c4a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/haderslev.png"
  }
 ]
