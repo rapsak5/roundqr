@@ -788,5 +788,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/esbjerg.png"
+ },
+ {
+  "id": "fredericia",
+  "name": "Fredericia Kommune",
+  "short": "Fredericia Kommune",
+  "genitive": "Fredericia Kommunes",
+  "website": "https://www.fredericia.dk",
+  "colors": {
+   "primary": "#00335b",
+   "secondary": "#186620",
+   "accent": "#9d0425",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/fredericia.png"
  }
 ]
