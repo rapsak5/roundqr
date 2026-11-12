@@ -967,5 +967,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/toender.png"
+ },
+ {
+  "id": "varde",
+  "name": "Varde Kommune",
+  "short": "Varde Kommune",
+  "genitive": "Varde Kommunes",
+  "website": "https://vardekommune.dk",
+  "colors": {
+   "primary": "#002d4b",
+   "secondary": "#133550",
+   "accent": "#efeeeb",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/varde.png"
  }
 ]
