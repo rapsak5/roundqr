@@ -669,5 +669,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/ringsted.png"
+ },
+ {
+  "id": "slagelse",
+  "name": "Slagelse Kommune",
+  "short": "Slagelse Kommune",
+  "genitive": "Slagelse Kommunes",
+  "website": "https://www.slagelse.dk",
+  "colors": {
+   "primary": "#610469",
+   "secondary": "#166787",
+   "accent": "#c2e0e5",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/slagelse.png"
  }
 ]
