@@ -536,5 +536,19 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/faxe.png"
+ },
+ {
+  "id": "greve",
+  "name": "Greve Kommune",
+  "short": "Greve Kommune",
+  "genitive": "Greve Kommunes",
+  "website": "https://greve.dk",
+  "colors": {
+   "primary": "#004996",
+   "secondary": "#072335",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/greve.png"
  }
 ]
