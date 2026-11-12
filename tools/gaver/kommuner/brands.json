@@ -565,5 +565,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/guldborgsund.png"
+ },
+ {
+  "id": "holbaek",
+  "name": "Holbæk Kommune",
+  "short": "Holbæk Kommune",
+  "genitive": "Holbæk Kommunes",
+  "website": "https://holbaek.dk",
+  "colors": {
+   "primary": "#00455b",
+   "secondary": "#1b597a",
+   "accent": "#b7dbf1",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/holbaek.png"
  }
 ]
