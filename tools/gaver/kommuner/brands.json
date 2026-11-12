@@ -758,5 +758,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/assens.png"
+ },
+ {
+  "id": "billund",
+  "name": "Billund Kommune",
+  "short": "Billund Kommune",
+  "genitive": "Billund Kommunes",
+  "website": "https://www.billund.dk",
+  "colors": {
+   "primary": "#154781",
+   "secondary": "#2044a2",
+   "accent": "#f8a757",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/billund.png"
  }
 ]
