@@ -1027,5 +1027,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/favrskov.png"
+ },
+ {
+  "id": "hedensted",
+  "name": "Hedensted Kommune",
+  "short": "Hedensted Kommune",
+  "genitive": "Hedensted Kommunes",
+  "website": "https://www.hedensted.dk",
+  "colors": {
+   "primary": "#163ba4",
+   "secondary": "#19614e",
+   "accent": "#d9f9d5",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/hedensted.png"
  }
 ]
