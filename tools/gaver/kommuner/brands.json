@@ -1117,5 +1117,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/lemvig.png"
+ },
+ {
+  "id": "norddjurs",
+  "name": "Norddjurs Kommune",
+  "short": "Norddjurs Kommune",
+  "genitive": "Norddjurs Kommunes",
+  "website": "https://norddjurs.dk",
+  "colors": {
+   "primary": "#005657",
+   "secondary": "#007aa1",
+   "accent": "#e71d36",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/norddjurs.png"
  }
 ]
