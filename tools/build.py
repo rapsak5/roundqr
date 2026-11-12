@@ -129,6 +129,21 @@ SITE_LANGS = {
   "dlBtn": "Télécharger roundqr.html",
   "footNote": "Pas de cookies et pas de suivi. Vos réglages sont enregistrés uniquement dans votre propre navigateur."
  },
+ "it": {
+  "spTitle": "Sponsor",
+  "spIntro": "Round QR è gratuito e senza pubblicità. Grazie a chi sostiene il sito.",
+  "sp1": "Workshop e corsi pratici sull'IA per dipendenti, manager e docenti. Dal primo prompt a routine di lavoro che restano.",
+  "sp2": "Video, podcast e dirette streaming di eventi. Pacchetti di ore, offerte fisse o un workshop per imparare a produrre da soli.",
+  "sp3": "Rilevazione presenze con NFC. Un adesivo vicino alla porta registra entrata e uscita, e l'app gratuita tiene il conto di ore e saldo.",
+  "sp4": "Una nuova casa editrice danese con libri sulla natura e sulle belle esperienze che offre, per bambini e adulti.",
+  "sp5": "Sidro da Inghilterra, Irlanda, Francia, Danimarca e Stati Uniti. Con e senza alcol, e diversi sono biologici.",
+  "sp6": "Una conferenza sull'IA nel lavoro per la persona, il team e l'organizzazione. L'11 febbraio 2027 al Dansk Arkitektur Center.",
+  "sp7": "Aiuta le aziende farmaceutiche ad adottare l'IA in modo responsabile, con le persone al centro. Consulenza, coaching e workshop.",
+  "dlTitle": "Scarica Round QR",
+  "dlText": "Tutto il programma in un unico file HTML. Aprilo nel browser e crea codici QR, anche senza internet. Non c'è niente da installare.",
+  "dlBtn": "Scarica roundqr.html",
+  "footNote": "Niente cookie e nessun tracciamento. Le tue impostazioni restano solo nel tuo browser."
+ },
  "sv": {
   "spTitle": "Sponsorer",
   "spIntro": "Round QR är gratis och utan reklam. Tack till dem som stöttar sidan.",
@@ -246,6 +261,22 @@ FAQ = {
   'faq6q': 'Round QR est-il ouvert ?',
   'faq6a': 'Oui. Tout le code source est public sur GitHub, et vous pouvez télécharger tout le programme sous forme d\'un seul fichier HTML et l\'utiliser sans internet.',
  },
+ 'it': {
+  'faqTitle': 'Domande e risposte',
+  'faqIntro': 'Le domande che ci fanno più spesso.',
+  'faq1q': 'Posso usare i codici QR per scopi commerciali?',
+  'faq1a': 'Sì. Usali su confezioni, cartelli, menu, biglietti da visita, manifesti e tutto il resto. Non devi pagare, chiedere il permesso né citare Round QR.',
+  'faq2q': 'I codici QR scadono?',
+  'faq2a': 'No. Sono codici statici, con il link scritto direttamente nel disegno. Non c\'è nessun intermediario, reindirizzamento o account che possa chiudere. Il codice funziona finché esiste la pagina a cui punta.',
+  'faq3q': 'Un codice QR rotondo si può scansionare?',
+  'faq3a': 'Sì. La forma rotonda è una decorazione intorno a un normalissimo codice QR che tutti i telefoni sanno leggere. Round QR scansiona il codice da solo e mostra "Si può scansionare" quando va tutto bene. Provalo comunque con il tuo telefono prima di mandare qualcosa in stampa.',
+  'faq4q': 'Quanto costa?',
+  'faq4a': 'Niente. Non ci saranno mai abbonamenti, account o pubblicità. Il sito è pagato dagli sponsor qui sopra.',
+  'faq5q': 'Salvate i miei link o le mie immagini?',
+  'faq5a': 'No. Tutto avviene nel tuo browser e niente viene inviato a un server. Niente cookie e nessun tracciamento.',
+  'faq6q': 'Round QR è open source?',
+  'faq6a': 'Sì. Tutto il codice sorgente è pubblico su GitHub, e puoi scaricare l\'intero programma come un unico file HTML e usarlo senza internet.',
+ },
  'sv': {
   'faqTitle': 'Frågor och svar',
   'faqIntro': 'Det folk oftast frågar om.',
@@ -264,7 +295,7 @@ FAQ = {
  },
 }
 DA.update(FAQ['da']); EN.update(FAQ['en'])
-for _lg in ('de', 'no', 'sv', 'es', 'fr'): SITE_LANGS[_lg].update(FAQ[_lg])
+for _lg in ('de', 'no', 'sv', 'es', 'fr', 'it'): SITE_LANGS[_lg].update(FAQ[_lg])
 GITHUB = 'https://github.com/rapsak5/roundqr'
 
 def faq_html():
@@ -407,7 +438,8 @@ OFFLINE_FOOT = '''
 
 ANCHORS = {'da': '      subtitle: "Indsæt et link', 'en': '      subtitle: "Paste a link', 'de': '      subtitle: "Link einfügen',
            'no': '      subtitle: "Lim inn en lenke', 'sv': '      subtitle: "Klistra in en länk',
-           'es': '      subtitle: "Pega un enlace', 'fr': '      subtitle: "Collez un lien'}
+           'es': '      subtitle: "Pega un enlace', 'fr': '      subtitle: "Collez un lien',
+           'it': '      subtitle: "Incolla un link'}
 def add_strings(html, per_lang):
     for lg, d in per_lang.items():
         assert html.count(ANCHORS[lg]) == 1, lg
@@ -459,7 +491,8 @@ off = off.replace(END_WRAP, OFFLINE_FOOT + END_WRAP, 1).replace(CDN, libs(True),
 off = add_strings(off, {'da': {'footNote': 'Virker uden internet. Ingen cookies og ingen sporing.'}, 'en': {'footNote': 'Works offline. No cookies and no tracking.'},
   'de': {'footNote': 'Funktioniert ohne Internet. Keine Cookies und kein Tracking.'}, 'no': {'footNote': 'Virker uten internett. Ingen informasjonskapsler og ingen sporing.'},
   'sv': {'footNote': 'Fungerar utan internet. Inga kakor och ingen spårning.'},
-  'es': {'footNote': 'Funciona sin internet. Sin cookies y sin rastreo.'}, 'fr': {'footNote': 'Fonctionne sans internet. Pas de cookies et pas de suivi.'}})
+  'es': {'footNote': 'Funciona sin internet. Sin cookies y sin rastreo.'}, 'fr': {'footNote': 'Fonctionne sans internet. Pas de cookies et pas de suivi.'},
+  'it': {'footNote': 'Funziona senza internet. Niente cookie e nessun tracciamento.'}})
 OFF_DA = 'Jeg har udviklet Round QR sammen med AI, fordi jeg selv manglede et godt værktøj til QR-koder. Den er gratis, uden abonnement, login og reklamer, og virker også uden internet.'
 OFF_EN = "I built Round QR together with AI because I needed a good QR code tool myself. It's free, with no subscriptions, logins or ads, and it works offline too."
 off = re.sub(r'(      about: )"Jeg har udviklet[^"]*"', lambda m: m.group(1) + '"' + OFF_DA + '"', off)
@@ -469,6 +502,7 @@ OFF_ABOUT = {
   'Jeg har utviklet': 'Jeg har utviklet Round QR sammen med KI fordi jeg selv manglet et godt verktøy for QR-koder. Det er gratis, uten abonnement, innlogging og reklame, og virker også uten internett.',
   'Jag har utvecklat': 'Jag har utvecklat Round QR tillsammans med AI eftersom jag själv saknade ett bra verktyg för QR-koder. Det är gratis, utan prenumeration, inloggning och reklam, och fungerar även utan internet.',
   'He creado Round QR': 'He creado Round QR junto con la IA porque yo mismo echaba en falta una buena herramienta para códigos QR. Es gratis, sin suscripciones, registros ni anuncios, y también funciona sin internet.',
+  "Ho creato Round QR": "Ho creato Round QR insieme all'IA perché mi mancava un buon strumento per i codici QR. È gratuito, senza abbonamenti, account o pubblicità, e funziona anche senza internet.",
   "J'ai créé Round QR": "J'ai créé Round QR avec l'aide de l'IA parce qu'il me manquait un bon outil pour les codes QR. C'est gratuit, sans abonnement, compte ni publicité, et ça fonctionne aussi sans internet.",
 }
 for start, text in OFF_ABOUT.items():
@@ -484,9 +518,9 @@ dl_size = f'{round(size/1024)} KB'
 # ---------- website: én side pr. sprog ----------
 # / er dansk, de andre sprog ligger i /en/, /de/ osv. Teksten skrives ind i HTML'en på forhånd,
 # så Google og AI-søgemaskiner læser siden på det rigtige sprog uden at køre JavaScript.
-LANGS = ['da', 'en', 'de', 'no', 'sv', 'es', 'fr']
-HTML_LANG = {'da': 'da', 'en': 'en', 'de': 'de', 'no': 'nb', 'sv': 'sv', 'es': 'es', 'fr': 'fr'}
-OG_LOCALE = {'da': 'da_DK', 'en': 'en_GB', 'de': 'de_DE', 'no': 'nb_NO', 'sv': 'sv_SE', 'es': 'es_ES', 'fr': 'fr_FR'}
+LANGS = ['da', 'en', 'de', 'no', 'sv', 'es', 'fr', 'it']
+HTML_LANG = {'da': 'da', 'en': 'en', 'de': 'de', 'no': 'nb', 'sv': 'sv', 'es': 'es', 'fr': 'fr', 'it': 'it'}
+OG_LOCALE = {'da': 'da_DK', 'en': 'en_GB', 'de': 'de_DE', 'no': 'nb_NO', 'sv': 'sv_SE', 'es': 'es_ES', 'fr': 'fr_FR', 'it': 'it_IT'}
 BASE = 'https://roundqr.dk'
 def url_of(lg): return BASE + ('/' if lg == 'da' else f'/{lg}/')
 
@@ -502,6 +536,8 @@ PAGE = {
         'Skapa runda eller vanliga QR-koder från en länk. Välj form, färger och logga och spara som PNG, JPG eller SVG. Gratis, utan inloggning och utan reklam.'),
  'es': ('Round QR · Generador de códigos QR gratis, redondos y cuadrados',
         'Crea códigos QR redondos o normales a partir de un enlace. Elige forma, colores y logo, y guárdalo como PNG, JPG o SVG. Gratis, sin registro y sin anuncios.'),
+ 'it': ('Round QR · Generatore di codici QR gratuito, rotondi e quadrati',
+        "Crea codici QR rotondi o normali a partire da un link. Scegli forma, colori e logo, e salva come PNG, JPG o SVG. Gratuito, senza registrazione e senza pubblicità."),
  'fr': ('Round QR · Générateur de codes QR gratuit, ronds et carrés',
         "Créez des codes QR ronds ou classiques à partir d'un lien. Choisissez la forme, les couleurs et le logo, puis enregistrez en PNG, JPG ou SVG. Gratuit, sans compte et sans publicité."),
 }
@@ -512,6 +548,7 @@ FEATURES = {
  'no': ['Runde og firkantede QR-koder', 'Statiske koder som aldri utløper', 'Egne farger, fargeforløp og logo', 'Lagre som PNG, JPG eller SVG', 'Virker uten internett', 'Ingen innlogging, informasjonskapsler eller sporing'],
  'sv': ['Runda och fyrkantiga QR-koder', 'Statiska koder som aldrig slutar fungera', 'Egna färger, färgövergångar och logga', 'Spara som PNG, JPG eller SVG', 'Fungerar utan internet', 'Ingen inloggning, kakor eller spårning'],
  'es': ['Códigos QR redondos y cuadrados', 'Códigos estáticos que nunca caducan', 'Colores, degradados y logo propios', 'Guardar como PNG, JPG o SVG', 'Funciona sin internet', 'Sin registro, cookies ni rastreo'],
+ 'it': ['Codici QR rotondi e quadrati', 'Codici statici che non scadono mai', 'Colori, sfumature e logo tuoi', 'Salva come PNG, JPG o SVG', 'Funziona senza internet', 'Niente account, cookie o tracciamento'],
  'fr': ['Codes QR ronds et carrés', 'Codes statiques qui n\'expirent jamais', 'Vos couleurs, dégradés et logo', 'Enregistrer en PNG, JPG ou SVG', 'Fonctionne sans internet', 'Sans compte, cookies ni suivi'],
 }
 PER_LANG = {'da': DA, 'en': EN}
@@ -524,7 +561,7 @@ def tool_strings(html):
     a = html.index('  var T = {'); b = html.index('  var lang = "da", xmas')
     out = {lg: {} for lg in LANGS}; cur = None
     for line in html[a:b].split('\n'):
-        m = re.match(r'^\s{3,4}"?(da|en|de|no|sv|es|fr)"?: \{\s*$', line)
+        m = re.match(r'^\s{3,4}"?(da|en|de|no|sv|es|fr|it)"?: \{\s*$', line)
         if m: cur = m.group(1); continue
         if cur is None or 'function' in line: continue
         for k, v in re.findall(r'(?:^|[\s{,])"?(\w+)"?: ("(?:[^"\\]|\\.)*")', line):

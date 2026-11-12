@@ -2,7 +2,7 @@
 
 > Round QR er en gratis QR-kode-generator til runde og almindelige firkantede QR-koder. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Uden login, abonnement og reklamer.
 
-Lavet af Kasper Bergstrøm. Kildekoden er åben på [GitHub](https://github.com/rapsak5/roundqr), og hele værktøjet kan hentes som én HTML-fil. Senest opdateret 2026-11-07.
+Lavet af Kasper Bergstrøm. Kildekoden er åben på [GitHub](https://github.com/rapsak5/roundqr), og hele værktøjet kan hentes som én HTML-fil. Senest opdateret 2026-11-12.
 
 ## Sprog
 - [Dansk](https://roundqr.dk/)
@@ -12,6 +12,7 @@ Lavet af Kasper Bergstrøm. Kildekoden er åben på [GitHub](https://github.com/
 - [Norsk](https://roundqr.dk/no/)
 - [Français](https://roundqr.dk/fr/)
 - [Español](https://roundqr.dk/es/)
+- [Italiano](https://roundqr.dk/it/)
 
 ## Sponsorer
 - [ai-workshop.dk](https://ai-workshop.dk/): Workshops og webinarer om AI i arbejdsdagen.
