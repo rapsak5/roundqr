@@ -29,4 +29,4 @@ Hjælpescripts i tools/gaver/hjaelp (kør fra repo-roden):
 - whitefix.py ind.png ud.png HEX: hvidt logo vist på sort bund; hvid tekst farves HEX, farvede dele beholdes.
 Tip: læs mailadresser med javascript_tool (mailto-links og main.textContent) og fjern ?, & og = fra output,
 ellers blokerer Chrome-værktøjet svaret. Logo: vis billedet i et hvidt overlay og tag zoom med save_to_disk uden scale.
-Status 12. nov. 2026: Hovedstaden, Sjælland, Syddanmark og Midtjylland er færdige. Næste: Region Nordjylland (Brønderslev først).
+Status 12. nov. 2026: Alle 98 kommuner har en side og mindst én mailadresse. Opgaven er færdig.
