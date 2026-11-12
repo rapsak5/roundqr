@@ -595,5 +595,20 @@
   },
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/kommuner/logos/kalundborg.png"
+ },
+ {
+  "id": "lejre",
+  "name": "Lejre Kommune",
+  "short": "Lejre Kommune",
+  "genitive": "Lejre Kommunes",
+  "website": "https://lejre.dk",
+  "colors": {
+   "primary": "#124419",
+   "secondary": "#6a240e",
+   "accent": "#fbca78",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/kommuner/logos/lejre.png"
  }
 ]
