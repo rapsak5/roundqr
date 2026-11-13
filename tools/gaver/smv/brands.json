@@ -832,5 +832,342 @@
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/smv/logos/faaborgfjord.png",
   "mark_file": "tools/gaver/marks/faaborgfjord.png"
+ },
+ {
+  "id": "vandkunsten",
+  "name": "Tegnestuen Vandkunsten",
+  "short": "Vandkunsten",
+  "website": "https://vandkunsten.com",
+  "colors": {
+   "primary": "#12490a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/vandkunsten.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "sla",
+  "name": "SLA",
+  "short": "SLA",
+  "website": "https://www.sla.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#b59d87",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/sla.png",
+  "mark_file": "tools/gaver/marks/sla.png"
+ },
+ {
+  "id": "gottliebpaludan",
+  "name": "Gottlieb Paludan Architects",
+  "short": "Gottlieb Paludan",
+  "website": "https://www.gottliebpaludan.com",
+  "colors": {
+   "primary": "#27211d",
+   "secondary": "#8c7f76",
+   "accent": "#ddd3c2",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/gottliebpaludan.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "amagerbryghus",
+  "name": "Amager Bryghus",
+  "short": "Amager Bryghus",
+  "website": "https://www.amagerbryghus.dk",
+  "colors": {
+   "primary": "#1a1a1a",
+   "secondary": "#ce1b28",
+   "accent": "#f4e296",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/amagerbryghus.png",
+  "mark_file": "none",
+  "genitive": "Amager Bryghus'"
+ },
+ {
+  "id": "copenhill",
+  "name": "CopenHill",
+  "short": "CopenHill",
+  "website": "https://www.copenhill.dk",
+  "colors": {
+   "primary": "#283541",
+   "secondary": "#4e79c1",
+   "accent": "#8dbfe7",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/copenhill.png",
+  "mark_file": "tools/gaver/marks/copenhill.png"
+ },
+ {
+  "id": "reffen",
+  "name": "Reffen",
+  "short": "Reffen",
+  "website": "https://reffen.dk",
+  "colors": {
+   "primary": "#3f324c",
+   "secondary": "#ed5025",
+   "accent": "#ffcd34",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/reffen.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "bellacenter",
+  "name": "Bella Center Copenhagen",
+  "short": "Bella Center",
+  "website": "https://www.bellacenter.dk",
+  "colors": {
+   "primary": "#000000",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/bellacenter.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "cc",
+  "name": "Copenhagen Contemporary",
+  "short": "Copenhagen Contemporary",
+  "website": "https://www.copenhagencontemporary.org",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#ff00dd",
+   "accent": "#eae79e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/cc.png",
+  "mark_file": "none",
+  "genitive": "Copenhagen Contemporarys"
+ },
+ {
+  "id": "ekj",
+  "name": "EKJ Rådgivende Ingeniører",
+  "short": "EKJ",
+  "website": "https://www.ekj.dk",
+  "colors": {
+   "primary": "#092440",
+   "secondary": "#e95e0f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ekj.png",
+  "mark_file": "tools/gaver/marks/ekj.png"
+ },
+ {
+  "id": "sj",
+  "name": "Søren Jensen Rådgivende Ingeniørfirma",
+  "short": "Søren Jensen",
+  "website": "https://www.sj.dk",
+  "colors": {
+   "primary": "#373632",
+   "secondary": "#afb592",
+   "accent": "#3f5324",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/sj.png",
+  "mark_file": "tools/gaver/marks/sj.png"
+ },
+ {
+  "id": "sanders",
+  "name": "Hotel Sanders",
+  "short": "Hotel Sanders",
+  "website": "https://www.hotelsanders.com",
+  "colors": {
+   "primary": "#001d13",
+   "secondary": "#d3bb7b",
+   "accent": "#eeebe3",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/sanders.png",
+  "mark_file": "tools/gaver/marks/sanders.png",
+  "genitive": "Hotel Sanders'"
+ },
+ {
+  "id": "admiral",
+  "name": "Copenhagen Admiral Hotel",
+  "short": "Admiral Hotel",
+  "website": "https://www.admiralhotel.dk",
+  "colors": {
+   "primary": "#1e2235",
+   "secondary": "#947e2e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/admiral.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "brochner",
+  "name": "Brøchner Hotels",
+  "short": "Brøchner Hotels",
+  "website": "https://brochner-hotels.com",
+  "colors": {
+   "primary": "#171715",
+   "secondary": "#ca8a55",
+   "accent": "#3a3a3a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/brochner.png",
+  "mark_file": "none",
+  "genitive": "Brøchner Hotels'"
+ },
+ {
+  "id": "skodsborg",
+  "name": "Kurhotel Skodsborg",
+  "short": "Skodsborg",
+  "website": "https://www.skodsborg.dk",
+  "colors": {
+   "primary": "#3c3c3c",
+   "secondary": "#aa7982",
+   "accent": "#102749",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/skodsborg.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "marienlyst",
+  "name": "Marienlyst Strandhotel",
+  "short": "Marienlyst",
+  "website": "https://www.marienlyst.dk",
+  "colors": {
+   "primary": "#0a2725",
+   "secondary": "#114542",
+   "accent": "#f6f1e9",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/marienlyst.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "summerbird",
+  "name": "Summerbird",
+  "short": "Summerbird",
+  "website": "https://www.summerbird.dk",
+  "colors": {
+   "primary": "#1a1a1a",
+   "secondary": "#0f1216",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/summerbird.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "roskildefestival",
+  "name": "Roskilde Festival",
+  "short": "Roskilde Festival",
+  "website": "https://www.roskilde-festival.dk",
+  "colors": {
+   "primary": "#0d0d0d",
+   "secondary": "#ff7300",
+   "accent": "#d66501",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/roskildefestival.png",
+  "mark_file": "tools/gaver/marks/roskildefestival.png"
+ },
+ {
+  "id": "kontrapunkt",
+  "name": "Kontrapunkt",
+  "short": "Kontrapunkt",
+  "website": "https://www.kontrapunkt.com",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#f5f0f0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/kontrapunkt.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "zetland",
+  "name": "Zetland",
+  "short": "Zetland",
+  "website": "https://www.zetland.dk",
+  "colors": {
+   "primary": "#fc5b22",
+   "secondary": "#0f1c42",
+   "accent": "#fffcf5",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/zetland.png",
+  "mark_file": "tools/gaver/marks/zetland.png"
+ },
+ {
+  "id": "ppmobler",
+  "name": "PP Møbler",
+  "short": "PP Møbler",
+  "website": "https://www.pp.dk",
+  "colors": {
+   "primary": "#000000",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ppmobler.png",
+  "mark_file": "tools/gaver/marks/ppmobler.png"
+ },
+ {
+  "id": "seismonaut",
+  "name": "Seismonaut",
+  "short": "Seismonaut",
+  "website": "https://www.seismonaut.com",
+  "colors": {
+   "primary": "#132c30",
+   "secondary": "#ff5027",
+   "accent": "#3a8ac1",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/seismonaut.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "epinion",
+  "name": "Epinion",
+  "short": "Epinion",
+  "website": "https://www.epinionglobal.com",
+  "colors": {
+   "primary": "#e13c32",
+   "secondary": "#0f283c",
+   "accent": "#48132a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/epinion.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "kokkedal",
+  "name": "Kokkedal Slot Copenhagen",
+  "short": "Kokkedal Slot",
+  "website": "https://www.kokkedalslotcopenhagen.dk",
+  "colors": {
+   "primary": "#243a2f",
+   "secondary": "#d4d1c4",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/kokkedal.png",
+  "mark_file": "tools/gaver/marks/kokkedal.png"
  }
 ]
