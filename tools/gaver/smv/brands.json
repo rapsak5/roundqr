@@ -361,5 +361,476 @@
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/smv/logos/molbak.png",
   "mark_file": "none"
+ },
+ {
+  "id": "coffeecollective",
+  "name": "The Coffee Collective",
+  "short": "Coffee Collective",
+  "website": "https://coffeecollective.dk",
+  "colors": {
+   "primary": "#4c4341",
+   "secondary": "#a35056",
+   "accent": "#343e3b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/coffeecollective.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "adept",
+  "name": "ADEPT",
+  "short": "ADEPT",
+  "website": "https://adept.dk",
+  "colors": {
+   "primary": "#1a1a1a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/adept.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "nord",
+  "name": "NORD Architects",
+  "short": "NORD",
+  "website": "https://nordarchitects.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#d7e1ea",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/nord.png",
+  "mark_file": "tools/gaver/marks/nord.png"
+ },
+ {
+  "id": "jjw",
+  "name": "JJW Arkitekter",
+  "short": "JJW",
+  "website": "https://www.jjw.dk",
+  "colors": {
+   "primary": "#171717",
+   "secondary": "#ff540d",
+   "accent": "#dcf0ff",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/jjw.png",
+  "mark_file": "tools/gaver/marks/jjw.png"
+ },
+ {
+  "id": "effekt",
+  "name": "EFFEKT Arkitekter",
+  "short": "EFFEKT",
+  "website": "https://www.effekt.dk",
+  "colors": {
+   "primary": "#222222",
+   "secondary": "#716f6f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/effekt.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "les",
+  "name": "Lund Elmer Sandager",
+  "short": "Lund Elmer Sandager",
+  "website": "https://les.dk",
+  "colors": {
+   "primary": "#202e3d",
+   "secondary": "#d2b28b",
+   "accent": "#eca9a6",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/les.png",
+  "mark_file": "tools/gaver/marks/les.png"
+ },
+ {
+  "id": "abc",
+  "name": "ABC Rådgivende Ingeniører",
+  "short": "ABC",
+  "website": "https://abc.dk",
+  "colors": {
+   "primary": "#122d33",
+   "secondary": "#296872",
+   "accent": "#f79433",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/abc.png",
+  "mark_file": "tools/gaver/marks/abc.png"
+ },
+ {
+  "id": "ingholt",
+  "name": "Ingholt Consult",
+  "short": "Ingholt Consult",
+  "website": "https://ingholt.dk",
+  "colors": {
+   "primary": "#031f3f",
+   "secondary": "#f58e0f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ingholt.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "mikkeller",
+  "name": "Mikkeller",
+  "short": "Mikkeller",
+  "website": "https://www.mikkeller.com",
+  "colors": {
+   "primary": "#357c4f",
+   "secondary": "#414040",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/mikkeller.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "unibio",
+  "name": "Unibio",
+  "short": "Unibio",
+  "website": "https://unibio.dk",
+  "colors": {
+   "primary": "#343a40",
+   "secondary": "#00ccaa",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/unibio.png",
+  "mark_file": "tools/gaver/marks/unibio.png"
+ },
+ {
+  "id": "strunge",
+  "name": "Strunge Rådgivende Ingeniører",
+  "short": "Strunge",
+  "website": "https://www.strunge.dk",
+  "colors": {
+   "primary": "#781707",
+   "secondary": "#313e5f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/strunge.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "svendsen",
+  "name": "Advokatfirmaet Svendsen",
+  "short": "Advokatfirmaet Svendsen",
+  "website": "https://www.advokatfirmaet-svendsen.dk",
+  "colors": {
+   "primary": "#3d3935",
+   "secondary": "#858d68",
+   "accent": "#ccc4bd",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/svendsen.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "ringstedfestival",
+  "name": "Ringsted Festival",
+  "short": "Ringsted Festival",
+  "website": "https://ringstedfestival.dk",
+  "colors": {
+   "primary": "#de172b",
+   "secondary": "#f9a51b",
+   "accent": "#12181f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ringstedfestival.png",
+  "mark_file": "tools/gaver/marks/ringstedfestival.png"
+ },
+ {
+  "id": "roedvig",
+  "name": "Rødvig Kro & Badehotel",
+  "short": "Rødvig Kro",
+  "website": "https://www.roedvigkro.dk",
+  "colors": {
+   "primary": "#1a3a5a",
+   "secondary": "#3e8ab3",
+   "accent": "#c9b896",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/roedvig.png",
+  "mark_file": "tools/gaver/marks/roedvig.png"
+ },
+ {
+  "id": "cw",
+  "name": "C&W Arkitekter",
+  "short": "C&W Arkitekter",
+  "website": "https://www.cw-arkitekter.dk",
+  "colors": {
+   "primary": "#003242",
+   "secondary": "#0383ad",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/cw.png",
+  "mark_file": "tools/gaver/marks/cw.png"
+ },
+ {
+  "id": "kielberg",
+  "name": "Kielberg Advokater",
+  "short": "Kielberg",
+  "website": "https://kielberg.com",
+  "colors": {
+   "primary": "#213b54",
+   "secondary": "#eab818",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/kielberg.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "obh",
+  "name": "OBH Rådgivende Ingeniører",
+  "short": "OBH",
+  "website": "https://www.obh-gruppen.dk",
+  "colors": {
+   "primary": "#000047",
+   "secondary": "#6ba6db",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/obh.png",
+  "mark_file": "tools/gaver/marks/obh.png"
+ },
+ {
+  "id": "hesselet",
+  "name": "Hotel Hesselet",
+  "short": "Hotel Hesselet",
+  "website": "https://www.hotel-hesselet.dk",
+  "colors": {
+   "primary": "#333333",
+   "secondary": "#636c70",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/hesselet.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "falsled",
+  "name": "Falsled Kro",
+  "short": "Falsled Kro",
+  "website": "https://www.falsledkro.dk",
+  "colors": {
+   "primary": "#333632",
+   "secondary": "#b99d75",
+   "accent": "#53624e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/falsled.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "fjelstedskov",
+  "name": "Fjelsted Skov Hotel & Konference",
+  "short": "Fjelsted Skov",
+  "website": "https://fjelstedskov.dk",
+  "colors": {
+   "primary": "#434343",
+   "secondary": "#b19f6a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/fjelstedskov.png",
+  "mark_file": "tools/gaver/marks/fjelstedskov.png"
+ },
+ {
+  "id": "hindsgavl",
+  "name": "Hindsgavl Slot",
+  "short": "Hindsgavl Slot",
+  "website": "https://hindsgavl.dk",
+  "colors": {
+   "primary": "#6d6161",
+   "secondary": "#c7a263",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/hindsgavl.png",
+  "mark_file": "tools/gaver/marks/hindsgavl.png"
+ },
+ {
+  "id": "focus",
+  "name": "Focus Advokater",
+  "short": "Focus Advokater",
+  "website": "https://focus-advokater.dk",
+  "colors": {
+   "primary": "#d31245",
+   "secondary": "#333333",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/focus.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "jogp",
+  "name": "Ingeniørfirmaet J&P",
+  "short": "J&P",
+  "website": "https://www.jogp.dk",
+  "colors": {
+   "primary": "#344f42",
+   "secondary": "#474747",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/jogp.png",
+  "mark_file": "tools/gaver/marks/jogp.png"
+ },
+ {
+  "id": "vejroe",
+  "name": "Vejrø",
+  "short": "Vejrø",
+  "website": "https://vejroe.dk",
+  "colors": {
+   "primary": "#17191c",
+   "secondary": "#e1ddd0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/vejroe.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "ce",
+  "name": "Copenhagen Economics",
+  "short": "Copenhagen Economics",
+  "website": "https://www.copenhageneconomics.com",
+  "colors": {
+   "primary": "#2b5065",
+   "secondary": "#020318",
+   "accent": "#ffe305",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ce.png",
+  "mark_file": "tools/gaver/marks/ce.png",
+  "genitive": "Copenhagen Economics'"
+ },
+ {
+  "id": "wissenberg",
+  "name": "Wissenberg Rådgivende Ingeniører",
+  "short": "Wissenberg",
+  "website": "https://www.wissenberg.dk",
+  "colors": {
+   "primary": "#0f4c81",
+   "secondary": "#092d4c",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/wissenberg.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "lt",
+  "name": "Lundgaard & Tranberg Arkitekter",
+  "short": "Lundgaard & Tranberg",
+  "website": "https://www.ltarkitekter.dk",
+  "colors": {
+   "primary": "#333333",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/lt.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "bakken",
+  "name": "Dyrehavsbakken",
+  "short": "Bakken",
+  "website": "https://www.bakken.dk",
+  "colors": {
+   "primary": "#923930",
+   "secondary": "#036058",
+   "accent": "#ffb300",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/bakken.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "mazanti",
+  "name": "Mazanti-Andersen",
+  "short": "Mazanti-Andersen",
+  "website": "https://www.mazanti.dk",
+  "colors": {
+   "primary": "#001f3b",
+   "secondary": "#ef5a33",
+   "accent": "#5b5a5d",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/mazanti.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "goboat",
+  "name": "GoBoat",
+  "short": "GoBoat",
+  "website": "https://goboat.dk",
+  "colors": {
+   "primary": "#44525f",
+   "secondary": "#ffdf63",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/goboat.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "nokc",
+  "name": "Nordsjællands KonferenceCenter",
+  "short": "NOKC",
+  "website": "https://nokc.dk",
+  "colors": {
+   "primary": "#1b252f",
+   "secondary": "#856d1f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/nokc.png",
+  "mark_file": "tools/gaver/marks/nokc.png"
+ },
+ {
+  "id": "praksis",
+  "name": "Praksis Arkitekter",
+  "short": "Praksis Arkitekter",
+  "website": "https://praksisarkitekter.dk",
+  "colors": {
+   "primary": "#2d2d2d",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/praksis.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "faaborgfjord",
+  "name": "Hotel Faaborg Fjord",
+  "short": "Faaborg Fjord",
+  "website": "https://www.hotelfaaborgfjord.dk",
+  "colors": {
+   "primary": "#746954",
+   "secondary": "#1e1e1e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/faaborgfjord.png",
+  "mark_file": "tools/gaver/marks/faaborgfjord.png"
  }
 ]
