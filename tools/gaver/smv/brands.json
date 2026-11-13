@@ -2066,5 +2066,278 @@
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/smv/logos/danielsen.png",
   "mark_file": "none"
+ },
+ {
+  "id": "zoo",
+  "name": "ZOO København",
+  "short": "ZOO København",
+  "website": "https://www.zoo.dk",
+  "colors": {
+   "primary": "#0e3a31",
+   "secondary": "#135244",
+   "accent": "#ee5321",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/zoo.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "davidmus",
+  "name": "Davids Samling",
+  "short": "Davids Samling",
+  "website": "https://www.davidmus.dk",
+  "colors": {
+   "primary": "#000000",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/davidmus.png",
+  "mark_file": "tools/gaver/marks/davidmus.png"
+ },
+ {
+  "id": "vega",
+  "name": "VEGA",
+  "short": "VEGA",
+  "website": "https://www.vega.dk",
+  "colors": {
+   "primary": "#1f1f1f",
+   "secondary": "#d5bbda",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/vega.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "designmuseum",
+  "name": "Designmuseum Danmark",
+  "short": "Designmuseum Danmark",
+  "website": "https://www.designmuseum.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#e53242",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/designmuseum.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "wowpark",
+  "name": "WOW Park",
+  "short": "WOW Park",
+  "website": "https://www.wowpark.dk",
+  "colors": {
+   "primary": "#0a705c",
+   "secondary": "#2acb7a",
+   "accent": "#f5523a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/wowpark.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "ledreborg",
+  "name": "Ledreborg Slot",
+  "short": "Ledreborg",
+  "website": "https://ledreborg.dk",
+  "colors": {
+   "primary": "#190f3c",
+   "secondary": "#9ab9b1",
+   "accent": "#afafaf",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ledreborg.png",
+  "mark_file": "tools/gaver/marks/ledreborg.png"
+ },
+ {
+  "id": "odenseteater",
+  "name": "Odense Teater",
+  "short": "Odense Teater",
+  "website": "https://www.odenseteater.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#f4f4f4",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/odenseteater.png",
+  "mark_file": "tools/gaver/marks/odenseteater.png"
+ },
+ {
+  "id": "nbt",
+  "name": "Nørrebro Teater",
+  "short": "Nørrebro Teater",
+  "website": "https://www.nbt.dk",
+  "colors": {
+   "primary": "#4a4a4a",
+   "secondary": "#dadada",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/nbt.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "bornholmskunstmuseum",
+  "name": "Bornholms Kunstmuseum",
+  "short": "Bornholms Kunstmuseum",
+  "website": "https://www.bornholms-kunstmuseum.dk",
+  "colors": {
+   "primary": "#000000",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/bornholmskunstmuseum.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "bettynansen",
+  "name": "Betty Nansen Teatret",
+  "short": "Betty Nansen Teatret",
+  "website": "https://www.bettynansen.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#532dfc",
+   "accent": "#d7ff01",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/bettynansen.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "detnyteater",
+  "name": "Det Ny Teater",
+  "short": "Det Ny Teater",
+  "website": "https://www.detnyteater.dk",
+  "colors": {
+   "primary": "#04010a",
+   "secondary": "#d9ab3b",
+   "accent": "#666666",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/detnyteater.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "republique",
+  "name": "REPUBLIQUE / REVOLVER og Østerbro Teater",
+  "short": "REPUBLIQUE",
+  "website": "https://www.republique.dk",
+  "colors": {
+   "primary": "#1e1e1e",
+   "secondary": "#e52421",
+   "accent": "#ffd25a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/republique.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "avenyt",
+  "name": "Aveny-T",
+  "short": "Aveny-T",
+  "website": "https://www.aveny-t.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#ffff00",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/avenyt.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "pumpehuset",
+  "name": "Pumpehuset",
+  "short": "Pumpehuset",
+  "website": "https://www.pumpehuset.dk",
+  "colors": {
+   "primary": "#151515",
+   "secondary": "#fdd62d",
+   "accent": "#404040",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/pumpehuset.png",
+  "mark_file": "tools/gaver/marks/pumpehuset.png"
+ },
+ {
+  "id": "grandteatret",
+  "name": "Grand Teatret",
+  "short": "Grand Teatret",
+  "website": "https://www.grandteatret.dk",
+  "colors": {
+   "primary": "#272329",
+   "secondary": "#e1dbcc",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/grandteatret.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "empirebio",
+  "name": "Empire Bio",
+  "short": "Empire Bio",
+  "website": "https://www.empirebio.dk",
+  "colors": {
+   "primary": "#070504",
+   "secondary": "#af865a",
+   "accent": "#888888",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/empirebio.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "loppen",
+  "name": "Loppen",
+  "short": "Loppen",
+  "website": "https://www.loppen.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#447db6",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/loppen.png",
+  "mark_file": "tools/gaver/marks/loppen.png"
+ },
+ {
+  "id": "warpigs",
+  "name": "Warpigs Brewpub",
+  "short": "Warpigs",
+  "website": "https://www.warpigs.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#d0c6b3",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/warpigs.png",
+  "mark_file": "none",
+  "genitive": "Warpigs'"
+ },
+ {
+  "id": "labanchina",
+  "name": "La Banchina",
+  "short": "La Banchina",
+  "website": "https://www.labanchina.dk",
+  "colors": {
+   "primary": "#1c304a",
+   "secondary": "#7ba7bc",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/labanchina.png",
+  "mark_file": "none"
  }
 ]
