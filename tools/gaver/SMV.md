@@ -42,4 +42,13 @@ og Lyngkilde (Næstved) har side og mailudkast. Fravalgt: Johannes Dam & Søn (s
 Optalt: Sjælland 5 af 20, Fyn 4 af 15, Lolland-Falster 3 af 8, Bornholm 3 af 7 (15 af 50).
 Bornholm og Lolland-Falster har få virksomheder over 20 ansatte; her er 10 til 20 ansatte taget med og markeret "Måske".
 Tip: firmaapi.dk/virksomhed/<cvr> giver ansatte, ejere og ledelse. businesslf.dk har lister over nominerede Lolland-Falster-virksomheder.
+13. nov. 2026, hold 3: En anden proces (research-agenter) har lagt mange kandidater i arket med fasen "4 Til godkendelse", mail, vinkel og designnoter,
+men uden side. Hold 3 byggede sider og mailudkast for 10 af dem: DreistStorgaard, Skel.dk, Frederiksminde, Addere, Norsyn, Mølbak, Kragerup (Sjælland),
+GeoCenter Møns Klint (Møn), Hotel Falster og Friis Andersen (Lolland-Falster). Fasen er ikke ændret; Kasper sætter flueben i Godkendt af Kasper.
+Række 25 (Lyngkilde) er en dublet af række 13. Optalt med side: Sjælland 13 af 20, Fyn 4 af 15, Lolland-Falster 5 af 8, Bornholm 3 af 7 (25 af 50).
+Næste hold: Fyn-fanen har 10 kandidater uden side (C & W, Kielberg, OBH, Hesselet, Falsled Kro, Fjelsted Skov, Praksis, Hotel Faaborg Fjord,
+Hindsgavl, Focus Advokater). Derefter resten af Sjælland (Unibio, J&P række 37, Strunge, Rødvig Kro m.fl.). Bornholm mangler 4 nye.
+Logoer: logo-URL'er står ofte i Designnoter. Åbn siden i Chrome og kør
+await eval(await (await fetch('https://roundqr.dk/tools/gaver/p2.js')).text()) (window.__bg for hvide logoer, window.__pick for et andet kandidatlogo).
+Kan siden ikke åbnes, så åbn logo-URL'en direkte og sæt body-baggrunden med javascript_tool. curl fra sessionen er blokeret.
 Kandidater til næste hold: Bornholms Tidende (fondsejet), Hotel Griffen, Sjælland og Fyn mangler flest.
