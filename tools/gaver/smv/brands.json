@@ -115,5 +115,109 @@
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/smv/logos/ordbogen.png",
   "mark_file": "tools/gaver/marks/ordbogen.png"
+ },
+ {
+  "id": "kjaerstrup",
+  "name": "Kjærstrup Chokolade",
+  "short": "Kjærstrup",
+  "website": "https://kjaerstrup.dk",
+  "colors": {
+   "primary": "#572700",
+   "secondary": "#f58026",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/kjaerstrup.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "svanekechokoladeri",
+  "name": "Svaneke Chokoladeri",
+  "short": "Svaneke Chokoladeri",
+  "website": "https://svanekechokoladeri.dk",
+  "colors": {
+   "primary": "#61452e",
+   "secondary": "#896e59",
+   "accent": "#e9e5d6",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/svanekechokoladeri.png",
+  "mark_file": "tools/gaver/marks/svanekechokoladeri.png"
+ },
+ {
+  "id": "svanekebryghus",
+  "name": "Svaneke Bryghus",
+  "short": "Svaneke Bryghus",
+  "website": "https://www.svanekebryghus.dk",
+  "colors": {
+   "primary": "#1d1817",
+   "secondary": "#14420e",
+   "accent": "#ce381a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/svanekebryghus.png",
+  "mark_file": "none",
+  "genitive": "Svaneke Bryghus'"
+ },
+ {
+  "id": "soebyvaerft",
+  "name": "Søby Værft",
+  "short": "Søby Værft",
+  "website": "https://www.sobyshipyard.com",
+  "colors": {
+   "primary": "#2a2829",
+   "secondary": "#009de0",
+   "accent": "#055160",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/soebyvaerft.png",
+  "mark_file": "tools/gaver/marks/soebyvaerft.png"
+ },
+ {
+  "id": "danucare",
+  "name": "DanuCare",
+  "short": "DanuCare",
+  "website": "https://www.danucare.dk",
+  "colors": {
+   "primary": "#185b56",
+   "secondary": "#2b3aa3",
+   "accent": "#30857e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/danucare.png",
+  "mark_file": "tools/gaver/marks/danucare.png"
+ },
+ {
+  "id": "kjelektro",
+  "name": "K.J. Elektro",
+  "short": "K.J. Elektro",
+  "website": "https://kjelektro.dk",
+  "colors": {
+   "primary": "#2f2385",
+   "secondary": "#0b024d",
+   "accent": "#00bac4",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/kjelektro.png",
+  "mark_file": "tools/gaver/marks/kjelektro.png"
+ },
+ {
+  "id": "lyngkilde",
+  "name": "Lyngkilde",
+  "short": "Lyngkilde",
+  "website": "https://www.lyngkilde.dk",
+  "colors": {
+   "primary": "#ab0033",
+   "secondary": "#636569",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/lyngkilde.png",
+  "mark_file": "none"
  }
 ]
