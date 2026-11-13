@@ -1007,6 +1007,83 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
   .sgarland .st, .skov .sowl .open, .skov .sowl .head { animation: none; }
 }
 /* skovtur:end */
+/* underhavet:start */
+/* Under havet: waves along the top, bubbles in the water; panels keep their own light or dark surface. */
+:root.hav {
+  --page: #e2f3f6; --page-ink: #10242e; --page-muted: #47626d;
+  --bg: #f4fafb; --surface: #ffffff; --stage: #e6f3f5; --ink: #10242e; --muted: #54696f; --line: #cfe3e7;
+  --accent: #0b7285; --accent-strong: #095c6b; --accent-ink: #ffffff; --v-w1: #c3e8ef; --v-w2: #7fcbda; --v-w3: #2a9db4;
+}
+@media (prefers-color-scheme: dark) {
+  :root.hav:not([data-theme="light"]) {
+    --page: #061a26; --page-ink: #e3f1f5; --page-muted: #9bb8c2;
+    --bg: #0a2230; --surface: #0d2938; --stage: #123346; --ink: #e3f1f5; --muted: #9bb8c2; --line: #1d4458;
+    --accent: #4cc9d8; --accent-strong: #8be0ea; --accent-ink: #04212a; --v-w1: #0f3a4f; --v-w2: #15566f; --v-w3: #1c7790;
+  }
+}
+:root.hav[data-theme="dark"] {
+  --page: #061a26; --page-ink: #e3f1f5; --page-muted: #9bb8c2;
+  --bg: #0a2230; --surface: #0d2938; --stage: #123346; --ink: #e3f1f5; --muted: #9bb8c2; --line: #1d4458;
+  --accent: #4cc9d8; --accent-strong: #8be0ea; --accent-ink: #04212a; --v-w1: #0f3a4f; --v-w2: #15566f; --v-w3: #1c7790;
+}
+:root.hav body {
+  background:
+    radial-gradient(circle at 24% 28%, transparent 0 4px, rgb(42 157 180 / 0.22) 4.5px 5.5px, transparent 6px) 0 0 / 150px 170px,
+    radial-gradient(circle at 72% 64%, transparent 0 2px, rgb(42 157 180 / 0.2) 2.5px 3.5px, transparent 4px) 0 0 / 110px 130px,
+    linear-gradient(180deg, color-mix(in srgb, var(--v-w2) 34%, var(--page)) 0, var(--page) 460px);
+  background-color: var(--page);
+  color: var(--page-ink); padding-top: 74px;
+}
+.hav .preview, .hav .controls, .hav .xbar, .hav .sp-list, .hav .download { color: var(--ink); }
+.hav header p, .hav .sp-intro p, .hav .foot { color: var(--page-muted); }
+.hav header .about .sig { color: var(--page-ink); }
+/* The O in Round becomes a bubble. */
+.hav h1 .o { border-color: #2a9db4;
+  background: radial-gradient(circle at 32% 30%, #ffffff 0 9%, #d6f1f6 20%, #8fd6e2 62%, #2a9db4 100%); }
+.hav .stage {
+  background-image:
+    radial-gradient(circle, color-mix(in srgb, #0b7285 26%, transparent) 1.2px, transparent 1.6px),
+    radial-gradient(circle, color-mix(in srgb, #e0503a 22%, transparent) 1.2px, transparent 1.6px);
+  background-size: 22px 22px; background-position: 0 0, 11px 11px;
+}
+:root:not(.hav) .hav-only { display: none !important; }
+.hav .plain-only { display: none !important; }
+.vgarland .w1 { fill: var(--v-w1, #c3e8ef); } .vgarland .w2 { fill: var(--v-w2, #7fcbda); } .vgarland .w3 { fill: var(--v-w3, #2a9db4); }
+.vgarland .wv { animation: bulbOn .5s var(--i) both, vdrift var(--t) linear infinite; }
+@keyframes vdrift { to { transform: translateX(var(--p)); } }
+.vswitch .knob svg { width: 17px; height: 17px; }
+.vswitch .knob .fi { fill: var(--muted); opacity: 0.55; transition: fill .2s, opacity .2s; }
+.vswitch .knob .ey { fill: var(--surface, #fff); }
+.vswitch input:checked + .track { background: repeating-linear-gradient(135deg, #0b7285 0 7px, #2a9db4 7px 14px); }
+.vswitch input:checked + .track .fi { fill: #e0662a; opacity: 1; }
+.vswitch input:checked + .track .ey { fill: #ffffff; }
+.vdecor { display: flex; align-items: flex-end; gap: 4px; height: 58px; flex: none; filter: grayscale(1); opacity: 0.45; transition: filter .3s, opacity .3s; }
+.vweed { width: 24px; height: 54px; overflow: visible; }
+.vweed path { fill: none; stroke-linecap: round; stroke-width: 4.5; transform-box: fill-box; transform-origin: 50% 100%; }
+.vweed .a { stroke: #2f9e77; } .vweed .b { stroke: #1d7a5c; }
+.vturtle { width: 84px; height: 54px; overflow: visible; }
+.vturtle .shell { fill: #2f7d5b; } .vturtle .plate { fill: none; stroke: #9fd0a6; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.8; }
+.vturtle .belly { fill: #e3d59a; } .vturtle .skin { fill: #7fb069; }
+.vturtle .eye { fill: #10242e; }
+.vturtle .flip { transform-box: fill-box; transform-origin: 10% 10%; }
+.vturtle .bub { fill: none; stroke: #2a9db4; stroke-width: 1.3; opacity: 0; }
+.hav .vdecor { filter: none; opacity: 1; }
+.hav .vturtle .swim { animation: vbob 3.2s ease-in-out infinite; }
+.hav .vturtle .flip { animation: vpaddle 1.6s ease-in-out infinite; }
+.hav .vturtle .bub { animation: vrise 2.4s linear infinite; }
+.hav .vturtle .bub:nth-of-type(2) { animation-delay: -0.8s; }
+.hav .vturtle .bub:nth-of-type(3) { animation-delay: -1.6s; }
+.hav .vweed .a { animation: vsway 3.4s ease-in-out infinite; }
+.hav .vweed .b { animation: vsway 3.4s -1.2s ease-in-out infinite; }
+@keyframes vbob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-3px) rotate(-2deg); } }
+@keyframes vpaddle { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(22deg); } }
+@keyframes vrise { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 0.9; } 100% { transform: translateY(-22px); opacity: 0; } }
+@keyframes vsway { 0%, 100% { transform: skewX(-7deg); } 50% { transform: skewX(7deg); } }
+@media (max-width: 480px) { .vdecor { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .vgarland .wv, .hav .vturtle .swim, .hav .vturtle .flip, .hav .vturtle .bub, .hav .vweed .a, .hav .vweed .b { animation: none; }
+}
+/* underhavet:end */
 
 /* Sponsors, download, footer (website only) */
 :root { --plate: #ffffff; }
@@ -1132,6 +1209,10 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 <!-- skovtur:start -->
 <div class="garland sgarland" id="sgarland" aria-hidden="true"></div>
 <!-- skovtur:end -->
+
+<!-- underhavet:start -->
+<div class="garland vgarland" id="vgarland" aria-hidden="true"></div>
+<!-- underhavet:end -->
 
 <div class="wrap">
   <header>
@@ -1277,6 +1358,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="shape" id="shape-ugle" value="ugle"><span><svg data-oshape="ugle"></svg><b data-t="fUgle">Tree</b></span></label>
           </div>
           <!-- skovtur:end -->
+          <!-- underhavet:start -->
+          <div class="xgrid hav-only" id="vshapes" role="radiogroup" data-t-aria="form" aria-label="Form">
+            <label><input type="radio" name="shape" id="shape-hskildpadde" value="hskildpadde"><span><svg data-oshape="hskildpadde"></svg><b data-t="fHskildpadde">Turtle</b></span></label>
+            <label><input type="radio" name="shape" id="shape-hfisk" value="hfisk"><span><svg data-oshape="hfisk"></svg><b data-t="fHfisk">Fish</b></span></label>
+            <label><input type="radio" name="shape" id="shape-hblaeksprutte" value="hblaeksprutte"><span><svg data-oshape="hblaeksprutte"></svg><b data-t="fHblaeksprutte">Octopus</b></span></label>
+            <label><input type="radio" name="shape" id="shape-hkrabbe" value="hkrabbe"><span><svg data-oshape="hkrabbe"></svg><b data-t="fHkrabbe">Crab</b></span></label>
+            <label><input type="radio" name="shape" id="shape-hhval" value="hhval"><span><svg data-oshape="hhval"></svg><b data-t="fHhval">Whale</b></span></label>
+            <label><input type="radio" name="shape" id="shape-hmusling" value="hmusling"><span><svg data-oshape="hmusling"></svg><b data-t="fHmusling">Shell</b></span></label>
+          </div>
+          <!-- underhavet:end -->
           <p class="explain" id="ex-form" data-t="exForm" hidden>Circle gives a decorated round code, Square is the classic QR code.</p>
         </div>
 
@@ -1369,6 +1460,16 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
             <label><input type="radio" name="dot" id="dot-skovmix" value="skovmix"><span><svg viewBox="0 0 1 1" data-shape="skovmix"></svg><b data-t="skovmix">Mixed</b></span></label>
           </div>
           <!-- skovtur:end -->
+          <!-- underhavet:start -->
+          <div class="xgrid hav-only" id="vgrid" role="radiogroup" data-t-aria="modules" aria-label="Modules">
+            <label><input type="radio" name="dot" id="dot-fisk" value="fisk"><span><svg viewBox="0 0 1 1" data-shape="fisk"></svg><b data-t="fisk">Fish</b></span></label>
+            <label><input type="radio" name="dot" id="dot-skildpadder" value="skildpadder"><span><svg viewBox="0 0 1 1" data-shape="skildpadder"></svg><b data-t="skildpadder">Turtles</b></span></label>
+            <label><input type="radio" name="dot" id="dot-sostjerner" value="sostjerner"><span><svg viewBox="0 0 1 1" data-shape="sostjerner"></svg><b data-t="sostjerner">Starfish</b></span></label>
+            <label><input type="radio" name="dot" id="dot-krabber" value="krabber"><span><svg viewBox="0 0 1 1" data-shape="krabber"></svg><b data-t="krabber">Crabs</b></span></label>
+            <label><input type="radio" name="dot" id="dot-blaeksprutter" value="blaeksprutter"><span><svg viewBox="0 0 1 1" data-shape="blaeksprutter"></svg><b data-t="blaeksprutter">Octopuses</b></span></label>
+            <label><input type="radio" name="dot" id="dot-havmix" value="havmix"><span><svg viewBox="0 0 1 1" data-shape="havmix"></svg><b data-t="havmix">Mixed</b></span></label>
+          </div>
+          <!-- underhavet:end -->
           <p class="explain" id="ex-modules" data-t="exModules" hidden>The small cells the code itself is built from.</p>
         </div>
 
@@ -1608,6 +1709,28 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
   </section>
   <!-- skovtur:end -->
+  <!-- underhavet:start -->
+  <section class="xbar vbar" id="vbar" data-t-aria="havAria" aria-label="Under the sea">
+    <label class="xbar-main" for="hav">
+      <span class="xswitch vswitch"><input type="checkbox" id="hav" role="switch"><span class="track"><span class="knob"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="fi" d="M1 3.6l3.4 4.4L1 12.4l1.2-4.4zM3.8 8C5.4 4.6 9.6 3.4 13 5.6c1 .7 1.8 1.5 2.2 2.4-.4.9-1.2 1.7-2.2 2.4-3.4 2.2-7.6 1-9.2-2.4zM7 4.6l2.4-2.8 1.8 2.6z"/><circle class="ey" cx="12" cy="7.2" r="1"/></svg></span></span></span>
+      <span class="xtext"><span class="xtitle" data-t="havLabel">Dive under the sea</span><span class="hint" data-t="havHint">Fish, turtles, starfish, crabs and octopuses instead of dots. And animals swimming past.</span></span>
+    </label>
+    <div class="vdecor" aria-hidden="true">
+      <svg class="vweed" viewBox="0 0 24 54"><path class="a" d="M8 54c-5-9 5-13 0-22s5-13 0-22"/><path class="b" d="M17 54c4-7-4-10 0-17s-3-9 0-15"/></svg>
+      <svg class="vturtle" viewBox="0 0 84 54">
+        <circle class="bub" cx="74" cy="20" r="2.2"/><circle class="bub" cx="79" cy="15" r="1.5"/><circle class="bub" cx="70" cy="14" r="1.2"/>
+        <g class="swim">
+          <path class="skin" d="M17 34c-5 2-10 7-11 13 5 0 11-3 15-11z"/><path class="skin" d="M12 31l-9 2 9 3z"/>
+          <path class="belly" d="M10 31h52c-3 6-12 8-26 8s-23-2-26-8z"/>
+          <path class="shell" d="M9 32c1-14 13-22 27-22s24 8 27 22z"/>
+          <path class="plate" d="M22 31l5-9h18l5 9M27 22l-3-6M45 22l4-5M36 11v11M14 31l4-7M58 31l-4-8"/>
+          <path class="skin" d="M60 30c3-8 12-11 18-8 5 2 6 8 1 11-6 3-14 2-19-3z"/><circle class="eye" cx="74" cy="27" r="1.5"/>
+          <path class="skin flip" d="M44 35c2 7 9 14 18 15 1-5-4-11-11-16z"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+  <!-- underhavet:end -->
 
   <section class="sponsors" id="sponsorer" aria-labelledby="sp-h">
     <div class="sp-intro">
@@ -1660,7 +1783,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </div>
     <div class="dl-action">
       <a class="btn primary big" href="../roundqr.html" download="roundqr.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span data-t="dlBtn">Download roundqr.html</span></a>
-      <span class="spec">HTML · 667 KB</span>
+      <span class="spec">HTML · 676 KB</span>
     </div>
   </section>
 
@@ -1876,6 +1999,38 @@ var RQ = (function () {
   var RAEV = ["M", .5, .33, "L", .66, .29, "L", .87, .02, "L", .9, .35, "L", .99, .5, "L", .77, .62, "L", .5, .97, "L", .23, .62, "L", .01, .5, "L", .1, .35, "L", .13, .02, "L", .34, .29, "Z"];
   var TRUNK = ["M", .44, .6, "L", .44, .98, "L", .56, .98, "L", .56, .6, "Z"];
   var SKOV = ["elge", "ulve", "raeve", "ugler", "bjorne"];
+  // Under havet: sea animals. Every body covers the middle of the cell.
+  // All outlines run the same way round as circ(), so overlapping parts join. Holes (eyes) run the other way.
+  function seaPts(pts, isHole) {
+    var a = 0, i, n = pts.length, o = [];
+    for (i = 0; i < n; i++) { var p = pts[i], q = pts[(i + 1) % n]; a += p[0] * q[1] - q[0] * p[1]; }
+    if ((a > 0) !== !!isHole) pts = pts.slice().reverse();
+    pts.forEach(function (p, j) { o.push(j ? "L" : "M", +p[0].toFixed(3), +p[1].toFixed(3)); });
+    o.push("Z"); return o;
+  }
+  function seaMir(p) { return p.map(function (q) { return [1 - q[0], q[1]]; }); }
+  function seaJoin() { var o = []; for (var i = 0; i < arguments.length; i++) o = o.concat(seaPts(arguments[i])); return o; }
+  // Fish swimming to the right: body, forked tail, back fin and an eye.
+  var FISK = seaJoin(ellPts(.58, .52, .4, .3, 0, 28), [[.3, .52], [.02, .18], [.11, .52], [.02, .86]], [[.4, .27], [.62, .04], [.78, .26]])
+    .concat(seaPts(ellPts(.8, .44, .055, .055, 0, 12), true));
+  // Turtle seen from above: shell, head, four flippers and a small tail.
+  var SK_FRONT = [[.3, .38], [.07, .14], [0, .3], [.1, .48], [.25, .54]], SK_BACK = [[.27, .74], [.06, .86], [.12, .99], [.36, .86]];
+  var SKILDPADDE = seaJoin(ellPts(.5, .56, .3, .33, 0, 28), ellPts(.5, .14, .115, .135, 0, 16), SK_FRONT, seaMir(SK_FRONT), SK_BACK, seaMir(SK_BACK), [[.44, .86], [.56, .86], [.5, 1]]);
+  // Starfish: five arms with round tips and sharp valleys.
+  var SOSTJERNE = seaPts((function () { var a = [], d = Math.PI / 180;
+    for (var i = 0; i < 5; i++) { var t = i * 72 * d;
+      [[-36, .2], [-9, .47], [-4, .52], [0, .535], [4, .52], [9, .47]].forEach(function (q) { a.push([.5 + q[1] * Math.sin(t + q[0] * d), .56 - q[1] * Math.cos(t + q[0] * d)]); }); }
+    return a; })());
+  // Crab: wide body, two raised claws with a notch, legs and eyes on stalks.
+  var KR_CLAW = [[.24, .5], [.05, .36], [0, .16], [.09, .02], [.13, .17], [.21, .04], [.29, .18], [.25, .34], [.32, .44]];
+  var KRABBE = seaJoin(ellPts(.5, .64, .33, .24, 0, 28), KR_CLAW, seaMir(KR_CLAW), barPts(.22, .68, .02, .62, .07), seaMir(barPts(.22, .68, .02, .62, .07)),
+    barPts(.24, .78, .04, .84, .07), seaMir(barPts(.24, .78, .04, .84, .07)), barPts(.3, .84, .16, .99, .07), seaMir(barPts(.3, .84, .16, .99, .07)),
+    ellPts(.4, .36, .065, .065, 0, 12), ellPts(.6, .36, .065, .065, 0, 12));
+  // Octopus: a round head with two eyes, and four arms that curl outwards.
+  var BL_OUT = [[.2, .5], [.05, .68], [0, .92], [.1, .99], [.16, .78], [.3, .66]], BL_IN = [[.3, .6], [.27, .99], [.41, .99], [.47, .66]];
+  var BLAEKSPRUTTE = seaJoin(ellPts(.5, .4, .34, .35, 0, 28), BL_OUT, seaMir(BL_OUT), BL_IN, seaMir(BL_IN))
+    .concat(seaPts(ellPts(.37, .34, .06, .06, 0, 12), true), seaPts(ellPts(.63, .34, .06, .06, 0, 12), true));
+  var HAV = ["fisk", "skildpadder", "sostjerner", "krabber", "blaeksprutter"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -1920,6 +2075,11 @@ var RQ = (function () {
     if (style === "ugler") return circ(x + .5, y + .4, .3) + circ(x + .24, y + .48, .2) + circ(x + .76, y + .48, .2) + circ(x + .34, y + .24, .2) +
       circ(x + .66, y + .24, .2) + sh(x, y, TRUNK);
     if (style === "bjorne") return circ(x + .5, y + .57, .4) + circ(x + .19, y + .22, .14) + circ(x + .81, y + .22, .14);
+    if (style === "fisk") return sh(x, y, FISK);
+    if (style === "skildpadder") return sh(x, y, SKILDPADDE);
+    if (style === "sostjerner") return sh(x, y, SOSTJERNE);
+    if (style === "krabber") return sh(x, y, KRABBE);
+    if (style === "blaeksprutter") return sh(x, y, BLAEKSPRUTTE);
     return null;
   }
 
@@ -1935,6 +2095,7 @@ var RQ = (function () {
     if (style === "wiesn") style = WIESN[cellPick(x, y, 5)];
     if (style === "hurra") style = HURRA[cellPick(x, y, 5)];
     if (style === "skovmix") style = SKOV[cellPick(x, y, 5)];
+    if (style === "havmix") style = HAV[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -2167,6 +2328,55 @@ var RQ = (function () {
     // A line between the spines and the face.
     skip: function (X, Y, qx, qy, U, V) { return U > 0.7 && U < 0.84 && Math.abs(V - (0.47 + (0.84 - U) * 2.4)) < 0.03 && V < 0.82; } };
   var SSHAPES = ["elg", "ulv", "raev", "bjorn", "ugle", "orn"];
+  // Under havet: the code sits in the body, fins, flippers, arms and claws are filled with pattern.
+  var HF_TAIL = [[0.22, 0.52], [-0.04, 0.14], [0.05, 0.52], [-0.04, 0.9]];
+  SHAPES.hfisk = { anchor: [0.57, 0.52], prims: [{ poly: ellPts(0.57, 0.52, 0.43, 0.36, 0, 44) }, { poly: HF_TAIL },
+    { poly: [[0.34, 0.24], [0.4, 0.06], [0.56, 0.0], [0.7, 0.08], [0.84, 0.3]] }, { poly: [[0.5, 0.84], [0.46, 0.98], [0.56, 1.02], [0.7, 0.84]] }],
+    // An eye and the curve of the gill.
+    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.9, V - 0.44) < 0.03 || (U < 0.2 && Math.abs(V - 0.52) < 0.012); } };
+  var HS_FRONT = [[0.26, 0.38], [0.06, 0.12], [-0.04, 0.16], [-0.06, 0.32], [0.08, 0.5], [0.2, 0.56]];
+  var HS_BACK = [[0.26, 0.78], [0.08, 0.9], [0.06, 1.0], [0.16, 1.04], [0.36, 0.9]];
+  SHAPES.hskildpadde = { anchor: [0.5, 0.58], prims: [{ circle: [0.5, 0.58, 0.34] }, { poly: ellPts(0.5, 0.13, 0.115, 0.14, 0, 24) },
+    { poly: [[0.42, 0.2], [0.58, 0.2], [0.6, 0.3], [0.4, 0.3]] },
+    { poly: HS_FRONT }, { poly: mirror(HS_FRONT) }, { poly: HS_BACK }, { poly: mirror(HS_BACK) }, { poly: [[0.45, 0.9], [0.55, 0.9], [0.5, 1.04]] }],
+    // The rim of the shell.
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.hypot(U - 0.5, V - 0.58); return d > 0.288 && d < 0.306; } };
+  function tentPts(x0, y0, x1, y1, x2, y2, w) {
+    var a = [], b = [], n = 10;
+    for (var i = 0; i <= n; i++) { var t = i / n, u = 1 - t, x = u * u * x0 + 2 * u * t * x1 + t * t * x2, y = u * u * y0 + 2 * u * t * y1 + t * t * y2;
+      var dx = 2 * u * (x1 - x0) + 2 * t * (x2 - x1), dy = 2 * u * (y1 - y0) + 2 * t * (y2 - y1), l = Math.hypot(dx, dy) || 1, h = w / 2 * (1 - 0.55 * t);
+      a.push([x - dy / l * h, y + dx / l * h]); b.push([x + dy / l * h, y - dx / l * h]); }
+    return a.concat(b.reverse());
+  }
+  var HB_T1 = tentPts(0.22, 0.56, 0.0, 0.7, -0.04, 1.02, 0.15), HB_T2 = tentPts(0.34, 0.66, 0.2, 0.9, 0.24, 1.1, 0.15), HB_T3 = tentPts(0.45, 0.7, 0.46, 0.9, 0.4, 1.12, 0.14);
+  SHAPES.hblaeksprutte = { anchor: [0.5, 0.38], prims: [{ circle: [0.5, 0.38, 0.38] }, { poly: [[0.2, 0.5], [0.8, 0.5], [0.76, 0.76], [0.24, 0.76]] },
+    { poly: HB_T1 }, { poly: mirror(HB_T1) }, { poly: HB_T2 }, { poly: mirror(HB_T2) }, { poly: HB_T3 }, { poly: mirror(HB_T3) }] };
+  var HK_ARM = barPts(0.2, 0.5, 0.1, 0.3, 0.1);
+  var HK_CLAW = [[0.16, 0.36], [0.02, 0.3], [-0.06, 0.16], [0.0, 0.0], [0.07, 0.14], [0.14, 0.02], [0.24, 0.12], [0.22, 0.28]];
+  var HK_L1 = barPts(0.16, 0.66, -0.04, 0.6, 0.055), HK_L2 = barPts(0.16, 0.76, -0.04, 0.82, 0.055), HK_L3 = barPts(0.22, 0.86, 0.06, 1.02, 0.055);
+  SHAPES.hkrabbe = { anchor: [0.5, 0.64], prims: [{ poly: ellPts(0.5, 0.64, 0.4, 0.33, 0, 44) }, { poly: HK_ARM }, { poly: mirror(HK_ARM) }, { poly: HK_CLAW }, { poly: mirror(HK_CLAW) },
+    { poly: HK_L1 }, { poly: mirror(HK_L1) }, { poly: HK_L2 }, { poly: mirror(HK_L2) }, { poly: HK_L3 }, { poly: mirror(HK_L3) },
+    { poly: barPts(0.4, 0.36, 0.38, 0.2, 0.04) }, { poly: barPts(0.6, 0.36, 0.62, 0.2, 0.04) }, { circle: [0.38, 0.17, 0.055] }, { circle: [0.62, 0.17, 0.055] }] };
+  // Whale swimming to the left: a big round body, a tail fluke, a flipper and a spout.
+  SHAPES.hhval = { anchor: [0.44, 0.6], prims: [{ poly: ellPts(0.44, 0.6, 0.44, 0.34, 0, 44) },
+    { poly: [[0.74, 0.5], [0.92, 0.42], [0.9, 0.2], [0.98, 0.3], [1.04, 0.32], [1.12, 0.22], [1.1, 0.48], [0.98, 0.6], [0.84, 0.82]] },
+    { poly: [[0.3, 0.88], [0.44, 1.06], [0.54, 1.02], [0.5, 0.88]] },
+    { poly: barPts(0.2, 0.3, 0.2, 0.12, 0.035) }, { poly: tentPts(0.2, 0.14, 0.14, 0.04, 0.06, 0.08, 0.05) }, { poly: tentPts(0.2, 0.14, 0.26, 0.04, 0.34, 0.08, 0.05) }],
+    // An eye and the line of the mouth.
+    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.09, V - 0.56) < 0.022 || (U < 0.16 && Math.abs(V - (0.72 - (U - 0.02) * 0.25)) < 0.012); } };
+  // Scallop shell: a fan with a wavy edge and a hinge at the bottom.
+  SHAPES.hmusling = { anchor: [0.5, 0.48], prims: [{ circle: [0.5, 0.5, 0.42] },
+    { circle: [0.5, 0.1, 0.085] }, { circle: [0.34, 0.135, 0.085] }, { circle: [0.66, 0.135, 0.085] }, { circle: [0.2, 0.225, 0.085] }, { circle: [0.8, 0.225, 0.085] },
+    { circle: [0.105, 0.36, 0.085] }, { circle: [0.895, 0.36, 0.085] }, { circle: [0.075, 0.52, 0.08] }, { circle: [0.925, 0.52, 0.08] },
+    { poly: [[0.3, 0.84], [0.7, 0.84], [0.76, 1.0], [0.24, 1.0]] }],
+    // Ribs that fan out from the hinge.
+    skip: function (X, Y, qx, qy, U, V) {
+      if (V > 0.885 && V < 0.905) return true;
+      var a = Math.atan2(U - 0.5, 0.94 - V), r = Math.hypot(U - 0.5, V - 0.94);
+      if (r < 0.1 || V > 0.86) return false;
+      var k = a / 0.26; return Math.abs(k - Math.round(k)) * 0.26 * r < 0.011 && Math.abs(Math.round(k)) <= 4 && Math.round(k) !== 0;
+    } };
+  var VSHAPES = ["hfisk", "hskildpadde", "hblaeksprutte", "hkrabbe", "hhval", "hmusling"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -2386,7 +2596,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES, WIESN: WIESN, OSHAPES: OSHAPES, HURRA: HURRA, BSHAPES: BSHAPES, SKOV: SKOV, SSHAPES: SSHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES, WIESN: WIESN, OSHAPES: OSHAPES, HURRA: HURRA, BSHAPES: BSHAPES, SKOV: SKOV, SSHAPES: SSHAPES, HAV: HAV, VSHAPES: VSHAPES };
 })();
 </script>
 
@@ -2455,7 +2665,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved", stein: "Ølkrus", pretzel: "Kringle", lheart: "Honningkagehjerte", rhomb: "Rude", alphat: "Tyrolerhat", barrel: "Øltønde", dkflag: "Dannebrog", cake: "Lagkage", cakeman: "Kagemand", balloon: "Ballon", crown: "Krone", bpresent: "Gave" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved", stein: "Ølkrus", pretzel: "Kringle", lheart: "Honningkagehjerte", rhomb: "Rude", alphat: "Tyrolerhat", barrel: "Øltønde", dkflag: "Dannebrog", cake: "Lagkage", cakeman: "Kagemand", balloon: "Ballon", crown: "Krone", bpresent: "Gave", hfisk: "Fisk", hskildpadde: "Skildpadde", hblaeksprutte: "Blæksprutte", hkrabbe: "Krabbe", hhval: "Hval", hmusling: "Musling" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -2546,7 +2756,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull", stein: "Stein", pretzel: "Pretzel", lheart: "Gingerbread heart", rhomb: "Diamond", alphat: "Alpine hat", barrel: "Barrel", dkflag: "Danish flag", cake: "Layer cake", cakeman: "Cake man", balloon: "Balloon", crown: "Crown", bpresent: "Present" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull", stein: "Stein", pretzel: "Pretzel", lheart: "Gingerbread heart", rhomb: "Diamond", alphat: "Alpine hat", barrel: "Barrel", dkflag: "Danish flag", cake: "Layer cake", cakeman: "Cake man", balloon: "Balloon", crown: "Crown", bpresent: "Present", hfisk: "Fish", hskildpadde: "Turtle", hblaeksprutte: "Octopus", hkrabbe: "Crab", hhval: "Whale", hmusling: "Shell" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -2667,7 +2877,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf", "stein": "Maßkrug", "pretzel": "Brezn", "lheart": "Lebkuchenherz", "rhomb": "Raute", "alphat": "Trachtenhut", "barrel": "Fass", "dkflag": "Dänische Flagge", "cake": "Torte", "cakeman": "Kuchenmann", "balloon": "Ballon", "crown": "Krone", "bpresent": "Geschenk"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf", "stein": "Maßkrug", "pretzel": "Brezn", "lheart": "Lebkuchenherz", "rhomb": "Raute", "alphat": "Trachtenhut", "barrel": "Fass", "dkflag": "Dänische Flagge", "cake": "Torte", "cakeman": "Kuchenmann", "balloon": "Ballon", "crown": "Krone", "bpresent": "Geschenk", hfisk: "Fisch", hskildpadde: "Schildkröte", hblaeksprutte: "Tintenfisch", hkrabbe: "Krabbe", hhval: "Wal", hmusling: "Muschel"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -2814,7 +3024,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode", "stein": "Ølkrus", "pretzel": "Kringle", "lheart": "Pepperkakehjerte", "rhomb": "Rute", "alphat": "Tirolerhatt", "barrel": "Øltønne", "dkflag": "Dansk flagg", "cake": "Bløtkake", "cakeman": "Kakemann", "balloon": "Ballong", "crown": "Krone", "bpresent": "Gave"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode", "stein": "Ølkrus", "pretzel": "Kringle", "lheart": "Pepperkakehjerte", "rhomb": "Rute", "alphat": "Tirolerhatt", "barrel": "Øltønne", "dkflag": "Dansk flagg", "cake": "Bløtkake", "cakeman": "Kakemann", "balloon": "Ballong", "crown": "Krone", "bpresent": "Gave", hfisk: "Fisk", hskildpadde: "Skilpadde", hblaeksprutte: "Blekksprut", hkrabbe: "Krabbe", hhval: "Hval", hmusling: "Skjell"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -2961,7 +3171,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle", "stein": "Ölsejdel", "pretzel": "Kringla", "lheart": "Pepparkakshjärta", "rhomb": "Ruta", "alphat": "Tyrolerhatt", "barrel": "Öltunna", "dkflag": "Danska flaggan", "cake": "Tårta", "cakeman": "Kakgubbe", "balloon": "Ballong", "crown": "Krona", "bpresent": "Present"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle", "stein": "Ölsejdel", "pretzel": "Kringla", "lheart": "Pepparkakshjärta", "rhomb": "Ruta", "alphat": "Tyrolerhatt", "barrel": "Öltunna", "dkflag": "Danska flaggan", "cake": "Tårta", "cakeman": "Kakgubbe", "balloon": "Ballong", "crown": "Krona", "bpresent": "Present", hfisk: "Fisk", hskildpadde: "Sköldpadda", hblaeksprutte: "Bläckfisk", hkrabbe: "Krabba", hhval: "Val", hmusling: "Snäcka"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -3109,7 +3319,7 @@ var RQ = (function () {
       libFail: "No se cargó la librería de QR. Comprueba la conexión y recarga la página.",
       inverted: "Código claro sobre fondo oscuro. Algunos móviles no leen códigos invertidos.",
       lowContrast: "Poco contraste entre el código y el fondo. Oscurece el código o aclara el fondo.",
-      spec: function (g) { return ({ square: "Cuadrado", heart: "Corazón", tree: "Árbol de Navidad", gift: "Regalo", star: "Estrella", santa: "Papá Noel", bauble: "Bola de Navidad", pumpkin: "Calabaza", ghost: "Fantasma", bat: "Murciélago", cat: "Gato", hat: "Sombrero de bruja", candy: "Caramelo", egg: "Huevo de Pascua", bunny: "Conejo de Pascua", chick: "Pollito", flower: "Flor", basket: "Cesta", tulip: "Tulipán", rocket: "Cohete", glass: "Copa de champán", bottle: "Botella", clock: "Reloj", sparkle: "Destello", partyhat: "Gorro de fiesta", chest: "Cofre del tesoro", ship: "Barco", map: "Mapa del tesoro", flag: "Bandera pirata", wheel: "Timón", skull: "Calavera", stein: "Jarra de cerveza", pretzel: "Pretzel", lheart: "Corazón de jengibre", rhomb: "Rombo", alphat: "Sombrero tirolés", barrel: "Barril", dkflag: "Bandera danesa", cake: "Tarta", cakeman: "Muñeco de tarta", balloon: "Globo", crown: "Corona", bpresent: "Regalo" }[g.shape] || "Círculo") + " · Versión " + g.version + " · " + g.N + "×" + g.N + " módulos · Nivel " + g.ec; },
+      spec: function (g) { return ({ square: "Cuadrado", heart: "Corazón", tree: "Árbol de Navidad", gift: "Regalo", star: "Estrella", santa: "Papá Noel", bauble: "Bola de Navidad", pumpkin: "Calabaza", ghost: "Fantasma", bat: "Murciélago", cat: "Gato", hat: "Sombrero de bruja", candy: "Caramelo", egg: "Huevo de Pascua", bunny: "Conejo de Pascua", chick: "Pollito", flower: "Flor", basket: "Cesta", tulip: "Tulipán", rocket: "Cohete", glass: "Copa de champán", bottle: "Botella", clock: "Reloj", sparkle: "Destello", partyhat: "Gorro de fiesta", chest: "Cofre del tesoro", ship: "Barco", map: "Mapa del tesoro", flag: "Bandera pirata", wheel: "Timón", skull: "Calavera", stein: "Jarra de cerveza", pretzel: "Pretzel", lheart: "Corazón de jengibre", rhomb: "Rombo", alphat: "Sombrero tirolés", barrel: "Barril", dkflag: "Bandera danesa", cake: "Tarta", cakeman: "Muñeco de tarta", balloon: "Globo", crown: "Corona", bpresent: "Regalo", hfisk: "Pez", hskildpadde: "Tortuga", hblaeksprutte: "Pulpo", hkrabbe: "Cangrejo", hhval: "Ballena", hmusling: "Concha" }[g.shape] || "Círculo") + " · Versión " + g.version + " · " + g.N + "×" + g.N + " módulos · Nivel " + g.ec; },
       save: "Guardar ",
       aUnit: "Unidad",
       uPx: "Píxeles",
@@ -3256,7 +3466,7 @@ var RQ = (function () {
       libFail: "La bibliothèque QR ne s'est pas chargée. Vérifiez la connexion et rechargez la page.",
       inverted: "Code clair sur fond sombre. Certains téléphones ne lisent pas les codes inversés.",
       lowContrast: "Peu de contraste entre le code et le fond. Foncez le code ou éclaircissez le fond.",
-      spec: function (g) { return ({ square: "Carré", heart: "Cœur", tree: "Sapin", gift: "Cadeau", star: "Étoile", santa: "Père Noël", bauble: "Boule de Noël", pumpkin: "Citrouille", ghost: "Fantôme", bat: "Chauve-souris", cat: "Chat", hat: "Chapeau de sorcière", candy: "Bonbon", egg: "Œuf de Pâques", bunny: "Lapin de Pâques", chick: "Poussin", flower: "Fleur", basket: "Panier", tulip: "Tulipe", rocket: "Fusée", glass: "Coupe de champagne", bottle: "Bouteille", clock: "Horloge", sparkle: "Étincelle", partyhat: "Chapeau de fête", chest: "Coffre au trésor", ship: "Navire", map: "Carte au trésor", flag: "Drapeau pirate", wheel: "Gouvernail", skull: "Tête de mort", stein: "Chope", pretzel: "Bretzel", lheart: "Cœur en pain d'épices", rhomb: "Losange", alphat: "Chapeau tyrolien", barrel: "Tonneau", dkflag: "Drapeau danois", cake: "Gâteau", cakeman: "Bonhomme gâteau", balloon: "Ballon", crown: "Couronne", bpresent: "Cadeau" }[g.shape] || "Cercle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Carré", heart: "Cœur", tree: "Sapin", gift: "Cadeau", star: "Étoile", santa: "Père Noël", bauble: "Boule de Noël", pumpkin: "Citrouille", ghost: "Fantôme", bat: "Chauve-souris", cat: "Chat", hat: "Chapeau de sorcière", candy: "Bonbon", egg: "Œuf de Pâques", bunny: "Lapin de Pâques", chick: "Poussin", flower: "Fleur", basket: "Panier", tulip: "Tulipe", rocket: "Fusée", glass: "Coupe de champagne", bottle: "Bouteille", clock: "Horloge", sparkle: "Étincelle", partyhat: "Chapeau de fête", chest: "Coffre au trésor", ship: "Navire", map: "Carte au trésor", flag: "Drapeau pirate", wheel: "Gouvernail", skull: "Tête de mort", stein: "Chope", pretzel: "Bretzel", lheart: "Cœur en pain d'épices", rhomb: "Losange", alphat: "Chapeau tyrolien", barrel: "Tonneau", dkflag: "Drapeau danois", cake: "Gâteau", cakeman: "Bonhomme gâteau", balloon: "Ballon", crown: "Couronne", bpresent: "Cadeau", hfisk: "Poisson", hskildpadde: "Tortue", hblaeksprutte: "Pieuvre", hkrabbe: "Crabe", hhval: "Baleine", hmusling: "Coquillage" }[g.shape] || "Cercle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · Niveau " + g.ec; },
       save: "Enregistrer en ",
       aUnit: "Unité",
       uPx: "Pixels",
@@ -3403,7 +3613,7 @@ var RQ = (function () {
       libFail: "La libreria QR non si è caricata. Controlla la connessione e ricarica la pagina.",
       inverted: "Codice chiaro su sfondo scuro. Alcuni telefoni non leggono i codici invertiti.",
       lowContrast: "Poco contrasto tra codice e sfondo. Scurisci il codice o schiarisci lo sfondo.",
-      spec: function (g) { return ({ square: "Quadrato", heart: "Cuore", tree: "Albero di Natale", gift: "Regalo", star: "Stella", santa: "Babbo Natale", bauble: "Pallina di Natale", pumpkin: "Zucca", ghost: "Fantasma", bat: "Pipistrello", cat: "Gatto", hat: "Cappello da strega", candy: "Caramella", egg: "Uovo di Pasqua", bunny: "Coniglietto pasquale", chick: "Pulcino", flower: "Fiore", basket: "Cestino", tulip: "Tulipano", rocket: "Razzo", glass: "Calice di spumante", bottle: "Bottiglia", clock: "Orologio", sparkle: "Scintilla", partyhat: "Cappellino da festa", chest: "Forziere", ship: "Nave", map: "Mappa del tesoro", flag: "Bandiera pirata", wheel: "Timone", skull: "Teschio", stein: "Boccale", pretzel: "Bretzel", lheart: "Cuore di pan di zenzero", rhomb: "Rombo", alphat: "Cappello tirolese", barrel: "Botte", dkflag: "Bandiera danese", cake: "Torta", cakeman: "Omino di torta", balloon: "Palloncino", crown: "Corona", bpresent: "Regalo" }[g.shape] || "Cerchio") + " · Versione " + g.version + " · " + g.N + "×" + g.N + " moduli · Livello " + g.ec; },
+      spec: function (g) { return ({ square: "Quadrato", heart: "Cuore", tree: "Albero di Natale", gift: "Regalo", star: "Stella", santa: "Babbo Natale", bauble: "Pallina di Natale", pumpkin: "Zucca", ghost: "Fantasma", bat: "Pipistrello", cat: "Gatto", hat: "Cappello da strega", candy: "Caramella", egg: "Uovo di Pasqua", bunny: "Coniglietto pasquale", chick: "Pulcino", flower: "Fiore", basket: "Cestino", tulip: "Tulipano", rocket: "Razzo", glass: "Calice di spumante", bottle: "Bottiglia", clock: "Orologio", sparkle: "Scintilla", partyhat: "Cappellino da festa", chest: "Forziere", ship: "Nave", map: "Mappa del tesoro", flag: "Bandiera pirata", wheel: "Timone", skull: "Teschio", stein: "Boccale", pretzel: "Bretzel", lheart: "Cuore di pan di zenzero", rhomb: "Rombo", alphat: "Cappello tirolese", barrel: "Botte", dkflag: "Bandiera danese", cake: "Torta", cakeman: "Omino di torta", balloon: "Palloncino", crown: "Corona", bpresent: "Regalo", hfisk: "Pesce", hskildpadde: "Tartaruga", hblaeksprutte: "Polpo", hkrabbe: "Granchio", hhval: "Balena", hmusling: "Conchiglia" }[g.shape] || "Cerchio") + " · Versione " + g.version + " · " + g.N + "×" + g.N + " moduli · Livello " + g.ec; },
       save: "Salva come ",
       aUnit: "Unità",
       uPx: "Pixel",
@@ -5434,9 +5644,246 @@ var RQ = (function () {
   };
   Object.keys(TS).forEach(function (l) { for (var k in TS[l]) T[l][k] = TS[l][k]; });
   /* skovtur:end */
-  var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false, okt = false, bday = false, skov = false;
+  /* underhavet:start */
+  var TV = {
+    da: {
+      presetsHav: ["Dybhav", "Lagune", "Koral", "Skildpadde", "Sandbund", "Tang", "Blæk", "Koralrev"],
+      havAria: "Under havet",
+      havLabel: "Dyk ned under havet",
+      havLabelHav: "Velkommen under havet",
+      havHint: "Fisk, skildpadder, søstjerner, krabber og blæksprutter i stedet for prikker. Og dyr, der svømmer forbi.",
+      subtitleHav: "Havudgaven. Indsæt et link, pynt koden, og gem den som PNG, JPG eller SVG.",
+      fisk: "Fisk",
+      skildpadder: "Skildpadder",
+      sostjerner: "Søstjerner",
+      krabber: "Krabber",
+      blaeksprutter: "Blæksprutter",
+      havmix: "Blandet",
+      defaultLabelHav: "Dyk ned",
+      havCheer: "Blub blub!",
+      fHfisk: "Fisk",
+      fHskildpadde: "Skildpadde",
+      fHblaeksprutte: "Blæksprutte",
+      fHkrabbe: "Krabbe",
+      fHhval: "Hval",
+      fHmusling: "Musling",
+      exEyesHav: "De tre store firkanter, telefonen bruger til at finde koden. Cirkel ligner bobler.",
+      fillHav: "Fyld formen med mønster",
+      exFillHav: "Pyntprikker uden data, der fylder dyret ud omkring koden.",
+      exRingHav: "En tynd pyntering langs kanten af formen.",
+      exFormHav: "Cirkel og Firkant er de klassiske. Havformerne lægger koden i midten og fylder resten af dyret med mønster.",
+      exModulesHav: "Dyrene dækker midten af hvert felt, hvor telefonen kigger. Hold øje med pillen under koden.",
+      havHintHav: "Slå det fra igen, så får du den almindelige Round QR og dine egne farver tilbage."
+    },
+    en: {
+      presetsHav: ["Deep sea", "Lagoon", "Coral", "Turtle", "Sandy bottom", "Seaweed", "Ink", "Coral reef"],
+      havAria: "Under the sea",
+      havLabel: "Dive under the sea",
+      havLabelHav: "Welcome under the sea",
+      havHint: "Fish, turtles, starfish, crabs and octopuses instead of dots. And animals swimming past.",
+      subtitleHav: "The ocean edition. Paste a link, decorate the code, save it as PNG, JPG or SVG.",
+      fisk: "Fish",
+      skildpadder: "Turtles",
+      sostjerner: "Starfish",
+      krabber: "Crabs",
+      blaeksprutter: "Octopuses",
+      havmix: "Mixed",
+      defaultLabelHav: "Dive in",
+      havCheer: "Blub blub!",
+      fHfisk: "Fish",
+      fHskildpadde: "Turtle",
+      fHblaeksprutte: "Octopus",
+      fHkrabbe: "Crab",
+      fHhval: "Whale",
+      fHmusling: "Shell",
+      exEyesHav: "The three big squares the phone uses to find the code. Circle looks like bubbles.",
+      fillHav: "Fill the shape with pattern",
+      exFillHav: "Decorative dots with no data that fill out the animal around the code.",
+      exRingHav: "A thin decorative ring along the edge of the shape.",
+      exFormHav: "Circle and Square are the classics. The ocean shapes put the code in the middle and fill the rest of the animal with pattern.",
+      exModulesHav: "The animals cover the middle of each cell, where the phone looks. Keep an eye on the pill below the code.",
+      havHintHav: "Turn it off again to get the regular Round QR and your own colours back."
+    },
+    de: {
+      presetsHav: ["Tiefsee", "Lagune", "Koralle", "Schildkröte", "Sandboden", "Seetang", "Tinte", "Korallenriff"],
+      havAria: "Unter dem Meer",
+      havLabel: "Tauch ab ins Meer",
+      havLabelHav: "Willkommen unter dem Meer",
+      havHint: "Fische, Schildkröten, Seesterne, Krabben und Tintenfische statt Punkten. Und Tiere, die vorbeischwimmen.",
+      subtitleHav: "Die Meeresausgabe. Link einfügen, Code schmücken und als PNG, JPG oder SVG speichern.",
+      fisk: "Fische",
+      skildpadder: "Schildkröten",
+      sostjerner: "Seesterne",
+      krabber: "Krabben",
+      blaeksprutter: "Tintenfische",
+      havmix: "Gemischt",
+      defaultLabelHav: "Abtauchen",
+      havCheer: "Blubb blubb!",
+      fHfisk: "Fisch",
+      fHskildpadde: "Schildkröte",
+      fHblaeksprutte: "Tintenfisch",
+      fHkrabbe: "Krabbe",
+      fHhval: "Wal",
+      fHmusling: "Muschel",
+      exEyesHav: "Die drei großen Quadrate, mit denen das Handy den Code findet. Kreis sieht aus wie Luftblasen.",
+      fillHav: "Form mit Muster füllen",
+      exFillHav: "Zierpunkte ohne Daten, die das Tier rund um den Code ausfüllen.",
+      exRingHav: "Ein dünner Zierring entlang der Kante der Form.",
+      exFormHav: "Kreis und Quadrat sind die Klassiker. Die Meeresformen setzen den Code in die Mitte und füllen den Rest des Tiers mit Muster.",
+      exModulesHav: "Die Tiere decken die Mitte jedes Feldes ab, wo das Handy hinschaut. Behalte das Etikett unter dem Code im Blick.",
+      havHintHav: "Schalte es wieder aus, dann bekommst du das normale Round QR und deine eigenen Farben zurück."
+    },
+    no: {
+      presetsHav: ["Dyphav", "Lagune", "Korall", "Skilpadde", "Sandbunn", "Tang", "Blekk", "Korallrev"],
+      havAria: "Under havet",
+      havLabel: "Dykk ned under havet",
+      havLabelHav: "Velkommen under havet",
+      havHint: "Fisk, skilpadder, sjøstjerner, krabber og blekkspruter i stedet for prikker. Og dyr som svømmer forbi.",
+      subtitleHav: "Havutgaven. Lim inn en lenke, pynt koden, og lagre den som PNG, JPG eller SVG.",
+      fisk: "Fisk",
+      skildpadder: "Skilpadder",
+      sostjerner: "Sjøstjerner",
+      krabber: "Krabber",
+      blaeksprutter: "Blekkspruter",
+      havmix: "Blandet",
+      defaultLabelHav: "Dykk ned",
+      havCheer: "Blubb blubb!",
+      fHfisk: "Fisk",
+      fHskildpadde: "Skilpadde",
+      fHblaeksprutte: "Blekksprut",
+      fHkrabbe: "Krabbe",
+      fHhval: "Hval",
+      fHmusling: "Skjell",
+      exEyesHav: "De tre store firkantene telefonen bruker for å finne koden. Sirkel ligner bobler.",
+      fillHav: "Fyll formen med mønster",
+      exFillHav: "Pynteprikker uten data som fyller ut dyret rundt koden.",
+      exRingHav: "En tynn pyntering langs kanten av formen.",
+      exFormHav: "Sirkel og Firkant er de klassiske. Havformene legger koden i midten og fyller resten av dyret med mønster.",
+      exModulesHav: "Dyrene dekker midten av hvert felt, der telefonen ser. Følg med på merket under koden.",
+      havHintHav: "Slå det av igjen, så får du vanlig Round QR og dine egne farger tilbake."
+    },
+    sv: {
+      presetsHav: ["Djuphav", "Lagun", "Korall", "Sköldpadda", "Sandbotten", "Tång", "Bläck", "Korallrev"],
+      havAria: "Under havet",
+      havLabel: "Dyk ner under havet",
+      havLabelHav: "Välkommen under havet",
+      havHint: "Fiskar, sköldpaddor, sjöstjärnor, krabbor och bläckfiskar i stället för prickar. Och djur som simmar förbi.",
+      subtitleHav: "Havsutgåvan. Klistra in en länk, pynta koden och spara den som PNG, JPG eller SVG.",
+      fisk: "Fiskar",
+      skildpadder: "Sköldpaddor",
+      sostjerner: "Sjöstjärnor",
+      krabber: "Krabbor",
+      blaeksprutter: "Bläckfiskar",
+      havmix: "Blandat",
+      defaultLabelHav: "Dyk ner",
+      havCheer: "Blubb blubb!",
+      fHfisk: "Fisk",
+      fHskildpadde: "Sköldpadda",
+      fHblaeksprutte: "Bläckfisk",
+      fHkrabbe: "Krabba",
+      fHhval: "Val",
+      fHmusling: "Snäcka",
+      exEyesHav: "De tre stora fyrkanterna som telefonen använder för att hitta koden. Cirkel ser ut som bubblor.",
+      fillHav: "Fyll formen med mönster",
+      exFillHav: "Dekorprickar utan data som fyller ut djuret runt koden.",
+      exRingHav: "En tunn dekorring längs kanten av formen.",
+      exFormHav: "Cirkel och Fyrkant är de klassiska. Havsformerna lägger koden i mitten och fyller resten av djuret med mönster.",
+      exModulesHav: "Djuren täcker mitten av varje ruta, där telefonen tittar. Håll ett öga på märket under koden.",
+      havHintHav: "Stäng av det igen så får du vanliga Round QR och dina egna färger tillbaka."
+    },
+    es: {
+      presetsHav: ["Mar profundo", "Laguna", "Coral", "Tortuga", "Fondo de arena", "Algas", "Tinta", "Arrecife"],
+      havAria: "Bajo el mar",
+      havLabel: "Sumérgete bajo el mar",
+      havLabelHav: "Bienvenido bajo el mar",
+      havHint: "Peces, tortugas, estrellas de mar, cangrejos y pulpos en lugar de puntos. Y animales que pasan nadando.",
+      subtitleHav: "La edición del mar. Pega un enlace, decora el código y guárdalo como PNG, JPG o SVG.",
+      fisk: "Peces",
+      skildpadder: "Tortugas",
+      sostjerner: "Estrellas de mar",
+      krabber: "Cangrejos",
+      blaeksprutter: "Pulpos",
+      havmix: "Mezcla",
+      defaultLabelHav: "Al agua",
+      havCheer: "¡Glu glu!",
+      fHfisk: "Pez",
+      fHskildpadde: "Tortuga",
+      fHblaeksprutte: "Pulpo",
+      fHkrabbe: "Cangrejo",
+      fHhval: "Ballena",
+      fHmusling: "Concha",
+      exEyesHav: "Los tres cuadrados grandes que usa el móvil para encontrar el código. Círculo parece burbujas.",
+      fillHav: "Rellenar la forma con patrón",
+      exFillHav: "Puntos decorativos sin datos que rellenan el animal alrededor del código.",
+      exRingHav: "Un anillo decorativo fino a lo largo del borde de la forma.",
+      exFormHav: "Círculo y Cuadrado son los clásicos. Las formas del mar ponen el código en el centro y rellenan el resto del animal con patrón.",
+      exModulesHav: "Los animales cubren el centro de cada celda, donde mira el móvil. Fíjate en la etiqueta debajo del código.",
+      havHintHav: "Apágalo otra vez para recuperar el Round QR normal y tus propios colores."
+    },
+    fr: {
+      presetsHav: ["Grand fond", "Lagon", "Corail", "Tortue", "Fond de sable", "Algues", "Encre", "Récif"],
+      havAria: "Sous la mer",
+      havLabel: "Plongez sous la mer",
+      havLabelHav: "Bienvenue sous la mer",
+      havHint: "Des poissons, des tortues, des étoiles de mer, des crabes et des pieuvres à la place des points. Et des animaux qui passent en nageant.",
+      subtitleHav: "L'édition océan. Collez un lien, décorez le code et enregistrez-le en PNG, JPG ou SVG.",
+      fisk: "Poissons",
+      skildpadder: "Tortues",
+      sostjerner: "Étoiles de mer",
+      krabber: "Crabes",
+      blaeksprutter: "Pieuvres",
+      havmix: "Mélange",
+      defaultLabelHav: "On plonge",
+      havCheer: "Glou glou !",
+      fHfisk: "Poisson",
+      fHskildpadde: "Tortue",
+      fHblaeksprutte: "Pieuvre",
+      fHkrabbe: "Crabe",
+      fHhval: "Baleine",
+      fHmusling: "Coquillage",
+      exEyesHav: "Les trois grands carrés que le téléphone utilise pour trouver le code. Cercle ressemble à des bulles.",
+      fillHav: "Remplir la forme de motifs",
+      exFillHav: "Des points décoratifs sans données qui remplissent l'animal autour du code.",
+      exRingHav: "Un fin anneau décoratif le long du bord de la forme.",
+      exFormHav: "Cercle et Carré sont les classiques. Les formes de la mer placent le code au centre et remplissent le reste de l'animal de motifs.",
+      exModulesHav: "Les animaux couvrent le centre de chaque case, là où regarde le téléphone. Gardez un œil sur l'étiquette sous le code.",
+      havHintHav: "Désactivez-le pour retrouver le Round QR normal et vos propres couleurs."
+    },
+    it: {
+      presetsHav: ["Abisso", "Laguna", "Corallo", "Tartaruga", "Fondale", "Alghe", "Inchiostro", "Barriera"],
+      havAria: "In fondo al mare",
+      havLabel: "Tuffati in fondo al mare",
+      havLabelHav: "Benvenuto in fondo al mare",
+      havHint: "Pesci, tartarughe, stelle marine, granchi e polpi al posto dei punti. E animali che passano nuotando.",
+      subtitleHav: "L'edizione del mare. Incolla un link, decora il codice e salvalo come PNG, JPG o SVG.",
+      fisk: "Pesci",
+      skildpadder: "Tartarughe",
+      sostjerner: "Stelle marine",
+      krabber: "Granchi",
+      blaeksprutter: "Polpi",
+      havmix: "Misto",
+      defaultLabelHav: "Tuffati",
+      havCheer: "Glu glu!",
+      fHfisk: "Pesce",
+      fHskildpadde: "Tartaruga",
+      fHblaeksprutte: "Polpo",
+      fHkrabbe: "Granchio",
+      fHhval: "Balena",
+      fHmusling: "Conchiglia",
+      exEyesHav: "I tre quadrati grandi che il telefono usa per trovare il codice. Cerchio sembra bolle.",
+      fillHav: "Riempi la forma con un motivo",
+      exFillHav: "Punti decorativi senza dati che riempiono l'animale intorno al codice.",
+      exRingHav: "Un sottile anello decorativo lungo il bordo della forma.",
+      exFormHav: "Cerchio e Quadrato sono i classici. Le forme del mare mettono il codice al centro e riempiono il resto dell'animale con un motivo.",
+      exModulesHav: "Gli animali coprono il centro di ogni casella, dove guarda il telefono. Tieni d'occhio l'etichetta sotto il codice.",
+      havHintHav: "Disattivalo per tornare al Round QR normale e ai tuoi colori."
+    }
+  };
+  Object.keys(TV).forEach(function (l) { for (var k in TV[l]) T[l][k] = TV[l][k]; });
+  /* underhavet:end */
+  var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false, okt = false, bday = false, skov = false, hav = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : okt ? "Okt" : bday ? "Bday" : skov ? "Skov" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : okt ? "Okt" : bday ? "Bday" : skov ? "Skov" : hav ? "Hav" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -5509,19 +5956,22 @@ var RQ = (function () {
   // On roundqr.dk every language has its own address (/, /en/, /de/ ...). The build sets data-page-lang on those pages.
   // Switching language keeps working without a reload; only the address, title and description follow along.
   var PAGE_LANG = document.documentElement.getAttribute("data-page-lang");
+  var PAGE_PATH = document.documentElement.getAttribute("data-page-path"), PAGE_TITLE = document.title;
+  var PAGE_DESC = (document.querySelector('meta[name="description"]') || {}).content;
   function syncPage() {
     if (!PAGE_LANG) return;
     var d = T[lang];
-    if (d.pageTitle) document.title = d.pageTitle;
-    var md = document.querySelector('meta[name="description"]'); if (md && d.pageDesc) md.setAttribute("content", d.pageDesc);
-    var path = lang === "da" ? "/" : "/" + lang + "/";
+    var own = PAGE_PATH && lang === PAGE_LANG;
+    if (own) document.title = PAGE_TITLE; else if (d.pageTitle) document.title = d.pageTitle;
+    var md = document.querySelector('meta[name="description"]'); if (md && (own ? PAGE_DESC : d.pageDesc)) md.setAttribute("content", own ? PAGE_DESC : d.pageDesc);
+    var path = own ? PAGE_PATH : lang === "da" ? "/" : "/" + lang + "/";
     var cl = document.querySelector('link[rel="canonical"]'); if (cl) cl.setAttribute("href", "https://roundqr.dk" + path);
     if (/^https?:$/.test(location.protocol) && location.pathname !== path && history.replaceState) {
       try { history.replaceState(null, "", path + location.search + location.hash); } catch (e) {}
     }
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v || T[k].defaultLabelSkov === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v || T[k].defaultLabelSkov === v || T[k].defaultLabelHav === v; }); }
 
   function opts() {
     return {
@@ -5864,6 +6314,7 @@ var RQ = (function () {
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
     if (on && skov && typeof setSkov === "function") setSkov(false, true);
+    if (on && hav && typeof setHav === "function") setHav(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!xmasPrev;
     if (on && byUser) xmasPrev = snapshot();
     xmas = on;
@@ -6037,6 +6488,7 @@ var RQ = (function () {
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
     if (on && skov && typeof setSkov === "function") setSkov(false, true);
+    if (on && hav && typeof setHav === "function") setHav(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!hallPrev;
     if (on && byUser) hallPrev = snapshot();
     hall = on;
@@ -6264,6 +6716,7 @@ var RQ = (function () {
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
     if (on && skov && typeof setSkov === "function") setSkov(false, true);
+    if (on && hav && typeof setHav === "function") setHav(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!easterPrev;
     if (on && byUser) easterPrev = snapshot();
     easter = on;
@@ -6513,6 +6966,7 @@ var RQ = (function () {
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
     if (on && skov && typeof setSkov === "function") setSkov(false, true);
+    if (on && hav && typeof setHav === "function") setHav(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!nytPrev;
     if (on && byUser) nytPrev = snapshot();
     nyt = on;
@@ -6741,6 +7195,7 @@ var RQ = (function () {
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
     if (on && skov && typeof setSkov === "function") setSkov(false, true);
+    if (on && hav && typeof setHav === "function") setHav(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!piratPrev;
     if (on && byUser) piratPrev = snapshot();
     pirat = on;
@@ -6999,6 +7454,7 @@ var RQ = (function () {
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
     if (on && skov && typeof setSkov === "function") setSkov(false, true);
+    if (on && hav && typeof setHav === "function") setHav(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!oktPrev;
     if (on && byUser) oktPrev = snapshot();
     okt = on;
@@ -7208,6 +7664,7 @@ var RQ = (function () {
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && skov && typeof setSkov === "function") setSkov(false, true);
+    if (on && hav && typeof setHav === "function") setHav(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!bdayPrev;
     if (on && byUser) bdayPrev = snapshot();
     bday = on;
@@ -7440,6 +7897,7 @@ var RQ = (function () {
     if (on && pirat && typeof setPirat === "function") setPirat(false, true);
     if (on && okt && typeof setOkt === "function") setOkt(false, true);
     if (on && bday && typeof setBday === "function") setBday(false, true);
+    if (on && hav && typeof setHav === "function") setHav(false, true);
     var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!skovPrev;
     if (on && byUser) skovPrev = snapshot();
     skov = on;
@@ -7622,6 +8080,286 @@ var RQ = (function () {
 
   $("skov").addEventListener("change", function () { setSkov(this.checked, true); });
   /* skovtur:end */
+  /* underhavet:start */
+  // ---------- Under havet ----------
+  // Under the sea: fish, turtles, starfish, crabs and octopuses. Reuses snapshot() and applySnap().
+  var reduceMotionV = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function cellAtV(d, k, dx, dy) {
+    return d.replace(/([MLCQZmlhvacq])([^MLCQZmlhvacq]*)/g, function (_, c, args) {
+      var n = args.trim() ? args.trim().split(/[\s,]+/).map(Number) : [], i;
+      if (c === "a") { for (i = 0; i + 6 < n.length; i += 7) { n[i] *= k; n[i + 1] *= k; n[i + 5] *= k; n[i + 6] *= k; } }
+      else if (c === c.toLowerCase()) n = n.map(function (v) { return v * k; });
+      else for (i = 0; i + 1 < n.length; i += 2) { n[i] = n[i] * k + dx; n[i + 1] = n[i + 1] * k + dy; }
+      return c + n.map(function (v) { return +v.toFixed(4); }).join(" ");
+    });
+  }
+  document.querySelectorAll("#vgrid svg[data-shape]").forEach(function (svg) {
+    var st = svg.getAttribute("data-shape");
+    var d = st === "havmix" ? cellAtV(RQ.mod(0, 0, "fisk"), .5, 0, 0) + cellAtV(RQ.mod(0, 0, "skildpadder"), .5, .5, 0) +
+      cellAtV(RQ.mod(0, 0, "sostjerner"), .5, 0, .5) + cellAtV(RQ.mod(0, 0, "krabber"), .5, .5, .5) : RQ.mod(0, 0, st);
+    svg.innerHTML = '<path d="' + d + '"/>';
+  });
+  document.querySelectorAll("#vshapes svg[data-oshape]").forEach(function (svg) {
+    var ic = RQ.shapeIcon(svg.getAttribute("data-oshape"));
+    svg.setAttribute("viewBox", ic.vb);
+    svg.innerHTML = ic.html;
+  });
+
+  var HAV_SETS = [
+    { fg: "#0b3d5c", eyec: "#0b3d5c", bg: "#ffffff" },
+    { fg: "#0b7285", eyec: "#0b3d5c", bg: "#f2fbfc" },
+    { fg: "#c2413a", eyec: "#7a1f1c", bg: "#fff7f4" },
+    { fg: "#2f6b4a", eyec: "#1d4b3b", bg: "#f6faf3" },
+    { fg: "#7a5a1e", eyec: "#4a3510", bg: "#fdf8ec" },
+    { fg: "#1d5c4a", fg2: "#0b5a78", grad: "vertical", eyec: "#10343c", bg: "#ffffff" },
+    { fg: "#2b2350", fg2: "#5a2d82", grad: "radial", eyec: "#1c1638", bg: "#ffffff" },
+    { fg: "#0b5a78", fg2: "#c2413a", grad: "diagonal", eyec: "#0b3d5c", bg: "#ffffff" }
+  ];
+  var havPrev = null;
+  function saveHav() { try { localStorage.setItem("round-qr-hav", JSON.stringify({ on: hav, prev: havPrev })); } catch (e) {} }
+
+  function setHav(on, byUser) {
+    if (on && xmas && typeof setXmas === "function") setXmas(false, true);
+    if (on && hall && typeof setHall === "function") setHall(false, true);
+    if (on && easter && typeof setEaster === "function") setEaster(false, true);
+    if (on && nyt && typeof setNyt === "function") setNyt(false, true);
+    if (on && pirat && typeof setPirat === "function") setPirat(false, true);
+    if (on && okt && typeof setOkt === "function") setOkt(false, true);
+    if (on && bday && typeof setBday === "function") setBday(false, true);
+    if (on && skov && typeof setSkov === "function") setSkov(false, true);
+    var wasDefault = isDefaultLabel($("labelText").value), hadPrev = !!havPrev;
+    if (on && byUser) havPrev = snapshot();
+    hav = on;
+    document.documentElement.classList.toggle("hav", on);
+    $("hav").checked = on;
+    PRESETS = on ? HAV_SETS : PLAIN;
+    buildPresets();
+    if (on && byUser) {
+      setRadio("shape", "hskildpadde"); setRadio("dot", "havmix"); setRadio("eye", "circle");
+      var p = HAV_SETS[0]; applySnap({ fg: p.fg, eyec: p.eyec, bg: p.bg, grad: false });
+      $("label").checked = true; $("labelText").value = T[lang].defaultLabelHav;
+    } else if (!on) {
+      if (havPrev) applySnap(havPrev);
+      if (RQ.HAV.concat("havmix").indexOf(radio("dot")) >= 0) setRadio("dot", "dots");
+      if (RQ.VSHAPES.indexOf(radio("shape")) >= 0) setRadio("shape", "circle");
+      havPrev = null;
+    }
+    applyLang(lang);
+    if (wasDefault && !byUser) $("labelText").value = t("defaultLabel");
+    if (!on && !hadPrev && isDefaultLabel($("labelText").value)) $("labelText").value = t("defaultLabel");
+    buildWaves(); VFX.toggle(on, byUser);
+    saveHav();
+    if (typeof qrcode !== "undefined") render();
+  }
+
+  // Three layers of waves along the top. Each one drifts sideways by exactly one wave length, so the loop has no seam.
+  function buildWaves() {
+    var g = $("vgarland");
+    if (!hav) { g.innerHTML = ""; return; }
+    var W = document.documentElement.clientWidth, out = "";
+    [["w1", 44, 9, 150, 13, 1], ["w2", 32, 7, 104, 9, -1], ["w3", 20, 5, 76, 6.5, 1]].forEach(function (L, k) {
+      var base = L[1], amp = L[2], P = L[3], d = "M" + (-P) + " 0H" + (W + P) + "V" + base, x = W + P;
+      while (x > -P) { d += "q" + (-P / 4) + " " + amp + " " + (-P / 2) + " 0t" + (-P / 2) + " 0"; x -= P; }
+      out += '<path class="wv ' + L[0] + '" style="--i:' + (k * 0.12) + "s;--t:" + L[4] + "s;--p:" + (L[5] * P) + 'px" d="' + d + 'V0Z"/>';
+    });
+    g.innerHTML = '<svg viewBox="0 0 ' + W + ' 62" preserveAspectRatio="none">' + out + "</svg>";
+  }
+  var waveTimer;
+  window.addEventListener("resize", function () { clearTimeout(waveTimer); waveTimer = setTimeout(buildWaves, 150); });
+
+  // Bubbles rise through the water, and fish, turtles, whales, jellyfish and crabs pass by now and then.
+  // When you dive in, bubbles burst from the switch and the whole reef swims past. Never over the QR code.
+  var VFX = (function () {
+    var cv, ctx, W = 0, H = 0, dpr = 1, raf = 0, on = false, lastT = 0, clock = 0, nextSwim = 0, cheer = null, ink = "#0b7285", inkAt = -9;
+    var bubbles = [], burst = [], swimmers = [];
+    // Side views facing right, drawn around their own middle.
+    var FISH = new Path2D("M-20 0C-12 -15 12 -17 27 -2C29 0 29 2 27 4C12 17 -12 15 -20 0ZM-18 0L-34 -13L-29 0L-34 13ZM-6 -10L5 -21L14 -9Z");
+    var FCOL = ["#f08a24", "#e0503a", "#f2c230", "#3aa6bd", "#7a5cc2", "#2f9e77"];
+    var T_SHELL = new Path2D("M-32 4C-30 -18 -10 -26 8 -24C24 -22 32 -10 34 4Z");
+    var T_PLATE = new Path2D("M-16 3L-9 -10H14L21 3M-9 -10L-13 -18M14 -10L19 -17M2 -23V-10M-26 3L-21 -6M29 3L25 -6");
+    var T_BELLY = new Path2D("M-34 4H36C30 13 12 15 0 15C-14 15 -28 13 -34 4Z");
+    var T_HEAD = new Path2D("M32 2C37 -9 50 -11 56 -5C60 -1 59 8 50 9C42 10 36 8 32 2Z");
+    var T_FRONT = new Path2D("M0 0C4 12 16 22 28 22C28 14 20 4 10 -2Z");
+    var T_BACK = new Path2D("M-26 8C-34 12 -41 20 -41 27C-33 27 -24 20 -20 10ZM-33 5L-45 8L-33 11Z");
+    // The whale is drawn facing left and flipped when it swims to the right.
+    var WHALE = new Path2D("M-80 0C-80 -30 -40 -44 0 -40C30 -38 52 -24 66 -8C72 -12 78 -22 80 -32C84 -27 87 -23 90 -23C93 -24 97 -29 100 -34C102 -18 96 -4 84 4C70 20 40 34 0 34C-44 34 -80 22 -80 0Z");
+    var W_BELLY = new Path2D("M-79 6C-62 20 -30 24 0 24C30 24 56 16 74 4C60 22 34 34 0 34C-40 34 -74 24 -79 6Z");
+    var W_FIN = new Path2D("M-30 22C-26 34 -14 44 0 46C-2 36 -8 28 -16 22Z");
+    var JELLY = new Path2D("M-17 0C-17 -24 17 -24 17 0C12 3 6 -1 0 2C-6 -1 -12 3 -17 0Z");
+    var CRAB = new Path2D(RQ.mod(0, 0, "krabber"));
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function setup() {
+      if (cv) return;
+      cv = document.createElement("canvas"); cv.className = "xfx"; cv.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cv); ctx = cv.getContext("2d"); size();
+      window.addEventListener("resize", size);
+    }
+    function size() {
+      if (!cv) return;
+      dpr = Math.min(2, window.devicePixelRatio || 1); W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      var nb = Math.max(10, Math.min(26, Math.round(W * H / 36000)));
+      while (bubbles.length < nb) bubbles.push(bubble(true)); bubbles.length = nb;
+    }
+    function bubble(anywhere) {
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : H + 14, r: 2.5 + Math.random() * 6.5, vy: 26 + Math.random() * 44, ph: Math.random() * 6.3, sway: 6 + Math.random() * 14 };
+    }
+    function scale() { return Math.max(0.55, Math.min(1, W / 900)); }
+    function speed() { return Math.max(0.7, W / 1100); }
+    function swim(type, dir, delay, y, extra) {
+      var sc = scale(), o = { type: type, dir: dir, ph: Math.random() * 6.3, y: y, c: pick(FCOL) };
+      if (type === "fish") { o.s = sc * (0.75 + Math.random() * 0.5); o.w = 40 * o.s; o.v = (95 + Math.random() * 40) * speed(); }
+      if (type === "turtle") { o.s = sc * 0.95; o.w = 60 * o.s; o.v = 52 * speed(); }
+      if (type === "whale") { o.s = sc * 1.05; o.w = 110 * o.s; o.v = 40 * speed(); }
+      if (type === "crab") { o.s = sc * 46; o.w = o.s; o.v = 58 * speed(); o.y = 0; }
+      if (type === "jelly") { o.s = sc * (0.8 + Math.random() * 0.4); o.w = 20 * o.s; o.v = 26 + Math.random() * 12; o.x = y; o.y = H + 40 + delay; swimmers.push(o); return; }
+      if (extra) for (var k in extra) o[k] = extra[k];
+      o.x = dir > 0 ? -o.w - delay : W + o.w + delay;
+      swimmers.push(o);
+    }
+    function school(dir, delay, y) {
+      var n = 3 + Math.floor(Math.random() * 3), c = pick(FCOL);
+      for (var i = 0; i < n; i++) swim("fish", dir, delay + i * 34 + Math.random() * 14, y + (Math.random() - .5) * 50, { c: c });
+    }
+    function visitor() {
+      var dir = Math.random() < .5 ? 1 : -1, r = Math.random();
+      if (r < 0.4) school(dir, 0, H * (0.2 + Math.random() * 0.6));
+      else if (r < 0.62) swim("turtle", dir, 0, H * (0.25 + Math.random() * 0.5));
+      else if (r < 0.76) swim("whale", dir, 0, H * (0.6 + Math.random() * 0.22));
+      else if (r < 0.9) swim("crab", dir, 0, 0);
+      else swim("jelly", 1, 0, W * (0.08 + Math.random() * 0.84));
+    }
+    function pop() {
+      var sw = $("hav").getBoundingClientRect(), ox = sw.left + sw.width / 2, oy = sw.top + sw.height / 2;
+      for (var i = 0; i < 70; i++) {
+        var a = -Math.PI / 2 + (Math.random() - .5) * 2.6, v = 60 + Math.random() * 300;
+        burst.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, r: 2 + Math.random() * 7, life: 1.8 + Math.random() * 1.4, age: 0, ph: Math.random() * 6.3 });
+      }
+      school(1, 0, H * 0.3); swim("turtle", 1, 190, H * 0.52); school(-1, 60, H * 0.68);
+      swim("whale", -1, 260, H * 0.8); swim("crab", 1, 40, 0);
+      swim("jelly", 1, 0, W * 0.12); swim("jelly", 1, 90, W * 0.9);
+      cheer = { t: 0, text: t("havCheer") };
+      nextSwim = clock + 16;
+    }
+    function drawBubble(x, y, r, a) {
+      ctx.globalAlpha = a;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283);
+      ctx.fillStyle = "rgba(255,255,255,0.28)"; ctx.fill();
+      ctx.strokeStyle = ink; ctx.lineWidth = 1.3; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x - r * 0.32, y - r * 0.32, r * 0.42, 3.4, 4.9);
+      ctx.strokeStyle = "rgba(255,255,255,0.95)"; ctx.lineWidth = Math.max(1, r * 0.22); ctx.lineCap = "round"; ctx.stroke();
+    }
+    function edge(p, lw) { ctx.strokeStyle = "rgba(255,255,255,0.6)"; ctx.lineWidth = lw; ctx.lineJoin = "round"; ctx.stroke(p); }
+    function eyeDot(x, y, r) {
+      ctx.fillStyle = "#ffffff"; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
+      ctx.fillStyle = "#10242e"; ctx.beginPath(); ctx.arc(x + r * 0.25, y, r * 0.5, 0, 6.283); ctx.fill();
+    }
+    function drawFish(o) {
+      ctx.save(); ctx.translate(o.x, o.y + Math.sin(o.ph * 2) * 4); ctx.scale(o.s * o.dir, o.s); ctx.rotate(Math.sin(o.ph * 7) * 0.05);
+      edge(FISH, 2 / o.s); ctx.fillStyle = o.c; ctx.fill(FISH); eyeDot(17, -3, 3.2);
+      ctx.restore();
+    }
+    function drawTurtle(o) {
+      var pad = Math.sin(o.ph * 2.6);
+      ctx.save(); ctx.translate(o.x, o.y + Math.sin(o.ph * 1.3) * 6); ctx.scale(o.s * o.dir, o.s); ctx.rotate(-0.06 + pad * 0.03);
+      ctx.fillStyle = "#7fb069"; edge(T_BACK, 2 / o.s); ctx.fill(T_BACK);
+      edge(T_HEAD, 2 / o.s); ctx.fill(T_HEAD);
+      ctx.fillStyle = "#e3d59a"; edge(T_BELLY, 2 / o.s); ctx.fill(T_BELLY);
+      ctx.fillStyle = "#2f7d5b"; edge(T_SHELL, 2 / o.s); ctx.fill(T_SHELL);
+      ctx.strokeStyle = "rgba(190,230,195,0.75)"; ctx.lineWidth = 1.5; ctx.lineCap = "round"; ctx.stroke(T_PLATE);
+      eyeDot(50, -2, 2.6);
+      ctx.translate(14, 8); ctx.rotate(pad * 0.45);
+      ctx.fillStyle = "#7fb069"; edge(T_FRONT, 2 / o.s); ctx.fill(T_FRONT);
+      ctx.restore();
+    }
+    function drawWhale(o) {
+      ctx.save(); ctx.translate(o.x, o.y + Math.sin(o.ph * 0.9) * 8); ctx.scale(-o.s * o.dir, o.s); ctx.rotate(Math.sin(o.ph * 0.9) * 0.03);
+      edge(WHALE, 2.4 / o.s); ctx.fillStyle = "#2c5f8a"; ctx.fill(WHALE);
+      ctx.fillStyle = "#d3e6ef"; ctx.fill(W_BELLY);
+      ctx.fillStyle = "#234d70"; ctx.fill(W_FIN);
+      eyeDot(-60, -4, 3);
+      ctx.restore();
+      // Bubbles from the blowhole.
+      var k;
+      for (k = 0; k < 3; k++) { var u = (o.ph * 0.5 + k / 3) % 1; drawBubble(o.x + o.dir * 42 * o.s + Math.sin(u * 9 + k) * 5, o.y - 44 * o.s - u * 46, 2.5 + u * 3, 0.9 * (1 - u)); }
+      ctx.globalAlpha = 1;
+    }
+    function drawCrab(o) {
+      var step = Math.sin(o.ph * 5);
+      ctx.save(); ctx.translate(o.x, H - 3 - Math.abs(step) * 2.5); ctx.rotate(step * 0.05); ctx.scale(o.s, o.s); ctx.translate(-0.5, -1);
+      ctx.strokeStyle = "rgba(255,255,255,0.6)"; ctx.lineWidth = 2.4 / o.s; ctx.lineJoin = "round"; ctx.stroke(CRAB);
+      ctx.fillStyle = "#e0503a"; ctx.fill(CRAB);
+      ctx.restore();
+    }
+    function drawJelly(o) {
+      var pulse = Math.sin(o.ph * 2.4), k;
+      ctx.save(); ctx.translate(o.x + Math.sin(o.ph * 0.8) * 12, o.y); ctx.scale(o.s * (1 + pulse * 0.08), o.s * (1 - pulse * 0.08));
+      ctx.lineCap = "round"; ctx.lineWidth = 2; ctx.strokeStyle = "rgba(232,120,160,0.8)";
+      for (k = -2; k <= 2; k++) {
+        ctx.beginPath(); ctx.moveTo(k * 6, 2);
+        ctx.bezierCurveTo(k * 6 + 5 * pulse, 12, k * 6 - 5 * pulse, 22, k * 6 + 3 * pulse, 30 + Math.abs(k) * -3); ctx.stroke();
+      }
+      edge(JELLY, 2); ctx.fillStyle = "rgba(240,140,175,0.86)"; ctx.fill(JELLY);
+      ctx.fillStyle = "rgba(255,255,255,0.5)"; ctx.beginPath(); ctx.ellipse(-6, -11, 5, 3, -0.5, 0, 6.283); ctx.fill();
+      ctx.restore();
+    }
+    function drawCheer() {
+      if (!cheer) return;
+      var a = cheer.t < 0.25 ? cheer.t / 0.25 : Math.max(0, 1 - (cheer.t - 2.2) / 0.8), big = Math.min(W * 0.1, 80) * (1 + Math.min(1, cheer.t / 2.6) * 0.18);
+      ctx.save(); ctx.globalAlpha = Math.max(0, Math.min(1, a));
+      ctx.font = "700 " + Math.round(big) + "px 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineJoin = "round";
+      ctx.lineWidth = Math.max(5, big * 0.1); ctx.strokeStyle = "#ffffff";
+      ctx.strokeText(cheer.text, W / 2, H * 0.4); ctx.fillStyle = "#0b5a78"; ctx.fillText(cheer.text, W / 2, H * 0.4);
+      ctx.restore();
+    }
+    function frame(now) {
+      var dt = Math.min(0.05, (now - (lastT || now)) / 1000); lastT = now; clock += dt;
+      if (clock - inkAt > 1.5) { ink = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || ink; inkAt = clock; }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      var st = $("stage").getBoundingClientRect();
+      ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.rect(st.left, st.top, st.width, st.height); ctx.clip("evenodd");
+      if (on) {
+        bubbles.forEach(function (b) {
+          b.y -= b.vy * dt; b.ph += dt;
+          if (b.y < -14) { var n = bubble(false); for (var k in n) b[k] = n[k]; }
+          drawBubble(b.x + Math.sin(b.ph * 1.4) * b.sway, b.y, b.r, 0.7);
+        });
+        if (clock > nextSwim && swimmers.length < 4) { visitor(); nextSwim = clock + 7 + Math.random() * 9; }
+      }
+      ctx.globalAlpha = 1;
+      swimmers = swimmers.filter(function (o) { return o.type === "jelly" ? o.y > -60 : o.dir > 0 ? o.x < W + o.w + 20 : o.x > -o.w - 20; });
+      swimmers.forEach(function (o) {
+        o.ph += dt;
+        if (o.type === "jelly") { o.y -= o.v * (1 + Math.sin(o.ph * 2.4) * 0.6) * dt; drawJelly(o); return; }
+        o.x += o.v * o.dir * dt;
+        if (o.type === "fish") drawFish(o); else if (o.type === "turtle") drawTurtle(o); else if (o.type === "whale") drawWhale(o); else drawCrab(o);
+      });
+      burst = burst.filter(function (b) { return b.age < b.life; });
+      burst.forEach(function (b) {
+        b.age += dt; b.vy -= 150 * dt; b.vx *= 0.96; b.x += b.vx * dt + Math.sin(b.ph + b.age * 5) * 0.6; b.y += b.vy * dt;
+        drawBubble(b.x, b.y, b.r, Math.max(0, 1 - b.age / b.life));
+      });
+      ctx.restore(); ctx.globalAlpha = 1;
+      if (cheer) { cheer.t += dt; drawCheer(); if (cheer.t > 3) cheer = null; }
+      if (on || swimmers.length || burst.length || cheer) raf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, W, H); raf = 0; }
+    }
+    function toggle(state, withBurst) {
+      on = state;
+      if (reduceMotionV) return;
+      setup();
+      if (on && withBurst) pop();
+      else if (on) nextSwim = clock + 5;
+      if (!on) { cheer = null; swimmers = []; }
+      if (!raf && (on || burst.length)) { lastT = 0; raf = requestAnimationFrame(frame); }
+    }
+    return { toggle: toggle };
+  })();
+
+  $("hav").addEventListener("change", function () { setHav(this.checked, true); });
+  /* underhavet:end */
 
   restore();
   /* julelys:start */
@@ -7672,6 +8410,12 @@ var RQ = (function () {
     if (ss && ss.on && !xmas && !hall && !easter && !nyt && !pirat && !okt && !bday) { skovPrev = ss.prev || null; skov = true; document.documentElement.classList.add("skov"); PRESETS = SKOV_SETS; buildPresets(); }
   } catch (e) {}
   /* skovtur:end */
+  /* underhavet:start */
+  try {
+    var vs = JSON.parse(localStorage.getItem("round-qr-hav") || "null");
+    if (vs && vs.on && !xmas && !hall && !easter && !nyt && !pirat && !okt && !bday && !skov) { havPrev = vs.prev || null; hav = true; document.documentElement.classList.add("hav"); PRESETS = HAV_SETS; buildPresets(); }
+  } catch (e) {}
+  /* underhavet:end */
   var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (PAGE_LANG) {
@@ -7692,11 +8436,16 @@ var RQ = (function () {
   /* oktober:start */ if (okt) { $("okt").checked = true; buildWiesn(); OFX.toggle(true, false); } /* oktober:end */
   /* foedselsdag:start */ if (bday) { $("bday").checked = true; buildFlagline(); BFX.toggle(true, false); } /* foedselsdag:end */
   /* skovtur:start */ if (skov) { $("skov").checked = true; buildTreeline(); SFX.toggle(true, false); } /* skovtur:end */
+  /* underhavet:start */ if (hav) { $("hav").checked = true; buildWaves(); VFX.toggle(true, false); } /* underhavet:end */
   fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
     setScan(null, "notReady");
   } else render();
+  /* underhavet:start */
+  // roundqr.dk/under-havet/ opens with the sea already switched on.
+  if (document.documentElement.getAttribute("data-page-theme") === "hav" && !hav && typeof qrcode !== "undefined") setHav(true, true);
+  /* underhavet:end */
   if (document.fonts && document.fonts.load) document.fonts.load('600 40px "Bricolage Grotesque"').then(function () { if (typeof qrcode !== "undefined") render(); }, function () {});
   getDownloads();
 })();

@@ -475,8 +475,8 @@ assert END_WRAP in body, 'wrap end'
 DESC = 'Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.'
 
 # ---------- offline single file ----------
-# Højtiderne og temaerne (jul, Halloween, påske, nytår, pirat, Oktoberfest, fødselsdag, skovtur) er kun til hjemmesiden. Download-filen får ingen af tilstandene.
-FEST = re.compile(r'(?:<!-- (julelys|halloween|paaske|nytaar|pirat|oktober|foedselsdag|skovtur):start -->|/\* (julelys|halloween|paaske|nytaar|pirat|oktober|foedselsdag|skovtur):start \*/).*?(?:<!-- (?:\1|\2):end -->|/\* (?:\1|\2):end \*/)\n?', re.S)
+# Højtiderne og temaerne (jul, Halloween, påske, nytår, pirat, Oktoberfest, fødselsdag, skovtur, under havet) er kun til hjemmesiden. Download-filen får ingen af tilstandene.
+FEST = re.compile(r'(?:<!-- (julelys|halloween|paaske|nytaar|pirat|oktober|foedselsdag|skovtur|underhavet):start -->|/\* (julelys|halloween|paaske|nytaar|pirat|oktober|foedselsdag|skovtur|underhavet):start \*/).*?(?:<!-- (?:\1|\2):end -->|/\* (?:\1|\2):end \*/)\n?', re.S)
 off = FEST.sub('', body)
 assert 'julelys:' not in off and 'id="xbar"' not in off and 'setXmas' not in off
 assert 'halloween:' not in off and 'id="hbar"' not in off and 'setHall' not in off and 'HFX' not in off
@@ -486,6 +486,7 @@ assert 'pirat:' not in off and 'id="pbar"' not in off and 'setPirat' not in off 
 assert 'oktober:' not in off and 'id="obar"' not in off and 'setOkt' not in off and 'OFX' not in off
 assert 'foedselsdag:' not in off and 'id="bbar"' not in off and 'setBday' not in off and 'BFX' not in off
 assert 'skovtur:' not in off and 'id="sbar"' not in off and 'setSkov' not in off and 'SFX' not in off
+assert 'underhavet:' not in off and 'id="vbar"' not in off and 'setHav' not in off and 'VFX' not in off
 off = off.replace('<style>\n', '<style>\n' + fontface(True) + '\n', 1)
 off = off.replace(END_WRAP, OFFLINE_FOOT + END_WRAP, 1).replace(CDN, libs(True), 1)
 off = add_strings(off, {'da': {'footNote': 'Virker uden internet. Ingen cookies og ingen sporing.'}, 'en': {'footNote': 'Works offline. No cookies and no tracking.'},
@@ -651,12 +652,56 @@ for lg in LANGS:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     open(path, 'w', encoding='utf-8').write(page)
 
+# ---------- temasider ----------
+# En temaside er hjemmesiden på ét sprog, der åbner med temaet slået til. Den har sin egen adresse, titel og beskrivelse.
+THEMES = [
+ {'theme': 'hav', 'sfx': 'Hav', 'pages': {
+   'da': ('under-havet/', 'Under havet · QR-koder med fisk, skildpadder og blæksprutter · Round QR',
+          'Lav QR-koder formet som skildpadder, fisk, hvaler og muslinger, med havdyr i stedet for prikker. Gratis, uden login og uden reklamer.'),
+   'en': ('en/under-the-sea/', 'Under the sea · QR codes with fish, turtles and octopuses · Round QR',
+          'Make QR codes shaped like turtles, fish, whales and shells, with sea animals instead of dots. Free, no sign-up and no ads.')}},
+]
+THEME_URLS = []
+for th in THEMES:
+    alt = ''.join(f'<link rel="alternate" hreflang="{HTML_LANG[x]}" href="{BASE}/{v[0]}">\n' for x, v in th['pages'].items())
+    for lg, (rel, title, desc) in th['pages'].items():
+        url = f'{BASE}/{rel}'; depth = rel.count('/')
+        d = dict(TOOL[lg], **PER_LANG[lg])
+        # Temaets egne tekster skrives ind på forhånd, så søgemaskiner læser havudgaven.
+        d.update({k[:-len(th['sfx'])]: v for k, v in TOOL[lg].items() if k.endswith(th['sfx']) and len(k) > len(th['sfx'])})
+        cut = site.index('<script')
+        page = prerender(site[:cut], d) + site[cut:]
+        page = page.replace('id="lang-da" value="da" checked', 'id="lang-da" value="da"', 1)
+        page = page.replace(f'id="lang-{lg}" value="{lg}"', f'id="lang-{lg}" value="{lg}" checked', 1)
+        up = '../' * depth
+        for p in PREFIX:
+            assert p in page, p
+            page = page.replace(p, p.replace('"', '"' + up, 1) if '"' in p else 'url(' + up + p[4:])
+        m = meta(lg)
+        m = re.sub(r'<link rel="alternate" hreflang="[^"]*" href="[^"]*">\n', '', m)
+        m = re.sub(r'<script type="application/ld\+json">.*?</script>\n', '', m, flags=re.S)
+        m, n1 = re.subn(r'<link rel="canonical" href="[^"]*">\n', f'<link rel="canonical" href="{url}">\n' + alt, m)
+        m, n2 = re.subn(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', m)
+        m, n3 = re.subn(r'<meta property="og:title" content="[^"]*">', '<meta property="og:title" content="' + esc(title.split(' · ')[0] + ' · Round QR') + '">', m)
+        m, n4 = re.subn(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="' + desc.replace('"', '&quot;') + '">', m)
+        assert n1 == n2 == n3 == n4 == 1
+        if lg != 'da': m = m.replace('href="../favicon', 'href="' + up + 'favicon').replace('href="../apple-touch', 'href="' + up + 'apple-touch')
+        else: m = m.replace('href="favicon', 'href="' + up + 'favicon').replace('href="apple-touch', 'href="' + up + 'apple-touch')
+        page = head(esc(title), desc.replace('"', '&quot;'), m, f'lang="{HTML_LANG[lg]}" data-page-lang="{lg}" data-page-path="/{rel}" data-page-theme="{th["theme"]}"') + page + '\n</body>\n</html>\n'
+        assert 'cdn.jsdelivr' not in page and 'googleapis' not in page
+        path = OUT + '/' + rel + 'index.html'
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        open(path, 'w', encoding='utf-8').write(page)
+        THEME_URLS.append((url, [(HTML_LANG[x], f'{BASE}/{v[0]}') for x, v in th['pages'].items()]))
+
 # Sitemap med alle sprog og dagens dato
 import datetime
 today = datetime.date.today().isoformat()
 alts = ''.join(f'    <xhtml:link rel="alternate" hreflang="{HTML_LANG[x]}" href="{url_of(x)}"/>\n' for x in LANGS)
 alts += f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url_of("en")}"/>\n'
 urls = ''.join(f'  <url>\n    <loc>{url_of(lg)}</loc>\n    <lastmod>{today}</lastmod>\n{alts}  </url>\n' for lg in LANGS)
+for url, alts_t in THEME_URLS:
+    urls += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{today}</lastmod>\n' + ''.join(f'    <xhtml:link rel="alternate" hreflang="{h}" href="{u}"/>\n' for h, u in alts_t) + '  </url>\n'
 open(OUT + '/sitemap.xml', 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n'
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + '</urlset>\n')
 

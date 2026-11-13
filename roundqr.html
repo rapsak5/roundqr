@@ -219,6 +219,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 
 
 
+
 <div class="wrap">
   <header>
     <h1>R<span class="o"><span class="vh">o</span></span>und QR</h1>
@@ -283,7 +284,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="shape" id="shape-square" value="square"><span data-t="square">Firkant</span></label>
             </div>
           </div>
-                                                                                          <p class="explain" id="ex-form" data-t="exForm" hidden></p>
+                                                                                                    <p class="explain" id="ex-form" data-t="exForm" hidden></p>
         </div>
 
         <div class="field">
@@ -295,7 +296,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
               <label><input type="radio" name="dot" id="dot-squares" value="squares"><span data-t="squaresPl">Firkanter</span></label>
             </div>
           </div>
-                                                                                          <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
+                                                                                                    <p class="explain" id="ex-modules" data-t="exModules" hidden></p>
         </div>
 
         <div class="field">
@@ -414,7 +415,7 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </section>
   </div>
 
-                
+                  
   <footer class="foot" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;font-size:13px;color:var(--muted);padding-top:18px;border-top:1px solid var(--line)">
     <span>Round QR · <a href="https://roundqr.dk" style="color:inherit">roundqr.dk</a></span>
     <span data-t="footNote"></span>
@@ -12996,6 +12997,38 @@ var RQ = (function () {
   var RAEV = ["M", .5, .33, "L", .66, .29, "L", .87, .02, "L", .9, .35, "L", .99, .5, "L", .77, .62, "L", .5, .97, "L", .23, .62, "L", .01, .5, "L", .1, .35, "L", .13, .02, "L", .34, .29, "Z"];
   var TRUNK = ["M", .44, .6, "L", .44, .98, "L", .56, .98, "L", .56, .6, "Z"];
   var SKOV = ["elge", "ulve", "raeve", "ugler", "bjorne"];
+  // Under havet: sea animals. Every body covers the middle of the cell.
+  // All outlines run the same way round as circ(), so overlapping parts join. Holes (eyes) run the other way.
+  function seaPts(pts, isHole) {
+    var a = 0, i, n = pts.length, o = [];
+    for (i = 0; i < n; i++) { var p = pts[i], q = pts[(i + 1) % n]; a += p[0] * q[1] - q[0] * p[1]; }
+    if ((a > 0) !== !!isHole) pts = pts.slice().reverse();
+    pts.forEach(function (p, j) { o.push(j ? "L" : "M", +p[0].toFixed(3), +p[1].toFixed(3)); });
+    o.push("Z"); return o;
+  }
+  function seaMir(p) { return p.map(function (q) { return [1 - q[0], q[1]]; }); }
+  function seaJoin() { var o = []; for (var i = 0; i < arguments.length; i++) o = o.concat(seaPts(arguments[i])); return o; }
+  // Fish swimming to the right: body, forked tail, back fin and an eye.
+  var FISK = seaJoin(ellPts(.58, .52, .4, .3, 0, 28), [[.3, .52], [.02, .18], [.11, .52], [.02, .86]], [[.4, .27], [.62, .04], [.78, .26]])
+    .concat(seaPts(ellPts(.8, .44, .055, .055, 0, 12), true));
+  // Turtle seen from above: shell, head, four flippers and a small tail.
+  var SK_FRONT = [[.3, .38], [.07, .14], [0, .3], [.1, .48], [.25, .54]], SK_BACK = [[.27, .74], [.06, .86], [.12, .99], [.36, .86]];
+  var SKILDPADDE = seaJoin(ellPts(.5, .56, .3, .33, 0, 28), ellPts(.5, .14, .115, .135, 0, 16), SK_FRONT, seaMir(SK_FRONT), SK_BACK, seaMir(SK_BACK), [[.44, .86], [.56, .86], [.5, 1]]);
+  // Starfish: five arms with round tips and sharp valleys.
+  var SOSTJERNE = seaPts((function () { var a = [], d = Math.PI / 180;
+    for (var i = 0; i < 5; i++) { var t = i * 72 * d;
+      [[-36, .2], [-9, .47], [-4, .52], [0, .535], [4, .52], [9, .47]].forEach(function (q) { a.push([.5 + q[1] * Math.sin(t + q[0] * d), .56 - q[1] * Math.cos(t + q[0] * d)]); }); }
+    return a; })());
+  // Crab: wide body, two raised claws with a notch, legs and eyes on stalks.
+  var KR_CLAW = [[.24, .5], [.05, .36], [0, .16], [.09, .02], [.13, .17], [.21, .04], [.29, .18], [.25, .34], [.32, .44]];
+  var KRABBE = seaJoin(ellPts(.5, .64, .33, .24, 0, 28), KR_CLAW, seaMir(KR_CLAW), barPts(.22, .68, .02, .62, .07), seaMir(barPts(.22, .68, .02, .62, .07)),
+    barPts(.24, .78, .04, .84, .07), seaMir(barPts(.24, .78, .04, .84, .07)), barPts(.3, .84, .16, .99, .07), seaMir(barPts(.3, .84, .16, .99, .07)),
+    ellPts(.4, .36, .065, .065, 0, 12), ellPts(.6, .36, .065, .065, 0, 12));
+  // Octopus: a round head with two eyes, and four arms that curl outwards.
+  var BL_OUT = [[.2, .5], [.05, .68], [0, .92], [.1, .99], [.16, .78], [.3, .66]], BL_IN = [[.3, .6], [.27, .99], [.41, .99], [.47, .66]];
+  var BLAEKSPRUTTE = seaJoin(ellPts(.5, .4, .34, .35, 0, 28), BL_OUT, seaMir(BL_OUT), BL_IN, seaMir(BL_IN))
+    .concat(seaPts(ellPts(.37, .34, .06, .06, 0, 12), true), seaPts(ellPts(.63, .34, .06, .06, 0, 12), true));
+  var HAV = ["fisk", "skildpadder", "sostjerner", "krabber", "blaeksprutter"];
   function xshape(x, y, style) {
     if (style === "hearts") return sh(x, y, HEART);
     if (style === "trees") return sh(x, y, TREE);
@@ -13040,6 +13073,11 @@ var RQ = (function () {
     if (style === "ugler") return circ(x + .5, y + .4, .3) + circ(x + .24, y + .48, .2) + circ(x + .76, y + .48, .2) + circ(x + .34, y + .24, .2) +
       circ(x + .66, y + .24, .2) + sh(x, y, TRUNK);
     if (style === "bjorne") return circ(x + .5, y + .57, .4) + circ(x + .19, y + .22, .14) + circ(x + .81, y + .22, .14);
+    if (style === "fisk") return sh(x, y, FISK);
+    if (style === "skildpadder") return sh(x, y, SKILDPADDE);
+    if (style === "sostjerner") return sh(x, y, SOSTJERNE);
+    if (style === "krabber") return sh(x, y, KRABBE);
+    if (style === "blaeksprutter") return sh(x, y, BLAEKSPRUTTE);
     return null;
   }
 
@@ -13055,6 +13093,7 @@ var RQ = (function () {
     if (style === "wiesn") style = WIESN[cellPick(x, y, 5)];
     if (style === "hurra") style = HURRA[cellPick(x, y, 5)];
     if (style === "skovmix") style = SKOV[cellPick(x, y, 5)];
+    if (style === "havmix") style = HAV[cellPick(x, y, 5)];
     var xs = xshape(x, y, style); if (xs) return xs;
     return rect(x - 0.01, y - 0.01, 1.02, 1.02);
   }
@@ -13287,6 +13326,55 @@ var RQ = (function () {
     // A line between the spines and the face.
     skip: function (X, Y, qx, qy, U, V) { return U > 0.7 && U < 0.84 && Math.abs(V - (0.47 + (0.84 - U) * 2.4)) < 0.03 && V < 0.82; } };
   var SSHAPES = ["elg", "ulv", "raev", "bjorn", "ugle", "orn"];
+  // Under havet: the code sits in the body, fins, flippers, arms and claws are filled with pattern.
+  var HF_TAIL = [[0.22, 0.52], [-0.04, 0.14], [0.05, 0.52], [-0.04, 0.9]];
+  SHAPES.hfisk = { anchor: [0.57, 0.52], prims: [{ poly: ellPts(0.57, 0.52, 0.43, 0.36, 0, 44) }, { poly: HF_TAIL },
+    { poly: [[0.34, 0.24], [0.4, 0.06], [0.56, 0.0], [0.7, 0.08], [0.84, 0.3]] }, { poly: [[0.5, 0.84], [0.46, 0.98], [0.56, 1.02], [0.7, 0.84]] }],
+    // An eye and the curve of the gill.
+    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.9, V - 0.44) < 0.03 || (U < 0.2 && Math.abs(V - 0.52) < 0.012); } };
+  var HS_FRONT = [[0.26, 0.38], [0.06, 0.12], [-0.04, 0.16], [-0.06, 0.32], [0.08, 0.5], [0.2, 0.56]];
+  var HS_BACK = [[0.26, 0.78], [0.08, 0.9], [0.06, 1.0], [0.16, 1.04], [0.36, 0.9]];
+  SHAPES.hskildpadde = { anchor: [0.5, 0.58], prims: [{ circle: [0.5, 0.58, 0.34] }, { poly: ellPts(0.5, 0.13, 0.115, 0.14, 0, 24) },
+    { poly: [[0.42, 0.2], [0.58, 0.2], [0.6, 0.3], [0.4, 0.3]] },
+    { poly: HS_FRONT }, { poly: mirror(HS_FRONT) }, { poly: HS_BACK }, { poly: mirror(HS_BACK) }, { poly: [[0.45, 0.9], [0.55, 0.9], [0.5, 1.04]] }],
+    // The rim of the shell.
+    skip: function (X, Y, qx, qy, U, V) { var d = Math.hypot(U - 0.5, V - 0.58); return d > 0.288 && d < 0.306; } };
+  function tentPts(x0, y0, x1, y1, x2, y2, w) {
+    var a = [], b = [], n = 10;
+    for (var i = 0; i <= n; i++) { var t = i / n, u = 1 - t, x = u * u * x0 + 2 * u * t * x1 + t * t * x2, y = u * u * y0 + 2 * u * t * y1 + t * t * y2;
+      var dx = 2 * u * (x1 - x0) + 2 * t * (x2 - x1), dy = 2 * u * (y1 - y0) + 2 * t * (y2 - y1), l = Math.hypot(dx, dy) || 1, h = w / 2 * (1 - 0.55 * t);
+      a.push([x - dy / l * h, y + dx / l * h]); b.push([x + dy / l * h, y - dx / l * h]); }
+    return a.concat(b.reverse());
+  }
+  var HB_T1 = tentPts(0.22, 0.56, 0.0, 0.7, -0.04, 1.02, 0.15), HB_T2 = tentPts(0.34, 0.66, 0.2, 0.9, 0.24, 1.1, 0.15), HB_T3 = tentPts(0.45, 0.7, 0.46, 0.9, 0.4, 1.12, 0.14);
+  SHAPES.hblaeksprutte = { anchor: [0.5, 0.38], prims: [{ circle: [0.5, 0.38, 0.38] }, { poly: [[0.2, 0.5], [0.8, 0.5], [0.76, 0.76], [0.24, 0.76]] },
+    { poly: HB_T1 }, { poly: mirror(HB_T1) }, { poly: HB_T2 }, { poly: mirror(HB_T2) }, { poly: HB_T3 }, { poly: mirror(HB_T3) }] };
+  var HK_ARM = barPts(0.2, 0.5, 0.1, 0.3, 0.1);
+  var HK_CLAW = [[0.16, 0.36], [0.02, 0.3], [-0.06, 0.16], [0.0, 0.0], [0.07, 0.14], [0.14, 0.02], [0.24, 0.12], [0.22, 0.28]];
+  var HK_L1 = barPts(0.16, 0.66, -0.04, 0.6, 0.055), HK_L2 = barPts(0.16, 0.76, -0.04, 0.82, 0.055), HK_L3 = barPts(0.22, 0.86, 0.06, 1.02, 0.055);
+  SHAPES.hkrabbe = { anchor: [0.5, 0.64], prims: [{ poly: ellPts(0.5, 0.64, 0.4, 0.33, 0, 44) }, { poly: HK_ARM }, { poly: mirror(HK_ARM) }, { poly: HK_CLAW }, { poly: mirror(HK_CLAW) },
+    { poly: HK_L1 }, { poly: mirror(HK_L1) }, { poly: HK_L2 }, { poly: mirror(HK_L2) }, { poly: HK_L3 }, { poly: mirror(HK_L3) },
+    { poly: barPts(0.4, 0.36, 0.38, 0.2, 0.04) }, { poly: barPts(0.6, 0.36, 0.62, 0.2, 0.04) }, { circle: [0.38, 0.17, 0.055] }, { circle: [0.62, 0.17, 0.055] }] };
+  // Whale swimming to the left: a big round body, a tail fluke, a flipper and a spout.
+  SHAPES.hhval = { anchor: [0.44, 0.6], prims: [{ poly: ellPts(0.44, 0.6, 0.44, 0.34, 0, 44) },
+    { poly: [[0.74, 0.5], [0.92, 0.42], [0.9, 0.2], [0.98, 0.3], [1.04, 0.32], [1.12, 0.22], [1.1, 0.48], [0.98, 0.6], [0.84, 0.82]] },
+    { poly: [[0.3, 0.88], [0.44, 1.06], [0.54, 1.02], [0.5, 0.88]] },
+    { poly: barPts(0.2, 0.3, 0.2, 0.12, 0.035) }, { poly: tentPts(0.2, 0.14, 0.14, 0.04, 0.06, 0.08, 0.05) }, { poly: tentPts(0.2, 0.14, 0.26, 0.04, 0.34, 0.08, 0.05) }],
+    // An eye and the line of the mouth.
+    skip: function (X, Y, qx, qy, U, V) { return Math.hypot(U - 0.09, V - 0.56) < 0.022 || (U < 0.16 && Math.abs(V - (0.72 - (U - 0.02) * 0.25)) < 0.012); } };
+  // Scallop shell: a fan with a wavy edge and a hinge at the bottom.
+  SHAPES.hmusling = { anchor: [0.5, 0.48], prims: [{ circle: [0.5, 0.5, 0.42] },
+    { circle: [0.5, 0.1, 0.085] }, { circle: [0.34, 0.135, 0.085] }, { circle: [0.66, 0.135, 0.085] }, { circle: [0.2, 0.225, 0.085] }, { circle: [0.8, 0.225, 0.085] },
+    { circle: [0.105, 0.36, 0.085] }, { circle: [0.895, 0.36, 0.085] }, { circle: [0.075, 0.52, 0.08] }, { circle: [0.925, 0.52, 0.08] },
+    { poly: [[0.3, 0.84], [0.7, 0.84], [0.76, 1.0], [0.24, 1.0]] }],
+    // Ribs that fan out from the hinge.
+    skip: function (X, Y, qx, qy, U, V) {
+      if (V > 0.885 && V < 0.905) return true;
+      var a = Math.atan2(U - 0.5, 0.94 - V), r = Math.hypot(U - 0.5, V - 0.94);
+      if (r < 0.1 || V > 0.86) return false;
+      var k = a / 0.26; return Math.abs(k - Math.round(k)) * 0.26 * r < 0.011 && Math.abs(Math.round(k)) <= 4 && Math.round(k) !== 0;
+    } };
+  var VSHAPES = ["hfisk", "hskildpadde", "hblaeksprutte", "hkrabbe", "hhval", "hmusling"];
   function sdPoly(p, u, v) {
     var d = 1e18, inside = false;
     for (var i = 0, j = p.length - 1; i < p.length; j = i++) {
@@ -13506,7 +13594,7 @@ var RQ = (function () {
     return measureLabel.ctx.measureText(text).width;
   }
 
-  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES, WIESN: WIESN, OSHAPES: OSHAPES, HURRA: HURRA, BSHAPES: BSHAPES, SKOV: SKOV, SSHAPES: SSHAPES };
+  return { geometry: geometry, toSVG: toSVG, toCanvas: toCanvas, measureLabel: measureLabel, mod: mod, XMAS: XMAS, XSHAPES: XSHAPES, shapeIcon: shapeIcon, HALL: HALL, HSHAPES: HSHAPES, SPRING: SPRING, ESHAPES: ESHAPES, PARTY: PARTY, NSHAPES: NSHAPES, PIRATE: PIRATE, PSHAPES: PSHAPES, WIESN: WIESN, OSHAPES: OSHAPES, HURRA: HURRA, BSHAPES: BSHAPES, SKOV: SKOV, SSHAPES: SSHAPES, HAV: HAV, VSHAPES: VSHAPES };
 })();
 </script>
 
@@ -13547,7 +13635,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket blev ikke indlæst. Tjek forbindelsen og genindlæs siden.",
       inverted: "Lys kode på mørk baggrund. Nogle telefoner kan ikke læse omvendte koder.",
       lowContrast: "Lav kontrast mellem kode og baggrund. Gør koden mørkere eller baggrunden lysere.",
-      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved", stein: "Ølkrus", pretzel: "Kringle", lheart: "Honningkagehjerte", rhomb: "Rude", alphat: "Tyrolerhat", barrel: "Øltønde", dkflag: "Dannebrog", cake: "Lagkage", cakeman: "Kagemand", balloon: "Ballon", crown: "Krone", bpresent: "Gave" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Firkant", heart: "Hjerte", tree: "Juletræ", gift: "Gave", star: "Stjerne", santa: "Nisse", bauble: "Julekugle", pumpkin: "Græskar", ghost: "Spøgelse", bat: "Flagermus", cat: "Kat", hat: "Heksehat", candy: "Slik", egg: "Påskeæg", bunny: "Påskehare", chick: "Kylling", flower: "Blomst", basket: "Kurv", tulip: "Tulipan", rocket: "Raket", glass: "Champagneglas", bottle: "Flaske", clock: "Ur", sparkle: "Gnist", partyhat: "Festhat", chest: "Skattekiste", ship: "Skib", map: "Skattekort", flag: "Piratflag", wheel: "Ror", skull: "Dødningehoved", stein: "Ølkrus", pretzel: "Kringle", lheart: "Honningkagehjerte", rhomb: "Rude", alphat: "Tyrolerhat", barrel: "Øltønde", dkflag: "Dannebrog", cake: "Lagkage", cakeman: "Kagemand", balloon: "Ballon", crown: "Krone", bpresent: "Gave", hfisk: "Fisk", hskildpadde: "Skildpadde", hblaeksprutte: "Blæksprutte", hkrabbe: "Krabbe", hhval: "Hval", hmusling: "Musling" }[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Niveau " + g.ec; },
       save: "Gem ",
       aUnit: "Enhed", uPx: "Pixels", uCm: "Centimeter",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ",") + " cm bred ved tryk · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -13610,7 +13698,7 @@ var RQ = (function () {
       libFail: "The QR library didn't load. Check your connection and reload.",
       inverted: "Light code on a dark background. Some phone scanners can't read inverted codes.",
       lowContrast: "Low contrast between code and background. Darken the code or lighten the background.",
-      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull", stein: "Stein", pretzel: "Pretzel", lheart: "Gingerbread heart", rhomb: "Diamond", alphat: "Alpine hat", barrel: "Barrel", dkflag: "Danish flag", cake: "Layer cake", cakeman: "Cake man", balloon: "Balloon", crown: "Crown", bpresent: "Present" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
+      spec: function (g) { return ({ square: "Square", heart: "Heart", tree: "Tree", gift: "Present", star: "Star", santa: "Santa", bauble: "Bauble", pumpkin: "Pumpkin", ghost: "Ghost", bat: "Bat", cat: "Cat", hat: "Witch hat", candy: "Candy", egg: "Egg", bunny: "Easter Bunny", chick: "Chick", flower: "Flower", basket: "Basket", tulip: "Tulip", rocket: "Rocket", glass: "Champagne glass", bottle: "Bottle", clock: "Clock", sparkle: "Sparkle", partyhat: "Party hat", chest: "Treasure chest", ship: "Ship", map: "Treasure map", flag: "Pirate flag", wheel: "Ship's wheel", skull: "Skull", stein: "Stein", pretzel: "Pretzel", lheart: "Gingerbread heart", rhomb: "Diamond", alphat: "Alpine hat", barrel: "Barrel", dkflag: "Danish flag", cake: "Layer cake", cakeman: "Cake man", balloon: "Balloon", crown: "Crown", bpresent: "Present", hfisk: "Fish", hskildpadde: "Turtle", hblaeksprutte: "Octopus", hkrabbe: "Crab", hhval: "Whale", hmusling: "Shell" }[g.shape] || "Circle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · EC " + g.ec; },
       save: "Save ",
       aUnit: "Unit", uPx: "Pixels", uCm: "Centimetres",
       sizeCm: function (cm, px, hpx) { return fmtCm(cm, ".") + " cm wide in print · 300 DPI · " + px + " × " + hpx + " px"; },
@@ -13703,7 +13791,7 @@ var RQ = (function () {
       libFail: "Die QR-Bibliothek wurde nicht geladen. Prüfe die Verbindung und lade die Seite neu.",
       inverted: "Heller Code auf dunklem Hintergrund. Manche Handys können invertierte Codes nicht lesen.",
       lowContrast: "Wenig Kontrast zwischen Code und Hintergrund. Mach den Code dunkler oder den Hintergrund heller.",
-      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf", "stein": "Maßkrug", "pretzel": "Brezn", "lheart": "Lebkuchenherz", "rhomb": "Raute", "alphat": "Trachtenhut", "barrel": "Fass", "dkflag": "Dänische Flagge", "cake": "Torte", "cakeman": "Kuchenmann", "balloon": "Ballon", "crown": "Krone", "bpresent": "Geschenk"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
+      spec: function (g) { return ({"circle": "Kreis", "square": "Quadrat", "heart": "Herz", "tree": "Tannenbaum", "gift": "Geschenk", "star": "Stern", "santa": "Wichtel", "bauble": "Kugel", "pumpkin": "Kürbis", "ghost": "Gespenst", "bat": "Fledermaus", "cat": "Katze", "hat": "Hexenhut", "candy": "Bonbon", "egg": "Osterei", "bunny": "Osterhase", "chick": "Küken", "flower": "Blume", "basket": "Korb", "tulip": "Tulpe", "rocket": "Rakete", "glass": "Sektglas", "bottle": "Flasche", "clock": "Uhr", "sparkle": "Funke", "partyhat": "Partyhut", "chest": "Schatztruhe", "ship": "Schiff", "map": "Schatzkarte", "flag": "Piratenflagge", "wheel": "Steuerrad", "skull": "Totenkopf", "stein": "Maßkrug", "pretzel": "Brezn", "lheart": "Lebkuchenherz", "rhomb": "Raute", "alphat": "Trachtenhut", "barrel": "Fass", "dkflag": "Dänische Flagge", "cake": "Torte", "cakeman": "Kuchenmann", "balloon": "Ballon", "crown": "Krone", "bpresent": "Geschenk", hfisk: "Fisch", hskildpadde: "Schildkröte", hblaeksprutte: "Tintenfisch", hkrabbe: "Krabbe", hhval: "Wal", hmusling: "Muschel"}[g.shape] || "Kreis") + " · Version " + g.version + " · " + g.N + "×" + g.N + " Module · Stufe " + g.ec; },
       save: function (f) { return f + " speichern"; },
       aUnit: "Einheit",
       uPx: "Pixel",
@@ -13822,7 +13910,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket ble ikke lastet. Sjekk tilkoblingen og last inn siden på nytt.",
       inverted: "Lys kode på mørk bakgrunn. Noen telefoner kan ikke lese inverterte koder.",
       lowContrast: "Lav kontrast mellom kode og bakgrunn. Gjør koden mørkere eller bakgrunnen lysere.",
-      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode", "stein": "Ølkrus", "pretzel": "Kringle", "lheart": "Pepperkakehjerte", "rhomb": "Rute", "alphat": "Tirolerhatt", "barrel": "Øltønne", "dkflag": "Dansk flagg", "cake": "Bløtkake", "cakeman": "Kakemann", "balloon": "Ballong", "crown": "Krone", "bpresent": "Gave"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Sirkel", "square": "Firkant", "heart": "Hjerte", "tree": "Juletre", "gift": "Gave", "star": "Stjerne", "santa": "Nisse", "bauble": "Julekule", "pumpkin": "Gresskar", "ghost": "Spøkelse", "bat": "Flaggermus", "cat": "Katt", "hat": "Heksehatt", "candy": "Godteri", "egg": "Påskeegg", "bunny": "Påskehare", "chick": "Kylling", "flower": "Blomst", "basket": "Kurv", "tulip": "Tulipan", "rocket": "Rakett", "glass": "Champagneglass", "bottle": "Flaske", "clock": "Klokke", "sparkle": "Gnist", "partyhat": "Festhatt", "chest": "Skattekiste", "ship": "Skip", "map": "Skattekart", "flag": "Piratflagg", "wheel": "Ror", "skull": "Dødningehode", "stein": "Ølkrus", "pretzel": "Kringle", "lheart": "Pepperkakehjerte", "rhomb": "Rute", "alphat": "Tirolerhatt", "barrel": "Øltønne", "dkflag": "Dansk flagg", "cake": "Bløtkake", "cakeman": "Kakemann", "balloon": "Ballong", "crown": "Krone", "bpresent": "Gave", hfisk: "Fisk", hskildpadde: "Skilpadde", hblaeksprutte: "Blekksprut", hkrabbe: "Krabbe", hhval: "Hval", hmusling: "Skjell"}[g.shape] || "Sirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Lagre ",
       aUnit: "Enhet",
       uPx: "Piksler",
@@ -13941,7 +14029,7 @@ var RQ = (function () {
       libFail: "QR-biblioteket laddades inte. Kontrollera anslutningen och ladda om sidan.",
       inverted: "Ljus kod på mörk bakgrund. Vissa telefoner kan inte läsa inverterade koder.",
       lowContrast: "Låg kontrast mellan kod och bakgrund. Gör koden mörkare eller bakgrunden ljusare.",
-      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle", "stein": "Ölsejdel", "pretzel": "Kringla", "lheart": "Pepparkakshjärta", "rhomb": "Ruta", "alphat": "Tyrolerhatt", "barrel": "Öltunna", "dkflag": "Danska flaggan", "cake": "Tårta", "cakeman": "Kakgubbe", "balloon": "Ballong", "crown": "Krona", "bpresent": "Present"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
+      spec: function (g) { return ({"circle": "Cirkel", "square": "Fyrkant", "heart": "Hjärta", "tree": "Julgran", "gift": "Paket", "star": "Stjärna", "santa": "Tomte", "bauble": "Julkula", "pumpkin": "Pumpa", "ghost": "Spöke", "bat": "Fladdermus", "cat": "Katt", "hat": "Häxhatt", "candy": "Godis", "egg": "Påskägg", "bunny": "Påskhare", "chick": "Kyckling", "flower": "Blomma", "basket": "Korg", "tulip": "Tulpan", "rocket": "Raket", "glass": "Champagneglas", "bottle": "Flaska", "clock": "Klocka", "sparkle": "Gnista", "partyhat": "Partyhatt", "chest": "Skattkista", "ship": "Skepp", "map": "Skattkarta", "flag": "Piratflagga", "wheel": "Ratt", "skull": "Dödskalle", "stein": "Ölsejdel", "pretzel": "Kringla", "lheart": "Pepparkakshjärta", "rhomb": "Ruta", "alphat": "Tyrolerhatt", "barrel": "Öltunna", "dkflag": "Danska flaggan", "cake": "Tårta", "cakeman": "Kakgubbe", "balloon": "Ballong", "crown": "Krona", "bpresent": "Present", hfisk: "Fisk", hskildpadde: "Sköldpadda", hblaeksprutte: "Bläckfisk", hkrabbe: "Krabba", hhval: "Val", hmusling: "Snäcka"}[g.shape] || "Cirkel") + " · Version " + g.version + " · " + g.N + "×" + g.N + " moduler · Nivå " + g.ec; },
       save: "Spara ",
       aUnit: "Enhet",
       uPx: "Pixlar",
@@ -14061,7 +14149,7 @@ var RQ = (function () {
       libFail: "No se cargó la librería de QR. Comprueba la conexión y recarga la página.",
       inverted: "Código claro sobre fondo oscuro. Algunos móviles no leen códigos invertidos.",
       lowContrast: "Poco contraste entre el código y el fondo. Oscurece el código o aclara el fondo.",
-      spec: function (g) { return ({ square: "Cuadrado", heart: "Corazón", tree: "Árbol de Navidad", gift: "Regalo", star: "Estrella", santa: "Papá Noel", bauble: "Bola de Navidad", pumpkin: "Calabaza", ghost: "Fantasma", bat: "Murciélago", cat: "Gato", hat: "Sombrero de bruja", candy: "Caramelo", egg: "Huevo de Pascua", bunny: "Conejo de Pascua", chick: "Pollito", flower: "Flor", basket: "Cesta", tulip: "Tulipán", rocket: "Cohete", glass: "Copa de champán", bottle: "Botella", clock: "Reloj", sparkle: "Destello", partyhat: "Gorro de fiesta", chest: "Cofre del tesoro", ship: "Barco", map: "Mapa del tesoro", flag: "Bandera pirata", wheel: "Timón", skull: "Calavera", stein: "Jarra de cerveza", pretzel: "Pretzel", lheart: "Corazón de jengibre", rhomb: "Rombo", alphat: "Sombrero tirolés", barrel: "Barril", dkflag: "Bandera danesa", cake: "Tarta", cakeman: "Muñeco de tarta", balloon: "Globo", crown: "Corona", bpresent: "Regalo" }[g.shape] || "Círculo") + " · Versión " + g.version + " · " + g.N + "×" + g.N + " módulos · Nivel " + g.ec; },
+      spec: function (g) { return ({ square: "Cuadrado", heart: "Corazón", tree: "Árbol de Navidad", gift: "Regalo", star: "Estrella", santa: "Papá Noel", bauble: "Bola de Navidad", pumpkin: "Calabaza", ghost: "Fantasma", bat: "Murciélago", cat: "Gato", hat: "Sombrero de bruja", candy: "Caramelo", egg: "Huevo de Pascua", bunny: "Conejo de Pascua", chick: "Pollito", flower: "Flor", basket: "Cesta", tulip: "Tulipán", rocket: "Cohete", glass: "Copa de champán", bottle: "Botella", clock: "Reloj", sparkle: "Destello", partyhat: "Gorro de fiesta", chest: "Cofre del tesoro", ship: "Barco", map: "Mapa del tesoro", flag: "Bandera pirata", wheel: "Timón", skull: "Calavera", stein: "Jarra de cerveza", pretzel: "Pretzel", lheart: "Corazón de jengibre", rhomb: "Rombo", alphat: "Sombrero tirolés", barrel: "Barril", dkflag: "Bandera danesa", cake: "Tarta", cakeman: "Muñeco de tarta", balloon: "Globo", crown: "Corona", bpresent: "Regalo", hfisk: "Pez", hskildpadde: "Tortuga", hblaeksprutte: "Pulpo", hkrabbe: "Cangrejo", hhval: "Ballena", hmusling: "Concha" }[g.shape] || "Círculo") + " · Versión " + g.version + " · " + g.N + "×" + g.N + " módulos · Nivel " + g.ec; },
       save: "Guardar ",
       aUnit: "Unidad",
       uPx: "Píxeles",
@@ -14180,7 +14268,7 @@ var RQ = (function () {
       libFail: "La bibliothèque QR ne s'est pas chargée. Vérifiez la connexion et rechargez la page.",
       inverted: "Code clair sur fond sombre. Certains téléphones ne lisent pas les codes inversés.",
       lowContrast: "Peu de contraste entre le code et le fond. Foncez le code ou éclaircissez le fond.",
-      spec: function (g) { return ({ square: "Carré", heart: "Cœur", tree: "Sapin", gift: "Cadeau", star: "Étoile", santa: "Père Noël", bauble: "Boule de Noël", pumpkin: "Citrouille", ghost: "Fantôme", bat: "Chauve-souris", cat: "Chat", hat: "Chapeau de sorcière", candy: "Bonbon", egg: "Œuf de Pâques", bunny: "Lapin de Pâques", chick: "Poussin", flower: "Fleur", basket: "Panier", tulip: "Tulipe", rocket: "Fusée", glass: "Coupe de champagne", bottle: "Bouteille", clock: "Horloge", sparkle: "Étincelle", partyhat: "Chapeau de fête", chest: "Coffre au trésor", ship: "Navire", map: "Carte au trésor", flag: "Drapeau pirate", wheel: "Gouvernail", skull: "Tête de mort", stein: "Chope", pretzel: "Bretzel", lheart: "Cœur en pain d'épices", rhomb: "Losange", alphat: "Chapeau tyrolien", barrel: "Tonneau", dkflag: "Drapeau danois", cake: "Gâteau", cakeman: "Bonhomme gâteau", balloon: "Ballon", crown: "Couronne", bpresent: "Cadeau" }[g.shape] || "Cercle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · Niveau " + g.ec; },
+      spec: function (g) { return ({ square: "Carré", heart: "Cœur", tree: "Sapin", gift: "Cadeau", star: "Étoile", santa: "Père Noël", bauble: "Boule de Noël", pumpkin: "Citrouille", ghost: "Fantôme", bat: "Chauve-souris", cat: "Chat", hat: "Chapeau de sorcière", candy: "Bonbon", egg: "Œuf de Pâques", bunny: "Lapin de Pâques", chick: "Poussin", flower: "Fleur", basket: "Panier", tulip: "Tulipe", rocket: "Fusée", glass: "Coupe de champagne", bottle: "Bouteille", clock: "Horloge", sparkle: "Étincelle", partyhat: "Chapeau de fête", chest: "Coffre au trésor", ship: "Navire", map: "Carte au trésor", flag: "Drapeau pirate", wheel: "Gouvernail", skull: "Tête de mort", stein: "Chope", pretzel: "Bretzel", lheart: "Cœur en pain d'épices", rhomb: "Losange", alphat: "Chapeau tyrolien", barrel: "Tonneau", dkflag: "Drapeau danois", cake: "Gâteau", cakeman: "Bonhomme gâteau", balloon: "Ballon", crown: "Couronne", bpresent: "Cadeau", hfisk: "Poisson", hskildpadde: "Tortue", hblaeksprutte: "Pieuvre", hkrabbe: "Crabe", hhval: "Baleine", hmusling: "Coquillage" }[g.shape] || "Cercle") + " · Version " + g.version + " · " + g.N + "×" + g.N + " modules · Niveau " + g.ec; },
       save: "Enregistrer en ",
       aUnit: "Unité",
       uPx: "Pixels",
@@ -14299,7 +14387,7 @@ var RQ = (function () {
       libFail: "La libreria QR non si è caricata. Controlla la connessione e ricarica la pagina.",
       inverted: "Codice chiaro su sfondo scuro. Alcuni telefoni non leggono i codici invertiti.",
       lowContrast: "Poco contrasto tra codice e sfondo. Scurisci il codice o schiarisci lo sfondo.",
-      spec: function (g) { return ({ square: "Quadrato", heart: "Cuore", tree: "Albero di Natale", gift: "Regalo", star: "Stella", santa: "Babbo Natale", bauble: "Pallina di Natale", pumpkin: "Zucca", ghost: "Fantasma", bat: "Pipistrello", cat: "Gatto", hat: "Cappello da strega", candy: "Caramella", egg: "Uovo di Pasqua", bunny: "Coniglietto pasquale", chick: "Pulcino", flower: "Fiore", basket: "Cestino", tulip: "Tulipano", rocket: "Razzo", glass: "Calice di spumante", bottle: "Bottiglia", clock: "Orologio", sparkle: "Scintilla", partyhat: "Cappellino da festa", chest: "Forziere", ship: "Nave", map: "Mappa del tesoro", flag: "Bandiera pirata", wheel: "Timone", skull: "Teschio", stein: "Boccale", pretzel: "Bretzel", lheart: "Cuore di pan di zenzero", rhomb: "Rombo", alphat: "Cappello tirolese", barrel: "Botte", dkflag: "Bandiera danese", cake: "Torta", cakeman: "Omino di torta", balloon: "Palloncino", crown: "Corona", bpresent: "Regalo" }[g.shape] || "Cerchio") + " · Versione " + g.version + " · " + g.N + "×" + g.N + " moduli · Livello " + g.ec; },
+      spec: function (g) { return ({ square: "Quadrato", heart: "Cuore", tree: "Albero di Natale", gift: "Regalo", star: "Stella", santa: "Babbo Natale", bauble: "Pallina di Natale", pumpkin: "Zucca", ghost: "Fantasma", bat: "Pipistrello", cat: "Gatto", hat: "Cappello da strega", candy: "Caramella", egg: "Uovo di Pasqua", bunny: "Coniglietto pasquale", chick: "Pulcino", flower: "Fiore", basket: "Cestino", tulip: "Tulipano", rocket: "Razzo", glass: "Calice di spumante", bottle: "Bottiglia", clock: "Orologio", sparkle: "Scintilla", partyhat: "Cappellino da festa", chest: "Forziere", ship: "Nave", map: "Mappa del tesoro", flag: "Bandiera pirata", wheel: "Timone", skull: "Teschio", stein: "Boccale", pretzel: "Bretzel", lheart: "Cuore di pan di zenzero", rhomb: "Rombo", alphat: "Cappello tirolese", barrel: "Botte", dkflag: "Bandiera danese", cake: "Torta", cakeman: "Omino di torta", balloon: "Palloncino", crown: "Corona", bpresent: "Regalo", hfisk: "Pesce", hskildpadde: "Tartaruga", hblaeksprutte: "Polpo", hkrabbe: "Granchio", hhval: "Balena", hmusling: "Conchiglia" }[g.shape] || "Cerchio") + " · Versione " + g.version + " · " + g.N + "×" + g.N + " moduli · Livello " + g.ec; },
       save: "Salva come ",
       aUnit: "Unità",
       uPx: "Pixel",
@@ -14356,9 +14444,9 @@ var RQ = (function () {
       exEyesXmas: "I tre quadrati grandi che il telefono usa per trovare il codice. Cerchio sembra palline di Natale."
     }
   };
-                var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false, okt = false, bday = false, skov = false;
+                  var lang = "da", xmas = false, hall = false, easter = false, nyt = false, pirat = false, okt = false, bday = false, skov = false, hav = false;
   function t(k) {
-    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : okt ? "Okt" : bday ? "Bday" : skov ? "Skov" : "";
+    var d = T[lang], sfx = xmas ? "Xmas" : hall ? "Hall" : easter ? "Easter" : nyt ? "Nyt" : pirat ? "Pirat" : okt ? "Okt" : bday ? "Bday" : skov ? "Skov" : hav ? "Hav" : "";
     return sfx && d[k + sfx] !== undefined ? d[k + sfx] : d[k];
   }
 
@@ -14431,19 +14519,22 @@ var RQ = (function () {
   // On roundqr.dk every language has its own address (/, /en/, /de/ ...). The build sets data-page-lang on those pages.
   // Switching language keeps working without a reload; only the address, title and description follow along.
   var PAGE_LANG = document.documentElement.getAttribute("data-page-lang");
+  var PAGE_PATH = document.documentElement.getAttribute("data-page-path"), PAGE_TITLE = document.title;
+  var PAGE_DESC = (document.querySelector('meta[name="description"]') || {}).content;
   function syncPage() {
     if (!PAGE_LANG) return;
     var d = T[lang];
-    if (d.pageTitle) document.title = d.pageTitle;
-    var md = document.querySelector('meta[name="description"]'); if (md && d.pageDesc) md.setAttribute("content", d.pageDesc);
-    var path = lang === "da" ? "/" : "/" + lang + "/";
+    var own = PAGE_PATH && lang === PAGE_LANG;
+    if (own) document.title = PAGE_TITLE; else if (d.pageTitle) document.title = d.pageTitle;
+    var md = document.querySelector('meta[name="description"]'); if (md && (own ? PAGE_DESC : d.pageDesc)) md.setAttribute("content", own ? PAGE_DESC : d.pageDesc);
+    var path = own ? PAGE_PATH : lang === "da" ? "/" : "/" + lang + "/";
     var cl = document.querySelector('link[rel="canonical"]'); if (cl) cl.setAttribute("href", "https://roundqr.dk" + path);
     if (/^https?:$/.test(location.protocol) && location.pathname !== path && history.replaceState) {
       try { history.replaceState(null, "", path + location.search + location.hash); } catch (e) {}
     }
   }
 
-  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v || T[k].defaultLabelSkov === v; }); }
+  function isDefaultLabel(v) { return Object.keys(T).some(function (k) { return T[k].defaultLabel === v || T[k].defaultLabelXmas === v || T[k].defaultLabelHall === v || T[k].defaultLabelEaster === v || T[k].defaultLabelNyt === v || T[k].defaultLabelPirat === v || T[k].defaultLabelOkt === v || T[k].defaultLabelBday === v || T[k].defaultLabelSkov === v || T[k].defaultLabelHav === v; }); }
 
   function opts() {
     return {
@@ -14753,9 +14844,9 @@ var RQ = (function () {
   
   
   
-  
+    
   restore();
-                  var startLang = null;
+                    var startLang = null;
   try { startLang = localStorage.getItem("round-qr-lang"); } catch (e) {}
   if (PAGE_LANG) {
     // The website: the address decides the language, so a shared link always opens in the same language.
@@ -14767,12 +14858,12 @@ var RQ = (function () {
     startLang = startLang || "da";
   }
   applyLang(startLang);
-                  fillSizes();
+                    fillSizes();
   if (typeof qrcode === "undefined") {
     $("out").hidden = true; $("empty").hidden = false; $("empty").textContent = t("libFail");
     setScan(null, "notReady");
   } else render();
-  if (document.fonts && document.fonts.load) document.fonts.load('600 40px "Bricolage Grotesque"').then(function () { if (typeof qrcode !== "undefined") render(); }, function () {});
+    if (document.fonts && document.fonts.load) document.fonts.load('600 40px "Bricolage Grotesque"').then(function () { if (typeof qrcode !== "undefined") render(); }, function () {});
   getDownloads();
 })();
 </script>

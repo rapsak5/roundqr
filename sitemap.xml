@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://roundqr.dk/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://roundqr.dk/en/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
@@ -28,7 +28,7 @@
   </url>
   <url>
     <loc>https://roundqr.dk/de/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://roundqr.dk/no/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://roundqr.dk/sv/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
@@ -67,7 +67,7 @@
   </url>
   <url>
     <loc>https://roundqr.dk/es/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://roundqr.dk/fr/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://roundqr.dk/it/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://roundqr.dk/de/"/>
@@ -103,5 +103,17 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://roundqr.dk/fr/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://roundqr.dk/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://roundqr.dk/en/"/>
+  </url>
+  <url>
+    <loc>https://roundqr.dk/under-havet/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/under-havet/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/under-the-sea/"/>
+  </url>
+  <url>
+    <loc>https://roundqr.dk/en/under-the-sea/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="da" href="https://roundqr.dk/under-havet/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://roundqr.dk/en/under-the-sea/"/>
   </url>
 </urlset>

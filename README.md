@@ -12,6 +12,7 @@ Kildekoden til [roundqr.dk](https://roundqr.dk): et gratis værktøj til runde o
 ## Filer
 
 - `index.html` er den danske hjemmeside med værktøj, sponsorer, download og spørgsmål og svar. Mapperne `en/`, `de/`, `no/`, `sv/`, `es/`, `fr/` og `it/` er de samme sider på de andre sprog, med teksten skrevet ind på forhånd og hreflang mellem dem. Byg dem altid med build.py, ret dem aldrig i hånden.
+- `under-havet/` og `en/under-the-sea/` er temasider: hjemmesiden, der åbner med temaet Under havet slået til. De bygges af build.py ud fra listen `THEMES`.
 - `roundqr.html` er hele programmet i én fil, der virker uden internet.
 - `logos/` er sponsorlogoerne.
 - `assets/` indeholder skrifttyper (IBM Plex, Bricolage Grotesque) og bibliotekerne [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) (MIT) og [jsQR](https://github.com/cozmo/jsQR) (Apache 2.0).
