@@ -4,12 +4,12 @@
 #        sh tools/gaver/genudgiv.sh dm glasgow (kun de nævnte)
 # Kør fra roden af repo'et. Scriptet committer, men pusher ikke. Push selv bagefter.
 set -e
-TAG=gavesider-online-2026-11-13
-git fetch --depth=1 origin "refs/tags/$TAG:refs/tags/$TAG"
+SHA=1d08ba509292752e3702fc64a36abfa6e60b2387  # sidste commit, hvor alle gavesiderne lå online
+git fetch -q --depth=1 origin "$SHA"
 if [ $# -eq 0 ]; then set -- $(cat tools/gaver/nedtagne-sider.txt); fi
 for s in "$@"; do
   grep -qx "$s" tools/gaver/nedtagne-sider.txt || { echo "Ukendt side: $s"; exit 1; }
-  git checkout "$TAG" -- "$s"
+  git checkout "$SHA" -- "$s"
 done
 git commit -qm "Genudgiv gavesider: $*" -- "$@"
 echo "Klar. Kør: git push origin main"

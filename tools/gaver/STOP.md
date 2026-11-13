@@ -7,5 +7,5 @@ Gælder alle samtaler og planlagte opgaver:
 - Byg ingen nye gavesider til udgivelse. Ark og mailadresser må gerne holdes ved lige.
 - Kaspers egne brands (aiworkshop, arbejdsliv, bergstreaming, ciderkompagniet, pharmaconsulting, stemplerind, uldahl) og selve roundqr.dk er ikke berørt.
 
-De 342 nedtagne sider står i tools/gaver/nedtagne-sider.txt. HTML'en ligger uændret i tagget gavesider-online-2026-11-13.
+De 342 nedtagne sider står i tools/gaver/nedtagne-sider.txt. HTML'en ligger uændret i commit 1d08ba5 på main (det sidste, før de blev taget ned).
 Genudgiv, når Kasper har sagt ja: sh tools/gaver/genudgiv.sh (alle) eller sh tools/gaver/genudgiv.sh dm glasgow (udvalgte), og push.
