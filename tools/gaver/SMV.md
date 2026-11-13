@@ -52,3 +52,9 @@ Logoer: logo-URL'er står ofte i Designnoter. Åbn siden i Chrome og kør
 await eval(await (await fetch('https://roundqr.dk/tools/gaver/p2.js')).text()) (window.__bg for hvide logoer, window.__pick for et andet kandidatlogo).
 Kan siden ikke åbnes, så åbn logo-URL'en direkte og sæt body-baggrunden med javascript_tool. curl fra sessionen er blokeret.
 Kandidater til næste hold: Bornholms Tidende (fondsejet), Hotel Griffen, Sjælland og Fyn mangler flest.
+13. nov. 2026, hold 4 (session ..ZqpZEf, Kasper har bedt om 80 til 150 virksomheder og godkendt, at alle ventende får side):
+sider bygget for de 33 resterende kandidater i fase 4: Coffee Collective, ADEPT, NORD, JJW, EFFEKT, Lund Elmer Sandager, ABC, Ingholt,
+Mikkeller, Unibio, Strunge, Advokatfirmaet Svendsen, Ringsted Festival, Rødvig Kro, J&P (jogp), Vejrø, Copenhagen Economics, Wissenberg,
+Lundgaard & Tranberg (lt), Bakken, Mazanti-Andersen, GoBoat, NOKC (Sjælland) og alle 10 på Fyn (cw, kielberg, obh, hesselet, falsled,
+fjelstedskov, hindsgavl, focus, faaborgfjord, praksis). Byg dem ikke igen. Samme session finder nu nye virksomheder (også Trekantsområdet)
+og skriver dem i arket med side. Andre sessioner: tjek kolonnen Side, før I bygger.
