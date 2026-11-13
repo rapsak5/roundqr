@@ -22,6 +22,7 @@ gd, ga og cy er skrevet af Claude og bør tjekkes af en modersmålstaler.
 Test at de danske sider (kommuner, NGO, fagforeninger) bygger uændret efter udvidelsen.
 
 ## Byg
+Mærke i midten: kun symbol, våben, segl eller forkortelse (se MAERKER.md). Læg mærket i tools/gaver/marks/<slug>.png og sæt "mark_file" i brands.json, før siden bygges. Tekstlogo uden symbol giver "mark_file": "none". De 26 første har mærker (13. nov.).
 SITE=1 python3 tools/build_brand.py tools/gaver/universiteter/brands.json /tmp/ud <slug ...>, kopier til <slug>/index.html, noindex, test med check.py (390 px uden vandret scroll og QR-koden kan scannes; check.py læser pillens klasse ok og tjekker hvert sprog på siden og melder danske ord på ikke-danske sider).
 Opdater arket: J "ja", Q "Klar til afsendelse", V "Godkend mailen", X logo-noter (fx lav opløsning).
 Mails er på engelsk og nævner University of Glasgow og 5 af 8 danske universiteter.

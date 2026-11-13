@@ -16,7 +16,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/glasgow.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/glasgow.png"
  },
  {
   "id": "edinburgh",
@@ -35,7 +36,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/edinburgh.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/edinburgh.png"
  },
  {
   "id": "strathclyde",
@@ -54,7 +56,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/strathclyde.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/strathclyde.png"
  },
  {
   "id": "aberdeen",
@@ -73,7 +76,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/aberdeen.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/aberdeen.png"
  },
  {
   "id": "standrews",
@@ -92,7 +96,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/standrews.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/standrews.png"
  },
  {
   "id": "tcd",
@@ -111,7 +116,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/tcd.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/tcd.png"
  },
  {
   "id": "ucd",
@@ -130,7 +136,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/ucd.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/ucd.png"
  },
  {
   "id": "galway",
@@ -149,7 +156,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/galway.png",
-  "logo_note": "lav opløsning (300x75 png)"
+  "logo_note": "lav opløsning (300x75 png)",
+  "mark_file": "tools/gaver/marks/galway.png"
  },
  {
   "id": "ucc",
@@ -168,7 +176,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/ucc.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/ucc.png"
  },
  {
   "id": "dcu",
@@ -187,7 +196,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/dcu.png",
-  "logo_note": "lav opløsning (225x58 png)"
+  "logo_note": "lav opløsning (225x58 png)",
+  "mark_file": "tools/gaver/marks/dcu.png"
  },
  {
   "id": "limerick",
@@ -206,7 +216,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/limerick.png",
-  "logo_note": "hvidt logo på grøn plade"
+  "logo_note": "hvidt logo på grøn plade",
+  "mark_file": "tools/gaver/marks/limerick.png"
  },
  {
   "id": "maynooth",
@@ -225,7 +236,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/maynooth.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/maynooth.png"
  },
  {
   "id": "cardiff",
@@ -244,7 +256,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/cardiff.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "none"
  },
  {
   "id": "swansea",
@@ -263,7 +276,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/swansea.png",
-  "logo_note": "hvidt logo på mørkeblå plade"
+  "logo_note": "hvidt logo på mørkeblå plade",
+  "mark_file": "tools/gaver/marks/swansea.png"
  },
  {
   "id": "bangor",
@@ -282,7 +296,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/bangor.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/bangor.png"
  },
  {
   "id": "aberystwyth",
@@ -301,7 +316,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/aberystwyth.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/aberystwyth.png"
  },
  {
   "id": "manchester",
@@ -319,7 +335,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/manchester.png",
-  "logo_note": "lav opløsning (169x71 png)"
+  "logo_note": "lav opløsning (169x71 png)",
+  "mark_file": "none"
  },
  {
   "id": "leeds",
@@ -337,7 +354,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/leeds.png",
-  "logo_note": "hvidt logo på mørk plade"
+  "logo_note": "hvidt logo på mørk plade",
+  "mark_file": "tools/gaver/marks/leeds.png"
  },
  {
   "id": "bristol",
@@ -355,7 +373,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/bristol.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/bristol.png"
  },
  {
   "id": "nottingham",
@@ -373,7 +392,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/nottingham.png",
-  "logo_note": "hvidt logo på mørkeblå plade"
+  "logo_note": "hvidt logo på mørkeblå plade",
+  "mark_file": "tools/gaver/marks/nottingham.png"
  },
  {
   "id": "sheffield",
@@ -391,7 +411,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/sheffield.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/sheffield.png"
  },
  {
   "id": "newcastle",
@@ -409,7 +430,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/newcastle.png",
-  "logo_note": "hvidt logo på mørkeblå plade"
+  "logo_note": "hvidt logo på mørkeblå plade",
+  "mark_file": "tools/gaver/marks/newcastle.png"
  },
  {
   "id": "lund",
@@ -428,7 +450,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/lund.png",
-  "logo_note": ""
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/lund.png"
  },
  {
   "id": "uppsala",
@@ -447,7 +470,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/uppsala.png",
-  "logo_note": "hvidt logo på rød plade, lille fil (148 px)"
+  "logo_note": "hvidt logo på rød plade, lille fil (148 px)",
+  "mark_file": "tools/gaver/marks/uppsala.png"
  },
  {
   "id": "stockholm",
@@ -466,7 +490,8 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/stockholm.png",
-  "logo_note": "hvidt logo på mørkeblå plade"
+  "logo_note": "hvidt logo på mørkeblå plade",
+  "mark_file": "tools/gaver/marks/stockholm.png"
  },
  {
   "id": "kth",
@@ -485,6 +510,7 @@
   ],
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/universiteter/logos/kth.png",
-  "logo_note": "hvidt logo på blå plade"
+  "logo_note": "hvidt logo på blå plade",
+  "mark_file": "tools/gaver/marks/kth.png"
  }
 ]
