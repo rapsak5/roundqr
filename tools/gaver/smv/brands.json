@@ -1552,5 +1552,519 @@
     "giftNote": "Forlaget Uldahl er en af Kasper Bergstrøms egne virksomheder. Siden viser en brandet udgave af Round QR."
    }
   }
+ },
+ {
+  "id": "vla",
+  "name": "Vilhelm Lauritzen Arkitekter",
+  "short": "Vilhelm Lauritzen",
+  "website": "https://www.vla.dk",
+  "colors": {
+   "primary": "#2f343f",
+   "secondary": "#626673",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/vla.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "dortemandrup",
+  "name": "Dorte Mandrup",
+  "short": "Dorte Mandrup",
+  "website": "https://www.dortemandrup.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#d86822",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/dortemandrup.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "schonherr",
+  "name": "Schønherr Landskabsarkitekter",
+  "short": "Schønherr",
+  "website": "https://www.schonherr.dk",
+  "colors": {
+   "primary": "#004013",
+   "secondary": "#fff691",
+   "accent": "#fffcf2",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/schonherr.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "etypes",
+  "name": "e-Types",
+  "short": "e-Types",
+  "website": "https://www.e-types.com",
+  "colors": {
+   "primary": "#000000",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/etypes.png",
+  "mark_file": "none",
+  "genitive": "e-Types'"
+ },
+ {
+  "id": "guldsmeden",
+  "name": "Guldsmeden Hotels",
+  "short": "Guldsmeden",
+  "website": "https://www.guldsmedenhotels.com",
+  "colors": {
+   "primary": "#282627",
+   "secondary": "#2f6d52",
+   "accent": "#cc6633",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/guldsmeden.png",
+  "mark_file": "tools/gaver/marks/guldsmeden.png"
+ },
+ {
+  "id": "arthur",
+  "name": "Arthur Hotels",
+  "short": "Arthur Hotels",
+  "website": "https://www.arthurhotels.dk",
+  "colors": {
+   "primary": "#2d2926",
+   "secondary": "#a66a0a",
+   "accent": "#d0c2b2",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/arthur.png",
+  "mark_file": "none",
+  "genitive": "Arthur Hotels'"
+ },
+ {
+  "id": "andersenmaillard",
+  "name": "Andersen & Maillard",
+  "short": "Andersen & Maillard",
+  "website": "https://www.andersenmaillard.dk",
+  "colors": {
+   "primary": "#c0504f",
+   "secondary": "#282d46",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/andersenmaillard.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "alchemist",
+  "name": "Restaurant Alchemist",
+  "short": "Alchemist",
+  "website": "https://www.alchemist.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#8299ac",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/alchemist.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "experimentarium",
+  "name": "Experimentarium",
+  "short": "Experimentarium",
+  "website": "https://www.experimentarium.dk",
+  "colors": {
+   "primary": "#0b1326",
+   "secondary": "#00e14b",
+   "accent": "#6b7792",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/experimentarium.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "sagnlandet",
+  "name": "Sagnlandet Lejre",
+  "short": "Sagnlandet Lejre",
+  "website": "https://www.sagnlandet.dk",
+  "colors": {
+   "primary": "#840b16",
+   "secondary": "#013240",
+   "accent": "#eee6c3",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/sagnlandet.png",
+  "mark_file": "tools/gaver/marks/sagnlandet.png"
+ },
+ {
+  "id": "middelaldercentret",
+  "name": "Middelaldercentret",
+  "short": "Middelaldercentret",
+  "website": "https://www.middelaldercentret.dk",
+  "colors": {
+   "primary": "#1a3c66",
+   "secondary": "#0e1222",
+   "accent": "#ebe6dd",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/middelaldercentret.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "skands",
+  "name": "Skands Bryggeri",
+  "short": "Skands",
+  "website": "https://bryggeriet-skands.dk",
+  "colors": {
+   "primary": "#81492b",
+   "secondary": "#f9f5cf",
+   "accent": "#4a4a4a",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/skands.png",
+  "mark_file": "none",
+  "genitive": "Skands'"
+ },
+ {
+  "id": "odensezoo",
+  "name": "Odense ZOO",
+  "short": "Odense ZOO",
+  "website": "https://www.odensezoo.dk",
+  "colors": {
+   "primary": "#273e2b",
+   "secondary": "#d9b354",
+   "accent": "#00543d",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/odensezoo.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "brandts",
+  "name": "Kunstmuseum Brandts",
+  "short": "Brandts",
+  "website": "https://www.brandts.dk",
+  "colors": {
+   "primary": "#111111",
+   "secondary": "#5b7863",
+   "accent": "#ab1dc7",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/brandts.png",
+  "mark_file": "none",
+  "genitive": "Brandts'"
+ },
+ {
+  "id": "vipp",
+  "name": "Vipp",
+  "short": "Vipp",
+  "website": "https://www.vipp.com",
+  "colors": {
+   "primary": "#0d0d0d",
+   "secondary": "#804a2e",
+   "accent": "#f4f3ec",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/vipp.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "campadventure",
+  "name": "Camp Adventure",
+  "short": "Camp Adventure",
+  "website": "https://www.campadventure.dk",
+  "colors": {
+   "primary": "#2a4234",
+   "secondary": "#b8b89c",
+   "accent": "#663c2c",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/campadventure.png",
+  "mark_file": "tools/gaver/marks/campadventure.png"
+ },
+ {
+  "id": "gavnoe",
+  "name": "Gavnø Slot og Slotspark",
+  "short": "Gavnø",
+  "website": "https://www.gavnoe.dk",
+  "colors": {
+   "primary": "#831f28",
+   "secondary": "#f8c53d",
+   "accent": "#296047",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/gavnoe.png",
+  "mark_file": "tools/gaver/marks/gavnoe.png"
+ },
+ {
+  "id": "jelling",
+  "name": "Jelling Musikfestival",
+  "short": "Jelling Musikfestival",
+  "website": "https://www.jellingmusikfestival.dk",
+  "colors": {
+   "primary": "#4a082c",
+   "secondary": "#fd4a21",
+   "accent": "#f0e0f4",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/jelling.png",
+  "mark_file": "tools/gaver/marks/jelling.png"
+ },
+ {
+  "id": "njord",
+  "name": "NJORD Law Firm",
+  "short": "NJORD",
+  "website": "https://www.njordlaw.com",
+  "colors": {
+   "primary": "#444444",
+   "secondary": "#2b2b2b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/njord.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "naturbornholm",
+  "name": "NaturBornholm",
+  "short": "NaturBornholm",
+  "website": "https://www.naturbornholm.dk",
+  "colors": {
+   "primary": "#1f3a5a",
+   "secondary": "#f39200",
+   "accent": "#8ec94b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/naturbornholm.png",
+  "mark_file": "tools/gaver/marks/naturbornholm.png"
+ },
+ {
+  "id": "melsted",
+  "name": "Melsted Badehotel",
+  "short": "Melsted Badehotel",
+  "website": "https://melsted-badehotel.dk",
+  "colors": {
+   "primary": "#282828",
+   "secondary": "#6c87ab",
+   "accent": "#ced7e3",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/melsted.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "fermliving",
+  "name": "Ferm Living",
+  "short": "Ferm Living",
+  "website": "https://www.fermliving.com",
+  "colors": {
+   "primary": "#383838",
+   "secondary": "#55382b",
+   "accent": "#b1cebc",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/fermliving.png",
+  "mark_file": "tools/gaver/marks/fermliving.png"
+ },
+ {
+  "id": "kruger",
+  "name": "Brdr. Krüger",
+  "short": "Brdr. Krüger",
+  "website": "https://www.brdr-kruger.com",
+  "colors": {
+   "primary": "#403531",
+   "secondary": "#5b4f49",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/kruger.png",
+  "mark_file": "tools/gaver/marks/kruger.png"
+ },
+ {
+  "id": "fredericiamusical",
+  "name": "Fredericia Musicalteater",
+  "short": "Fredericia Musicalteater",
+  "website": "https://fredericiamusicalteater.dk",
+  "colors": {
+   "primary": "#1f1f1f",
+   "secondary": "#fbba00",
+   "accent": "#36682b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/fredericiamusical.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "planetarium",
+  "name": "Planetarium",
+  "short": "Planetarium",
+  "website": "https://www.planetarium.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#ffc0cb",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/planetarium.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "originalcoffee",
+  "name": "Original Coffee",
+  "short": "Original Coffee",
+  "website": "https://www.originalcoffee.dk",
+  "colors": {
+   "primary": "#1f1f1f",
+   "secondary": "#eef1ea",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/originalcoffee.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "arken",
+  "name": "ARKEN Museum for Samtidskunst",
+  "short": "ARKEN",
+  "website": "https://www.arken.dk",
+  "colors": {
+   "primary": "#1e1e1e",
+   "secondary": "#347a31",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/arken.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "juulfrost",
+  "name": "Juul Frost Arkitekter",
+  "short": "Juul Frost",
+  "website": "https://www.juulfrost.dk",
+  "colors": {
+   "primary": "#131313",
+   "secondary": "#9c9c9c",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/juulfrost.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "holst",
+  "name": "Holst, Advokater",
+  "short": "Holst Advokater",
+  "website": "https://www.holst-law.com",
+  "colors": {
+   "primary": "#503a3e",
+   "secondary": "#bf4845",
+   "accent": "#d3cbbd",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/holst.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "hortendahl",
+  "name": "HortenDahl Advokatpartnerselskab",
+  "short": "HortenDahl",
+  "website": "https://www.hortendahl.dk",
+  "colors": {
+   "primary": "#273627",
+   "secondary": "#be7226",
+   "accent": "#f5f0ec",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/hortendahl.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "mbc",
+  "name": "M.B.C.",
+  "short": "M.B.C.",
+  "website": "https://www.mbc.dk",
+  "colors": {
+   "primary": "#0a3c34",
+   "secondary": "#e1f078",
+   "accent": "#f1efea",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/mbc.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "louisiana",
+  "name": "Louisiana Museum of Modern Art",
+  "short": "Louisiana",
+  "website": "https://www.louisiana.dk",
+  "colors": {
+   "primary": "#111111",
+   "secondary": "#505050",
+   "accent": "#a08d74",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/louisiana.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "holscher",
+  "name": "Holscher Nordberg Architecture and Planning",
+  "short": "Holscher Nordberg",
+  "website": "https://www.holschernordberg.dk",
+  "colors": {
+   "primary": "#1f2024",
+   "secondary": "#888888",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/holscher.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "dac",
+  "name": "Dansk Arkitektur Center",
+  "short": "DAC",
+  "website": "https://www.dac.dk",
+  "colors": {
+   "primary": "#111c24",
+   "secondary": "#eeeeee",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/dac.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "danielsen",
+  "name": "Danielsen Architecture",
+  "short": "Danielsen",
+  "website": "https://www.danielsen.eu",
+  "colors": {
+   "primary": "#1f3a4a",
+   "secondary": "#96bab9",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/danielsen.png",
+  "mark_file": "none"
  }
 ]
