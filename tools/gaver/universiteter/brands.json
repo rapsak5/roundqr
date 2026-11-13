@@ -512,5 +512,84 @@
   "logo_file": "tools/gaver/universiteter/logos/kth.png",
   "logo_note": "hvidt logo på blå plade",
   "mark_file": "tools/gaver/marks/kth.png"
+ },
+ {
+  "id": "chalmers",
+  "name": "Chalmers tekniska högskola",
+  "short": "Chalmers",
+  "website": "https://www.chalmers.se",
+  "colors": {
+   "primary": "#472dbe",
+   "secondary": "#ed7426",
+   "accent": "#222222",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "sv"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/chalmers.png",
+  "logo_note": "",
+  "mark_file": "none"
+ },
+ {
+  "id": "goteborg",
+  "name": "Göteborgs universitet",
+  "short": "Göteborgs universitet",
+  "website": "https://www.gu.se",
+  "colors": {
+   "primary": "#074f8c",
+   "secondary": "#e2005e",
+   "accent": "#24273a",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "sv"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/goteborg.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/goteborg.png"
+ },
+ {
+  "id": "linkoping",
+  "name": "Linköpings universitet",
+  "short": "Linköpings universitet",
+  "website": "https://liu.se",
+  "colors": {
+   "primary": "#1d1d1b",
+   "secondary": "#3dd2dc",
+   "accent": "#ffb2a1",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "sv"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/linkoping.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/linkoping.png"
+ },
+ {
+  "id": "umea",
+  "name": "Umeå universitet",
+  "short": "Umeå universitet",
+  "website": "https://www.umu.se",
+  "colors": {
+   "primary": "#2a4765",
+   "secondary": "#006699",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "sv"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/umea.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/umea.png"
  }
 ]
