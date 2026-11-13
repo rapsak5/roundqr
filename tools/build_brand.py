@@ -435,7 +435,8 @@ def site_mode(html, b, short, gen, L):
     html = html.replace(fanc, dl + fanc, 1)
     html = re.sub(r'<title>[^<]*</title>', '<title>QR-koder til %s</title>' % short, html, count=1)
     # ikke i Google, før organisationen har sagt god for siden
-    html = html.replace('</title>', '</title>\n<meta name="robots" content="noindex">', 1)
+    # showcase (Kaspers egne brands) må gerne findes i Google
+    if not b.get('showcase'): html = html.replace('</title>', '</title>\n<meta name="robots" content="noindex">', 1)
     return html
 
 def devby():

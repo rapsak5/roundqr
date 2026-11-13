@@ -58,3 +58,24 @@ Mikkeller, Unibio, Strunge, Advokatfirmaet Svendsen, Ringsted Festival, Rødvig 
 Lundgaard & Tranberg (lt), Bakken, Mazanti-Andersen, GoBoat, NOKC (Sjælland) og alle 10 på Fyn (cw, kielberg, obh, hesselet, falsled,
 fjelstedskov, hindsgavl, focus, faaborgfjord, praksis). Byg dem ikke igen. Samme session finder nu nye virksomheder (også Trekantsområdet)
 og skriver dem i arket med side. Andre sessioner: tjek kolonnen Side, før I bygger.
+
+## Hold 5 og 6 (13. nov. 2026, session ..ZqpZEf)
+Kasper bad om 80 til 150 virksomheder med bredere kriterier, Storkøbenhavn og Amager først, og Trekantområdet med.
+Hold 5: 23 i Storkøbenhavn og på Amager (række 60 til 82 i "Sjælland og Lolland"). Hold 6: 7 på Fyn (række 21 til 27),
+2 på Bornholm (række 6 og 7) og 6 i den nye fane "Trekantområdet" (sheetId 5, kopi af Fyn). I alt 96 virksomheder med side.
+Ansatte er skønnet ("Skøn, ikke tjekket i CVR"), og Vurdering er "Måske". Fasen er "4 Til godkendelse"; Kasper sætter flueben.
+Mailtekst skrives som pladsholder §Hilsen§slug§brug§ og udfoldes med én findReplace (regex) til kommuneskabelonen. Billigt og ens.
+Kandidater uden mail eller brugbart logo er sprunget over uden række: Cobe, Tredje Natur, Lendager, Balslev, Viegand Maagøe,
+Bruun & Hjejle, Lundgrens (lukket), Nørrebro Bryghus (Royal Unibrew), 71 Nyhavn (Arp-Hansen), Normann, Fynbo Foods, KEN,
+Blue Ocean Robotics, Christiansminde, Hobbii, Noma, Amager Bio. Ikke fundet: Mangor & Nagel (nu AART), Dominia, Bascon.
+
+Værktøj: tools/gaver/p5.js (hentes med await eval(await (await fetch('https://roundqr.dk/tools/gaver/p5.js')).text()))
+viser logoet i et overlay, vælger selv sort baggrund til hvide logoer og læser mails fra kontakt-, medarbejder- og pressesider.
+GitHub Pages cacher i cirka 10 minutter: lav en ny fil (p6.js) i stedet for at rette en, der er i brug.
+Logoer behandles med tools/gaver/hjaelp/proc.py SPEC.json (tilstande: w, inv:HEX[:bg], mix:HEX, rc:HEX; mærker: all, left, right,
+top, bottom, top-mid, frac:x0,y0,x1,y1) og tjekkes på et kontaktark med tools/gaver/hjaelp/kontaktark.py.
+Brug tre faner i Chrome parallelt; én navigate pr. browser_batch.
+
+## Showcase
+Kaspers egne brands har sider som udstillingsvindue: aiworkshop, arbejdsliv, bergstreaming, ciderkompagniet, pharmaconsulting,
+stemplerind og uldahl. De har "showcase": true og egne tekster i brands.json, og build_brand.py udelader noindex for dem.
