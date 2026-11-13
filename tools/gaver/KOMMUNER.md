@@ -1,3 +1,5 @@
+> STOP 13. november 2026: alle gavesider er taget ned på Kaspers ordre. Udgiv og byg ingen sider. Læs tools/gaver/STOP.md først.
+
 # Kommunesider: arbejdsgang
 
 Ark: "Round QR gaver: kommuner" (Google Sheet id 1dp5YI8l3cj6fnA18chCDMeDt3hYmv6j5hz6kPGVQuPU), fanen Modtagere.

@@ -1,3 +1,5 @@
+> STOP 13. november 2026: alle gavesider er taget ned på Kaspers ordre. Udgiv og byg ingen sider. Læs tools/gaver/STOP.md først.
+
 # SMV'er: arbejdsgang
 
 Ark: "Round QR gaver: SMV'er", Google Sheet id 1knsUtV74gEGoQrjiOrMPOf1Az1eZldD1RJWVEIJHeuw (Drive-mappen Round QR).

@@ -1,3 +1,5 @@
+> STOP 13. november 2026: alle gavesider er taget ned på Kaspers ordre. Udgiv og byg ingen sider. Læs tools/gaver/STOP.md først.
+
 # Mærker i midten af QR-koden
 
 Regel: i midten af Kvadrat og Rund står kun et mærke: et symbol, et våbenskjold, et segl eller en forkortelse (fx ITU, KP, SDU).

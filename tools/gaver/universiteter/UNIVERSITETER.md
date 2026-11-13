@@ -1,3 +1,5 @@
+> STOP 13. november 2026: alle gavesider er taget ned på Kaspers ordre. Udgiv og byg ingen sider. Læs tools/gaver/STOP.md først.
+
 # Udenlandske universiteter
 
 Ark: Google Sheet "Round QR gaver: udenlandske universiteter", id 1vGXIi_LoNVBTCo-De0wEid6ZTrYULI2uXjy5YMeEnNg (ligger i Drive-mappen Round QR).
