@@ -591,5 +591,126 @@
   "logo_file": "tools/gaver/universiteter/logos/umea.png",
   "logo_note": "",
   "mark_file": "tools/gaver/marks/umea.png"
+ },
+ {
+  "id": "uib",
+  "name": "Universitetet i Bergen",
+  "short": "Universitetet i Bergen",
+  "website": "https://www.uib.no",
+  "colors": {
+   "primary": "#761a19",
+   "secondary": "#aa1317",
+   "accent": "#ffdacc",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "no",
+   "nn"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/uib.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/uib.png"
+ },
+ {
+  "id": "uio",
+  "name": "Universitetet i Oslo",
+  "short": "Universitetet i Oslo",
+  "website": "https://www.uio.no",
+  "colors": {
+   "primary": "#161c36",
+   "secondary": "#ffebd9",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "no",
+   "nn"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/uio.png",
+  "logo_note": "",
+  "mark_file": "none"
+ },
+ {
+  "id": "ntnu",
+  "name": "Norges teknisk-naturvitenskapelige universitet",
+  "short": "NTNU",
+  "website": "https://www.ntnu.no",
+  "colors": {
+   "primary": "#00509e",
+   "secondary": "#272833",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "no",
+   "nn"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/ntnu.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/ntnu.png"
+ },
+ {
+  "id": "uit",
+  "name": "UiT Norges arktiske universitet",
+  "short": "UiT Norges arktiske universitet",
+  "website": "https://uit.no",
+  "colors": {
+   "primary": "#003349",
+   "secondary": "#005e7a",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "no",
+   "nn"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/uit.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/uit.png"
+ },
+ {
+  "id": "nmbu",
+  "name": "Norges miljø- og biovitenskapelige universitet",
+  "short": "NMBU",
+  "website": "https://www.nmbu.no",
+  "colors": {
+   "primary": "#025c4f",
+   "secondary": "#008571",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "no",
+   "nn"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/nmbu.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/nmbu.png"
+ },
+ {
+  "id": "oslomet",
+  "name": "OsloMet storbyuniversitetet",
+  "short": "OsloMet",
+  "website": "https://www.oslomet.no",
+  "colors": {
+   "primary": "#000064",
+   "secondary": "#ffdc00",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "no",
+   "nn"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/oslomet.png",
+  "logo_note": "",
+  "mark_file": "none"
  }
 ]
