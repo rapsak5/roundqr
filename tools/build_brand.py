@@ -278,6 +278,11 @@ h1 .for { font-weight: 600; color: var(--accent-strong); white-space: nowrap; }
     fg2 = next((x for x in codes if x != qr['fg']), qr['fg'])
     html = html.replace('id="fg2" value="#2a6f8f"', 'id="fg2" value="%s"' % fg2, 1)
     assert 'cdn.jsdelivr' not in html and 'googleapis' not in html
+    # midten af koden: kun et mærke (symbol, våben eller forkortelse) eller ingenting. Se tools/gaver/MAERKER.md
+    if b.get('mark_file'):
+        sys.path.insert(0, os.path.join(ROOT, 'tools', 'gaver'))
+        from mark import patch as mark_patch
+        html = mark_patch(html, None if b['mark_file'] == 'none' else b['mark_file'])
     if os.environ.get('SITE') == '1':
         html = site_mode(html, b, short, gen, L)
     if b.get('languages'):

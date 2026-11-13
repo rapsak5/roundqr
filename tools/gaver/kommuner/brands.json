@@ -12,7 +12,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/taarnby.png"
+  "logo_file": "tools/gaver/kommuner/logos/taarnby.png",
+  "mark_file": "tools/gaver/marks/taarnby.png"
  },
  {
   "id": "frederiksberg",
@@ -26,7 +27,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/frederiksberg.png"
+  "logo_file": "tools/gaver/kommuner/logos/frederiksberg.png",
+  "mark_file": "tools/gaver/marks/frederiksberg.png"
  },
  {
   "id": "gentofte",
@@ -44,7 +46,8 @@
    ]
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/gentofte.png"
+  "logo_file": "tools/gaver/kommuner/logos/gentofte.png",
+  "mark_file": "none"
  },
  {
   "id": "glostrup",
@@ -59,7 +62,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/glostrup.png"
+  "logo_file": "tools/gaver/kommuner/logos/glostrup.png",
+  "mark_file": "tools/gaver/marks/glostrup.png"
  },
  {
   "id": "koebenhavn",
@@ -73,7 +77,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/koebenhavn.png"
+  "logo_file": "tools/gaver/kommuner/logos/koebenhavn.png",
+  "mark_file": "tools/gaver/marks/koebenhavn.png"
  },
  {
   "id": "roskilde",
@@ -88,7 +93,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/roskilde.png"
+  "logo_file": "tools/gaver/kommuner/logos/roskilde.png",
+  "mark_file": "tools/gaver/marks/roskilde.png"
  },
  {
   "id": "odense",
@@ -106,7 +112,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/odense.png"
+  "logo_file": "tools/gaver/kommuner/logos/odense.png",
+  "mark_file": "tools/gaver/marks/odense.png"
  },
  {
   "id": "aarhus",
@@ -121,7 +128,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/aarhus.png"
+  "logo_file": "tools/gaver/kommuner/logos/aarhus.png",
+  "mark_file": "tools/gaver/marks/aarhus.png"
  },
  {
   "id": "vejle",
@@ -136,7 +144,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/vejle.png"
+  "logo_file": "tools/gaver/kommuner/logos/vejle.png",
+  "mark_file": "tools/gaver/marks/vejle.png"
  },
  {
   "id": "bornholm",
@@ -151,7 +160,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/bornholm.png"
+  "logo_file": "tools/gaver/kommuner/logos/bornholm.png",
+  "mark_file": "tools/gaver/marks/bornholm.png"
  },
  {
   "id": "samsoe",
@@ -166,7 +176,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/samsoe.png"
+  "logo_file": "tools/gaver/kommuner/logos/samsoe.png",
+  "mark_file": "tools/gaver/marks/samsoe.png"
  },
  {
   "id": "aalborg",
@@ -181,7 +192,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/aalborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/aalborg.png",
+  "mark_file": "tools/gaver/marks/aalborg.png"
  },
  {
   "id": "albertslund",
@@ -195,7 +207,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/albertslund.png"
+  "logo_file": "tools/gaver/kommuner/logos/albertslund.png",
+  "mark_file": "tools/gaver/marks/albertslund.png"
  },
  {
   "id": "ballerup",
@@ -210,7 +223,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/ballerup.png"
+  "logo_file": "tools/gaver/kommuner/logos/ballerup.png",
+  "mark_file": "tools/gaver/marks/ballerup.png"
  },
  {
   "id": "broendby",
@@ -225,7 +239,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/broendby.png"
+  "logo_file": "tools/gaver/kommuner/logos/broendby.png",
+  "mark_file": "tools/gaver/marks/broendby.png"
  },
  {
   "id": "egedal",
@@ -240,7 +255,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/egedal.png"
+  "logo_file": "tools/gaver/kommuner/logos/egedal.png",
+  "mark_file": "none"
  },
  {
   "id": "fredensborg",
@@ -255,7 +271,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/fredensborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/fredensborg.png",
+  "mark_file": "none"
  },
  {
   "id": "frederikssund",
@@ -270,7 +287,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/frederikssund.png"
+  "logo_file": "tools/gaver/kommuner/logos/frederikssund.png",
+  "mark_file": "none"
  },
  {
   "id": "furesoe",
@@ -284,7 +302,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/furesoe.png"
+  "logo_file": "tools/gaver/kommuner/logos/furesoe.png",
+  "mark_file": "tools/gaver/marks/furesoe.png"
  },
  {
   "id": "gladsaxe",
@@ -298,7 +317,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/gladsaxe.png"
+  "logo_file": "tools/gaver/kommuner/logos/gladsaxe.png",
+  "mark_file": "tools/gaver/marks/gladsaxe.png"
  },
  {
   "id": "gribskov",
@@ -313,7 +333,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/gribskov.png"
+  "logo_file": "tools/gaver/kommuner/logos/gribskov.png",
+  "mark_file": "tools/gaver/marks/gribskov.png"
  },
  {
   "id": "halsnaes",
@@ -328,7 +349,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/halsnaes.png"
+  "logo_file": "tools/gaver/kommuner/logos/halsnaes.png",
+  "mark_file": "tools/gaver/marks/halsnaes.png"
  },
  {
   "id": "helsingoer",
@@ -343,7 +365,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/helsingoer.png"
+  "logo_file": "tools/gaver/kommuner/logos/helsingoer.png",
+  "mark_file": "tools/gaver/marks/helsingoer.png"
  },
  {
   "id": "hilleroed",
@@ -358,7 +381,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/hilleroed.png"
+  "logo_file": "tools/gaver/kommuner/logos/hilleroed.png",
+  "mark_file": "tools/gaver/marks/hilleroed.png"
  },
  {
   "id": "lyngbytaarbaek",
@@ -373,7 +397,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/lyngbytaarbaek.png"
+  "logo_file": "tools/gaver/kommuner/logos/lyngbytaarbaek.png",
+  "mark_file": "tools/gaver/marks/lyngbytaarbaek.png"
  },
  {
   "id": "koege",
@@ -387,7 +412,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/koege.png"
+  "logo_file": "tools/gaver/kommuner/logos/koege.png",
+  "mark_file": "tools/gaver/marks/koege.png"
  },
  {
   "id": "alleroed",
@@ -402,7 +428,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/alleroed.png"
+  "logo_file": "tools/gaver/kommuner/logos/alleroed.png",
+  "mark_file": "none"
  },
  {
   "id": "herlev",
@@ -417,7 +444,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/herlev.png"
+  "logo_file": "tools/gaver/kommuner/logos/herlev.png",
+  "mark_file": "none"
  },
  {
   "id": "hvidovre",
@@ -432,7 +460,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/hvidovre.png"
+  "logo_file": "tools/gaver/kommuner/logos/hvidovre.png",
+  "mark_file": "tools/gaver/marks/hvidovre.png"
  },
  {
   "id": "hoejetaastrup",
@@ -446,7 +475,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/hoejetaastrup.png"
+  "logo_file": "tools/gaver/kommuner/logos/hoejetaastrup.png",
+  "mark_file": "tools/gaver/marks/hoejetaastrup.png"
  },
  {
   "id": "hoersholm",
@@ -460,7 +490,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/hoersholm.png"
+  "logo_file": "tools/gaver/kommuner/logos/hoersholm.png",
+  "mark_file": "none"
  },
  {
   "id": "ishoej",
@@ -475,7 +506,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/ishoej.png"
+  "logo_file": "tools/gaver/kommuner/logos/ishoej.png",
+  "mark_file": "tools/gaver/marks/ishoej.png"
  },
  {
   "id": "rudersdal",
@@ -490,7 +522,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/rudersdal.png"
+  "logo_file": "tools/gaver/kommuner/logos/rudersdal.png",
+  "mark_file": "tools/gaver/marks/rudersdal.png"
  },
  {
   "id": "roedovre",
@@ -505,7 +538,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/roedovre.png"
+  "logo_file": "tools/gaver/kommuner/logos/roedovre.png",
+  "mark_file": "tools/gaver/marks/roedovre.png"
  },
  {
   "id": "vallensbaek",
@@ -520,7 +554,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/vallensbaek.png"
+  "logo_file": "tools/gaver/kommuner/logos/vallensbaek.png",
+  "mark_file": "none"
  },
  {
   "id": "faxe",
@@ -535,7 +570,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/faxe.png"
+  "logo_file": "tools/gaver/kommuner/logos/faxe.png",
+  "mark_file": "none"
  },
  {
   "id": "greve",
@@ -549,7 +585,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/greve.png"
+  "logo_file": "tools/gaver/kommuner/logos/greve.png",
+  "mark_file": "tools/gaver/marks/greve.png"
  },
  {
   "id": "guldborgsund",
@@ -564,7 +601,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/guldborgsund.png"
+  "logo_file": "tools/gaver/kommuner/logos/guldborgsund.png",
+  "mark_file": "tools/gaver/marks/guldborgsund.png"
  },
  {
   "id": "holbaek",
@@ -579,7 +617,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/holbaek.png"
+  "logo_file": "tools/gaver/kommuner/logos/holbaek.png",
+  "mark_file": "tools/gaver/marks/holbaek.png"
  },
  {
   "id": "kalundborg",
@@ -594,7 +633,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/kalundborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/kalundborg.png",
+  "mark_file": "tools/gaver/marks/kalundborg.png"
  },
  {
   "id": "lejre",
@@ -609,7 +649,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/lejre.png"
+  "logo_file": "tools/gaver/kommuner/logos/lejre.png",
+  "mark_file": "tools/gaver/marks/lejre.png"
  },
  {
   "id": "lolland",
@@ -624,7 +665,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/lolland.png"
+  "logo_file": "tools/gaver/kommuner/logos/lolland.png",
+  "mark_file": "tools/gaver/marks/lolland.png"
  },
  {
   "id": "naestved",
@@ -639,7 +681,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/naestved.png"
+  "logo_file": "tools/gaver/kommuner/logos/naestved.png",
+  "mark_file": "tools/gaver/marks/naestved.png"
  },
  {
   "id": "odsherred",
@@ -654,7 +697,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/odsherred.png"
+  "logo_file": "tools/gaver/kommuner/logos/odsherred.png",
+  "mark_file": "tools/gaver/marks/odsherred.png"
  },
  {
   "id": "ringsted",
@@ -668,7 +712,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/ringsted.png"
+  "logo_file": "tools/gaver/kommuner/logos/ringsted.png",
+  "mark_file": "tools/gaver/marks/ringsted.png"
  },
  {
   "id": "slagelse",
@@ -683,7 +728,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/slagelse.png"
+  "logo_file": "tools/gaver/kommuner/logos/slagelse.png",
+  "mark_file": "tools/gaver/marks/slagelse.png"
  },
  {
   "id": "solroed",
@@ -698,7 +744,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/solroed.png"
+  "logo_file": "tools/gaver/kommuner/logos/solroed.png",
+  "mark_file": "tools/gaver/marks/solroed.png"
  },
  {
   "id": "soroe",
@@ -713,7 +760,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/soroe.png"
+  "logo_file": "tools/gaver/kommuner/logos/soroe.png",
+  "mark_file": "tools/gaver/marks/soroe.png"
  },
  {
   "id": "stevns",
@@ -728,7 +776,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/stevns.png"
+  "logo_file": "tools/gaver/kommuner/logos/stevns.png",
+  "mark_file": "tools/gaver/marks/stevns.png"
  },
  {
   "id": "vordingborg",
@@ -743,7 +792,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/vordingborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/vordingborg.png",
+  "mark_file": "tools/gaver/marks/vordingborg.png"
  },
  {
   "id": "assens",
@@ -757,7 +807,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/assens.png"
+  "logo_file": "tools/gaver/kommuner/logos/assens.png",
+  "mark_file": "tools/gaver/marks/assens.png"
  },
  {
   "id": "billund",
@@ -772,7 +823,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/billund.png"
+  "logo_file": "tools/gaver/kommuner/logos/billund.png",
+  "mark_file": "tools/gaver/marks/billund.png"
  },
  {
   "id": "esbjerg",
@@ -787,7 +839,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/esbjerg.png"
+  "logo_file": "tools/gaver/kommuner/logos/esbjerg.png",
+  "mark_file": "tools/gaver/marks/esbjerg.png"
  },
  {
   "id": "fredericia",
@@ -802,7 +855,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/fredericia.png"
+  "logo_file": "tools/gaver/kommuner/logos/fredericia.png",
+  "mark_file": "tools/gaver/marks/fredericia.png"
  },
  {
   "id": "faaborgmidtfyn",
@@ -817,7 +871,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/faaborgmidtfyn.png"
+  "logo_file": "tools/gaver/kommuner/logos/faaborgmidtfyn.png",
+  "mark_file": "tools/gaver/marks/faaborgmidtfyn.png"
  },
  {
   "id": "haderslev",
@@ -832,7 +887,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/haderslev.png"
+  "logo_file": "tools/gaver/kommuner/logos/haderslev.png",
+  "mark_file": "tools/gaver/marks/haderslev.png"
  },
  {
   "id": "kerteminde",
@@ -847,7 +903,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/kerteminde.png"
+  "logo_file": "tools/gaver/kommuner/logos/kerteminde.png",
+  "mark_file": "tools/gaver/marks/kerteminde.png"
  },
  {
   "id": "kolding",
@@ -862,7 +919,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/kolding.png"
+  "logo_file": "tools/gaver/kommuner/logos/kolding.png",
+  "mark_file": "none"
  },
  {
   "id": "langeland",
@@ -876,7 +934,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/langeland.png"
+  "logo_file": "tools/gaver/kommuner/logos/langeland.png",
+  "mark_file": "tools/gaver/marks/langeland.png"
  },
  {
   "id": "middelfart",
@@ -891,7 +950,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/middelfart.png"
+  "logo_file": "tools/gaver/kommuner/logos/middelfart.png",
+  "mark_file": "tools/gaver/marks/middelfart.png"
  },
  {
   "id": "nordfyn",
@@ -906,7 +966,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/nordfyn.png"
+  "logo_file": "tools/gaver/kommuner/logos/nordfyn.png",
+  "mark_file": "tools/gaver/marks/nordfyn.png"
  },
  {
   "id": "nyborg",
@@ -921,7 +982,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/nyborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/nyborg.png",
+  "mark_file": "tools/gaver/marks/nyborg.png"
  },
  {
   "id": "svendborg",
@@ -936,7 +998,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/svendborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/svendborg.png",
+  "mark_file": "tools/gaver/marks/svendborg.png"
  },
  {
   "id": "soenderborg",
@@ -951,7 +1014,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/soenderborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/soenderborg.png",
+  "mark_file": "tools/gaver/marks/soenderborg.png"
  },
  {
   "id": "toender",
@@ -966,7 +1030,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/toender.png"
+  "logo_file": "tools/gaver/kommuner/logos/toender.png",
+  "mark_file": "tools/gaver/marks/toender.png"
  },
  {
   "id": "varde",
@@ -981,7 +1046,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/varde.png"
+  "logo_file": "tools/gaver/kommuner/logos/varde.png",
+  "mark_file": "none"
  },
  {
   "id": "vejen",
@@ -996,7 +1062,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/vejen.png"
+  "logo_file": "tools/gaver/kommuner/logos/vejen.png",
+  "mark_file": "none"
  },
  {
   "id": "aabenraa",
@@ -1011,7 +1078,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/aabenraa.png"
+  "logo_file": "tools/gaver/kommuner/logos/aabenraa.png",
+  "mark_file": "tools/gaver/marks/aabenraa.png"
  },
  {
   "id": "favrskov",
@@ -1026,7 +1094,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/favrskov.png"
+  "logo_file": "tools/gaver/kommuner/logos/favrskov.png",
+  "mark_file": "tools/gaver/marks/favrskov.png"
  },
  {
   "id": "hedensted",
@@ -1041,7 +1110,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/hedensted.png"
+  "logo_file": "tools/gaver/kommuner/logos/hedensted.png",
+  "mark_file": "tools/gaver/marks/hedensted.png"
  },
  {
   "id": "herning",
@@ -1056,7 +1126,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/herning.png"
+  "logo_file": "tools/gaver/kommuner/logos/herning.png",
+  "mark_file": "none"
  },
  {
   "id": "holstebro",
@@ -1071,7 +1142,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/holstebro.png"
+  "logo_file": "tools/gaver/kommuner/logos/holstebro.png",
+  "mark_file": "tools/gaver/marks/holstebro.png"
  },
  {
   "id": "horsens",
@@ -1086,7 +1158,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/horsens.png"
+  "logo_file": "tools/gaver/kommuner/logos/horsens.png",
+  "mark_file": "none"
  },
  {
   "id": "ikastbrande",
@@ -1101,7 +1174,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/ikastbrande.png"
+  "logo_file": "tools/gaver/kommuner/logos/ikastbrande.png",
+  "mark_file": "none"
  },
  {
   "id": "lemvig",
@@ -1116,7 +1190,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/lemvig.png"
+  "logo_file": "tools/gaver/kommuner/logos/lemvig.png",
+  "mark_file": "tools/gaver/marks/lemvig.png"
  },
  {
   "id": "norddjurs",
@@ -1131,7 +1206,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/norddjurs.png"
+  "logo_file": "tools/gaver/kommuner/logos/norddjurs.png",
+  "mark_file": "tools/gaver/marks/norddjurs.png"
  },
  {
   "id": "odder",
@@ -1146,7 +1222,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/odder.png"
+  "logo_file": "tools/gaver/kommuner/logos/odder.png",
+  "mark_file": "none"
  },
  {
   "id": "randers",
@@ -1161,7 +1238,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/randers.png"
+  "logo_file": "tools/gaver/kommuner/logos/randers.png",
+  "mark_file": "tools/gaver/marks/randers.png"
  },
  {
   "id": "ringkoebingskjern",
@@ -1176,7 +1254,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/ringkoebingskjern.png"
+  "logo_file": "tools/gaver/kommuner/logos/ringkoebingskjern.png",
+  "mark_file": "none"
  },
  {
   "id": "silkeborg",
@@ -1191,7 +1270,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/silkeborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/silkeborg.png",
+  "mark_file": "tools/gaver/marks/silkeborg.png"
  },
  {
   "id": "skanderborg",
@@ -1206,7 +1286,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/skanderborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/skanderborg.png",
+  "mark_file": "tools/gaver/marks/skanderborg.png"
  },
  {
   "id": "skive",
@@ -1221,7 +1302,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/skive.png"
+  "logo_file": "tools/gaver/kommuner/logos/skive.png",
+  "mark_file": "tools/gaver/marks/skive.png"
  },
  {
   "id": "struer",
@@ -1236,7 +1318,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/struer.png"
+  "logo_file": "tools/gaver/kommuner/logos/struer.png",
+  "mark_file": "none"
  },
  {
   "id": "syddjurs",
@@ -1251,7 +1334,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/syddjurs.png"
+  "logo_file": "tools/gaver/kommuner/logos/syddjurs.png",
+  "mark_file": "none"
  },
  {
   "id": "viborg",
@@ -1266,7 +1350,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/viborg.png"
+  "logo_file": "tools/gaver/kommuner/logos/viborg.png",
+  "mark_file": "tools/gaver/marks/viborg.png"
  },
  {
   "id": "broenderslev",
@@ -1281,7 +1366,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/broenderslev.png"
+  "logo_file": "tools/gaver/kommuner/logos/broenderslev.png",
+  "mark_file": "tools/gaver/marks/broenderslev.png"
  },
  {
   "id": "frederikshavn",
@@ -1296,7 +1382,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/frederikshavn.png"
+  "logo_file": "tools/gaver/kommuner/logos/frederikshavn.png",
+  "mark_file": "none"
  },
  {
   "id": "hjoerring",
@@ -1311,7 +1398,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/hjoerring.png"
+  "logo_file": "tools/gaver/kommuner/logos/hjoerring.png",
+  "mark_file": "tools/gaver/marks/hjoerring.png"
  },
  {
   "id": "jammerbugt",
@@ -1326,7 +1414,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/jammerbugt.png"
+  "logo_file": "tools/gaver/kommuner/logos/jammerbugt.png",
+  "mark_file": "tools/gaver/marks/jammerbugt.png"
  },
  {
   "id": "mariagerfjord",
@@ -1341,7 +1430,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/mariagerfjord.png"
+  "logo_file": "tools/gaver/kommuner/logos/mariagerfjord.png",
+  "mark_file": "tools/gaver/marks/mariagerfjord.png"
  },
  {
   "id": "morsoe",
@@ -1356,7 +1446,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/morsoe.png"
+  "logo_file": "tools/gaver/kommuner/logos/morsoe.png",
+  "mark_file": "tools/gaver/marks/morsoe.png"
  },
  {
   "id": "rebild",
@@ -1371,7 +1462,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/rebild.png"
+  "logo_file": "tools/gaver/kommuner/logos/rebild.png",
+  "mark_file": "tools/gaver/marks/rebild.png"
  },
  {
   "id": "thisted",
@@ -1386,7 +1478,8 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/thisted.png"
+  "logo_file": "tools/gaver/kommuner/logos/thisted.png",
+  "mark_file": "none"
  },
  {
   "id": "vesthimmerland",
@@ -1401,6 +1494,7 @@
    "text": "#222222"
   },
   "source": "aflæst på hjemmesiden",
-  "logo_file": "tools/gaver/kommuner/logos/vesthimmerland.png"
+  "logo_file": "tools/gaver/kommuner/logos/vesthimmerland.png",
+  "mark_file": "tools/gaver/marks/vesthimmerland.png"
  }
 ]
