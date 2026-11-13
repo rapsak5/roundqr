@@ -219,5 +219,147 @@
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/smv/logos/lyngkilde.png",
   "mark_file": "none"
+ },
+ {
+  "id": "hotelfalster",
+  "name": "Hotel Falster",
+  "short": "Hotel Falster",
+  "website": "https://hotel-falster.dk",
+  "colors": {
+   "primary": "#101213",
+   "secondary": "#dc4924",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/hotelfalster.png",
+  "mark_file": "tools/gaver/marks/hotelfalster.png"
+ },
+ {
+  "id": "friisandersen",
+  "name": "Friis Andersen Arkitekter",
+  "short": "Friis Andersen",
+  "website": "https://friis-a.dk",
+  "colors": {
+   "primary": "#4b5158",
+   "secondary": "#a9b0b6",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/friisandersen.png",
+  "mark_file": "tools/gaver/marks/friisandersen.png"
+ },
+ {
+  "id": "geocenter",
+  "name": "GeoCenter Møns Klint",
+  "short": "GeoCenter Møns Klint",
+  "website": "https://moensklint.dk",
+  "colors": {
+   "primary": "#2f4c4d",
+   "secondary": "#636c4f",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/geocenter.png",
+  "mark_file": "tools/gaver/marks/geocenter.png"
+ },
+ {
+  "id": "kragerup",
+  "name": "Kragerup Gods",
+  "short": "Kragerup Gods",
+  "website": "https://kragerup.dk",
+  "colors": {
+   "primary": "#1e3451",
+   "secondary": "#a6822b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/kragerup.png",
+  "mark_file": "tools/gaver/marks/kragerup.png",
+  "genitive": "Kragerup Gods'"
+ },
+ {
+  "id": "frederiksminde",
+  "name": "Hotel Frederiksminde",
+  "short": "Frederiksminde",
+  "website": "https://frederiksminde.com",
+  "colors": {
+   "primary": "#26372f",
+   "secondary": "#a98255",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/frederiksminde.png",
+  "mark_file": "tools/gaver/marks/frederiksminde.png"
+ },
+ {
+  "id": "norsyn",
+  "name": "Norsyn",
+  "short": "Norsyn",
+  "website": "https://norsyn.dk",
+  "colors": {
+   "primary": "#3b7179",
+   "secondary": "#cc3366",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/norsyn.png",
+  "mark_file": "tools/gaver/marks/norsyn.png"
+ },
+ {
+  "id": "addere",
+  "name": "Addere Revision",
+  "short": "Addere",
+  "website": "https://addere.dk",
+  "colors": {
+   "primary": "#322d53",
+   "secondary": "#ecb25c",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/addere.png",
+  "mark_file": "tools/gaver/marks/addere.png"
+ },
+ {
+  "id": "skel",
+  "name": "Skel.dk Landinspektører",
+  "short": "Skel.dk",
+  "website": "https://www.skel.dk",
+  "colors": {
+   "primary": "#ab041e",
+   "secondary": "#212121",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/skel.png",
+  "mark_file": "none",
+  "genitive": "Skel.dk's"
+ },
+ {
+  "id": "dreiststorgaard",
+  "name": "DreistStorgaard Advokater",
+  "short": "DreistStorgaard",
+  "website": "https://dreiststorgaard.dk",
+  "colors": {
+   "primary": "#012d41",
+   "secondary": "#d5b36d",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/dreiststorgaard.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "molbak",
+  "name": "Mølbak Landinspektører",
+  "short": "Mølbak",
+  "website": "https://molbak.dk",
+  "colors": {
+   "primary": "#0b442a",
+   "secondary": "#23533c",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/molbak.png",
+  "mark_file": "none"
  }
 ]
