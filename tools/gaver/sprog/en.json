@@ -1,0 +1,23 @@
+{
+  "t": "en", "name": "English", "html": "en", "base": null,
+  "gift": {
+    "siteTitle": "QR codes for {short}",
+    "siteH1": "QR codes for {short}",
+    "siteIntro": "Make QR codes in the colours of {short}, with the logo already in place. Choose a template, adjust it, and save the code as PNG, JPG or SVG. Free, no login, and nothing is sent anywhere.",
+    "langAria": "Language",
+    "tplAria": "Templates", "tplLabel": "Choose a template",
+    "tplHint": "Choose a template, then adjust it with the settings below.",
+    "tCenter": "Square", "tCenterSub": "Logo in the centre",
+    "tWide": "Wide", "tWideSub": "Logo beside the code",
+    "tBanner": "Banner", "tBannerSub": "Logo and text",
+    "tRound": "Round", "tRoundSub": "Round QR with logo",
+    "sideLbl": "Text beside the code", "sideDefault": "Scan and read more at {dom}",
+    "dlH": "Download the program",
+    "dlP": "The whole QR generator for {short} in one HTML file. Save it on your own computer and make QR codes, even offline. There is nothing to install, and nothing is sent anywhere.",
+    "dlBtn": "Download the HTML file",
+    "giftPitch": "I give talks and hands-on workshops on AI at work. Get in touch if that could be something for your staff.",
+    "giftNote": "A gift from Kasper Bergstrøm, not an official product from {short}. The colours are taken from the public website of {short}.",
+    "footNote": "Works offline. No cookies and no tracking.",
+    "devBy": "Made by", "devAnd": "and", "black": "Black"
+  }
+}

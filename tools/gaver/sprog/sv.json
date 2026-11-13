@@ -1,0 +1,23 @@
+{
+  "t": "sv", "name": "Svenska", "html": "sv", "base": null,
+  "gift": {
+    "siteTitle": "QR-koder för {short}",
+    "siteH1": "QR-koder för {short}",
+    "siteIntro": "Gör QR-koder i färgerna från {short}, med logotypen redan på plats. Välj en mall, anpassa den och spara koden som PNG, JPG eller SVG. Gratis, utan inloggning, och ingenting skickas någonstans.",
+    "langAria": "Språk",
+    "tplAria": "Mallar", "tplLabel": "Välj mall",
+    "tplHint": "Välj en mall och anpassa den sedan med inställningarna nedan.",
+    "tCenter": "Kvadrat", "tCenterSub": "Logotyp i mitten",
+    "tWide": "Bred", "tWideSub": "Logotyp bredvid koden",
+    "tBanner": "Banner", "tBannerSub": "Logotyp och text",
+    "tRound": "Rund", "tRoundSub": "Round QR med logotyp",
+    "sideLbl": "Text bredvid koden", "sideDefault": "Skanna och läs mer på {dom}",
+    "dlH": "Ladda ner programmet",
+    "dlP": "Hela QR-generatorn för {short} i en enda HTML-fil. Spara den på din egen dator och gör QR-koder, även utan internet. Det finns inget att installera, och ingenting skickas någonstans.",
+    "dlBtn": "Ladda ner HTML-filen",
+    "giftPitch": "Jag håller föredrag och praktiska workshoppar om AI i arbetslivet. Hör av dig om det kan vara något för era medarbetare.",
+    "giftNote": "En gåva från Kasper Bergstrøm, inte en officiell produkt från {short}. Färgerna är hämtade från den offentliga webbplatsen för {short}.",
+    "footNote": "Fungerar utan internet. Inga kakor och ingen spårning.",
+    "devBy": "Utvecklat av", "devAnd": "och", "black": "Svart"
+  }
+}

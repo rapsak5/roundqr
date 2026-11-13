@@ -280,7 +280,117 @@ h1 .for { font-weight: 600; color: var(--accent-strong); white-space: nowrap; }
     assert 'cdn.jsdelivr' not in html and 'googleapis' not in html
     if os.environ.get('SITE') == '1':
         html = site_mode(html, b, short, gen, L)
+    if b.get('languages'):
+        html = languages_mode(html, b, short, dom, [n for n in names])
     return html, (L, D, qr)
+
+# ---------- flere sprog (universitetssider) ----------
+SPROG = os.path.join(ROOT, 'tools', 'gaver', 'sprog')
+
+def load_lang(code):
+    path = os.path.join(SPROG, code + '.json')
+    if not os.path.exists(path):
+        raise SystemExit('Mangler sprogfil %s. Skriv den, før siden bygges.' % path)
+    return json.load(open(path, encoding='utf-8'))
+
+def js_val(v):
+    """Strenge, der starter med js:, indsættes som kode (funktioner). Alt andet som JSON."""
+    if isinstance(v, str) and v.startswith('js:'): return v[3:]
+    if isinstance(v, dict): return '{' + ', '.join('%s: %s' % (json.dumps(k), js_val(x)) for k, x in v.items()) + '}'
+    return json.dumps(v, ensure_ascii=False)
+
+def languages_mode(html, b, short, dom, preset_names):
+    """Kun for brands med feltet languages, fx ["en", "gd"]. Sprogvælger i brandbjælken, tekster fra tools/gaver/sprog/<kode>.json.
+    De danske sider (uden languages) bygges præcis som før."""
+    langs = [load_lang(c) for c in b['languages']]
+    keys = [lg['t'] for lg in langs]
+    fill = lambda v: v.replace('{short}', short).replace('{dom}', dom) if isinstance(v, str) else v
+    first = {k: fill(v) for k, v in langs[0]['gift'].items()}
+    side_custom = b.get('slogan')
+
+    def sub(pattern, repl, h, flags=0):
+        h2, n = re.subn(pattern, repl, h, count=1, flags=flags)
+        assert n == 1, pattern
+        return h2
+
+    # 1. faste tekster på siden får data-t, så applyLang kan skifte dem
+    html = sub(r'<h1>QR-koder til [^<]*</h1><p>[^<]*</p>', lambda m: '<h1 data-t="siteH1">%s</h1><p data-t="siteIntro">%s</p>' % (first['siteH1'], first['siteIntro']), html)
+    html = sub(r'<section class="tplsec" aria-label="Skabeloner">', '<section class="tplsec" aria-label="%s" data-t-aria="tplAria">' % first['tplAria'], html)
+    html = sub(r'<span class="label">Vælg skabelon</span>', '<span class="label" data-t="tplLabel">%s</span>' % first['tplLabel'], html)
+    html = sub(r'<div class="tpl" role="radiogroup" aria-label="Skabelon">', '<div class="tpl" role="radiogroup" aria-label="%s" data-t-aria="tplAria">' % first['tplAria'], html)
+    for dk, key in (('Kvadrat', 'tCenter'), ('Bred', 'tWide'), ('Banner', 'tBanner'), ('Rund', 'tRound')):
+        html = sub(r'<b>%s</b><i>[^<]*</i>' % dk, lambda m, key=key: '<b data-t="%s">%s</b><i data-t="%sSub">%s</i>' % (key, first[key], key, first[key + 'Sub']), html)
+    html = sub(r'<label class="lbl" for="sideText">[^<]*</label>', '<label class="lbl" for="sideText" data-t="sideLbl">%s</label>' % first['sideLbl'], html)
+    if not side_custom:
+        html = sub(r'(<input type="text" id="sideText" value=")[^"]*"', lambda m: m.group(1) + first['sideDefault'].replace('"', '&quot;') + '"', html)
+    html = sub(r'<p class="hint">Vælg en skabelon, og tilpas den bagefter med indstillingerne nedenfor\.</p>', '<p class="hint" data-t="tplHint">%s</p>' % first['tplHint'], html)
+    html = sub(r'<h2>Hent programmet</h2>\s*<p>[^<]*</p>', lambda m: '<h2 data-t="dlH">%s</h2><p data-t="dlP">%s</p>' % (first['dlH'], first['dlP']), html)
+    html = sub(r'download="qr-koder-([^"]*)">Hent HTML-filen</a>', lambda m: 'download="qr-codes-%s" data-t="dlBtn">%s</a>' % (m.group(1), first['dlBtn']), html)
+    html = sub(r'<span class="devby"><span>Udviklet af</span>', '<span class="devby"><span data-t="devBy">%s</span>' % first['devBy'], html)
+    html = sub(r'</a><span>og</span><a class="devlogo"', '</a><span data-t="devAnd">%s</span><a class="devlogo"' % first['devAnd'], html)
+    html = sub(r'<title>[^<]*</title>', '<title>%s</title>' % first['siteTitle'], html)
+    html = sub(r'<html lang="da"', '<html lang="%s"' % langs[0].get('html', langs[0]['t']), html)
+    for k in ('giftPitch', 'giftNote', 'footNote'):
+        html = sub(r'<span data-t="%s">[^<]*</span>' % k, lambda m, k=k: '<span data-t="%s">%s</span>' % (k, first[k]), html)
+
+    # 2. sprogvælger i brandbjælken (kun hvis der er mere end ét sprog)
+    if len(langs) > 1:
+        lab = ''.join('<label><input type="radio" name="lang" value="%s"%s><span lang="%s">%s</span></label>' % (lg['t'], ' checked' if i == 0 else '', lg.get('html', lg['t']), lg['name']) for i, lg in enumerate(langs))
+        sel = '<div class="bb-lang" role="radiogroup" aria-label="%s" data-t-aria="langAria">%s</div>' % (first['langAria'], lab)
+        html = sub(r'(<div class="bb-text"><h1)', lambda m: sel + m.group(1), html)
+        css = ('.bb-inner{position:relative}.bb-lang{order:3;flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px}'
+               '.bb-lang label{position:relative}.bb-lang input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}'
+               '.bb-lang span{display:inline-block;padding:5px 12px;border-radius:999px;border:1px solid currentColor;font-size:14px;line-height:1.2;opacity:.85}'
+               '.bb-lang input:checked+span{background:var(--accent-ink);color:var(--accent);opacity:1;font-weight:600}'
+               '.bb-lang input:focus-visible+span{outline:2px solid var(--accent-ink);outline-offset:2px}')
+        html = html.replace('<div class="wrap">', '<style>' + css + '</style>\n<div class="wrap">', 1)
+
+    # 3. tekster i T: nye sprog bygger på et grundsprog, gaveteksterne lægges på alle
+    js = ['  /* sprog:start */']
+    for lg in langs:
+        tk = lg['t']
+        if lg.get('base'):
+            js.append('  T[%s] = Object.assign({}, T[%s]);' % (json.dumps(tk), json.dumps(lg['base'])))
+        d = dict(lg.get('ui') or {})
+        d.update({k: fill(v) for k, v in lg['gift'].items()})
+        d['presets'] = [lg['gift']['black'] if n == 'Sort' else n for n in preset_names]
+        js.append('  Object.assign(T[%s], %s);' % (json.dumps(tk), js_val(d)))
+    js.append('  var LANGS = %s, LANG_HTML = %s;' % (json.dumps(keys), json.dumps({lg['t']: lg.get('html', lg['t']) for lg in langs})))
+    js.append('  /* sprog:end */\n')
+    anc = '  var lang = "da", xmas'
+    assert html.count(anc) == 1
+    html = html.replace(anc, '\n'.join(js) + anc, 1)
+
+    # 4. sprogskift: titel, html lang og standardteksten ved siden af koden følger med
+    hook = '  applyLang("da");\n'
+    assert html.count(hook) == 1
+    start = '''  (function () {
+    var base = applyLang;
+    applyLang = function (next) {
+      var prevSide = t("sideDefault");
+      base(LANGS.indexOf(next) >= 0 ? next : LANGS[0]);
+      document.documentElement.lang = LANG_HTML[lang] || lang;
+      document.title = t("siteTitle");
+      var st = $("sideText");
+      if (st && %s && Object.keys(T).some(function (k) { return T[k].sideDefault === st.value; })) { st.value = t("sideDefault"); }
+    };
+    var s = null;
+    try { s = localStorage.getItem("round-qr-lang-%s"); } catch (e) {}
+    if (LANGS.indexOf(s) < 0) {
+      s = null;
+      (navigator.languages || [navigator.language || ""]).some(function (l) {
+        l = String(l).toLowerCase(); var k = l.slice(0, 2);
+        if (k === "nb") k = "no";
+        if (LANGS.indexOf(k) >= 0) { s = k; return true; }
+        return false;
+      });
+    }
+    startLang = s || LANGS[0];
+  })();
+''' % ('true' if not side_custom else 'false', b['id'])
+    html = html.replace(hook, start + '  applyLang(startLang);\n', 1)
+    return html
+
 
 def site_mode(html, b, short, gen, L):
     """Hjemmesideudgave til roundqr.dk/<id>: brandbjælke med logo, skabeloner som store kort øverst, Round QR i baggrunden."""
