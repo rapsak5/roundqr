@@ -1,0 +1,32 @@
+[
+ {
+  "id": "ucsyd",
+  "name": "UC SYD",
+  "short": "UC SYD",
+  "website": "https://www.ucsyd.dk",
+  "colors": {
+   "primary": "#373737",
+   "secondary": "#f9511e",
+   "accent": "#616d80",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/andre/logos/ucsyd.png",
+  "mark_file": "tools/gaver/marks/ucsyd.png"
+ },
+ {
+  "id": "dmjx",
+  "name": "Danmarks Medie- og Journalisthøjskole",
+  "short": "DMJX",
+  "website": "https://www.dmjx.dk",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#ff0000",
+   "accent": "#2e69ff",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/andre/logos/dmjx.png",
+  "mark_file": "tools/gaver/marks/dmjx.png"
+ }
+]
