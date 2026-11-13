@@ -1,0 +1,119 @@
+[
+ {
+  "id": "herslev",
+  "name": "Herslev Bryghus",
+  "short": "Herslev Bryghus",
+  "website": "https://herslevbryghus.dk",
+  "colors": {
+   "primary": "#121212",
+   "secondary": "#437b58",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/herslev.png",
+  "mark_file": "none",
+  "genitive": "Herslev Bryghus'"
+ },
+ {
+  "id": "dragsholm",
+  "name": "Dragsholm Slot",
+  "short": "Dragsholm Slot",
+  "website": "https://dragsholm-slot.dk",
+  "colors": {
+   "primary": "#20242a",
+   "secondary": "#afd4d5",
+   "accent": "#e6e0d5",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/dragsholm.png",
+  "mark_file": "tools/gaver/marks/dragsholm.png"
+ },
+ {
+  "id": "ebk",
+  "name": "EBK Huse",
+  "short": "EBK",
+  "website": "https://ebk.dk",
+  "colors": {
+   "primary": "#24303b",
+   "secondary": "#710e20",
+   "accent": "#b2a696",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ebk.png",
+  "mark_file": "tools/gaver/marks/ebk.png"
+ },
+ {
+  "id": "tvedemose",
+  "name": "Tvedemose Champignon",
+  "short": "Tvedemose",
+  "website": "https://tvedemose.dk",
+  "colors": {
+   "primary": "#3e4e58",
+   "secondary": "#498527",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/tvedemose.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "knuthenborg",
+  "name": "Knuthenborg Safaripark",
+  "short": "Knuthenborg",
+  "website": "https://www.knuthenborg.dk",
+  "colors": {
+   "primary": "#183d1e",
+   "secondary": "#114b40",
+   "accent": "#2d5016",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/knuthenborg.png",
+  "mark_file": "tools/gaver/marks/knuthenborg.png"
+ },
+ {
+  "id": "faaborgvaerft",
+  "name": "Faaborg Værft",
+  "short": "Faaborg Værft",
+  "website": "https://www.faaborg-vaerft.dk",
+  "colors": {
+   "primary": "#173254",
+   "secondary": "#e02b20",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/faaborgvaerft.png",
+  "mark_file": "tools/gaver/marks/faaborgvaerft.png"
+ },
+ {
+  "id": "egeskov",
+  "name": "Egeskov",
+  "short": "Egeskov",
+  "website": "https://egeskov.dk",
+  "colors": {
+   "primary": "#133a22",
+   "secondary": "#373a36",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/egeskov.png",
+  "mark_file": "tools/gaver/marks/egeskov.png"
+ },
+ {
+  "id": "ordbogen",
+  "name": "Ordbogen",
+  "short": "Ordbogen",
+  "website": "https://www.ordbogen.com",
+  "colors": {
+   "primary": "#00836d",
+   "secondary": "#020d03",
+   "accent": "#b0d1cb",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ordbogen.png",
+  "mark_file": "tools/gaver/marks/ordbogen.png"
+ }
+]
