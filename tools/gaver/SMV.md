@@ -32,7 +32,7 @@ og virksomheder uden brugbart logo på egen side. Fravalgte skrives i arket med 
    før der tages kontakt. Proces-fanen nævner markedsføringslovens § 10: ring gerne først og spørg, om I må sende en mail.
 
 ## Mailudkast
-Som kommunerne, tilpasset en virksomhed: kort, venligt, ikke sælgende, gaven i centrum. Emne "En lille gave til <Navn>: QR-koder i jeres farver".
+Som kommunerne, tilpasset en virksomhed: kort, venligt, ikke sælgende, gaven i centrum. Emne "En QR-kodegenerator til <Navn>" (som kommunerne). Afsnittet om kommunikationsfolk er taget ud.
 
 ## Status
 13. nov. 2026, hold 1: Herslev Bryghus, Dragsholm Slot, EBK Huse, Tvedemose, Knuthenborg, Faaborg Værft, Egeskov og Ordbogen
