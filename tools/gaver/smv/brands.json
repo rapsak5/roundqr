@@ -1396,5 +1396,161 @@
   "logo_file": "tools/gaver/smv/logos/milling.png",
   "mark_file": "none",
   "genitive": "Milling Hotels'"
+ },
+ {
+  "id": "aiworkshop",
+  "name": "AI Workshop",
+  "short": "AI Workshop",
+  "website": "https://ai-workshop.dk",
+  "colors": {
+   "primary": "#fdce3b",
+   "secondary": "#1f1d18",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/aiworkshop.png",
+  "mark_file": "tools/gaver/marks/aiworkshop.png",
+  "showcase": true,
+  "text": {
+   "da": {
+    "about": "Round QR i AI Workshops farver og med logoet i midten. Siden er et udstillingsvindue for, hvordan en brandet QR-kodegenerator ser ud, når den er bygget sammen med AI. Lav QR-koder til plakater, slides, nyhedsbreve og arrangementer, firkantede eller runde. Intet bliver sendt nogen steder hen.",
+    "giftPitch": "Vil I have en QR-kodegenerator i jeres egne farver? Skriv til mig. Jeg holder også oplæg og workshops om AI i arbejdslivet.",
+    "giftNote": "AI Workshop er en af Kasper Bergstrøms egne virksomheder. Siden viser en brandet udgave af Round QR."
+   }
+  }
+ },
+ {
+  "id": "arbejdsliv",
+  "name": "Arbejdsliv.ai",
+  "short": "Arbejdsliv.ai",
+  "website": "https://arbejdsliv.ai",
+  "colors": {
+   "primary": "#033272",
+   "secondary": "#8199b9",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/arbejdsliv.png",
+  "mark_file": "tools/gaver/marks/arbejdsliv.png",
+  "genitive": "Arbejdsliv.ai's",
+  "showcase": true,
+  "text": {
+   "da": {
+    "about": "Round QR i Arbejdsliv.ai's farver og med logoet i midten. Siden er et udstillingsvindue for, hvordan en brandet QR-kodegenerator ser ud, når den er bygget sammen med AI. Lav QR-koder til plakater, slides, nyhedsbreve og arrangementer, firkantede eller runde. Intet bliver sendt nogen steder hen.",
+    "giftPitch": "Vil I have en QR-kodegenerator i jeres egne farver? Skriv til mig. Jeg holder også oplæg og workshops om AI i arbejdslivet.",
+    "giftNote": "Arbejdsliv.ai er en af Kasper Bergstrøms egne virksomheder. Siden viser en brandet udgave af Round QR."
+   }
+  }
+ },
+ {
+  "id": "bergstreaming",
+  "name": "Berg-Streaming",
+  "short": "Berg-Streaming",
+  "website": "https://berg-streaming.dk",
+  "colors": {
+   "primary": "#2e3433",
+   "secondary": "#fece3b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/bergstreaming.png",
+  "mark_file": "tools/gaver/marks/bergstreaming.png",
+  "showcase": true,
+  "text": {
+   "da": {
+    "about": "Round QR i Berg-Streamings farver og med logoet i midten. Siden er et udstillingsvindue for, hvordan en brandet QR-kodegenerator ser ud, når den er bygget sammen med AI. Lav QR-koder til plakater, slides, nyhedsbreve og arrangementer, firkantede eller runde. Intet bliver sendt nogen steder hen.",
+    "giftPitch": "Vil I have en QR-kodegenerator i jeres egne farver? Skriv til mig. Jeg holder også oplæg og workshops om AI i arbejdslivet.",
+    "giftNote": "Berg-Streaming er en af Kasper Bergstrøms egne virksomheder. Siden viser en brandet udgave af Round QR."
+   }
+  }
+ },
+ {
+  "id": "ciderkompagniet",
+  "name": "Cider Kompagniet",
+  "short": "Cider Kompagniet",
+  "website": "https://ciderkompagniet.dk",
+  "colors": {
+   "primary": "#bd1a26",
+   "secondary": "#f3d6d8",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ciderkompagniet.png",
+  "mark_file": "tools/gaver/marks/ciderkompagniet.png",
+  "showcase": true,
+  "text": {
+   "da": {
+    "about": "Round QR i Cider Kompagniets farver og med logoet i midten. Siden er et udstillingsvindue for, hvordan en brandet QR-kodegenerator ser ud, når den er bygget sammen med AI. Lav QR-koder til plakater, slides, nyhedsbreve og arrangementer, firkantede eller runde. Intet bliver sendt nogen steder hen.",
+    "giftPitch": "Vil I have en QR-kodegenerator i jeres egne farver? Skriv til mig. Jeg holder også oplæg og workshops om AI i arbejdslivet.",
+    "giftNote": "Cider Kompagniet er en af Kasper Bergstrøms egne virksomheder. Siden viser en brandet udgave af Round QR."
+   }
+  }
+ },
+ {
+  "id": "pharmaconsulting",
+  "name": "PharmaConsulting.ai",
+  "short": "PharmaConsulting.ai",
+  "website": "https://pharmaconsulting.ai",
+  "colors": {
+   "primary": "#161a38",
+   "secondary": "#90acc5",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/pharmaconsulting.png",
+  "mark_file": "tools/gaver/marks/pharmaconsulting.png",
+  "genitive": "PharmaConsulting.ai's",
+  "showcase": true,
+  "text": {
+   "da": {
+    "about": "Round QR i PharmaConsulting.ai's farver og med logoet i midten. Siden er et udstillingsvindue for, hvordan en brandet QR-kodegenerator ser ud, når den er bygget sammen med AI. Lav QR-koder til plakater, slides, nyhedsbreve og arrangementer, firkantede eller runde. Intet bliver sendt nogen steder hen.",
+    "giftPitch": "Vil I have en QR-kodegenerator i jeres egne farver? Skriv til mig. Jeg holder også oplæg og workshops om AI i arbejdslivet.",
+    "giftNote": "PharmaConsulting.ai er en af Kasper Bergstrøms egne virksomheder. Siden viser en brandet udgave af Round QR."
+   }
+  }
+ },
+ {
+  "id": "stemplerind",
+  "name": "StemplerInd",
+  "short": "StemplerInd",
+  "website": "https://stemplerind.dk",
+  "colors": {
+   "primary": "#151937",
+   "secondary": "#90acc5",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/stemplerind.png",
+  "mark_file": "tools/gaver/marks/stemplerind.png",
+  "showcase": true,
+  "text": {
+   "da": {
+    "about": "Round QR i StemplerInds farver og med logoet i midten. Siden er et udstillingsvindue for, hvordan en brandet QR-kodegenerator ser ud, når den er bygget sammen med AI. Lav QR-koder til plakater, slides, nyhedsbreve og arrangementer, firkantede eller runde. Intet bliver sendt nogen steder hen.",
+    "giftPitch": "Vil I have en QR-kodegenerator i jeres egne farver? Skriv til mig. Jeg holder også oplæg og workshops om AI i arbejdslivet.",
+    "giftNote": "StemplerInd er en af Kasper Bergstrøms egne virksomheder. Siden viser en brandet udgave af Round QR."
+   }
+  }
+ },
+ {
+  "id": "uldahl",
+  "name": "Forlaget Uldahl",
+  "short": "Forlaget Uldahl",
+  "website": "https://forlagetuldahl.dk",
+  "colors": {
+   "primary": "#222222",
+   "secondary": "#575757",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/uldahl.png",
+  "mark_file": "tools/gaver/marks/uldahl.png",
+  "showcase": true,
+  "text": {
+   "da": {
+    "about": "Round QR i Forlaget Uldahls farver og med logoet i midten. Siden er et udstillingsvindue for, hvordan en brandet QR-kodegenerator ser ud, når den er bygget sammen med AI. Lav QR-koder til plakater, slides, nyhedsbreve og arrangementer, firkantede eller runde. Intet bliver sendt nogen steder hen.",
+    "giftPitch": "Vil I have en QR-kodegenerator i jeres egne farver? Skriv til mig. Jeg holder også oplæg og workshops om AI i arbejdslivet.",
+    "giftNote": "Forlaget Uldahl er en af Kasper Bergstrøms egne virksomheder. Siden viser en brandet udgave af Round QR."
+   }
+  }
  }
 ]
