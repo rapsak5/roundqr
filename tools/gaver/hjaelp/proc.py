@@ -7,7 +7,7 @@ def render(slug, mode):
     a=np.asarray(Image.open(R+slug+'.png').convert('RGB')).astype(float)
     if mode=='w': out=a
     elif mode.startswith('rc:'):
-        tgt=hx(mode[3:]); g=a.mean(-1); al=np.clip((255-g)/max(1,(255-g.min())),0,1)
+        tgt=hx(mode[3:]); g=a.mean(-1); al=np.clip((255-g)/max(1,(255-g.min())),0,1); al=np.where(al<0.3,0,np.clip((al-0.3)/0.7*1.15,0,1))
         out=al[...,None]*tgt+(1-al[...,None])*255
     else:
         kind,tgt=mode.split(':')[0],hx(mode.split(':')[1])

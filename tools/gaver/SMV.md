@@ -76,6 +76,13 @@ Logoer behandles med tools/gaver/hjaelp/proc.py SPEC.json (tilstande: w, inv:HEX
 top, bottom, top-mid, frac:x0,y0,x1,y1) og tjekkes på et kontaktark med tools/gaver/hjaelp/kontaktark.py.
 Brug tre faner i Chrome parallelt; én navigate pr. browser_batch.
 
+## Hold 7 og 8 (13. nov. 2026, samme session)
+Hold 7: 35 og hold 8: 19, i alt 54 nye. Nu 150 virksomheder med side (157 i brands.json inkl. 7 showcase).
+Rækker: "Sjælland og Lolland" 83 til 127, Fyn 28 til 30, Bornholm 8 til 10, Trekantområdet 8 til 10. Mailteksten er udfoldet.
+Mange i de to hold er selvejende museer, teatre, spillesteder og attraktioner i København; det står i Note.
+Amager og Christianshavn: Alchemist, La Banchina, Loppen og DAC. Sprunget over: Glyptoteket (logo kunne ikke hentes),
+Amass (Cloudflare blokerede), Bryggeriet Apollo (siden svarede ikke).
+
 ## Showcase
 Kaspers egne brands har sider som udstillingsvindue: aiworkshop, arbejdsliv, bergstreaming, ciderkompagniet, pharmaconsulting,
 stemplerind og uldahl. De har "showcase": true og egne tekster i brands.json, og build_brand.py udelader noindex for dem.
