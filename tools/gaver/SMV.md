@@ -3,7 +3,7 @@
 Ark: "Round QR gaver: SMV'er", Google Sheet id 1knsUtV74gEGoQrjiOrMPOf1Az1eZldD1RJWVEIJHeuw (Drive-mappen Round QR).
 Arket blev oprettet 13. nov. 2026 med sin egen struktur (ikke en kopi af modtagerarket). Fanerne Proces og Overblik forklarer faserne.
 Faner med data: "Sjælland og Lolland" (København, Nordsjælland, resten af Sjælland, Lolland-Falster og Møn) og "Fyn" (Fyn og øerne).
-Bornholm har ingen fane endnu. Opret fanen "Bornholm" som kopi af "Fyn" (duplicateSheet, ryd datarækker), når de første bornholmske virksomheder findes.
+Fanen "Bornholm" (sheetId 4) blev oprettet 13. nov. 2026 som kopi af "Fyn". Overblik tæller ikke Bornholm med (formler, rør dem ikke).
 
 Kolonner (A til AE): Fase, Virksomhed, CVR, By, Område, Branche, Ansatte (ca.), Kilde ansatte, Hjemmeside, Til (mail), Mailtype,
 Kilde mail, Telefon, Kontaktperson, Hilsen, Vinkel, Hvorfor relevant, Vurdering, Begrundelse, Logo, Farver, Designnoter,
@@ -37,4 +37,9 @@ Som kommunerne, tilpasset en virksomhed: kort, venligt, ikke sælgende, gaven i 
 ## Status
 13. nov. 2026, hold 1: Herslev Bryghus, Dragsholm Slot, EBK Huse, Tvedemose, Knuthenborg, Faaborg Værft, Egeskov og Ordbogen
 har side og mailudkast. Fravalgt: Ingeniørfirmaet J&P (logo kun 85 px) og Krenkerup Gods (intet logo på siden).
-Kandidater til næste hold: Søby Værft (Ærø, fondsejet), Lyngkilde (Næstved, siden blokerede automatisk læsning), Hotel Nørrevang (Falster).
+13. nov. 2026, hold 2: Kjærstrup, Svaneke Chokoladeri, Svaneke Bryghus (Bornholm), Søby Værft (Ærø), DanuCare, K.J. Elektro (Lolland-Falster)
+og Lyngkilde (Næstved) har side og mailudkast. Fravalgt: Johannes Dam & Søn (siden under vedligehold), Ortofon (kapitalfondsejet), Hotel Nørrevang (siden åbner ikke).
+Optalt: Sjælland 5 af 20, Fyn 4 af 15, Lolland-Falster 3 af 8, Bornholm 3 af 7 (15 af 50).
+Bornholm og Lolland-Falster har få virksomheder over 20 ansatte; her er 10 til 20 ansatte taget med og markeret "Måske".
+Tip: firmaapi.dk/virksomhed/<cvr> giver ansatte, ejere og ledelse. businesslf.dk har lister over nominerede Lolland-Falster-virksomheder.
+Kandidater til næste hold: Bornholms Tidende (fondsejet), Hotel Griffen, Sjælland og Fyn mangler flest.
