@@ -9,16 +9,18 @@ Rækkefølge for hvert universitet: 1) mailadresse, 2) design (logo og farver), 
 Logo og farver aflæses i Chrome (se KOMMUNER.md). Logoerne ligger i universiteter/logos/<slug>.png, farver og sprog i universiteter/brands.json.
 Hvide logoer: sæt overlay-baggrunden til sidens mørke farve og brug logos.py --bg HEX, så pladen beholdes.
 Færdige designs (26): Skotland 5, Irland 7, Wales 4, England 6, Lund, Uppsala, Stockholm, KTH. Alle 26 er bygget og udgivet 13. nov. 2026.
-Mangler design: Chalmers, Göteborg, Linköping, Umeå, UiO, UiB, NTNU, UiT, NMBU, OsloMet, Hamburg, TUHH, Kiel, Lübeck, Flensburg, Bremen, Hannover, Rostock.
+De sidste 18 (Sverige 4, Norge 6, Tyskland 8) fik design og side 13. nov. 2026. Alle 44 er bygget.
+Hjælpescripts: hjaelp/uadd.py lægger et universitet i brands.json, hjaelp/umark.py laver mærket til midten ud fra et skærmbillede (--crop, --tile, --invert).
+Logo i høj opløsning: vis SVG'en i et hvidt overlay i stor højde (fx 420 px) og tag zoom med save_to_disk af kun symbolet.
 
 ## Sprog
 Siderne er på engelsk plus det lokale sprog: Skotland gd, Irland ga, Wales cy, England kun en, Sverige sv, Norge nb og nn, Tyskland de.
 Kun de målrettede universitetssider får de lokale sprog. src/round-qr.html og den almindelige roundqr.dk må ikke ændres for det.
 build_brand.py har feltet "languages" i brands.json (fx ["en", "gd"]). Det første sprog i listen er standard, men browserens sprog vinder, hvis det er på listen. Sprogvælgeren ligger i brandbjælken.
 Sprogfiler: tools/gaver/sprog/<kode>.json med t (nøglen i værktøjets T), name, html (lang-attribut), base (grundsprog for nye sprog, ellers null), ui (værktøjstekster, funktioner skrives som "js:function ...") og gift (sidens egne tekster med {short} og {dom}). Alle gift-nøgler skal findes i hver fil.
-Findes: en, sv, gd, ga, cy. Mangler: nb (t "no", base null), nn (t "nn", base "no", fuld ui-oversættelse) og de (t "de", base null). Lav dem, når det første universitet med det sprog skal bygges.
+Findes: en, sv, gd, ga, cy, no (bokmål, html-lang nb), nn (nynorsk, bygger på no) og de. Norske brands bruger "languages": ["en", "no", "nn"].
 Brands uden "languages" (kommuner, NGO, fagforeninger) bygges byte for byte som før. Det er testet ved at bygge alle kommuner og sammenligne.
-gd, ga og cy er skrevet af Claude og bør tjekkes af en modersmålstaler.
+gd, ga, cy og nn er skrevet af Claude og bør tjekkes af en modersmålstaler.
 Test at de danske sider (kommuner, NGO, fagforeninger) bygger uændret efter udvidelsen.
 
 ## Byg

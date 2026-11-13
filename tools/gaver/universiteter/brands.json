@@ -712,5 +712,163 @@
   "logo_file": "tools/gaver/universiteter/logos/oslomet.png",
   "logo_note": "",
   "mark_file": "none"
+ },
+ {
+  "id": "hamburg",
+  "name": "Universität Hamburg",
+  "short": "Universität Hamburg",
+  "website": "https://www.uni-hamburg.de",
+  "colors": {
+   "primary": "#e2001a",
+   "secondary": "#0271bb",
+   "accent": "#1d1d1b",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "de"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/hamburg.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/hamburg.png"
+ },
+ {
+  "id": "tuhh",
+  "name": "Technische Universität Hamburg",
+  "short": "TU Hamburg",
+  "website": "https://www.tuhh.de",
+  "colors": {
+   "primary": "#005e73",
+   "secondary": "#00c1d4",
+   "accent": "#009eac",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "de"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/tuhh.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/tuhh.png"
+ },
+ {
+  "id": "kiel",
+  "name": "Christian-Albrechts-Universität zu Kiel",
+  "short": "Universität Kiel",
+  "website": "https://www.uni-kiel.de",
+  "colors": {
+   "primary": "#9b0a7d",
+   "secondary": "#4c4c4c",
+   "accent": "#86076c",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "de"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/kiel.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/kiel.png"
+ },
+ {
+  "id": "luebeck",
+  "name": "Universität zu Lübeck",
+  "short": "Universität zu Lübeck",
+  "website": "https://www.uni-luebeck.de",
+  "colors": {
+   "primary": "#005564",
+   "secondary": "#008da5",
+   "accent": "#ff6a20",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "de"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/luebeck.png",
+  "logo_note": "Logoet findes kun som lille PNG (418 px) på siden.",
+  "mark_file": "tools/gaver/marks/luebeck.png"
+ },
+ {
+  "id": "flensburg",
+  "name": "Europa-Universität Flensburg",
+  "short": "Europa-Universität Flensburg",
+  "website": "https://www.uni-flensburg.de",
+  "colors": {
+   "primary": "#00395b",
+   "secondary": "#307197",
+   "accent": "#6f6f6f",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "de"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/flensburg.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/flensburg.png"
+ },
+ {
+  "id": "bremen",
+  "name": "Universität Bremen",
+  "short": "Universität Bremen",
+  "website": "https://www.uni-bremen.de",
+  "colors": {
+   "primary": "#00326d",
+   "secondary": "#d50c2f",
+   "accent": "#3c3c3c",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "de"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/bremen.png",
+  "logo_note": "Logoet findes kun som lille PNG (418 px) på siden.",
+  "mark_file": "tools/gaver/marks/bremen.png"
+ },
+ {
+  "id": "hannover",
+  "name": "Leibniz Universität Hannover",
+  "short": "Leibniz Universität Hannover",
+  "website": "https://www.uni-hannover.de",
+  "colors": {
+   "primary": "#00509b",
+   "secondary": "#2b2b2b",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "de"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/hannover.png",
+  "logo_note": "",
+  "mark_file": "tools/gaver/marks/hannover.png"
+ },
+ {
+  "id": "rostock",
+  "name": "Universität Rostock",
+  "short": "Universität Rostock",
+  "website": "https://www.uni-rostock.de",
+  "colors": {
+   "primary": "#004a99",
+   "secondary": "#ffa100",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "de"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/rostock.png",
+  "logo_note": "Logoet findes kun som PNG (600 px) på siden.",
+  "mark_file": "tools/gaver/marks/rostock.png"
  }
 ]
