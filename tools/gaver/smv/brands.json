@@ -1169,5 +1169,232 @@
   "source": "aflæst på hjemmesiden",
   "logo_file": "tools/gaver/smv/logos/kokkedal.png",
   "mark_file": "tools/gaver/marks/kokkedal.png"
+ },
+ {
+  "id": "nyborgstrand",
+  "name": "Nyborg Strand Hotel & Konference",
+  "short": "Nyborg Strand",
+  "website": "https://www.nyborgstrand.dk",
+  "colors": {
+   "primary": "#29355b",
+   "secondary": "#2e3d8c",
+   "accent": "#c8102e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/nyborgstrand.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "munkebjerg",
+  "name": "Munkebjerg Hotel",
+  "short": "Munkebjerg Hotel",
+  "website": "https://www.munkebjerg.dk",
+  "colors": {
+   "primary": "#333333",
+   "secondary": "#635642",
+   "accent": "#f4f0e7",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/munkebjerg.png",
+  "mark_file": "tools/gaver/marks/munkebjerg.png"
+ },
+ {
+  "id": "koldingfjord",
+  "name": "Hotel Koldingfjord",
+  "short": "Hotel Koldingfjord",
+  "website": "https://www.koldingfjord.dk",
+  "colors": {
+   "primary": "#093057",
+   "secondary": "#b59859",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/koldingfjord.png",
+  "mark_file": "tools/gaver/marks/koldingfjord.png"
+ },
+ {
+  "id": "gjdamask",
+  "name": "Georg Jensen Damask",
+  "short": "Georg Jensen Damask",
+  "website": "https://www.georgjensen-damask.com",
+  "colors": {
+   "primary": "#1c1c1c",
+   "secondary": "#d81e25",
+   "accent": "#f4f4f0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/gjdamask.png",
+  "mark_file": "none",
+  "genitive": "Georg Jensen Damasks"
+ },
+ {
+  "id": "bornholmhotels",
+  "name": "Bornholm Hotels",
+  "short": "Bornholm Hotels",
+  "website": "https://bornholmhotels.dk",
+  "colors": {
+   "primary": "#1a1a1a",
+   "secondary": "#7f99b2",
+   "accent": "#848d7d",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/bornholmhotels.png",
+  "mark_file": "none",
+  "genitive": "Bornholm Hotels'"
+ },
+ {
+  "id": "tidende",
+  "name": "Bornholms Tidende",
+  "short": "Bornholms Tidende",
+  "website": "https://www.tidende.dk",
+  "colors": {
+   "primary": "#1d1d1b",
+   "secondary": "#4889b3",
+   "accent": "#d3729e",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/tidende.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "carlhansen",
+  "name": "Carl Hansen & Søn",
+  "short": "Carl Hansen & Søn",
+  "website": "https://www.carlhansen.com",
+  "colors": {
+   "primary": "#1a202c",
+   "secondary": "#a0a0a0",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/carlhansen.png",
+  "mark_file": "none",
+  "genitive": "Carl Hansen & Søns"
+ },
+ {
+  "id": "leklint",
+  "name": "Le Klint",
+  "short": "Le Klint",
+  "website": "https://www.leklint.com",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#d3cfc4",
+   "accent": "#efeeeb",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/leklint.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "givskud",
+  "name": "Givskud Zoo Zootopia",
+  "short": "Givskud Zoo",
+  "website": "https://www.givskudzoo.dk",
+  "colors": {
+   "primary": "#db1f28",
+   "secondary": "#3e5f79",
+   "accent": "#212529",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/givskud.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "montana",
+  "name": "Montana Furniture",
+  "short": "Montana",
+  "website": "https://www.montanafurniture.com",
+  "colors": {
+   "primary": "#020203",
+   "secondary": "#633730",
+   "accent": "#263835",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/montana.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "ingeniorne",
+  "name": "INGENIØR'NE",
+  "short": "INGENIØR'NE",
+  "website": "https://www.ingenior-ne.dk",
+  "colors": {
+   "primary": "#2b4752",
+   "secondary": "#1a3039",
+   "accent": "#a19c62",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/ingeniorne.png",
+  "mark_file": "none",
+  "genitive": "INGENIØR'NEs"
+ },
+ {
+  "id": "krybily",
+  "name": "Hotel Kryb i Ly Kro",
+  "short": "Kryb i Ly Kro",
+  "website": "https://www.krybily.dk",
+  "colors": {
+   "primary": "#2f2f2d",
+   "secondary": "#c79a77",
+   "accent": "#e1d3d4",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/krybily.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "valdemars",
+  "name": "Valdemars Slot",
+  "short": "Valdemars Slot",
+  "website": "https://www.valdemarsslot.dk",
+  "colors": {
+   "primary": "#1c1c1c",
+   "secondary": "#dcdcdc",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/valdemars.png",
+  "mark_file": "tools/gaver/marks/valdemars.png"
+ },
+ {
+  "id": "clayton",
+  "name": "Clayton Power",
+  "short": "Clayton Power",
+  "website": "https://www.claytonpower.com",
+  "colors": {
+   "primary": "#000000",
+   "secondary": "#0072bc",
+   "accent": "#002e4b",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/clayton.png",
+  "mark_file": "none"
+ },
+ {
+  "id": "milling",
+  "name": "Milling Hotels",
+  "short": "Milling Hotels",
+  "website": "https://millinghotels.dk",
+  "colors": {
+   "primary": "#960529",
+   "secondary": "#3b000d",
+   "accent": "#cbb7a9",
+   "text": "#222222"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/smv/logos/milling.png",
+  "mark_file": "none",
+  "genitive": "Milling Hotels'"
  }
 ]
