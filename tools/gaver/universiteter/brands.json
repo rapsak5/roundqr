@@ -1,0 +1,490 @@
+[
+ {
+  "id": "glasgow",
+  "name": "University of Glasgow",
+  "short": "University of Glasgow",
+  "website": "https://www.gla.ac.uk",
+  "colors": {
+   "primary": "#011451",
+   "secondary": "#7d2239",
+   "accent": "#ffdc36",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "gd"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/glasgow.png",
+  "logo_note": ""
+ },
+ {
+  "id": "edinburgh",
+  "name": "The University of Edinburgh",
+  "short": "The University of Edinburgh",
+  "website": "https://www.ed.ac.uk",
+  "colors": {
+   "primary": "#041e42",
+   "secondary": "#d50032",
+   "accent": "#0b6bb8",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "gd"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/edinburgh.png",
+  "logo_note": ""
+ },
+ {
+  "id": "strathclyde",
+  "name": "University of Strathclyde",
+  "short": "University of Strathclyde",
+  "website": "https://www.strath.ac.uk",
+  "colors": {
+   "primary": "#1b365d",
+   "secondary": "#607890",
+   "accent": "#e6b012",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "gd"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/strathclyde.png",
+  "logo_note": ""
+ },
+ {
+  "id": "aberdeen",
+  "name": "University of Aberdeen",
+  "short": "University of Aberdeen",
+  "website": "https://www.abdn.ac.uk",
+  "colors": {
+   "primary": "#002e45",
+   "secondary": "#4a7a96",
+   "accent": "#b38e5d",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "gd"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/aberdeen.png",
+  "logo_note": ""
+ },
+ {
+  "id": "standrews",
+  "name": "University of St Andrews",
+  "short": "University of St Andrews",
+  "website": "https://www.st-andrews.ac.uk",
+  "colors": {
+   "primary": "#00539b",
+   "secondary": "#003a70",
+   "accent": "#d6a400",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "gd"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/standrews.png",
+  "logo_note": ""
+ },
+ {
+  "id": "tcd",
+  "name": "Trinity College Dublin",
+  "short": "Trinity College Dublin",
+  "website": "https://www.tcd.ie",
+  "colors": {
+   "primary": "#0e4c92",
+   "secondary": "#00205b",
+   "accent": "#0569b9",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "ga"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/tcd.png",
+  "logo_note": ""
+ },
+ {
+  "id": "ucd",
+  "name": "University College Dublin",
+  "short": "University College Dublin",
+  "website": "https://www.ucd.ie",
+  "colors": {
+   "primary": "#0b3b7a",
+   "secondary": "#0078c0",
+   "accent": "#50a52e",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "ga"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/ucd.png",
+  "logo_note": ""
+ },
+ {
+  "id": "galway",
+  "name": "University of Galway",
+  "short": "University of Galway",
+  "website": "https://www.universityofgalway.ie",
+  "colors": {
+   "primary": "#a80050",
+   "secondary": "#84003d",
+   "accent": "#1a8197",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "ga"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/galway.png",
+  "logo_note": "lav opløsning (300x75 png)"
+ },
+ {
+  "id": "ucc",
+  "name": "University College Cork",
+  "short": "University College Cork",
+  "website": "https://www.ucc.ie",
+  "colors": {
+   "primary": "#003c69",
+   "secondary": "#ffb500",
+   "accent": "#2368a1",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "ga"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/ucc.png",
+  "logo_note": ""
+ },
+ {
+  "id": "dcu",
+  "name": "Dublin City University",
+  "short": "Dublin City University",
+  "website": "https://www.dcu.ie",
+  "colors": {
+   "primary": "#00334f",
+   "secondary": "#ffc900",
+   "accent": "#00a4fa",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "ga"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/dcu.png",
+  "logo_note": "lav opløsning (225x58 png)"
+ },
+ {
+  "id": "limerick",
+  "name": "University of Limerick",
+  "short": "University of Limerick",
+  "website": "https://www.ul.ie",
+  "colors": {
+   "primary": "#005335",
+   "secondary": "#003726",
+   "accent": "#00b140",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "ga"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/limerick.png",
+  "logo_note": "hvidt logo på grøn plade"
+ },
+ {
+  "id": "maynooth",
+  "name": "Maynooth University",
+  "short": "Maynooth University",
+  "website": "https://www.maynoothuniversity.ie",
+  "colors": {
+   "primary": "#006778",
+   "secondary": "#005260",
+   "accent": "#f0ab00",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "ga"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/maynooth.png",
+  "logo_note": ""
+ },
+ {
+  "id": "cardiff",
+  "name": "Cardiff University",
+  "short": "Cardiff University",
+  "website": "https://www.cardiff.ac.uk",
+  "colors": {
+   "primary": "#c8102e",
+   "secondary": "#1d1d1b",
+   "accent": "#e4251b",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "cy"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/cardiff.png",
+  "logo_note": ""
+ },
+ {
+  "id": "swansea",
+  "name": "Swansea University",
+  "short": "Swansea University",
+  "website": "https://www.swansea.ac.uk",
+  "colors": {
+   "primary": "#242f60",
+   "secondary": "#93c9de",
+   "accent": "#cad401",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "cy"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/swansea.png",
+  "logo_note": "hvidt logo på mørkeblå plade"
+ },
+ {
+  "id": "bangor",
+  "name": "Bangor University",
+  "short": "Bangor University",
+  "website": "https://www.bangor.ac.uk",
+  "colors": {
+   "primary": "#b82234",
+   "secondary": "#1d1d1b",
+   "accent": "#fdb913",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "cy"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/bangor.png",
+  "logo_note": ""
+ },
+ {
+  "id": "aberystwyth",
+  "name": "Aberystwyth University",
+  "short": "Aberystwyth University",
+  "website": "https://www.aber.ac.uk",
+  "colors": {
+   "primary": "#242753",
+   "secondary": "#2c70aa",
+   "accent": "#ffcc00",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "cy"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/aberystwyth.png",
+  "logo_note": ""
+ },
+ {
+  "id": "manchester",
+  "name": "The University of Manchester",
+  "short": "The University of Manchester",
+  "website": "https://www.manchester.ac.uk",
+  "colors": {
+   "primary": "#660099",
+   "secondary": "#330066",
+   "accent": "#ffcc33",
+   "text": "#222222"
+  },
+  "languages": [
+   "en"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/manchester.png",
+  "logo_note": "lav opløsning (169x71 png)"
+ },
+ {
+  "id": "leeds",
+  "name": "University of Leeds",
+  "short": "University of Leeds",
+  "website": "https://www.leeds.ac.uk",
+  "colors": {
+   "primary": "#212121",
+   "secondary": "#00a37a",
+   "accent": "#00d0a0",
+   "text": "#222222"
+  },
+  "languages": [
+   "en"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/leeds.png",
+  "logo_note": "hvidt logo på mørk plade"
+ },
+ {
+  "id": "bristol",
+  "name": "University of Bristol",
+  "short": "University of Bristol",
+  "website": "https://www.bristol.ac.uk",
+  "colors": {
+   "primary": "#b01c2e",
+   "secondary": "#12161a",
+   "accent": "#ee7219",
+   "text": "#222222"
+  },
+  "languages": [
+   "en"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/bristol.png",
+  "logo_note": ""
+ },
+ {
+  "id": "nottingham",
+  "name": "University of Nottingham",
+  "short": "University of Nottingham",
+  "website": "https://www.nottingham.ac.uk",
+  "colors": {
+   "primary": "#10263b",
+   "secondary": "#405162",
+   "accent": "#deb406",
+   "text": "#222222"
+  },
+  "languages": [
+   "en"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/nottingham.png",
+  "logo_note": "hvidt logo på mørkeblå plade"
+ },
+ {
+  "id": "sheffield",
+  "name": "University of Sheffield",
+  "short": "University of Sheffield",
+  "website": "https://www.sheffield.ac.uk",
+  "colors": {
+   "primary": "#440099",
+   "secondary": "#24135f",
+   "accent": "#00bbc9",
+   "text": "#222222"
+  },
+  "languages": [
+   "en"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/sheffield.png",
+  "logo_note": ""
+ },
+ {
+  "id": "newcastle",
+  "name": "Newcastle University",
+  "short": "Newcastle University",
+  "website": "https://www.ncl.ac.uk",
+  "colors": {
+   "primary": "#003a65",
+   "secondary": "#0073bc",
+   "accent": "#fdc82f",
+   "text": "#222222"
+  },
+  "languages": [
+   "en"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/newcastle.png",
+  "logo_note": "hvidt logo på mørkeblå plade"
+ },
+ {
+  "id": "lund",
+  "name": "Lunds universitet",
+  "short": "Lunds universitet",
+  "website": "https://www.lu.se",
+  "colors": {
+   "primary": "#1b2f6e",
+   "secondary": "#9c6114",
+   "accent": "#4a6aa0",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "sv"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/lund.png",
+  "logo_note": ""
+ },
+ {
+  "id": "uppsala",
+  "name": "Uppsala universitet",
+  "short": "Uppsala universitet",
+  "website": "https://www.uu.se",
+  "colors": {
+   "primary": "#990000",
+   "secondary": "#222222",
+   "accent": "#52b4ff",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "sv"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/uppsala.png",
+  "logo_note": "hvidt logo på rød plade, lille fil (148 px)"
+ },
+ {
+  "id": "stockholm",
+  "name": "Stockholms universitet",
+  "short": "Stockholms universitet",
+  "website": "https://www.su.se",
+  "colors": {
+   "primary": "#002f5f",
+   "secondary": "#002953",
+   "accent": "#acdee6",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "sv"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/stockholm.png",
+  "logo_note": "hvidt logo på mørkeblå plade"
+ },
+ {
+  "id": "kth",
+  "name": "KTH",
+  "short": "KTH",
+  "website": "https://www.kth.se",
+  "colors": {
+   "primary": "#004791",
+   "secondary": "#000061",
+   "accent": "#036eb8",
+   "text": "#222222"
+  },
+  "languages": [
+   "en",
+   "sv"
+  ],
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/universiteter/logos/kth.png",
+  "logo_note": "hvidt logo på blå plade"
+ }
+]
