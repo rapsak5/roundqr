@@ -1137,6 +1137,22 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
   padding-top: 18px; border-top: 1px solid var(--line); }
 .foot a { color: inherit; }
 @media (max-width: 480px) { .download { padding: 20px 18px; } }
+.contact { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 20px 48px; align-items: start;
+  padding-top: 36px; border-top: 1px solid var(--line); }
+@media (max-width: 760px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+.cf-intro p { margin: 0; color: var(--muted); max-width: 48ch; }
+.cf-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; min-width: 0;
+  padding: 22px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.cf-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.cf-field label { font-size: 14px; font-weight: 500; }
+.cf-wide, .cf-send, .cf-note { grid-column: 1 / -1; }
+.cf-form textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+  padding: 9px 11px; width: 100%; min-width: 0; min-height: 96px; resize: vertical; }
+.cf-form textarea:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+.cf-send { display: flex; }
+.cf-note { margin: 0; font-size: 13px; line-height: 1.55; color: var(--muted); }
+.cf-note a { color: var(--accent-strong); overflow-wrap: anywhere; }
+@media (max-width: 480px) { .cf-form { grid-template-columns: minmax(0, 1fr); padding: 18px; } }
 </style>
 
 <!-- julelys:start -->
@@ -1820,10 +1836,41 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
     </ul>
   </section>
 
+  <section class="contact" id="kontakt" aria-labelledby="cf-h">
+    <div class="cf-intro">
+      <h2 class="site-h2" id="cf-h" data-t="cfTitle">Vill du ha en gratis QR-kodgenerator med ert eget varumärke?</h2>
+      <p data-t="cfIntro">Fyll i formuläret så gör jag en version av Round QR med er logga och era färger och skickar den till er via mejl. Det är gratis.</p>
+    </div>
+    <form class="cf-form" id="cf" action="mailto:kasper@ai-workshop.dk" method="post" enctype="text/plain">
+      <div class="cf-field"><label for="cf-name" data-t="cfName">Namn</label><input type="text" id="cf-name" name="navn" autocomplete="name" required></div>
+      <div class="cf-field"><label for="cf-company" data-t="cfCompany">Företag</label><input type="text" id="cf-company" name="virksomhed" autocomplete="organization" required></div>
+      <div class="cf-field cf-wide"><label for="cf-web" data-t="cfWeb">Webbplats</label><input type="text" id="cf-web" name="hjemmeside" inputmode="url" autocomplete="url" spellcheck="false" required></div>
+      <div class="cf-field cf-wide"><label for="cf-msg" data-t="cfMsg">Meddelande (valfritt)</label><textarea id="cf-msg" name="besked" rows="3"></textarea></div>
+      <div class="cf-send"><button type="submit" class="btn primary big"><span data-t="cfBtn">Skicka förfrågan</span></button></div>
+      <p class="cf-note"><span data-t="cfNote">Knappen öppnar ditt mejlprogram med meddelandet klart, så du bara trycker skicka. Jag använder bara dina uppgifter för att göra och skicka din QR-generator.</span> <span data-t="cfOr">Du kan också skriva direkt till</span> <a href="mailto:kasper@ai-workshop.dk">kasper@ai-workshop.dk</a>.</p>
+      <span hidden id="cf-subject" data-t="cfSubject">Round QR med vårt varumärke</span><span hidden id="cf-body" data-t="cfBody">Hej Kasper. Vi vill gärna ha en Round QR med vårt eget varumärke.</span>
+    </form>
+  </section>
+
   <footer class="foot">
     <span>Round QR · roundqr.dk</span>
     <span data-t="footNote">Inga kakor och ingen spårning. Dina inställningar sparas bara i din egen webbläsare.</span>
   </footer>
+<script>
+(function () {
+  var f = document.getElementById("cf"); if (!f) return;
+  function v(id) { return document.getElementById(id).value.trim(); }
+  function lb(id) { return document.querySelector('label[for="' + id + '"]').textContent; }
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [document.getElementById("cf-body").textContent, "",
+      lb("cf-name") + ": " + v("cf-name"), lb("cf-company") + ": " + v("cf-company"), lb("cf-web") + ": " + v("cf-web")];
+    if (v("cf-msg")) lines.push("", v("cf-msg"));
+    location.href = "mailto:kasper@ai-workshop.dk?subject=" + encodeURIComponent(document.getElementById("cf-subject").textContent + ": " + v("cf-company")) +
+      "&body=" + encodeURIComponent(lines.join("\n"));
+  });
+})();
+</script>
 </div>
 
 <script src="../assets/qrcode.js"></script>
@@ -2633,6 +2680,17 @@ var RQ = (function () {
       faq5a: "Nej. Alt sker i din egen browser, og intet sendes til en server. Der er ingen cookies og ingen sporing.",
       faq6q: "Er Round QR åben?",
       faq6a: "Ja. Hele kildekoden ligger offentligt på GitHub, og du kan hente programmet som én HTML-fil og bruge det uden internet.",
+      cfTitle: "Vil du have en gratis QR-kodegenerator til jeres eget brand?",
+      cfIntro: "Udfyld felterne, så laver jeg en udgave af Round QR med jeres logo og farver og sender den til jer på mail. Det er gratis.",
+      cfName: "Navn",
+      cfCompany: "Virksomhed",
+      cfWeb: "Hjemmeside",
+      cfMsg: "Besked (valgfri)",
+      cfBtn: "Send forespørgsel",
+      cfNote: "Knappen åbner dit mailprogram med beskeden klar, så du bare skal trykke send. Jeg bruger kun dine oplysninger til at lave og sende din QR-generator.",
+      cfOr: "Du kan også skrive direkte til",
+      cfSubject: "Round QR til vores brand",
+      cfBody: "Hej Kasper. Vi vil gerne have en Round QR i vores eget brand.",
       pageTitle: "Round QR · Gratis QR-kode generator til runde og firkantede koder",
       pageDesc: "Lav runde eller almindelige QR-koder fra et link. Vælg form, farver og logo, og gem som PNG, JPG eller SVG. Gratis, uden login og uden reklamer.",
       subtitle: "Indsæt et link, giv koden form, og gem den som PNG, JPG eller SVG.",
@@ -2724,6 +2782,17 @@ var RQ = (function () {
       faq5a: "No. Everything happens in your own browser and nothing is sent to a server. No cookies and no tracking.",
       faq6q: "Is Round QR open?",
       faq6a: "Yes. All the source code is public on GitHub, and you can download the whole program as one HTML file and use it offline.",
+      cfTitle: "Want a free QR code generator in your own brand?",
+      cfIntro: "Fill in the form and I'll make a version of Round QR with your logo and colours and send it to you by email. It's free.",
+      cfName: "Name",
+      cfCompany: "Company",
+      cfWeb: "Website",
+      cfMsg: "Message (optional)",
+      cfBtn: "Send request",
+      cfNote: "The button opens your email app with the message ready, so you just press send. I only use your details to make and send your QR generator.",
+      cfOr: "You can also write directly to",
+      cfSubject: "Round QR in our brand",
+      cfBody: "Hi Kasper. We would like a Round QR in our own brand.",
       pageTitle: "Round QR · Free QR code generator for round and square codes",
       pageDesc: "Make round or regular QR codes from a link. Pick shape, colours and logo, and save as PNG, JPG or SVG. Free, no sign-up and no ads.",
       subtitle: "Paste a link, shape the code, save it as PNG, JPG or SVG.",
@@ -2815,6 +2884,17 @@ var RQ = (function () {
       faq5a: "Nein. Alles passiert in deinem eigenen Browser, und nichts wird an einen Server geschickt. Keine Cookies und kein Tracking.",
       faq6q: "Ist Round QR offen?",
       faq6a: "Ja. Der gesamte Quellcode liegt öffentlich auf GitHub, und du kannst das ganze Programm als eine HTML-Datei herunterladen und ohne Internet nutzen.",
+      cfTitle: "Möchtest du einen kostenlosen QR-Code-Generator im eigenen Branding?",
+      cfIntro: "Füll das Formular aus, dann baue ich eine Version von Round QR mit eurem Logo und euren Farben und schicke sie euch per Mail. Das ist kostenlos.",
+      cfName: "Name",
+      cfCompany: "Firma",
+      cfWeb: "Website",
+      cfMsg: "Nachricht (optional)",
+      cfBtn: "Anfrage senden",
+      cfNote: "Der Button öffnet dein Mailprogramm mit der fertigen Nachricht, du musst nur noch auf Senden drücken. Ich nutze deine Angaben nur, um deinen QR-Generator zu erstellen und zu schicken.",
+      cfOr: "Du kannst auch direkt schreiben an",
+      cfSubject: "Round QR in unserem Branding",
+      cfBody: "Hallo Kasper. Wir hätten gern ein Round QR in unserem eigenen Branding.",
       pageTitle: "Round QR · Kostenloser QR-Code-Generator für runde und eckige Codes",
       pageDesc: "Erstelle runde oder normale QR-Codes aus einem Link. Wähle Form, Farben und Logo und speichere als PNG, JPG oder SVG. Kostenlos, ohne Anmeldung und ohne Werbung.",
       subtitle: "Link einfügen, Code gestalten und als PNG, JPG oder SVG speichern.",
@@ -2962,6 +3042,17 @@ var RQ = (function () {
       faq5a: "Nei. Alt skjer i din egen nettleser, og ingenting sendes til en server. Ingen informasjonskapsler og ingen sporing.",
       faq6q: "Er Round QR åpen?",
       faq6a: "Ja. All kildekoden ligger offentlig på GitHub, og du kan laste ned hele programmet som én HTML-fil og bruke det uten internett.",
+      cfTitle: "Vil du ha en gratis QR-kodegenerator med deres egen merkevare?",
+      cfIntro: "Fyll ut skjemaet, så lager jeg en versjon av Round QR med deres logo og farger og sender den til dere på e-post. Det er gratis.",
+      cfName: "Navn",
+      cfCompany: "Bedrift",
+      cfWeb: "Nettside",
+      cfMsg: "Melding (valgfritt)",
+      cfBtn: "Send forespørsel",
+      cfNote: "Knappen åpner e-postprogrammet ditt med meldingen ferdig, så du bare trykker send. Jeg bruker bare opplysningene dine til å lage og sende QR-generatoren din.",
+      cfOr: "Du kan også skrive direkte til",
+      cfSubject: "Round QR med vår merkevare",
+      cfBody: "Hei Kasper. Vi vil gjerne ha en Round QR med vår egen merkevare.",
       pageTitle: "Round QR · Gratis QR-kodegenerator for runde og firkantede koder",
       pageDesc: "Lag runde eller vanlige QR-koder fra en lenke. Velg form, farger og logo, og lagre som PNG, JPG eller SVG. Gratis, uten innlogging og uten reklame.",
       subtitle: "Lim inn en lenke, gi koden form, og lagre den som PNG, JPG eller SVG.",
@@ -3109,6 +3200,17 @@ var RQ = (function () {
       faq5a: "Nej. Allt sker i din egen webbläsare och ingenting skickas till en server. Inga kakor och ingen spårning.",
       faq6q: "Är Round QR öppen?",
       faq6a: "Ja. All källkod ligger öppet på GitHub, och du kan ladda ner hela programmet som en HTML-fil och använda det utan internet.",
+      cfTitle: "Vill du ha en gratis QR-kodgenerator med ert eget varumärke?",
+      cfIntro: "Fyll i formuläret så gör jag en version av Round QR med er logga och era färger och skickar den till er via mejl. Det är gratis.",
+      cfName: "Namn",
+      cfCompany: "Företag",
+      cfWeb: "Webbplats",
+      cfMsg: "Meddelande (valfritt)",
+      cfBtn: "Skicka förfrågan",
+      cfNote: "Knappen öppnar ditt mejlprogram med meddelandet klart, så du bara trycker skicka. Jag använder bara dina uppgifter för att göra och skicka din QR-generator.",
+      cfOr: "Du kan också skriva direkt till",
+      cfSubject: "Round QR med vårt varumärke",
+      cfBody: "Hej Kasper. Vi vill gärna ha en Round QR med vårt eget varumärke.",
       pageTitle: "Round QR · Gratis QR-kodgenerator för runda och fyrkantiga koder",
       pageDesc: "Skapa runda eller vanliga QR-koder från en länk. Välj form, färger och logga och spara som PNG, JPG eller SVG. Gratis, utan inloggning och utan reklam.",
       subtitle: "Klistra in en länk, ge koden form och spara den som PNG, JPG eller SVG.",
@@ -3256,6 +3358,17 @@ var RQ = (function () {
       faq5a: "No. Todo ocurre en tu propio navegador y no se envía nada a ningún servidor. Sin cookies y sin rastreo.",
       faq6q: "¿Round QR es abierto?",
       faq6a: "Sí. Todo el código fuente es público en GitHub, y puedes descargar el programa completo como un único archivo HTML y usarlo sin internet.",
+      cfTitle: "¿Quieres un generador de códigos QR gratis con tu propia marca?",
+      cfIntro: "Rellena el formulario y haré una versión de Round QR con vuestro logo y vuestros colores, y os la enviaré por correo. Es gratis.",
+      cfName: "Nombre",
+      cfCompany: "Empresa",
+      cfWeb: "Sitio web",
+      cfMsg: "Mensaje (opcional)",
+      cfBtn: "Enviar solicitud",
+      cfNote: "El botón abre tu programa de correo con el mensaje listo, solo tienes que pulsar enviar. Solo uso tus datos para crear y enviarte tu generador QR.",
+      cfOr: "También puedes escribir directamente a",
+      cfSubject: "Round QR con nuestra marca",
+      cfBody: "Hola Kasper. Nos gustaría tener un Round QR con nuestra propia marca.",
       pageTitle: "Round QR · Generador de códigos QR gratis, redondos y cuadrados",
       pageDesc: "Crea códigos QR redondos o normales a partir de un enlace. Elige forma, colores y logo, y guárdalo como PNG, JPG o SVG. Gratis, sin registro y sin anuncios.",
       subtitle: "Pega un enlace, dale forma al código y guárdalo como PNG, JPG o SVG.",
@@ -3403,6 +3516,17 @@ var RQ = (function () {
       faq5a: "Non. Tout se passe dans votre propre navigateur et rien n'est envoyé à un serveur. Pas de cookies et pas de suivi.",
       faq6q: "Round QR est-il ouvert ?",
       faq6a: "Oui. Tout le code source est public sur GitHub, et vous pouvez télécharger tout le programme sous forme d'un seul fichier HTML et l'utiliser sans internet.",
+      cfTitle: "Vous voulez un générateur de codes QR gratuit aux couleurs de votre marque ?",
+      cfIntro: "Remplissez le formulaire et je crée une version de Round QR avec votre logo et vos couleurs, que je vous envoie par e-mail. C'est gratuit.",
+      cfName: "Nom",
+      cfCompany: "Entreprise",
+      cfWeb: "Site web",
+      cfMsg: "Message (facultatif)",
+      cfBtn: "Envoyer la demande",
+      cfNote: "Le bouton ouvre votre messagerie avec le message prêt, il ne reste qu'à cliquer sur envoyer. J'utilise vos informations uniquement pour créer et envoyer votre générateur QR.",
+      cfOr: "Vous pouvez aussi écrire directement à",
+      cfSubject: "Round QR aux couleurs de notre marque",
+      cfBody: "Bonjour Kasper. Nous aimerions un Round QR aux couleurs de notre marque.",
       pageTitle: "Round QR · Générateur de codes QR gratuit, ronds et carrés",
       pageDesc: "Créez des codes QR ronds ou classiques à partir d'un lien. Choisissez la forme, les couleurs et le logo, puis enregistrez en PNG, JPG ou SVG. Gratuit, sans compte et sans publicité.",
       subtitle: "Collez un lien, donnez une forme au code et enregistrez-le en PNG, JPG ou SVG.",
@@ -3550,6 +3674,17 @@ var RQ = (function () {
       faq5a: "No. Tutto avviene nel tuo browser e niente viene inviato a un server. Niente cookie e nessun tracciamento.",
       faq6q: "Round QR è open source?",
       faq6a: "Sì. Tutto il codice sorgente è pubblico su GitHub, e puoi scaricare l'intero programma come un unico file HTML e usarlo senza internet.",
+      cfTitle: "Vuoi un generatore di codici QR gratuito con il tuo marchio?",
+      cfIntro: "Compila il modulo e creerò una versione di Round QR con il vostro logo e i vostri colori, e ve la invierò via email. È gratuito.",
+      cfName: "Nome",
+      cfCompany: "Azienda",
+      cfWeb: "Sito web",
+      cfMsg: "Messaggio (facoltativo)",
+      cfBtn: "Invia richiesta",
+      cfNote: "Il pulsante apre il tuo programma di posta con il messaggio pronto, devi solo premere invia. Uso i tuoi dati solo per creare e inviarti il generatore QR.",
+      cfOr: "Puoi anche scrivere direttamente a",
+      cfSubject: "Round QR con il nostro marchio",
+      cfBody: "Ciao Kasper. Vorremmo un Round QR con il nostro marchio.",
       pageTitle: "Round QR · Generatore di codici QR gratuito, rotondi e quadrati",
       pageDesc: "Crea codici QR rotondi o normali a partire da un link. Scegli forma, colori e logo, e salva come PNG, JPG o SVG. Gratuito, senza registrazione e senza pubblicità.",
       subtitle: "Incolla un link, dai forma al codice e salvalo come PNG, JPG o SVG.",
