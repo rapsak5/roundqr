@@ -308,6 +308,9 @@ def languages_mode(html, b, short, dom, preset_names):
     """Kun for brands med feltet languages, fx ["en", "gd"]. Sprogvælger i brandbjælken, tekster fra tools/gaver/sprog/<kode>.json.
     De danske sider (uden languages) bygges præcis som før."""
     langs = [load_lang(c) for c in b['languages']]
+    # egne tekster pr. sprog fra brands.json (text.<kode>) går forud for sprogfilens
+    for lg in langs:
+        lg['gift'] = dict(lg['gift'], **((b.get('text') or {}).get(lg['t']) or {}))
     keys = [lg['t'] for lg in langs]
     fill = lambda v: v.replace('{short}', short).replace('{dom}', dom) if isinstance(v, str) else v
     first = {k: fill(v) for k, v in langs[0]['gift'].items()}
