@@ -1016,8 +1016,10 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 .cf-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .cf-field label { font-size: 14px; font-weight: 500; }
 .cf-wide, .cf-send, .cf-note { grid-column: 1 / -1; }
-.cf-form textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
-  padding: 9px 11px; width: 100%; min-width: 0; min-height: 96px; resize: vertical; }
+.cf-form textarea, .cf-form input[type="email"] { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+  padding: 9px 11px; width: 100%; min-width: 0; }
+.cf-form textarea { min-height: 96px; resize: vertical; }
+.cf-thanks { color: var(--ink); font-weight: 500; }
 .cf-form textarea:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
 .cf-send { display: flex; }
 .cf-note { margin: 0; font-size: 13px; line-height: 1.55; color: var(--muted); }
@@ -1711,14 +1713,21 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
       <h2 class="site-h2" id="cf-h" data-t="cfTitle">Vil du have en gratis QR-kodegenerator til jeres eget brand?</h2>
       <p data-t="cfIntro">Udfyld felterne, så laver jeg en udgave af Round QR med jeres logo og farver og sender den til jer på mail. Det er gratis.</p>
     </div>
-    <form class="cf-form" id="cf" action="mailto:kasper@ai-workshop.dk" method="post" enctype="text/plain">
+    <form class="cf-form" id="cf" action="https://formsubmit.co/kasper@ai-workshop.dk" method="POST">
+      <input type="hidden" name="_subject" value="Round QR til vores brand">
+      <input type="hidden" name="_next" value="https://roundqr.dk/?tak=1#kontakt">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <div class="cf-field"><label for="cf-name" data-t="cfName">Navn</label><input type="text" id="cf-name" name="navn" autocomplete="name" required></div>
       <div class="cf-field"><label for="cf-company" data-t="cfCompany">Virksomhed</label><input type="text" id="cf-company" name="virksomhed" autocomplete="organization" required></div>
-      <div class="cf-field cf-wide"><label for="cf-web" data-t="cfWeb">Hjemmeside</label><input type="text" id="cf-web" name="hjemmeside" inputmode="url" autocomplete="url" spellcheck="false" required></div>
+      <div class="cf-field"><label for="cf-email" data-t="cfEmail">E-mail</label><input type="email" id="cf-email" name="email" autocomplete="email" required></div>
+      <div class="cf-field"><label for="cf-web" data-t="cfWeb">Hjemmeside</label><input type="text" id="cf-web" name="hjemmeside" inputmode="url" autocomplete="url" spellcheck="false" required></div>
       <div class="cf-field cf-wide"><label for="cf-msg" data-t="cfMsg">Besked (valgfri)</label><textarea id="cf-msg" name="besked" rows="3"></textarea></div>
       <div class="cf-send"><button type="submit" class="btn primary big"><span data-t="cfBtn">Send forespørgsel</span></button></div>
-      <p class="cf-note"><span data-t="cfNote">Knappen åbner dit mailprogram med beskeden klar, så du bare skal trykke send. Jeg bruger kun dine oplysninger til at lave og sende din QR-generator.</span> <span data-t="cfOr">Du kan også skrive direkte til</span> <a href="mailto:kasper@ai-workshop.dk">kasper@ai-workshop.dk</a>.</p>
-      <span hidden id="cf-subject" data-t="cfSubject">Round QR til vores brand</span><span hidden id="cf-body" data-t="cfBody">Hej Kasper. Vi vil gerne have en Round QR i vores eget brand.</span>
+      <p class="cf-note cf-thanks" id="cf-thanks" role="status" hidden><span data-t="cfThanks">Tak. Din forespørgsel er sendt, og du hører fra mig på mail.</span></p>
+      <p class="cf-note"><span data-t="cfNote">Beskeden går til Kasper gennem tjenesten FormSubmit. Jeg bruger kun dine oplysninger til at lave og sende din QR-generator.</span> <span data-t="cfOr">Du kan også skrive direkte til</span> <a href="mailto:kasper@ai-workshop.dk">kasper@ai-workshop.dk</a>.</p>
+      <span hidden id="cf-subject" data-t="cfSubject">Round QR til vores brand</span>
     </form>
   </section>
 
@@ -1729,15 +1738,12 @@ header .lang .ln { display: inline; padding: 0; border-radius: 0; }
 <script>
 (function () {
   var f = document.getElementById("cf"); if (!f) return;
-  function v(id) { return document.getElementById(id).value.trim(); }
-  function lb(id) { return document.querySelector('label[for="' + id + '"]').textContent; }
-  f.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var lines = [document.getElementById("cf-body").textContent, "",
-      lb("cf-name") + ": " + v("cf-name"), lb("cf-company") + ": " + v("cf-company"), lb("cf-web") + ": " + v("cf-web")];
-    if (v("cf-msg")) lines.push("", v("cf-msg"));
-    location.href = "mailto:kasper@ai-workshop.dk?subject=" + encodeURIComponent(document.getElementById("cf-subject").textContent + ": " + v("cf-company")) +
-      "&body=" + encodeURIComponent(lines.join("\n"));
+  function v(x) { return document.getElementById(x).value.trim(); }
+  // Send den besøgende tilbage til samme sprogside efter FormSubmit.
+  f.elements._next.value = location.origin + location.pathname + "?tak=1#kontakt";
+  if (new URLSearchParams(location.search).get("tak") === "1") document.getElementById("cf-thanks").hidden = false;
+  f.addEventListener("submit", function () {
+    f.elements._subject.value = document.getElementById("cf-subject").textContent + ": " + v("cf-company");
   });
 })();
 </script>
@@ -2557,7 +2563,9 @@ var RQ = (function () {
       cfWeb: "Hjemmeside",
       cfMsg: "Besked (valgfri)",
       cfBtn: "Send forespørgsel",
-      cfNote: "Knappen åbner dit mailprogram med beskeden klar, så du bare skal trykke send. Jeg bruger kun dine oplysninger til at lave og sende din QR-generator.",
+      cfNote: "Beskeden går til Kasper gennem tjenesten FormSubmit. Jeg bruger kun dine oplysninger til at lave og sende din QR-generator.",
+      cfEmail: "E-mail",
+      cfThanks: "Tak. Din forespørgsel er sendt, og du hører fra mig på mail.",
       cfOr: "Du kan også skrive direkte til",
       cfSubject: "Round QR til vores brand",
       cfBody: "Hej Kasper. Vi vil gerne have en Round QR i vores eget brand.",
@@ -2659,7 +2667,9 @@ var RQ = (function () {
       cfWeb: "Website",
       cfMsg: "Message (optional)",
       cfBtn: "Send request",
-      cfNote: "The button opens your email app with the message ready, so you just press send. I only use your details to make and send your QR generator.",
+      cfNote: "Your message goes to Kasper through the FormSubmit service. I only use your details to make and send your QR generator.",
+      cfEmail: "Email",
+      cfThanks: "Thank you. Your request has been sent and you will hear from me by email.",
       cfOr: "You can also write directly to",
       cfSubject: "Round QR in our brand",
       cfBody: "Hi Kasper. We would like a Round QR in our own brand.",
@@ -2761,7 +2771,9 @@ var RQ = (function () {
       cfWeb: "Website",
       cfMsg: "Nachricht (optional)",
       cfBtn: "Anfrage senden",
-      cfNote: "Der Button öffnet dein Mailprogramm mit der fertigen Nachricht, du musst nur noch auf Senden drücken. Ich nutze deine Angaben nur, um deinen QR-Generator zu erstellen und zu schicken.",
+      cfNote: "Deine Nachricht geht über den Dienst FormSubmit an Kasper. Ich nutze deine Angaben nur, um deinen QR-Generator zu erstellen und zu schicken.",
+      cfEmail: "E-Mail",
+      cfThanks: "Danke. Deine Anfrage ist verschickt, du hörst per Mail von mir.",
       cfOr: "Du kannst auch direkt schreiben an",
       cfSubject: "Round QR in unserem Branding",
       cfBody: "Hallo Kasper. Wir hätten gern ein Round QR in unserem eigenen Branding.",
@@ -2919,7 +2931,9 @@ var RQ = (function () {
       cfWeb: "Nettside",
       cfMsg: "Melding (valgfritt)",
       cfBtn: "Send forespørsel",
-      cfNote: "Knappen åpner e-postprogrammet ditt med meldingen ferdig, så du bare trykker send. Jeg bruker bare opplysningene dine til å lage og sende QR-generatoren din.",
+      cfNote: "Meldingen går til Kasper via tjenesten FormSubmit. Jeg bruker bare opplysningene dine til å lage og sende QR-generatoren din.",
+      cfEmail: "E-post",
+      cfThanks: "Takk. Forespørselen din er sendt, og du hører fra meg på e-post.",
       cfOr: "Du kan også skrive direkte til",
       cfSubject: "Round QR med vår merkevare",
       cfBody: "Hei Kasper. Vi vil gjerne ha en Round QR med vår egen merkevare.",
@@ -3077,7 +3091,9 @@ var RQ = (function () {
       cfWeb: "Webbplats",
       cfMsg: "Meddelande (valfritt)",
       cfBtn: "Skicka förfrågan",
-      cfNote: "Knappen öppnar ditt mejlprogram med meddelandet klart, så du bara trycker skicka. Jag använder bara dina uppgifter för att göra och skicka din QR-generator.",
+      cfNote: "Meddelandet går till Kasper via tjänsten FormSubmit. Jag använder bara dina uppgifter för att göra och skicka din QR-generator.",
+      cfEmail: "E-post",
+      cfThanks: "Tack. Din förfrågan är skickad och du hör av mig via mejl.",
       cfOr: "Du kan också skriva direkt till",
       cfSubject: "Round QR med vårt varumärke",
       cfBody: "Hej Kasper. Vi vill gärna ha en Round QR med vårt eget varumärke.",
@@ -3235,7 +3251,9 @@ var RQ = (function () {
       cfWeb: "Sitio web",
       cfMsg: "Mensaje (opcional)",
       cfBtn: "Enviar solicitud",
-      cfNote: "El botón abre tu programa de correo con el mensaje listo, solo tienes que pulsar enviar. Solo uso tus datos para crear y enviarte tu generador QR.",
+      cfNote: "Tu mensaje llega a Kasper a través del servicio FormSubmit. Solo uso tus datos para crear y enviarte tu generador QR.",
+      cfEmail: "Correo electrónico",
+      cfThanks: "Gracias. Tu solicitud se ha enviado y te responderé por correo.",
       cfOr: "También puedes escribir directamente a",
       cfSubject: "Round QR con nuestra marca",
       cfBody: "Hola Kasper. Nos gustaría tener un Round QR con nuestra propia marca.",
@@ -3393,7 +3411,9 @@ var RQ = (function () {
       cfWeb: "Site web",
       cfMsg: "Message (facultatif)",
       cfBtn: "Envoyer la demande",
-      cfNote: "Le bouton ouvre votre messagerie avec le message prêt, il ne reste qu'à cliquer sur envoyer. J'utilise vos informations uniquement pour créer et envoyer votre générateur QR.",
+      cfNote: "Votre message est transmis à Kasper par le service FormSubmit. J'utilise vos informations uniquement pour créer et envoyer votre générateur QR.",
+      cfEmail: "E-mail",
+      cfThanks: "Merci. Votre demande a été envoyée, je vous réponds par e-mail.",
       cfOr: "Vous pouvez aussi écrire directement à",
       cfSubject: "Round QR aux couleurs de notre marque",
       cfBody: "Bonjour Kasper. Nous aimerions un Round QR aux couleurs de notre marque.",
@@ -3551,7 +3571,9 @@ var RQ = (function () {
       cfWeb: "Sito web",
       cfMsg: "Messaggio (facoltativo)",
       cfBtn: "Invia richiesta",
-      cfNote: "Il pulsante apre il tuo programma di posta con il messaggio pronto, devi solo premere invia. Uso i tuoi dati solo per creare e inviarti il generatore QR.",
+      cfNote: "Il messaggio arriva a Kasper tramite il servizio FormSubmit. Uso i tuoi dati solo per creare e inviarti il generatore QR.",
+      cfEmail: "Email",
+      cfThanks: "Grazie. La richiesta è stata inviata, ti risponderò via email.",
       cfOr: "Puoi anche scrivere direttamente a",
       cfSubject: "Round QR con il nostro marchio",
       cfBody: "Ciao Kasper. Vorremmo un Round QR con il nostro marchio.",

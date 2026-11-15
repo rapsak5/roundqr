@@ -10,7 +10,7 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Vent på at GitHub Pages har udgivet
         run: sleep 90
       - name: Send alle sider til IndexNow
