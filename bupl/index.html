@@ -14514,6 +14514,7 @@ var RQ = (function () {
   }
   (function () {
     var G = RQ.geometry, S = RQ.toSVG, C = RQ.toCanvas;
+    function innerFull(g, o) { var i = g.inner; return i.square || (o.bgShape === "square" && !i.outlines); }
     RQ.geometry = function (text, o) {
       var g = G(text, o);
       if (!o.layout || o.layout === "center") return g;
@@ -14530,9 +14531,11 @@ var RQ = (function () {
       cv.width = px; cv.height = Math.round(px * g.H / g.W);
       var ctx = cv.getContext("2d"), k = px / g.W;
       ctx.clearRect(0, 0, cv.width, cv.height);
-      ctx.fillStyle = o.bg; ctx.fillRect(0, 0, cv.width, cv.height);
+      /* Kun firkantede koder får fyldt baggrund. Runde og formede koder er gennemsigtige uden om formen (JPG er altid fyldt). */
+      var full = opaque || innerFull(g, o);
+      if (full) { ctx.fillStyle = o.bg; ctx.fillRect(0, 0, cv.width, cv.height); }
       var q = document.createElement("canvas");
-      C(q, g.inner, o, null, Math.round(g.inner.W * k), true);
+      C(q, g.inner, o, null, Math.round(g.inner.W * k), full);
       ctx.drawImage(q, 0, 0);
       lg = window.RQ_SIDE || lg; var P = sidePanel(g, o, lg);
       ctx.save(); ctx.scale(k, k);
@@ -14552,7 +14555,7 @@ var RQ = (function () {
       var inner = S(g.inner, o, null, 0), body = inner.slice(inner.indexOf(">") + 1, inner.lastIndexOf("</svg>"));
       var W = g.W, H = g.H;
       var dims = cm ? 'width="' + n(cm) + 'cm" height="' + n(cm * H / W) + 'cm"' : 'width="' + Math.round(W * 20) + '" height="' + Math.round(H * 20) + '"';
-      var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + n(W) + " " + n(H) + '" ' + dims + '><rect width="' + n(W) + '" height="' + n(H) + '" fill="' + o.bg + '"/>' + body;
+      var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + n(W) + " " + n(H) + '" ' + dims + '>' + (innerFull(g, o) ? '<rect width="' + n(W) + '" height="' + n(H) + '" fill="' + o.bg + '"/>' : '') + body;
       lg = window.RQ_SIDE || lg; var P = sidePanel(g, o, lg);
       if (P.line) s += '<rect x="' + n(P.line.x) + '" y="' + n(P.line.y) + '" width="' + n(P.line.w) + '" height="' + n(P.line.h) + '" fill="' + o.eyec + '"/>';
       if (P.logo) s += '<image href="' + lg.src + '" x="' + n(P.logo.x) + '" y="' + n(P.logo.y) + '" width="' + n(P.logo.w) + '" height="' + n(P.logo.h) + '"/>';
