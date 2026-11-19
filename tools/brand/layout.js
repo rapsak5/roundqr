@@ -71,7 +71,6 @@
   }
   (function () {
     var G = RQ.geometry, S = RQ.toSVG, C = RQ.toCanvas;
-    function innerFull(g, o) { var i = g.inner; return i.square || (o.bgShape === "square" && !i.outlines); }
     RQ.geometry = function (text, o) {
       var g = G(text, o);
       if (!o.layout || o.layout === "center") return g;
@@ -88,8 +87,8 @@
       cv.width = px; cv.height = Math.round(px * g.H / g.W);
       var ctx = cv.getContext("2d"), k = px / g.W;
       ctx.clearRect(0, 0, cv.width, cv.height);
-      /* Kun firkantede koder får fyldt baggrund. Runde og formede koder er gennemsigtige uden om formen (JPG er altid fyldt). */
-      var full = opaque || innerFull(g, o);
+      /* Gennemsigtig baggrund: kun selve koden har baggrundsfarve, resten er gennemsigtigt. JPG er altid fyldt. */
+      var full = opaque || !o.transparent;
       if (full) { ctx.fillStyle = o.bg; ctx.fillRect(0, 0, cv.width, cv.height); }
       var q = document.createElement("canvas");
       C(q, g.inner, o, null, Math.round(g.inner.W * k), full);
@@ -112,7 +111,7 @@
       var inner = S(g.inner, o, null, 0), body = inner.slice(inner.indexOf(">") + 1, inner.lastIndexOf("</svg>"));
       var W = g.W, H = g.H;
       var dims = cm ? 'width="' + n(cm) + 'cm" height="' + n(cm * H / W) + 'cm"' : 'width="' + Math.round(W * 20) + '" height="' + Math.round(H * 20) + '"';
-      var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + n(W) + " " + n(H) + '" ' + dims + '>' + (innerFull(g, o) ? '<rect width="' + n(W) + '" height="' + n(H) + '" fill="' + o.bg + '"/>' : '') + body;
+      var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + n(W) + " " + n(H) + '" ' + dims + '>' + (!o.transparent ? '<rect width="' + n(W) + '" height="' + n(H) + '" fill="' + o.bg + '"/>' : '') + body;
       var P = sidePanel(g, o, lg);
       if (P.line) s += '<rect x="' + n(P.line.x) + '" y="' + n(P.line.y) + '" width="' + n(P.line.w) + '" height="' + n(P.line.h) + '" fill="' + o.eyec + '"/>';
       if (P.logo) s += '<image href="' + lg.src + '" x="' + n(P.logo.x) + '" y="' + n(P.logo.y) + '" width="' + n(P.logo.w) + '" height="' + n(P.logo.h) + '"/>';
@@ -125,7 +124,7 @@
   var _optsBase = opts;
   opts = function () {
     var o = _optsBase();
-    o.layout = realLayout(radio("layout")); o.sideText = $("sideText").value;
+    o.layout = realLayout(radio("layout")); o.sideText = $("sideText").value; o.transparent = $("transpBg").checked;
     if (o.layout !== "center") { o.logo = false; o.label = false; }
     return o;
   };
@@ -135,6 +134,7 @@
     var lay = realLayout(radio("layout"));
     $("stage").classList.toggle("wide", lay === "wide" || lay === "banner");
     $("sideRow").hidden = lay !== "banner";
+    $("transpRow").hidden = lay === "center";
   };
   document.querySelectorAll('input[name="layout"]').forEach(function (el) {
     el.addEventListener("change", function () {
@@ -146,5 +146,11 @@
     });
   });
   $("sideText").addEventListener("input", schedule);
+  $("transpBg").addEventListener("change", schedule);
+  (function () {
+    var L = { da: "Gennemsigtig baggrund", en: "Transparent background", de: "Transparenter Hintergrund", no: "Gjennomsiktig bakgrunn", nn: "Gjennomsiktig bakgrunn",
+              sv: "Transparent bakgrund", es: "Fondo transparente", fr: "Fond transparent", it: "Sfondo trasparente", fi: "Läpinäkyvä tausta" };
+    Object.keys(T).forEach(function (k) { if (T[k].transpBg === undefined) T[k].transpBg = L[k] || L.en; });
+  })();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { SIDE_FONT = ""; if (lastGeom) render(); });
 

@@ -12,3 +12,5 @@
 #sideRow[hidden] { display: none; }
 .stage.wide { aspect-ratio: auto; padding: 5%; }
 .stage.wide img { height: auto; }
+#transpRow { margin-top: 12px; }
+#transpRow[hidden] { display: none; }
