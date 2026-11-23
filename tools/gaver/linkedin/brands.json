@@ -54,5 +54,52 @@
    }
   },
   "kilde": "LinkedIn, ja tak 15. nov. 2026"
+ },
+ {
+  "id": "connectsport",
+  "name": "ConnectSport",
+  "short": "ConnectSport",
+  "genitive": "ConnectSports",
+  "website": "https://connectsport.dk",
+  "colors": {
+   "primary": "#060a92",
+   "secondary": "#5182e9",
+   "text": "#3c3c3b"
+  },
+  "qr": {
+   "fg": "#060a92",
+   "eyec": "#060a92"
+  },
+  "source": "aflæst på hjemmesiden",
+  "logo_file": "tools/gaver/linkedin/logos/connectsport.png",
+  "mark_file": "tools/gaver/marks/connectsport.png",
+  "fonts_embed": {
+   "display": [
+    "barlow",
+    "Barlow",
+    [
+     500,
+     600,
+     700
+    ]
+   ],
+   "body": [
+    "barlow",
+    "Barlow",
+    [
+     400,
+     500,
+     600
+    ]
+   ]
+  },
+  "text": {
+   "da": {
+    "about": "Hej ConnectSport. Her er Round QR i jeres farver, med puslespilsbrikken allerede i midten. Lav QR-koder til events, ERFA-grupper, plakater, nyhedsbreve og slides, firkantede eller runde. Siden virker uden internet, og intet bliver sendt nogen steder hen. Jeg har bygget værktøjet sammen med AI.",
+    "giftPitch": "Jeg holder oplæg og workshops om AI i arbejdslivet. Skriv, hvis det kunne være nyttigt for jer eller jeres medlemmer.",
+    "giftNote": "Lavet til ConnectSport af Kasper Bergstrøm. Ikke et officielt produkt fra ConnectSport. Farverne er aflæst på connectsport.dk."
+   }
+  },
+  "kilde": "Kasper bad om siden i chat 23. nov. 2026"
  }
 ]

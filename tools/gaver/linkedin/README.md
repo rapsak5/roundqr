@@ -48,3 +48,4 @@ If a colour is off or something is missing, just let me know and I will fix it.
 
 ## Sider
 - leeann: Treasure Hunts (treasurehunts.dk), engelsk og dansk, 15. nov. 2026
+- connectsport: ConnectSport (connectsport.dk), dansk, 23. nov. 2026
